@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="tuatara-2.local" name="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" tests="7" time="0.013" timestamp="2010-12-04T19:14:28">
+  <properties />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldBeAbleToReadAGridOfCellsFromAString" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldBeAbleToReadAnEmptyGridOfCellsFromAnEmptyString" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldBeAbleToReadAGridContainingASingleCellFromAString" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldRefuseIllegalCellCharacters" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldBeAbleToReadAGridContainingLiveAndDeadCells" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldBeAbleToReadAnAsymetricalGridContainingLiveAndDeadCells" time="0.0010" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString" name="shouldBeAbleToReadALargerGrid" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

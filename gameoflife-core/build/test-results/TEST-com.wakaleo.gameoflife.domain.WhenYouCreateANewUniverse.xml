@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="tuatara-2.local" name="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" tests="11" time="0.036" timestamp="2010-12-04T19:14:28">
+  <properties />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aNewUniverseShouldContainOnlyDeadCells" time="0.0010" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUniverseSeededWithAnEmpyGridContentWillContainAnEmptyGrid" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUniverseCanBeInitializedWithAnyDimension" time="0.0010" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUniverseSeededWithAGridContainingASingleLiveCellContentWillSpawnAnEmptyGrid" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUniverseSeededWithAGridWithLivingCellsContentWillContainThatGrid" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUniverseSpawnsANewGridInTheNextGeneration" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUserCanAssignALiveCellAtAGivenPointInTheGrid" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUserCanAssignADeadCellAtAGivenPointInTheGrid" time="0.0010" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUserCanReadALiveCellValueAtAGivenPointInTheGrid" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUserCanReadADeadCellValueAtAGivenPointInTheGrid" time="0.0" />
+  <testcase classname="com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse" name="aUserCanObtainTheGridContentsAsAnArrayOfCells" time="0.0020" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

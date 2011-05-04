@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="tuatara-2.local" name="com.wakaleo.gameoflife.hamcrest.WhenIUseMyCustomHamcrestMatchers" tests="2" time="0.0060" timestamp="2010-12-04T19:14:28">
+  <properties />
+  <testcase classname="com.wakaleo.gameoflife.hamcrest.WhenIUseMyCustomHamcrestMatchers" name="thehasSizeMatcherShouldMatchACollectionWithExpectedSize" time="0.0020" />
+  <testcase classname="com.wakaleo.gameoflife.hamcrest.WhenIUseMyCustomHamcrestMatchers" name="weCanUseCustomMatchersWithOtherMatchers" time="0.0020" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

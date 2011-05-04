@@ -1,0 +1,12 @@
+.DS_Store 
+.project
+.settings
+target
+.idea
+.classpath
+.checkstyle
+.pmd
+*.log
+*.log.*
+*.iml
+*.versionsBackup

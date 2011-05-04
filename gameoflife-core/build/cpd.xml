@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="MacRoman"?>
+<pmd-cpd>
+<duplication lines="6" tokens="156">
+<file line="52" path="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouPrintAGrid.java"/>
+<file line="58" path="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouPrintAGrid.java"/>
+<codefragment>
+<![CDATA[
+                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL,LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
+                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL,LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
+]]>
+</codefragment>
+</duplication>
+<duplication lines="9" tokens="72">
+<file line="101" path="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/main/java/com/wakaleo/gameoflife/domain/Grid.java"/>
+<file line="111" path="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/main/java/com/wakaleo/gameoflife/domain/Grid.java"/>
+<codefragment>
+<![CDATA[
+    private Cell[][] getSimilarContents() {
+        Cell[][] contentCopy = new Cell[getHeight()][getWidth()];
+        for (int row = 0; row < getHeight(); row++) {
+            for (int column = 0; column < getWidth(); column++) {
+                contentCopy[row][column] = cells[row][column];
+            }
+        }
+        return contentCopy;
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="16" tokens="66">
+<file line="41" path="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouReadAGridFromAString.java"/>
+<file line="59" path="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouReadAGridFromAString.java"/>
+<codefragment>
+<![CDATA[
+                              ".Z.\n" +
+                              "...";
+
+        Cell[][] expectedCells = {
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL} 
+        };
+        
+        GridReader gridReader = new GridReader();
+        Cell[][] loadedCells = gridReader.loadFrom(gridContents);
+        
+        assertThat(loadedCells, is(expectedCells));
+    }
+
+    @Test
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>
