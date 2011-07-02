@@ -17,15 +17,15 @@
       <plugin>
         <groupId>org.easyb</groupId>
         <artifactId>maven-easyb-plugin</artifactId>
-        <version>0.9.8</version>
+        <version>1.2</version>
       </plugin>
     </plugins>
   </build>
   <dependencies>
     <dependency>
       <groupId>org.easyb</groupId>
-      <artifactId>easyb</artifactId>
-      <version>0.9.8</version>
+      <artifactId>easyb-core</artifactId>
+      <version>1.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

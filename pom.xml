@@ -12,7 +12,7 @@
 	
  	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<easyb.version>1.1</easyb.version>
+		<easyb.version>1.2</easyb.version>
 		<cobertura.version>2.4</cobertura.version>
 		<!-- A workaround for a bug in PMD -->
 		<targetJdk>1.6</targetJdk>
@@ -126,8 +126,8 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.easyb</groupId>
-				<artifactId>easyb</artifactId>
-				<version>1.1</version>
+				<artifactId>easyb-core</artifactId>
+				<version>1.2</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
@@ -136,7 +136,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<version>4.8.2</version>
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
