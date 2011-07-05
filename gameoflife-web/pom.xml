@@ -22,7 +22,8 @@
 		<plugins>
 			<plugin>
 				<groupId>org.easyb</groupId>
-				<artifactId>maven-easyb-plugin</artifactId>
+				<artifactId>maven-easyb-plugin</artifactId> 
+				<version>1.2</version>
 				<executions>
 					<execution>
 						<phase>integration-test</phase>
@@ -170,6 +171,7 @@
 					<plugin>
 						<groupId>org.easyb</groupId>
 						<artifactId>maven-easyb-plugin</artifactId>
+						<version>1.2</version>
 						<executions>
 							<execution>
 								<phase>integration-test</phase>
@@ -240,13 +242,6 @@
 			<artifactId>easyb-core</artifactId>
             <version>1.2</version>
 		</dependency>
-<!-- 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>3.0.2.RELEASE</version>
-			<scope>test</scope>
-		</dependency>
-		 -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
