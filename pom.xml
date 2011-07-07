@@ -155,50 +155,6 @@
 		<module>gameoflife-webservice</module>
 		<module>gameoflife-cli</module>
 	</modules>
-	<profiles>
-		<profile>
-			<id>nexus</id>
-			<distributionManagement>
-				<repository>
-					<id>releases</id>
-					<url>http://localhost:8081/nexus/content/repositories/releases
-          </url>
-				</repository>
-				<snapshotRepository>
-					<id>snapshots</id>
-					<url>http://localhost:8081/nexus/content/repositories/snapshots
-          </url>
-				</snapshotRepository>
-			</distributionManagement>
-		</profile>
-
-		<profile>
-			<id>artifactory</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<distributionManagement>
-				<snapshotRepository>
-					<id>snapshots</id>
-					<name>Snapshots</name>
-					<url>http://localhost:9081/artifactory/libs-snapshots-local
-          </url>
-				</snapshotRepository>
-				<repository>
-					<id>releases</id>
-					<name>Releases</name>
-					<url>http://localhost:9081/artifactory/libs-releases-local
-          </url>
-				</repository>
-			</distributionManagement>
-		</profile>
-    <modules>
-        <module>gameoflife-build</module>
-        <module>gameoflife-core</module>
-        <module>gameoflife-web</module>
-        <module>gameoflife-webservice</module>
-        <module>gameoflife-cli</module>
-    </modules>
     <distributionManagement>
         <repository>
             <id>releases</id>
