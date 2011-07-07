@@ -19,9 +19,9 @@
 	</properties>
 
     <scm>
-        <connection>scm:git:git@github.com:${github.account}/gameoflife.git</connection>
-        <developerConnection>scm:git:git@github.com:${github.account}/gameoflife.git</developerConnection>
-        <url>scm:git:git@github.com:${github.account}/gameoflife.git</url>
+        <connection>scm:git:git@github.com:${github.account}/game-of-life.git</connection>
+        <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
+        <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
 
 	<build>
