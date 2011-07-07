@@ -15,15 +15,13 @@
 		<cobertura.version>2.4</cobertura.version>
 		<!-- A workaround for a bug in PMD -->
 		<targetJdk>1.6</targetJdk>
-		<github.account>wakaleo</github.account>
 	</properties>
 
     <scm>
-        <connection>scm:git:git@github.com:${github.account}/gameoflife.git</connection>
-        <developerConnection>scm:git:git@github.com:${github.account}/gameoflife.git</developerConnection>
-        <url>scm:git:git@github.com:${github.account}/gameoflife.git</url>
+	    <connection>scm:git:git@github.com:wakaleo/git-demo.git</connection>
+	    <url>scm:git:git@github.com:wakaleo/git-demo.git</url>
+	    <developerConnection>scm:git:git@github.com:wakaleo/git-demo.git</developerConnection>
     </scm>
-
 	<build>
 		<plugins>
 			<plugin>
