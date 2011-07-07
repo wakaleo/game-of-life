@@ -81,21 +81,21 @@ public class WhenYouPlayTheGameOfLife {
     }
     
     
-    /*
+
     @Test
     public void aCellWithNoNeighboursShouldDieInTheNextGeneration() {
         String initialGrid = "...\n" + 
                              "...\n" +
-                             "...";
+                             "...\n";
 
         String expectedNextGrid = "...\n" + 
                                   "...\n" + 
-                                  "...";
+                                  "...\n";
 
         Universe theUniverse = new Universe(seededWith(initialGrid));
         theUniverse.createNextGeneration();
 
         String nextGrid = theUniverse.getGrid();
         assertThat(nextGrid, is(expectedNextGrid));
-    }*/
+    }
 }
