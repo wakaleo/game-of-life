@@ -8,5 +8,9 @@ target
 .pmd
 *.log
 *.log.*
-*.iml
+*.iml  
+*.ipr
+*.iws
 *.versionsBackup
+
+*.iml
