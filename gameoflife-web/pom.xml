@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>gameoflife</artifactId>
 		<groupId>com.wakaleo.gameoflife</groupId>
-		<version>0.7.9-SNAPSHOT</version>
+		<version>0.7.9</version>
 	</parent>
 	<groupId>com.wakaleo.gameoflife</groupId>
 	<artifactId>gameoflife-web</artifactId>
@@ -223,7 +223,7 @@
 		<dependency>
 			<groupId>com.wakaleo.gameoflife</groupId>
 			<artifactId>gameoflife-core</artifactId>
-			<version>0.7.9-SNAPSHOT</version>
+			<version>0.7.9</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -238,7 +238,7 @@
 		<dependency>
 			<groupId>com.wakaleo.gameoflife</groupId>
 			<artifactId>gameoflife-webservice</artifactId>
-			<version>0.7.9-SNAPSHOT</version>
+			<version>0.7.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.easyb</groupId>
