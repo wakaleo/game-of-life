@@ -129,5 +129,35 @@ public class WhenYouReadAGridFromAString {
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
         
         assertThat(loadedCells, is(expectedCells));
-    }        
+    }
+
+    @Test
+    public void shouldBeAbleToReadAVeryLargerGrid() {
+        String gridContents = "......\n" +
+                              "**....\n" +
+                              "..*...\n" +
+                              "..*...\n" +
+                            "..*...\n" +
+                            "..*...\n" +
+                            "..*...\n" +
+                            "..*...\n" +
+                              "..*...";
+
+        Cell[][] expectedCells = {
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {LIVE_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+        };
+
+        GridReader gridReader = new GridReader();
+        Cell[][] loadedCells = gridReader.loadFrom(gridContents);
+
+        assertThat(loadedCells, is(expectedCells));
+    }
 }
