@@ -14,7 +14,9 @@ before_each "assume that the application is running", {
 		homePage = new HomePage(new HtmlUnitDriver())		
 	}
 	and "that the user is on the home page", {
-		homePage.open "http://localhost:9090/"
+        webtest_home = System.properties.'webtest.home'
+        println "Testing against $webtest_home"
+		homePage.open webtest_home
 	}
 }
 

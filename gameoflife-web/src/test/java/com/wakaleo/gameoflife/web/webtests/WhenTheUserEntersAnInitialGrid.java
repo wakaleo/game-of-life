@@ -28,7 +28,8 @@ public class WhenTheUserEntersAnInitialGrid {
    private EnterGridPage goToNewGamePage() {
        WebDriver driver = new HtmlUnitDriver();
        HomePage homePage = new HomePage(driver);
-       homePage.open("http://localhost:9090/");
+       String baseUrl = System.getProperty("webtest.home");
+       homePage.open(baseUrl);
        return homePage.clickOnNewGameLink();
     }
 

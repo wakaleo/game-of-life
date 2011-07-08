@@ -10,13 +10,16 @@ tags "acceptance"
 
 before_each "assume that the application is running", {
 	given "that the application is up and running", {
-		homePage = new HomePage(new HtmlUnitDriver())         
+        webtest_home = System.properties.'webtest.home'
+        println "Testing against $webtest_home"
+		homePage = new HomePage(new HtmlUnitDriver())
 	}
 }
 
+
 scenario "The user can seed the universe with an initial grid",{
     given "that the user is on the home page", {
-		homePage.open("http://localhost:9090/");
+		homePage.open(webtest_home);
 	}
 	when "the user chooses to start a new game", {
 		homePage.clickOnNewGameLink()
@@ -28,7 +31,7 @@ scenario "The user can seed the universe with an initial grid",{
 
 scenario "The user can seed the universe with an initial grid",{
 	given "that the user has opened the 'new game' page", {
-		homePage.open("http://localhost:9090/");
+		homePage.open(webtest_home);
 		newGridPage = homePage.clickOnNewGameLink()
 	}
 	when "the user clicks on the 'Go' button", {
@@ -45,7 +48,7 @@ scenario "The user can seed the universe with an initial grid",{
 
 scenario "The user can seed the universe with an initial grid",{
 	given "that the user has opened the 'new game' page", {
-		homePage.open("http://localhost:9090/");
+		homePage.open(webtest_home);
 		newGridPage = homePage.clickOnNewGameLink()
 	}
 	when "the user enters a simple set of living cells", {

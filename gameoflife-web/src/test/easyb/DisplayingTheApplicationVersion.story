@@ -10,6 +10,7 @@ tags "acceptance"
 
 before_each "Configure test URL", {
 	webtest_home = System.properties.'webtest.home'
+    println "Testing against $webtest_home"
 }
 
 scenario "Application version number is displayed on the home page",{
@@ -17,7 +18,7 @@ scenario "Application version number is displayed on the home page",{
 		homePage = new HomePage(new HtmlUnitDriver())         
 	}
 	and "that the user is on the home page", {
-		homePage.open("http://localhost:9090/");
+		homePage.open(webtest_home);
 	}
 	then "the current application version number should be displayed", {
 		homePage.text.shouldHave "Game Of Life version "

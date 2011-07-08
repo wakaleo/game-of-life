@@ -23,7 +23,7 @@
 			<plugin>
 				<groupId>org.easyb</groupId>
 				<artifactId>maven-easyb-plugin</artifactId> 
-				<version>1.2</version>
+				<version>1.2.1</version>
 				<executions>
 					<execution>
 						<phase>integration-test</phase>
@@ -36,7 +36,7 @@
 					<tags>acceptance</tags>
 					<parallel>true</parallel>
 					<storyType>html</storyType>
-					<!-- <storyReport>${basedir}/target/easyb/easyb-report.html</storyReport> -->
+                    <jvmArguments>-Dwebtest.home=${webtest.home}</jvmArguments>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -73,7 +73,10 @@
 							<excludes>
 								<exclude>**/pages/*.java</exclude>
 							</excludes>
-						</configuration>
+                            <systemPropertyVariables>
+                                <webtest.home>${webtest.home}</webtest.home>
+                            </systemPropertyVariables>
+                        </configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -174,7 +177,7 @@
 					<plugin>
 						<groupId>org.easyb</groupId>
 						<artifactId>maven-easyb-plugin</artifactId>
-						<version>1.2</version>
+						<version>1.2.1</version>
 						<executions>
 							<execution>
 								<phase>integration-test</phase>
@@ -187,6 +190,7 @@
 							<parallel>true</parallel>
 							<storyType>html</storyType>
 							<storyReport>${basedir}/target/easyb/easyb-report.html</storyReport>
+                            <jvmArguments>-Dwebtest.home=${webtest.home}</jvmArguments>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -249,17 +253,19 @@
 		<dependency>
 			<groupId>org.easyb</groupId>
 			<artifactId>easyb-core</artifactId>
-            <version>1.2</version>
+            <version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-			<version>1.8.0</version>
+			<version>1.8.5</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<properties>
-		<jetty.port>9090</jetty.port>
-		<webtest_home>http://localhost:9090</webtest_home>
+        <jetty.port>9090</jetty.port>
+        <jetty.stop.port>9999</jetty.stop.port>
+		<webtest.home>http://localhost:${jetty.port}</webtest.home>
 	</properties>
+
 </project>

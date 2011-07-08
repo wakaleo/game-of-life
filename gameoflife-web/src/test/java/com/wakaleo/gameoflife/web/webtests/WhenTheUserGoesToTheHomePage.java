@@ -15,7 +15,8 @@ public class WhenTheUserGoesToTheHomePage {
     public void homePageShouldDisplayWelcomeMessage() {
         WebDriver driver = new HtmlUnitDriver();
         HomePage homePage = new HomePage(driver);
-        homePage.open("http://localhost:9090/");
+        String baseUrl = System.getProperty("webtest.home");
+        homePage.open(baseUrl);
         assertThat(homePage.getTitle(), is("The Game Of Life"));
         assertThat(homePage.getText(), containsString("Welcome to Conway's Game Of Life"));
     }    
