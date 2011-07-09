@@ -6,7 +6,6 @@
     <version>0.7.13-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>gameoflife</name> 
-
     <url>https://github.com/wakaleo/game-of-life</url>
 
     <properties>
