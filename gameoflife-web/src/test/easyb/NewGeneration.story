@@ -13,7 +13,9 @@ before_each "assume that the user has seeded the universe", {
 		homePage = new HomePage(new HtmlUnitDriver())         
 	}
 	and "that the user has opened the 'new game' page", {
-		homePage.open("http://localhost:9090/");
+        webtest_home = System.properties.'webtest.home'
+        println "Testing against $webtest_home"
+		homePage.open(webtest_home);
 		newGridPage = homePage.clickOnNewGameLink()
 	}
 }

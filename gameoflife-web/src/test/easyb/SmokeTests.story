@@ -12,7 +12,9 @@ scenario "The user can view the home page via a web browser",{
 		homePage = new HomePage(new HtmlUnitDriver())		    
 	}
 	when "The user opens the home page", {
-		homePage.open("http://localhost:9090/")	
+        webtest_home = System.properties.'webtest.home'
+        println "Testing against $webtest_home"
+		homePage.open(webtest_home)
 	}
 	then "The browser should display an appropriate title bar", {
 	    homePage.title.shouldBe "The Game Of Life"
