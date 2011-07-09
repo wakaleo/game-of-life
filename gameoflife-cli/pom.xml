@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>gameoflife</artifactId>
 		<groupId>com.wakaleo.gameoflife</groupId>
-		<version>0.7.23-SNAPSHOT</version>
+		<version>0.7.23</version>
 	</parent>
 	<artifactId>gameoflife-cli</artifactId>
 	<packaging>jar</packaging>
@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>com.wakaleo.gameoflife</groupId>
 			<artifactId>gameoflife-core</artifactId>
-			<version>0.7.23-SNAPSHOT</version>
+			<version>0.7.23</version>
 		</dependency>
 	</dependencies>
 </project>
