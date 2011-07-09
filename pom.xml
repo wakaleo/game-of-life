@@ -6,7 +6,8 @@
     <version>0.7.13-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>gameoflife</name>
-    <url>http://localhost:8889/gameoflife</url>
+    <url>https://github.com/wakaleo/game-of-life</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.2.1</easyb.version>
