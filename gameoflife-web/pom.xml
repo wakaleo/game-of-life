@@ -9,8 +9,7 @@
 	<groupId>com.wakaleo.gameoflife</groupId>
 	<artifactId>gameoflife-web</artifactId>
 	<packaging>war</packaging>
-	<name>gameoflife-web</name>
-	<url>http://maven.apache.org</url>
+	<name>gameoflife-web</name>             
 	<build>
 		<finalName>gameoflife</finalName>
 		<resources>
@@ -263,8 +262,8 @@
 		</dependency>
 	</dependencies>
 	<properties>                     
-		<jetty.port>${JETTY_PORT}</jetty.port>    
-		<jetty.stop.port>${JETTY_STOP_PORT}</jetty.stop.port>
+		<jetty.port>9090</jetty.port>    
+		<jetty.stop.port>9999</jetty.stop.port>
 		<webtest.home>http://localhost:${jetty.port}</webtest.home>
 	</properties>
 </project>
