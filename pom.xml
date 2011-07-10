@@ -384,8 +384,7 @@
                                 <version>4.6</version>
                             </docletArtifact>
                             <additionalparam>
-                                -inferrel -inferdep -hide java.*
-                                -collpackages
+                                -inferrel -inferdep -hide java.* -collpackages
                                 java.util.* -attributes -operations
                                 -enumerations -enumconstants
                             </additionalparam>
