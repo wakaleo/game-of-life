@@ -3,9 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>0.7.35-SNAPSHOT</version>
+    <version>0.7.36-SNAPSHOT</version> 
     <packaging>pom</packaging>
     <name>gameoflife</name>   
+
     <url>https://github.com/wakaleo/game-of-life</url>
 
     <properties>
