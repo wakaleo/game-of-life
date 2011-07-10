@@ -5,7 +5,8 @@
     <artifactId>gameoflife</artifactId>
     <version>0.7.35-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>gameoflife</name> 
+    <name>gameoflife</name>   
+
     <url>https://github.com/wakaleo/game-of-life</url>
 
     <properties>
@@ -134,13 +135,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>[4.8.2,)</version>  
+			<version>4.8.2</version>  
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>
-			<version>[1.1,)</version>  
+			<version>1.1</version>  
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
