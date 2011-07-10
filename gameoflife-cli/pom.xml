@@ -9,8 +9,7 @@
 	<artifactId>gameoflife-cli</artifactId>
 	<packaging>jar</packaging>
 
-	<name>gameoflife-cli</name>
-	<url>http://maven.apache.org</url>
+	<name>gameoflife-cli</name>        
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
