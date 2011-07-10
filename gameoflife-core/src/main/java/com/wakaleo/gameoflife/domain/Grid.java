@@ -108,18 +108,7 @@ public class Grid {
         return contentCopy;
     }
     
-    private Cell[][] getSimilarContents() {
-        Cell[][] contentCopy = new Cell[getHeight()][getWidth()];
-        for (int row = 0; row < getHeight(); row++) {
-            for (int column = 0; column < getWidth(); column++) {
-                contentCopy[row][column] = cells[row][column];
-            }
-        }
-        return contentCopy;
-    }
-    
-    
-    private Cell[][] getMoreSimilarContents() {
+    private Cell[][] unusedMethod() {
     	// TODO: needs refactoring
         Cell[][] contentCopy = new Cell[getHeight()][getWidth()];
         for (int row = 0; row < getHeight(); row++) {
@@ -129,17 +118,7 @@ public class Grid {
         }
         return contentCopy;
     }
-    
-    private Cell[][] getEvenMoreSimilarContents() {
-        Cell[][] contentCopy = new Cell[getHeight()][getWidth()];
-        for (int row = 0; row < getHeight(); row++) {
-            for (int column = 0; column < getWidth(); column++) {
-                contentCopy[row][column] = cells[row][column];
-            }
-        }
-        return contentCopy;
-    }
-
+                                 
     
     public void infiniteRecursiveLoop() {
     	

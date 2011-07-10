@@ -51,9 +51,6 @@ public class GameController {
 	}
 
 	private void thinkABit(int max) {
-		for(long i = 0; i < max*2500; i++) {
-			String s = "" + i + i*i + i/2;
-		} 
 		int thinkingTime = randomGenerator.nextInt(max/4);
 		try {
 			Thread.currentThread().sleep(thinkingTime);
