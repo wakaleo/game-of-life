@@ -17,7 +17,7 @@
       <plugin>
         <groupId>org.easyb</groupId>
         <artifactId>maven-easyb-plugin</artifactId>
-        <version>1.2</version>
+        <version>${easyb.version}</version>
       </plugin>
     </plugins>
   </build>
@@ -25,7 +25,7 @@
     <dependency>
       <groupId>org.easyb</groupId>
       <artifactId>easyb-core</artifactId>
-      <version>1.2</version>
+      <version>${easyb.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
