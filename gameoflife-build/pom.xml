@@ -9,7 +9,6 @@
   <groupId>com.wakaleo.gameoflife</groupId>
   <artifactId>gameoflife-build</artifactId>
   <packaging>jar</packaging>
-  <version>0.7.36-SNAPSHOT</version>
->>>>>>> my-new-feature
+  <version>0.7.36-SNAPSHOT</version>   
   <name>gameoflife-build</name>
 </project>
