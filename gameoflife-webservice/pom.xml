@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>gameoflife</artifactId>
 		<groupId>com.wakaleo.gameoflife</groupId>
-		<version>0.7.43</version>
+		<version>0.7.44-SNAPSHOT</version>
 	</parent>
 	<artifactId>gameoflife-webservice</artifactId>
 	<packaging>jar</packaging>
@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>com.wakaleo.gameoflife</groupId>
 			<artifactId>gameoflife-core</artifactId>
-			<version>0.7.43</version>
+			<version>0.7.44-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
