@@ -16,6 +16,7 @@
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
     </properties>    
+
     <scm>
         <connection>scm:git:git@github.com:${github.account}/game-of-life.git</connection>
         <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
