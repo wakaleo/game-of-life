@@ -22,7 +22,7 @@
 			<plugin>
 				<groupId>org.easyb</groupId>
 				<artifactId>maven-easyb-plugin</artifactId> 
-				<version>1.2.1</version>
+				<version>${easyb.version}</version>
 				<executions>
 					<execution>
 						<phase>integration-test</phase>
@@ -176,7 +176,7 @@
 					<plugin>
 						<groupId>org.easyb</groupId>
 						<artifactId>maven-easyb-plugin</artifactId>
-						<version>1.2.1</version>
+						<version>${easyb.version}</version>
 						<executions>
 							<execution>
 								<phase>integration-test</phase>
