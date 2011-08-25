@@ -8,7 +8,10 @@ public class GridWriter {
             for( Cell cell : row) {
                 printedGrid.append(cell.toString());
             }
-            printedGrid.append("\n");
+            // TODO: This simply masks the problem: why empty rows being passed?
+            if(row.length > 0) {
+            	printedGrid.append("\n");
+            }
         }
         return printedGrid.toString();
     }
