@@ -20,25 +20,6 @@
 		</resources>
 		<plugins>
 			<plugin>
-				<groupId>org.easyb</groupId>
-				<artifactId>maven-easyb-plugin</artifactId> 
-				<version>${easyb.version}</version>
-				<executions>
-					<execution>
-						<phase>integration-test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<tags>acceptance</tags>
-					<parallel>true</parallel>
-					<storyType>html</storyType>
-                    <jvmArguments>-Dwebtest.home=${webtest.home}</jvmArguments>
-				</configuration>
-			</plugin>
-			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
                 <version>2.9</version>
 				<configuration>
@@ -173,25 +154,6 @@
 							<skip>true</skip>
 						</configuration>
 					</plugin>
-					<plugin>
-						<groupId>org.easyb</groupId>
-						<artifactId>maven-easyb-plugin</artifactId>
-						<version>${easyb.version}</version>
-						<executions>
-							<execution>
-								<phase>integration-test</phase>
-								<goals>
-									<goal>test</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<parallel>true</parallel>
-							<storyType>html</storyType>
-							<storyReport>${basedir}/target/easyb/easyb-report.html</storyReport>
-                            <jvmArguments>-Dwebtest.home=${webtest.home}</jvmArguments>
-						</configuration>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -248,11 +210,6 @@
 			<groupId>com.wakaleo.gameoflife</groupId>
 			<artifactId>gameoflife-webservice</artifactId>
 			<version>0.7.47-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.easyb</groupId>
-			<artifactId>easyb-core</artifactId>
-            <version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
