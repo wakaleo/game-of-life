@@ -342,8 +342,7 @@
                             <format>xml</format>
                             <rulesets>
                                 <ruleset>/pmd-rules.xml</ruleset>
-                            </rulesets>
-
+                            </rulesets>      
                             <!-- CPD options -->
                             <minimumTokens>20</minimumTokens>
                             <ignoreIdentifiers>true</ignoreIdentifiers>
