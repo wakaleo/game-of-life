@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>0.7.47-SNAPSHOT</version> 
+    <version>0.7.48-SNAPSHOT</version> 
     <packaging>pom</packaging>
     <name>gameoflife</name>   
                
@@ -376,7 +376,7 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>2.7</version>
                         <configuration>
-                            <source>1.5</source>
+                            <source>1.6</source>
                             <doclet>
                                 gr.spinellis.umlgraph.doclet.UmlGraphDoc
                             </doclet>
