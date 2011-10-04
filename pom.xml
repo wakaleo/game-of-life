@@ -7,7 +7,6 @@
     <packaging>pom</packaging>
     <name>gameoflife</name>   
     <url>https://github.com/wakaleo/game-of-life</url>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.2</easyb.version>
