@@ -15,7 +15,7 @@ import com.wakaleo.gameoflife.web.webtests.pages.ShowGridPage;
 import com.wakaleo.gameoflife.web.webtests.pages.WebPage;
 
 public class WhenTheUserSpawnsTheNextGenerationOfCells {
-     
+
     WebDriver driver;
 
    private EnterGridPage goToNewGamePage() {
@@ -27,7 +27,7 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
        return homePage.clickOnNewGameLink();
     }
 
-   
+
    @Test
    public void anEmptyGridShouldProduceAnEmptyGrid() {
        EnterGridPage newGamePage = goToNewGamePage();
@@ -36,11 +36,11 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                    {".", ".", "."},
                                                    {".", ".", "."}};
 
-       ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+       ShowGridPage showGridPage = newGamePage.clickOnGoButton();
        ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
        assertThat(nextGenerationPage.getDisplayedGrid(), is(expectedGrid));
    }
-   
+
    @Test
    public void aGridWithOneCellShouldProduceAnEmptyGrid() {
        EnterGridPage newGamePage = goToNewGamePage();
@@ -50,7 +50,7 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                    {".", ".", "."},
                                                    {".", ".", "."}};
 
-       ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+       ShowGridPage showGridPage = newGamePage.clickOnGoButton();
        ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
        assertThat(nextGenerationPage.getDisplayedGrid(), is(expectedGrid));
    }
@@ -65,7 +65,7 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                    {".", ".", "."},
                                                    {".", ".", "."}};
 
-       ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+       ShowGridPage showGridPage = newGamePage.clickOnGoButton();
        ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
        assertThat(nextGenerationPage.getDisplayedGrid(), is(expectedGrid));
    }
@@ -82,11 +82,11 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                     {"*", "*", "."},
                                                     {".", ".", "."}};
 
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
         assertThat(nextGenerationPage.getDisplayedGrid(), is(expectedGrid));
     }
-    
+
     @Test
     public void aRotatingCellSetShouldProduceTheExpectedNewSetOfCells() {
         EnterGridPage newGamePage = goToNewGamePage();
@@ -98,7 +98,7 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                     {".", "*", "."},
                                                     {".", "*", "."}};
 
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
         assertThat(nextGenerationPage.getDisplayedGrid(), is(expectedGrid));
     }
@@ -114,7 +114,7 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                     {"*", "*", "*"},
                                                     {".", ".", "."}};
 
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
         nextGenerationPage = nextGenerationPage.clickOnNextGenerationButton();
         assertThat(nextGenerationPage.getDisplayedGrid(), is(expectedGrid));
@@ -131,7 +131,7 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
                                                     {".", "*", "."},
                                                     {".", "*", "."}};
 
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton(); 
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         ShowGridPage nextGenerationPage = showGridPage.clickOnNextGenerationButton();
         nextGenerationPage = nextGenerationPage.clickOnNextGenerationButton();
         nextGenerationPage = nextGenerationPage.clickOnNextGenerationButton();
@@ -139,8 +139,8 @@ public class WhenTheUserSpawnsTheNextGenerationOfCells {
     }
     @Test
     public void shouldHaveALinkBackToTheHomePage() {
-    	WebPage showGridPage = goToNewGamePage().clickOnGoButton(); 
+    	WebPage showGridPage = goToNewGamePage().clickOnGoButton();
         WebPage homePage = showGridPage.clickOn(aLinkCalled("home"));
-        assertThat(homePage.getText(), containsString("Welcome to Conway's Game Of Life"));        
-    }    
+        assertThat(homePage.getText(), containsString("Welcome to Conway's Game Of Life"));
+    }
 }

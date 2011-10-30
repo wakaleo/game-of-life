@@ -13,12 +13,12 @@ public class WhenYouPlayTheGameOfLife {
 
     @Test
     public void aDeadCellWithNoNeighboursShouldRemainDeadInTheNextGeneration() {
-        String initialGrid = "...\n" + 
+        String initialGrid = "...\n" +
                              "...\n" +
                              "...";
 
-        String expectedNextGrid = "...\n" + 
-                                  "...\n" + 
+        String expectedNextGrid = "...\n" +
+                                  "...\n" +
                                   "...\n";
 
         Universe theUniverse = new Universe(seededWith(initialGrid));
@@ -27,15 +27,15 @@ public class WhenYouPlayTheGameOfLife {
         String nextGrid = theUniverse.getGrid();
         assertThat(nextGrid, is(expectedNextGrid));
     }
-    
-    @Test 
+
+    @Test
     public void aDeadCellWithOneLiveNeighbourShouldRemainDeadInTheNextGeneration() {
-        String initialGrid = "...\n" + 
+        String initialGrid = "...\n" +
                              ".*.\n" +
                              "...";
 
-        String expectedNextGrid = "...\n" + 
-                                  "...\n" + 
+        String expectedNextGrid = "...\n" +
+                                  "...\n" +
                                   "...\n";
 
         Universe theUniverse = new Universe(seededWith(initialGrid));
@@ -47,12 +47,12 @@ public class WhenYouPlayTheGameOfLife {
 
     @Test
     public void liveCellaWith2or3iveNeighbourShouldRemainAliveInTheNextGeneration() {
-        String initialGrid = "**.\n" + 
+        String initialGrid = "**.\n" +
                              "**.\n" +
                              "...";
 
-        String expectedNextGrid = "**.\n" + 
-                                  "**.\n" + 
+        String expectedNextGrid = "**.\n" +
+                                  "**.\n" +
                                   "...\n";
 
         Universe theUniverse = new Universe(seededWith(initialGrid));
@@ -61,16 +61,16 @@ public class WhenYouPlayTheGameOfLife {
         String nextGrid = theUniverse.getGrid();
         assertThat(nextGrid, is(expectedNextGrid));
     }
-    
-    
+
+
     @Test
     public void aLiveCellWithExactlyTwoLiveNeighbourShouldRemainAliveInTheNextGeneration() {
-        String initialGrid = "...\n" + 
+        String initialGrid = "...\n" +
                              "***\n" +
                              "...\n";
 
-        String expectedNextGrid = ".*.\n" + 
-                                  ".*.\n" + 
+        String expectedNextGrid = ".*.\n" +
+                                  ".*.\n" +
                                   ".*.\n";
 
         Universe theUniverse = new Universe(seededWith(initialGrid));
@@ -79,17 +79,17 @@ public class WhenYouPlayTheGameOfLife {
         String nextGrid = theUniverse.getGrid();
         assertThat(nextGrid, is(expectedNextGrid));
     }
-    
-    
+
+
 
     @Test
     public void aCellWithNoNeighboursShouldDieInTheNextGeneration() {
-        String initialGrid = "...\n" + 
+        String initialGrid = "...\n" +
                              "...\n" +
                              "...\n";
 
-        String expectedNextGrid = "...\n" + 
-                                  "...\n" + 
+        String expectedNextGrid = "...\n" +
+                                  "...\n" +
                                   "...\n";
 
         Universe theUniverse = new Universe(seededWith(initialGrid));

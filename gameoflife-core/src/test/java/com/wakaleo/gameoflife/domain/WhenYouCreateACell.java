@@ -14,7 +14,7 @@ public class WhenYouCreateACell {
         Cell cell = Cell.fromSymbol("*");
         assertThat(cell, is(LIVE_CELL));
     }
-    
+
     @Test
     public void aDeadCellShouldBeRepresentedByADot() {
         Cell cell = Cell.fromSymbol(".");
@@ -26,7 +26,7 @@ public class WhenYouCreateACell {
         assertThat(Cell.LIVE_CELL.toString(), is("*"));
     }
 
-    
+
     @Test
     public void aDeadCellShouldBePrintedAsADot() {
         assertThat(Cell.DEAD_CELL.toString(), is("."));

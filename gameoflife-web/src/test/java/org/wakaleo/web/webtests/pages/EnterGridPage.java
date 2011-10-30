@@ -10,7 +10,7 @@ public class EnterGridPage extends BasePage {
     }
 
     public ShowGridPage clickOnNextGeneration() {
-        clickOn(By.id("submit"));  
+        clickOn(By.id("submit"));
         return new ShowGridPage(driver);
     }
 

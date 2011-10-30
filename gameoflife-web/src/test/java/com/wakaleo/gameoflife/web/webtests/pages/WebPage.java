@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 public class WebPage {
 
     protected WebDriver driver = null;
-    
+
     public WebPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -37,8 +37,8 @@ public class WebPage {
         return this;
     }
 
-    public String[][] getTableWithId(String tableId) {        
-        
+    public String[][] getTableWithId(String tableId) {
+
         WebElement gridTable = driver.findElement(By.id(tableId));
         List<WebElement> rows = gridTable.findElements(By.tagName("tr"));
         List<String[]> tableContents = new ArrayList<String[]>();
@@ -66,5 +66,5 @@ public class WebPage {
         }
         return rowContents.toArray(new String[rowContents.size()]);
     }
-       
+
 }

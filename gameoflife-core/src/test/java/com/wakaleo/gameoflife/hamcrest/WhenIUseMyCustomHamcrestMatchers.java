@@ -13,14 +13,14 @@ public class WhenIUseMyCustomHamcrestMatchers {
 	@Test
 	public void thehasSizeMatcherShouldMatchACollectionWithExpectedSize() {
 		List<String> items = new ArrayList<String>();
-		items.add("java");		
+		items.add("java");
 		assertThat(items, hasSize(1));
 	}
 
 	@Test
 	public void weCanUseCustomMatchersWithOtherMatchers() {
 		List<String> items = new ArrayList<String>();
-		items.add("java");		
+		items.add("java");
 		assertThat(items, allOf(hasSize(1), hasItem("java")));
 	}
 }

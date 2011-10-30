@@ -9,12 +9,12 @@ public class ShowGridPage extends WebPage {
         super(driver);
     }
 
-    public String[][] getDisplayedGrid() {        
+    public String[][] getDisplayedGrid() {
         return getTableWithId("grid");
     }
 
     public ShowGridPage clickOnNextGenerationButton() {
-        clickOn(By.id("submit"));  
+        clickOn(By.id("submit"));
         return new ShowGridPage(driver);
     }
 

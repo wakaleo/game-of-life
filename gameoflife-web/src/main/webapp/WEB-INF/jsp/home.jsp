@@ -92,17 +92,17 @@ occur:
 
 <%
 	InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("/system.properties");
-	Properties prop = new Properties();  
+	Properties prop = new Properties();
 	String appVersion = "";
-	if ( inputStream != null ) {  
-		try {  
-			prop.load(inputStream);  
-			appVersion = prop.getProperty("app.version");  
-		}  
-		catch ( IOException ioe ) {  
-			ioe.printStackTrace();  
-		}  
-	}  
+	if ( inputStream != null ) {
+		try {
+			prop.load(inputStream);
+			appVersion = prop.getProperty("app.version");
+		}
+		catch ( IOException ioe ) {
+			ioe.printStackTrace();
+		}
+	}
 %>
 <div class="footer">Game Of Life version <%=appVersion%></div>
 </body>

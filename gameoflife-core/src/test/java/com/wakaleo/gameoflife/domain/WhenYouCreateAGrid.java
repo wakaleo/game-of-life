@@ -88,8 +88,8 @@ public class WhenYouCreateAGrid {
     @Test
     public void shouldNotCountTheTargetCellAsANeighbour() {
 
-        String gridContents = "***\n" + 
-                              "***\n" + 
+        String gridContents = "***\n" +
+                              "***\n" +
                               "***";
 
         Grid grid = new Grid(gridContents);
@@ -135,7 +135,7 @@ public class WhenYouCreateAGrid {
     public void shouldBeAbleToObtainTheGridContentsAsAnArray() {
         String currentContents = "*..\n*..\n.*.\n";
         Grid grid = new Grid(currentContents);
-        
+
         Cell[][] contents = grid.getContents();
         assertThat(contents[0][0], is(LIVE_CELL));
         assertThat(contents[1][0], is(LIVE_CELL));
@@ -146,21 +146,21 @@ public class WhenYouCreateAGrid {
     public void theGridContentsAsAnArrayShouldBeTheCorrectSize() {
         String currentContents = "*..\n*..\n.*.\n";
         Grid grid = new Grid(currentContents);
-        
+
         Cell[][] contents = grid.getContents();
         assertThat(contents.length, is(3));
         assertThat(contents[0].length, is(3));
     }
-    
+
     @Test
     public void ModifyingTheGridContentsAsAnArrayShouldNotModifyTheOriginalContents() {
         String currentContents = "*..\n.*.\n..*\n";
         Grid grid = new Grid(currentContents);
-        
+
         Cell[][] contents = grid.getContents();
         contents[1][1] = DEAD_CELL;
 
         assertThat(grid.getCellAt(1, 1), is(LIVE_CELL));
     }
-    
+
 }

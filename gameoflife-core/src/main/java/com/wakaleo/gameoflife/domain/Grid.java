@@ -8,30 +8,30 @@ public class Grid {
     private static final int DEFAULT_COLUMN_COUNT = 3;
 
     private Cell[][] cells;
-    
-    
+
+
     private GridReader gridReader = new GridReader();;
     private GridWriter gridWriter = new GridWriter();
 
     public Grid(String gridContents) {
         this.cells = makeCellArrayFrom(gridContents);
     }
-    
-    public Grid() { 
+
+    public Grid() {
         this.cells = anArrayOfDeadCells(DEFAULT_ROW_COUNT, DEFAULT_COLUMN_COUNT);
     }
 
-    public Grid(int rows, int columns) { 
+    public Grid(int rows, int columns) {
         this.cells = anArrayOfDeadCells(rows, columns);
     }
-   
+
     private Cell[][] anArrayOfDeadCells(int rows, int columns) {
         Cell[][] deadCells = new Cell[rows][columns];
         for(int i = 0; i < rows; i++) {
             for (int j = 0;  j < columns; j++) {
                 deadCells[i][j] = DEAD_CELL;
             }
-        } 
+        }
         return deadCells;
     }
 
@@ -73,11 +73,11 @@ public class Grid {
     private int getMaxRow() {
         return cells.length - 1;
     }
-    
+
     private int getMaxColumn() {
         return cells[0].length - 1;
     }
-    
+
     private boolean cellIsCentralCell(int x, int y, int centerX, int centerY) {
         return (x == centerX) && (y == centerY);
     }
@@ -97,7 +97,7 @@ public class Grid {
     public void setCellAt(int x, int y, Cell cell) {
         cells[y][x] = cell;
     }
-    
+
     public Cell[][] getContents() {
         Cell[][] contentCopy = new Cell[getHeight()][getWidth()];
         for (int row = 0; row < getHeight(); row++) {
@@ -107,7 +107,7 @@ public class Grid {
         }
         return contentCopy;
     }
-    
+
     private Cell[][] unusedMethod() {
     	// TODO: needs refactoring
         Cell[][] contentCopy = new Cell[getHeight()][getWidth()];
@@ -118,14 +118,14 @@ public class Grid {
         }
         return contentCopy;
     }
-                                 
-    
+
+
     public void infiniteRecursiveLoop() {
-    	
+
         int i = 0;
         if (i < 1) {
             infiniteRecursiveLoop();
         }
     }
-    
+
 }

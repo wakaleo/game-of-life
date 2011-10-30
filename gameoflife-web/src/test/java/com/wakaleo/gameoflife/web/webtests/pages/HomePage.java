@@ -11,7 +11,7 @@ public class HomePage extends WebPage {
     public void open(String url) {
         driver.get(url);
     }
- 
+
     public EnterGridPage clickOnNewGameLink() {
         clickOn(aLinkCalled("New Game"));
         return new EnterGridPage(driver);

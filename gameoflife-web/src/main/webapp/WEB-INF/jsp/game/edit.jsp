@@ -69,7 +69,7 @@ li {
    margin-left: 4px;
    font-family: sans-serif;
    background-color: rgb(255,255,225);
-   
+
 }
 
 .griddisplay {
@@ -95,7 +95,7 @@ li {
 <table id="grid">
  <c:forEach begin="0" var="row" end="2" >
   <tr>
-    <c:forEach begin="0" var="column" end="2" >  
+    <c:forEach begin="0" var="column" end="2" >
       <td><input name="cell_${row}_${column}" type="checkbox"/></td>
     </c:forEach>
   </tr>
@@ -107,17 +107,17 @@ li {
 </div>
 <%
 	InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("/system.properties");
-	Properties prop = new Properties();  
+	Properties prop = new Properties();
 	String appVersion = "";
-	if ( inputStream != null ) {  
-		try {  
-			prop.load(inputStream);  
-			appVersion = prop.getProperty("app.version");  
-		}  
-		catch ( IOException ioe ) {  
-			ioe.printStackTrace();  
-		}  
-	}  
+	if ( inputStream != null ) {
+		try {
+			prop.load(inputStream);
+			appVersion = prop.getProperty("app.version");
+		}
+		catch ( IOException ioe ) {
+			ioe.printStackTrace();
+		}
+	}
 %>
 <div class="footer">Game Of Life version <%=appVersion%></div>
 </body>
