@@ -16,100 +16,100 @@ public class WhenYouReadAGridFromAString {
         String gridContents = "";
 
         Cell[][] expectedCells = {{}};
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
     }
-    
+
     @Test
     public void shouldBeAbleToReadAGridContainingASingleCellFromAString() {
         String gridContents = "*";
 
         Cell[][] expectedCells = {{LIVE_CELL}};
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
     }
 
     @Test
     public void shouldBeAbleToReadAGridOfCellsFromAString() {
-        String gridContents = "...\n" + 
+        String gridContents = "...\n" +
                               "...\n" +
                               "...";
 
         Cell[][] expectedCells = {
                 {DEAD_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
-                {DEAD_CELL, DEAD_CELL, DEAD_CELL} 
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL}
         };
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void shouldRefuseIllegalCellCharacters() {
-        String gridContents = "...\n" + 
+        String gridContents = "...\n" +
                               ".Z.\n" +
                               "...";
 
         Cell[][] expectedCells = {
                 {DEAD_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
-                {DEAD_CELL, DEAD_CELL, DEAD_CELL} 
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL}
         };
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
     }
 
     @Test
     public void shouldBeAbleToReadAGridContainingLiveAndDeadCells() {
-        String gridContents = "*..\n" + 
+        String gridContents = "*..\n" +
                               ".*.\n" +
                               "..*";
 
         Cell[][] expectedCells = {
                 {LIVE_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
-                {DEAD_CELL, DEAD_CELL, LIVE_CELL} 
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL}
         };
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
     }
 
     @Test
     public void shouldBeAbleToReadAnAsymetricalGridContainingLiveAndDeadCells() {
-        String gridContents = "....\n" + 
+        String gridContents = "....\n" +
                               "**..\n" +
                               "..*.";
 
         Cell[][] expectedCells = {
                 {DEAD_CELL, DEAD_CELL, DEAD_CELL, DEAD_CELL},
-                {LIVE_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL}, 
-                {DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL} 
+                {LIVE_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL}
         };
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
-    }    
-    
+    }
+
     @Test
     public void shouldBeAbleToReadALargerGrid() {
-        String gridContents = "......\n" + 
+        String gridContents = "......\n" +
                               "**....\n" +
                               "..*...\n" +
                               "..*...\n" +
@@ -118,16 +118,16 @@ public class WhenYouReadAGridFromAString {
 
         Cell[][] expectedCells = {
                 {DEAD_CELL, DEAD_CELL, DEAD_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
-                {LIVE_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
+                {LIVE_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
                 {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
                 {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
-                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, LIVE_CELL,DEAD_CELL, DEAD_CELL, DEAD_CELL},
         };
-        
+
         GridReader gridReader = new GridReader();
         Cell[][] loadedCells = gridReader.loadFrom(gridContents);
-        
+
         assertThat(loadedCells, is(expectedCells));
     }
 

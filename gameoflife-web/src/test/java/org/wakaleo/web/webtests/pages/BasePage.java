@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 public class BasePage {
 
     protected WebDriver driver = null;
-    
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }

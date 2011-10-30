@@ -15,16 +15,16 @@ import com.wakaleo.gameoflife.web.webtests.pages.ShowGridPage;
 import static com.wakaleo.gameoflife.web.webtests.pages.WebPage.aLinkCalled;
 
 public class WhenTheUserEntersAnInitialGrid {
-     
+
     WebDriver driver;
     EnterGridPage enterGridPage;
-    
-    final static String[][] EMPTY_GRID 
+
+    final static String[][] EMPTY_GRID
         = new String[][] {{".", ".", "."},
                           {".", ".", "."},
                           {".", ".", "."}};
 
-    
+
    private EnterGridPage goToNewGamePage() {
        WebDriver driver = new HtmlUnitDriver();
        HomePage homePage = new HomePage(driver);
@@ -38,18 +38,18 @@ public class WhenTheUserEntersAnInitialGrid {
         EnterGridPage newGamePage = goToNewGamePage();
         assertThat(newGamePage.getText(), containsString("Please seed your universe"));
     }
-    
+
     @Test
     public void userShouldBeAbleToSeedAnEmptyGridOnTheNewGamePage() {
         EnterGridPage newGamePage = goToNewGamePage();
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();   
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         assertThat(showGridPage.getDisplayedGrid(), is(EMPTY_GRID));
     }
 
     @Test
     public void theGridDisplayPageShouldContainANextGenerationButton() {
         EnterGridPage newGamePage = goToNewGamePage();
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();   
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         assertThat(showGridPage.getText(), containsString("Next Generation"));
     }
 
@@ -62,7 +62,7 @@ public class WhenTheUserEntersAnInitialGrid {
                                                     {".", "*", "."},
                                                     {".", ".", "."}};
 
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();   
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         assertThat(showGridPage.getDisplayedGrid(), is(expectedGrid));
     }
 
@@ -76,15 +76,15 @@ public class WhenTheUserEntersAnInitialGrid {
         String[][] expectedGrid  = new String[][]  {{"*", "*", "."},
                                                     {".", "*", "."},
                                                     {".", ".", "."}};
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();           
+        ShowGridPage showGridPage = newGamePage.clickOnGoButton();
         assertThat(showGridPage.getDisplayedGrid(), is(expectedGrid));
     }
-    
-    
+
+
     @Test
     public void theGridPageShouldHaveALinkBackToTheHomePage() {
         WebPage page = goToNewGamePage();
         page.clickOn(aLinkCalled("home"));
-        assertThat(page.getText(), containsString("Welcome to Conway's Game Of Life"));        
+        assertThat(page.getText(), containsString("Welcome to Conway's Game Of Life"));
     }
 }

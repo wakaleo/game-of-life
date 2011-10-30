@@ -23,7 +23,7 @@ scenario "A universe seeded with an initial grid of #initialGrid will spawn a gr
 	when "the next generation is spawned", {
 		theUniverse.spawnsANewGeneration()
 	}
-	
+
 	then "the universe should be #expectedGrid", {
 		theUniverse.grid.shouldBe expectedGrid
 	}

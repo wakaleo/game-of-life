@@ -21,7 +21,7 @@ scenario "The number #{number} plus 1 should be #{numberPlusOne}", {
     when "the system converts this number to the roman numeral equivalent", {
         theNumberPlusOne = number + 1
     }
-    
+
     then "the result should be #theNumberPlusOne or #numberPlusTwo", {
         theNumberPlusOne.shouldBe  numberPlusOne
     }

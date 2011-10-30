@@ -10,15 +10,15 @@ public class EnterGridPage extends WebPage {
     }
 
     public ShowGridPage clickOnGoButton() {
-        clickOn(By.id("submit"));  
+        clickOn(By.id("submit"));
         return new ShowGridPage(driver);
     }
 
     public void clickOnCellAt(int row, int column) {
         String cellName = "cell_" + row + "_" + column;
-        driver.findElement(By.name(cellName)).click();     
+        driver.findElement(By.name(cellName)).click();
     }
-    
-    
+
+
 
 }

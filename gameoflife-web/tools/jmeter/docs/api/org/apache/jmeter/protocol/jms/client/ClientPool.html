@@ -96,7 +96,7 @@ Class ClientPool</H2>
 ClientPool holds the client instances in an ArrayList. The main purpose of
  this is to make it easier to clean up all the instances at the end of a test.
  If we didn't do this, threads might become zombie.
- 
+
  N.B. This class needs to be fully synchronized as it is called from sample threads
  and the thread that runs testEnded() methods.
 <P>

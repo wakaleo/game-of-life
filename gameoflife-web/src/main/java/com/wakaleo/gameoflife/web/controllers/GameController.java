@@ -31,7 +31,7 @@ public class GameController {
 			@RequestParam("columns") int columns, HttpServletRequest request) {
 
 		Universe universe = universeInstanciatedFromClickedCells(rows, columns, request);
-		// TODO: Hate this code	
+		// TODO: Hate this code
 		thinkABit(200);
 
 		return showGridScreen(universe);
@@ -40,7 +40,7 @@ public class GameController {
 	@RequestMapping("/next")
 	public ModelAndView nextGeneration(@RequestParam("rows") int rows,
 			@RequestParam("columns") int columns, HttpServletRequest request) {
-		
+
 		Universe universe = universeInstanciatedFromClickedCells(rows, columns,
 				request);
 		universe.createNextGeneration();

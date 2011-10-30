@@ -64,7 +64,7 @@ li {
 
 h4 {
 	font-family: sans-serif;
-	
+
 }
 
 #grid {
@@ -97,7 +97,7 @@ h4 {
 <table id="grid">
  <c:forEach begin="0" var="row" end="${rows - 1}" >
   <tr>
-    <c:forEach begin="0" var="column" end="${columns - 1}" >  
+    <c:forEach begin="0" var="column" end="${columns - 1}" >
       <td>
       <c:if test="${universe.cells[row][column].symbol == '*'}">
         <input type="hidden" name="cell_${row}_${column}" value="on"/>
@@ -113,17 +113,17 @@ h4 {
 </div>
 <%
 	InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("/system.properties");
-	Properties prop = new Properties();  
+	Properties prop = new Properties();
 	String appVersion = "";
-	if ( inputStream != null ) {  
-		try {  
-			prop.load(inputStream);  
-			appVersion = prop.getProperty("app.version");  
-		}  
-		catch ( IOException ioe ) {  
-			ioe.printStackTrace();  
-		}  
-	}  
+	if ( inputStream != null ) {
+		try {
+			prop.load(inputStream);
+			appVersion = prop.getProperty("app.version");
+		}
+		catch ( IOException ioe ) {
+			ioe.printStackTrace();
+		}
+	}
 %>
 <div class="footer">Game Of Life version <%=appVersion%></div>
 </body>

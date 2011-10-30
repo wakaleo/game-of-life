@@ -20,6 +20,6 @@ scenario "A universe seeded with an empty grid will spawn an empty grid",{
 scenario "A universe seeded with a single living cell will spawn an empty grid",{
 	given "an initial grid"
 	and "a universe seeded with this grid"
-	when "the next generation is spawned"	
+	when "the next generation is spawned"
 	then "the universe should contain an empty grid"
 }

@@ -18,4 +18,4 @@ rem   limitations under the License.
 rem   Run the Shutdown client
 
 java -cp %~dp0ApacheJMeter.jar org.apache.jmeter.util.ShutdownClient StopTestNow %*
-pause 
+pause

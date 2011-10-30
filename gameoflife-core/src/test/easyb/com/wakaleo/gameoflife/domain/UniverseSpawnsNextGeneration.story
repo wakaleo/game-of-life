@@ -12,7 +12,7 @@ narrative "story description", {
 
 scenario "A universe seeded with an empty grid will spawn an empty grid",{
 	given "an empty initial grid", {
-		anEmptyGrid = "...\n...\n...\n"		
+		anEmptyGrid = "...\n...\n...\n"
 	}
 	and "a universe seeded with this grid", {
 		theUniverse = new Universe(seededWith(anEmptyGrid))
@@ -20,7 +20,7 @@ scenario "A universe seeded with an empty grid will spawn an empty grid",{
 	when "the next generation is spawned", {
 		theUniverse.spawnsANewGeneration()
 	}
-	
+
 	then "the universe should contain an empty grid", {
 		theUniverse.grid.shouldBe anEmptyGrid
 	}
@@ -28,7 +28,7 @@ scenario "A universe seeded with an empty grid will spawn an empty grid",{
 
 scenario "A universe seeded with a single living cell will spawn an empty grid",{
 	given "an initial grid", {
-		anInitialGridWithOneCell = "...\n.*.\n...\n"		
+		anInitialGridWithOneCell = "...\n.*.\n...\n"
 	}
 	and "a universe seeded with this grid", {
 		theUniverse = new Universe(seededWith(anInitialGridWithOneCell))
@@ -36,9 +36,9 @@ scenario "A universe seeded with a single living cell will spawn an empty grid",
 	when "the next generation is spawned", {
 		theUniverse.spawnsANewGeneration()
 	}
-	
+
 	then "the universe should contain an empty grid", {
-		anEmptyGrid = "...\n...\n...\n"		
+		anEmptyGrid = "...\n...\n...\n"
 		theUniverse.grid.shouldBe anEmptyGrid
 	}
 }

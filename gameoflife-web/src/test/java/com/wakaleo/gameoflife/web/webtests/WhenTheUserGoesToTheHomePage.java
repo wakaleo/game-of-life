@@ -10,7 +10,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import com.wakaleo.gameoflife.web.webtests.pages.HomePage;
 
 public class WhenTheUserGoesToTheHomePage {
-     
+
     @Test
     public void homePageShouldDisplayWelcomeMessage() {
         WebDriver driver = new HtmlUnitDriver();
@@ -19,5 +19,5 @@ public class WhenTheUserGoesToTheHomePage {
         homePage.open(baseUrl);
         assertThat(homePage.getTitle(), is("The Game Of Life"));
         assertThat(homePage.getText(), containsString("Welcome to Conway's Game Of Life"));
-    }    
+    }
 }
