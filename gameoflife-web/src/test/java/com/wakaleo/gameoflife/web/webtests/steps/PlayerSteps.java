@@ -69,4 +69,7 @@ public class PlayerSteps {
         return pages.get(GameOfLifePage.class);
     }
 
+    public void continues_simulation() {
+        onShowGridPage().clickOnNextGenerationButton();
+    }
 }

@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 @Story(GameOfLifeApplication.RunSimulations.RunASimulation.class)
 public class WhenTheUserEntersAnInitialGrid {
      
-    @Managed
+    @Managed(uniqueSession = true)
     WebDriver driver;
 
     @ManagedPages(defaultUrl = "http://localhost:9090")
