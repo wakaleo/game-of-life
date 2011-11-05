@@ -5,7 +5,9 @@ import java.util.List;
 
 public class GridReader {
 
-    public Cell[][] loadFrom(String gridContents) {
+	public final String NEW_LINE = System.getProperty("line.separator");
+
+	public Cell[][] loadFrom(String gridContents) {
         List<Cell[]> rows = new ArrayList<Cell[]>();
         String[] rowValues = splitIntoRows(gridContents);
         for (String row : rowValues) {
@@ -30,7 +32,7 @@ public class GridReader {
     }
 
     private String[] splitIntoRows(String gridContents) {
-        return gridContents.split("\n");
+        return gridContents.split(NEW_LINE);
     }
 
 }
