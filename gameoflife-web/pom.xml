@@ -13,7 +13,7 @@
     <name>gameoflife-web</name>
 
     <properties>
-        <thucydides.version>0.4.21-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.4.19</thucydides.version>
         <jetty.port>9090</jetty.port>
         <jetty.stop.port>9999</jetty.stop.port>
         <webtest.home>http://localhost:${jetty.port}</webtest.home>

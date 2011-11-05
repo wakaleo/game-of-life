@@ -5,12 +5,9 @@ import com.wakaleo.gameoflife.web.webtests.pages.GameOfLifePage;
 import com.wakaleo.gameoflife.web.webtests.pages.HomePage;
 import com.wakaleo.gameoflife.web.webtests.pages.ShowGridPage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.AnyPage;
 import net.thucydides.core.pages.Pages;
-import org.hamcrest.Matcher;
 
 import static org.fest.assertions.Assertions.assertThat;
-import static org.hamcrest.Matchers.is;
 
 public class PlayerSteps {
 
