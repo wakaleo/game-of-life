@@ -21,8 +21,39 @@ public class PlayerSteps {
         onHomePage().open();
     }
 
+    @Step
     public void should_see_title_of(String expectedTitle) {
         assertThat(currentPage().getTitle()).contains(expectedTitle);
+    }
+
+    @Step
+    public void chooses_to_start_a_new_game() {
+        onHomePage().clickOnNewGameLink();
+    }
+
+    @Step
+    public void should_see_a_page_containing_text(String expectedText) {
+        currentPage().shouldContainText(expectedText);
+    }
+
+    @Step
+    public void should_see_grid(String[][] expectedGrid) {
+        assertThat(onShowGridPage().getDisplayedGrid()).isEqualTo(expectedGrid);
+    }
+
+    @Step
+    public void starts_simulation() {
+        onEnterGridPage().clickOnGoButton();
+    }
+
+    @Step
+    public void clicks_on_cell_at(int row, int column) {
+        onEnterGridPage().clickOnCellAt(row, column);
+    }
+
+    @Step
+    public void clicks_on_home() {
+        currentPage().clickOnHome();
     }
 
     private HomePage onHomePage() {
@@ -41,30 +72,4 @@ public class PlayerSteps {
         return pages.get(GameOfLifePage.class);
     }
 
-    @Step
-    public void chooses_to_start_a_new_game() {
-        onHomePage().clickOnNewGameLink();
-    }
-
-    public void should_see_a_page_containing_text(String expectedText) {
-        currentPage().shouldContainText(expectedText);
-    }
-
-    public void should_see_grid(String[][] expectedGrid) {
-        assertThat(onShowGridPage().getDisplayedGrid()).isEqualTo(expectedGrid);
-    }
-
-
-
-    public void starts_simulation() {
-        onEnterGridPage().clickOnGoButton();
-    }
-
-    public void clicks_on_cell_at(int row, int column) {
-        onEnterGridPage().clickOnCellAt(row, column);
-    }
-
-    public void clicks_on_home() {
-        currentPage().clickOnHome();
-    }
 }
