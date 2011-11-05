@@ -1,90 +1,96 @@
 package com.wakaleo.gameoflife.web.webtests;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
-
+import com.wakaleo.gameoflife.web.requirements.GameOfLifeApplication;
+import com.wakaleo.gameoflife.web.webtests.steps.PlayerSteps;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.ManagedPages;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Story;
+import net.thucydides.core.pages.Pages;
+import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import com.wakaleo.gameoflife.web.webtests.pages.WebPage;
-import com.wakaleo.gameoflife.web.webtests.pages.EnterGridPage;
-import com.wakaleo.gameoflife.web.webtests.pages.HomePage;
-import com.wakaleo.gameoflife.web.webtests.pages.ShowGridPage;
-import static com.wakaleo.gameoflife.web.webtests.pages.WebPage.aLinkCalled;
-
+@RunWith(ThucydidesRunner.class)
+@Story(GameOfLifeApplication.RunSimulations.RunASimulation.class)
 public class WhenTheUserEntersAnInitialGrid {
      
+    @Managed
     WebDriver driver;
-    EnterGridPage enterGridPage;
-    
-    final static String[][] EMPTY_GRID 
+
+    @ManagedPages(defaultUrl = "http://localhost:9090")
+    public Pages pages;
+
+    @Steps
+    PlayerSteps player;
+
+
+    final static String[][] EMPTY_GRID
         = new String[][] {{".", ".", "."},
                           {".", ".", "."},
                           {".", ".", "."}};
 
-    
-   private EnterGridPage goToNewGamePage() {
-       WebDriver driver = new HtmlUnitDriver();
-       HomePage homePage = new HomePage(driver);
-       String baseUrl = System.getProperty("webtest.home");
-       homePage.open(baseUrl);
-       return homePage.clickOnNewGameLink();
-    }
 
     @Test
     public void userShouldBeAbleChooseToCreateANewGameOnTheHomePage() {
-        EnterGridPage newGamePage = goToNewGamePage();
-        assertThat(newGamePage.getText(), containsString("Please seed your universe"));
-    }
-    
-    @Test
-    public void userShouldBeAbleToSeedAnEmptyGridOnTheNewGamePage() {
-        EnterGridPage newGamePage = goToNewGamePage();
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();   
-        assertThat(showGridPage.getDisplayedGrid(), is(EMPTY_GRID));
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.should_see_a_page_containing_text("Please seed your universe");
+
     }
 
     @Test
+    public void userShouldBeAbleToSeedAnEmptyGridOnTheNewGamePage() {
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.starts_simulation();
+        player.should_see_grid(EMPTY_GRID);
+    }
+    @Test
     public void theGridDisplayPageShouldContainANextGenerationButton() {
-        EnterGridPage newGamePage = goToNewGamePage();
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();   
-        assertThat(showGridPage.getText(), containsString("Next Generation"));
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.starts_simulation();
+        player.should_see_a_page_containing_text("Next Generation");
     }
 
     @Test
     public void userShouldBeAbleToEnterOneLiveCellInTheGrid() {
-        EnterGridPage newGamePage = goToNewGamePage();
-        newGamePage.clickOnCellAt(1,1);
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.clicks_on_cell_at(1,1);
+        player.starts_simulation();
 
         String[][] expectedGrid  = new String[][]  {{".", ".", "."},
                                                     {".", "*", "."},
                                                     {".", ".", "."}};
 
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();   
-        assertThat(showGridPage.getDisplayedGrid(), is(expectedGrid));
+        player.should_see_grid(expectedGrid);
     }
 
     @Test
     public void userShouldBeAbleToEnterLiveCellsInTheGrid() {
-        EnterGridPage newGamePage = goToNewGamePage();
-        newGamePage.clickOnCellAt(0,0);
-        newGamePage.clickOnCellAt(0,1);
-        newGamePage.clickOnCellAt(1,1);
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.clicks_on_cell_at(0,0);
+        player.clicks_on_cell_at(0,1);
+        player.clicks_on_cell_at(1,1);
+        player.starts_simulation();
 
         String[][] expectedGrid  = new String[][]  {{"*", "*", "."},
                                                     {".", "*", "."},
                                                     {".", ".", "."}};
-        ShowGridPage showGridPage = newGamePage.clickOnGoButton();           
-        assertThat(showGridPage.getDisplayedGrid(), is(expectedGrid));
+
+        player.should_see_grid(expectedGrid);
     }
-    
-    
+
+
     @Test
     public void theGridPageShouldHaveALinkBackToTheHomePage() {
-        WebPage page = goToNewGamePage();
-        page.clickOn(aLinkCalled("home"));
-        assertThat(page.getText(), containsString("Welcome to Conway's Game Of Life"));        
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.clicks_on_home();
+        player.should_see_a_page_containing_text("Welcome to Conway's Game Of Life");
     }
 }

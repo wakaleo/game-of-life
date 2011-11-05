@@ -7,16 +7,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("http://localhost:9090")
-public class HomePage extends GameOfLifePage {
+public class GameOfLifePage extends PageObject {
 
-    @FindBy(linkText = "New Game")
-    WebElement newGameLink;
+    @FindBy(linkText = "home")
+    WebElement homeLink;
 
-    public HomePage(WebDriver driver) {
+    public GameOfLifePage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickOnNewGameLink() {
-        newGameLink.click();
+    public void clickOnHome() {
+        homeLink.click();
     }
 }

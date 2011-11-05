@@ -1,24 +1,28 @@
 package com.wakaleo.gameoflife.web.webtests.pages;
 
+import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class EnterGridPage extends WebPage {
+public class EnterGridPage extends GameOfLifePage {
+
+    @FindBy(id="submit")
+    WebElement goButton;
 
     public EnterGridPage(WebDriver driver) {
         super(driver);
     }
 
-    public ShowGridPage clickOnGoButton() {
-        clickOn(By.id("submit"));  
-        return new ShowGridPage(driver);
+    public void clickOnGoButton() {
+        clickOn(goButton);
     }
 
     public void clickOnCellAt(int row, int column) {
         String cellName = "cell_" + row + "_" + column;
-        driver.findElement(By.name(cellName)).click();     
+        getDriver().findElement(By.name(cellName)).click();
     }
-    
-    
+
 
 }
