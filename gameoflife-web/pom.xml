@@ -137,6 +137,13 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.cloudbees</groupId>
+                <artifactId>bees-maven-plugin</artifactId>
+                <configuration>
+                    <port>8085</port>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <profiles>
@@ -221,6 +228,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
