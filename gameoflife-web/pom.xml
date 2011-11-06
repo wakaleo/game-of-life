@@ -43,6 +43,7 @@
                         </goals>
                         <configuration>
                             <skip>false</skip>
+                            <parallel>classes</parallel>
                             <excludes>
                                 <exclude>**/webtests/*.java</exclude>
                             </excludes>
@@ -56,6 +57,7 @@
                         </goals>
                         <configuration>
                             <skip>false</skip>
+                            <parallel>classes</parallel>
                             <includes>
                                 <include>**/webtests/*.java</include>
                             </includes>
