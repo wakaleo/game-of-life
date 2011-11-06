@@ -16,7 +16,7 @@
         <thucydides.version>0.4.19</thucydides.version>
         <jetty.port>9090</jetty.port>
         <jetty.stop.port>9999</jetty.stop.port>
-        <webtest.home>http://localhost:${jetty.port}</webtest.home>
+        <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
     </properties>
 
     <build>
@@ -63,7 +63,7 @@
                                 <exclude>**/pages/*.java</exclude>
                             </excludes>
                             <systemPropertyVariables>
-                                <webtest.home>${webtest.home}</webtest.home>
+                                <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                             </systemPropertyVariables>
                         </configuration>
                     </execution>
