@@ -9,7 +9,7 @@
     <url>https://github.com/wakaleo/game-of-life</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easyb.version>1.2</easyb.version>
+        <easyb.version>1.4</easyb.version>
         <cobertura.version>2.4</cobertura.version>
         <!-- A workaround for a bug in PMD -->
         <targetJdk>1.6</targetJdk>

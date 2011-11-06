@@ -11,7 +11,9 @@ import com.wakaleo.gameoflife.domain.GridReader;
 
 public class WhenYouReadAGridFromAString {
 
-    @Test
+	private final String NEW_LINE = System.getProperty("line.separator");
+
+	@Test
     public void shouldBeAbleToReadAnEmptyGridOfCellsFromAnEmptyString() {
         String gridContents = "";
 
@@ -37,8 +39,8 @@ public class WhenYouReadAGridFromAString {
 
     @Test
     public void shouldBeAbleToReadAGridOfCellsFromAString() {
-        String gridContents = "...\n" + 
-                              "...\n" +
+        String gridContents = "..." + NEW_LINE +
+                              "..." + NEW_LINE +
                               "...";
 
         Cell[][] expectedCells = {
@@ -55,8 +57,8 @@ public class WhenYouReadAGridFromAString {
 
     @Test(expected=IllegalArgumentException.class)
     public void shouldRefuseIllegalCellCharacters() {
-        String gridContents = "...\n" + 
-                              ".Z.\n" +
+        String gridContents = "..." + NEW_LINE + 
+                              ".Z." + NEW_LINE +
                               "...";
 
         Cell[][] expectedCells = {
@@ -73,8 +75,8 @@ public class WhenYouReadAGridFromAString {
 
     @Test
     public void shouldBeAbleToReadAGridContainingLiveAndDeadCells() {
-        String gridContents = "*..\n" + 
-                              ".*.\n" +
+        String gridContents = "*.." + NEW_LINE + 
+                              ".*." + NEW_LINE +
                               "..*";
 
         Cell[][] expectedCells = {
@@ -91,8 +93,8 @@ public class WhenYouReadAGridFromAString {
 
     @Test
     public void shouldBeAbleToReadAnAsymetricalGridContainingLiveAndDeadCells() {
-        String gridContents = "....\n" + 
-                              "**..\n" +
+        String gridContents = "...." + NEW_LINE + 
+                              "**.." + NEW_LINE +
                               "..*.";
 
         Cell[][] expectedCells = {
@@ -109,11 +111,11 @@ public class WhenYouReadAGridFromAString {
     
     @Test
     public void shouldBeAbleToReadALargerGrid() {
-        String gridContents = "......\n" + 
-                              "**....\n" +
-                              "..*...\n" +
-                              "..*...\n" +
-                              "..*...\n" +
+        String gridContents = "......" + NEW_LINE + 
+                              "**...." + NEW_LINE +
+                              "..*..." + NEW_LINE +
+                              "..*..." + NEW_LINE +
+                              "..*..." + NEW_LINE +
                               "..*...";
 
         Cell[][] expectedCells = {
@@ -133,14 +135,14 @@ public class WhenYouReadAGridFromAString {
 
     @Test
     public void shouldBeAbleToReadAVeryLargerGrid() {
-        String gridContents = "......\n" +
-                              "**....\n" +
-                              "..*...\n" +
-                              "..*...\n" +
-                            "..*...\n" +
-                            "..*...\n" +
-                            "..*...\n" +
-                            "..*...\n" +
+        String gridContents = "......" + NEW_LINE +
+                              "**...." + NEW_LINE +
+                              "..*..." + NEW_LINE +
+                              "..*..." + NEW_LINE +
+                            "..*..." + NEW_LINE +
+                            "..*..." + NEW_LINE +
+                            "..*..." + NEW_LINE +
+                            "..*..." + NEW_LINE +
                               "..*...";
 
         Cell[][] expectedCells = {

@@ -13,7 +13,9 @@ import static org.hamcrest.Matchers.*;
 
 public class WhenYouCreateANewUniverse {
 
-    public static final String EMPTY_GRID = "...\n" + "...\n" + "...\n";
+	private static final String NEW_LINE = System.getProperty("line.separator");
+
+    public static final String EMPTY_GRID = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
 
     @Test
     public void aNewUniverseShouldContainOnlyDeadCells() {
@@ -25,7 +27,7 @@ public class WhenYouCreateANewUniverse {
     @Test
     public void aUniverseSeededWithAnEmpyGridContentWillContainAnEmptyGrid() {
 
-        String seededGrid = "...\n" + "...\n" + "...\n";
+        String seededGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         String currentGrid = theUniverse.getGrid();
@@ -34,7 +36,7 @@ public class WhenYouCreateANewUniverse {
 
     @Test
     public void aUniverseCanBeInitializedWithAnyDimension() {
-        String expectedGrid = ".....\n" + ".....\n" + ".....\n" + ".....\n";
+        String expectedGrid = "....." + NEW_LINE + "....." + NEW_LINE + "....." + NEW_LINE + "....." + NEW_LINE + "";
 
     	Universe theUniverse = new Universe(4,5);
         String currentGrid = theUniverse.getGrid();
@@ -45,9 +47,9 @@ public class WhenYouCreateANewUniverse {
     @Test
     public void aUniverseSeededWithAGridContainingASingleLiveCellContentWillSpawnAnEmptyGrid() {
 
-        String seededGrid = "...\n" + ".*.\n" + "...\n";
+        String seededGrid = "..." + NEW_LINE + ".*." + NEW_LINE + "..." + NEW_LINE + "";
 
-        String expectedGrid = "...\n" + "...\n" + "...\n";
+        String expectedGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         theUniverse.spawnsANewGeneration();
@@ -58,7 +60,7 @@ public class WhenYouCreateANewUniverse {
     @Test
     public void aUniverseSeededWithAGridWithLivingCellsContentWillContainThatGrid() {
 
-        String seededGrid = "*..\n" + ".*.\n" + "..*\n";
+        String seededGrid = "*.." + NEW_LINE + ".*." + NEW_LINE + "..*" + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         String currentGrid = theUniverse.getGrid();
@@ -68,9 +70,9 @@ public class WhenYouCreateANewUniverse {
     @Test
     public void aUniverseSpawnsANewGridInTheNextGeneration() {
 
-        String seededGrid = "...\n" + "***\n" + "...\n";
+        String seededGrid = "..." + NEW_LINE + "***" + NEW_LINE + "..." + NEW_LINE + "";
 
-        String expectedNextGeneration = ".*.\n" + ".*.\n" + ".*.\n";
+        String expectedNextGeneration = ".*." + NEW_LINE + ".*." + NEW_LINE + ".*." + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         theUniverse.createNextGeneration();
@@ -80,9 +82,9 @@ public class WhenYouCreateANewUniverse {
 
     @Test
     public void aUserCanAssignALiveCellAtAGivenPointInTheGrid() {
-        String seededGrid = "...\n...\n...\n";
+        String seededGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
 
-        String expectedState = "*..\n" + "*..\n" + ".*.\n";
+        String expectedState = "*.." + NEW_LINE + "*.." + NEW_LINE + ".*." + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         theUniverse.setLiveCellAt(0, 0);
@@ -94,9 +96,9 @@ public class WhenYouCreateANewUniverse {
     
     @Test
     public void aUserCanAssignADeadCellAtAGivenPointInTheGrid() {
-        String seededGrid = "***\n***\n***\n";
+        String seededGrid = "***" + NEW_LINE + "***" + NEW_LINE + "***" + NEW_LINE + "";
 
-        String expectedState = "*.*\n" + "***\n" + "***\n";
+        String expectedState = "*.*" + NEW_LINE + "***" + NEW_LINE + "***" + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         theUniverse.setDeadCellAt(0, 1);
@@ -106,7 +108,7 @@ public class WhenYouCreateANewUniverse {
 
     @Test
     public void aUserCanReadALiveCellValueAtAGivenPointInTheGrid() {
-        String seededGrid = "*..\n" + "*..\n" + ".*.\n";
+        String seededGrid = "*.." + NEW_LINE + "*.." + NEW_LINE + ".*." + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
 
@@ -117,7 +119,7 @@ public class WhenYouCreateANewUniverse {
 
     @Test
     public void aUserCanReadADeadCellValueAtAGivenPointInTheGrid() {
-        String seededGrid = "*..\n" + "*..\n" + ".*.\n";
+        String seededGrid = "*.." + NEW_LINE + "*.." + NEW_LINE + ".*." + NEW_LINE + "";
 
         Universe theUniverse = new Universe(seededWith(seededGrid));
         
@@ -127,7 +129,7 @@ public class WhenYouCreateANewUniverse {
     
     @Test
     public void aUserCanObtainTheGridContentsAsAnArrayOfCells() {
-        String seededGrid = "*..\n" + "*..\n" + ".*.\n";
+        String seededGrid = "*.." + NEW_LINE + "*.." + NEW_LINE + ".*." + NEW_LINE + "";
         Universe theUniverse = new Universe(seededWith(seededGrid));
 
         Cell[][] expectedCells = new Cell[][] {

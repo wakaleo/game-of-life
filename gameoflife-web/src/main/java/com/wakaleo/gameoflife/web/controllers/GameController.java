@@ -41,8 +41,7 @@ public class GameController {
 	public ModelAndView nextGeneration(@RequestParam("rows") int rows,
 			@RequestParam("columns") int columns, HttpServletRequest request) {
 		
-		Universe universe = universeInstanciatedFromClickedCells(rows, columns,
-				request);
+		Universe universe = universeInstanciatedFromClickedCells(rows, columns, request);
 		universe.createNextGeneration();
 
 		thinkABit(250);
@@ -53,7 +52,7 @@ public class GameController {
 	private void thinkABit(int max) {
 		int thinkingTime = randomGenerator.nextInt(max/4);
 		try {
-			Thread.currentThread().sleep(thinkingTime);
+			Thread.sleep(thinkingTime);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

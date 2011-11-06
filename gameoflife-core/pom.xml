@@ -12,23 +12,6 @@
   <version>0.7.49-SNAPSHOT</version>
   <name>gameoflife-core</name>
   <url>${HUDSON_URL}</url>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.easyb</groupId>
-        <artifactId>maven-easyb-plugin</artifactId>
-        <version>${easyb.version}</version>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-    <dependency>
-      <groupId>org.easyb</groupId>
-      <artifactId>easyb-core</artifactId>
-      <version>${easyb.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
   <reporting>
     <plugins>
       <plugin>

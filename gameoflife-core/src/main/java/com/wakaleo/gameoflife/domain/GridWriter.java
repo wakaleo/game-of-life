@@ -2,7 +2,9 @@ package com.wakaleo.gameoflife.domain;
 
 public class GridWriter {
 
-    public String convertToString(Cell[][] gridContents) {
+	private final String LINE_SEPARATOR = System.getProperty("line.separator");
+
+	public String convertToString(Cell[][] gridContents) {
         StringBuffer printedGrid = new StringBuffer();
         for(Cell[] row : gridContents) {
             for( Cell cell : row) {
@@ -10,7 +12,7 @@ public class GridWriter {
             }
             // TODO: This simply masks the problem: why empty rows being passed?
             if(row.length > 0) {
-            	printedGrid.append("\n");
+            	printedGrid.append(LINE_SEPARATOR);
             }
         }
         return printedGrid.toString();
