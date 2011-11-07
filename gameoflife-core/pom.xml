@@ -4,7 +4,7 @@
   <parent>
     <artifactId>gameoflife</artifactId>
     <groupId>com.wakaleo.gameoflife</groupId>
-    <version>0.8.4-SNAPSHOT</version>
+    <version>0.8.4</version>
   </parent>
   <groupId>com.wakaleo.gameoflife</groupId>
   <artifactId>gameoflife-core</artifactId>
