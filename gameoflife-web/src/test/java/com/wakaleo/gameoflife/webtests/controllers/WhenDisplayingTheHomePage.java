@@ -1,4 +1,4 @@
-package com.wakaleo.gameoflife.web.controllers;
+package com.wakaleo.gameoflife.webtests.controllers;
 
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;

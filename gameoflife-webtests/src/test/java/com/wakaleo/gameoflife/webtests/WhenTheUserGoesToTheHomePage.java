@@ -1,6 +1,7 @@
-package com.wakaleo.gameoflife.web.webtests;
+package com.wakaleo.gameoflife.webtests;
 
-import com.wakaleo.gameoflife.web.webtests.steps.PlayerSteps;
+import com.wakaleo.gameoflife.webtests.requirements.GameOfLifeApplication.RunSimulations.RunASimulation;
+import com.wakaleo.gameoflife.webtests.steps.PlayerSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -10,8 +11,6 @@ import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-
-import com.wakaleo.gameoflife.web.requirements.GameOfLifeApplication.RunSimulations.RunASimulation;
 
 @RunWith(ThucydidesRunner.class)
 @Story(RunASimulation.class)

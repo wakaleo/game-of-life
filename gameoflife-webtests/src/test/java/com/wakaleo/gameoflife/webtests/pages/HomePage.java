@@ -1,7 +1,6 @@
-package com.wakaleo.gameoflife.web.webtests.pages;
+package com.wakaleo.gameoflife.webtests.pages;
 
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
