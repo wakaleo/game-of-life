@@ -15,6 +15,7 @@
         <!-- A workaround for a bug in PMD -->
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
+        <thucydides.version>0.4.19</thucydides.version>
     </properties>
 
     <scm>
@@ -152,6 +153,7 @@
         <module>gameoflife-web</module>
         <module>gameoflife-webservice</module>
         <module>gameoflife-cli</module>
+        <module>gameoflife-webtests</module>
     </modules>
     <distributionManagement>
         <repository>

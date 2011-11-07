@@ -1,8 +1,7 @@
-package com.wakaleo.gameoflife.web.webtests;
+package com.wakaleo.gameoflife.webtests;
 
-import com.wakaleo.gameoflife.web.requirements.GameOfLifeApplication;
-import com.wakaleo.gameoflife.web.webtests.pages.EnterGridPage;
-import com.wakaleo.gameoflife.web.webtests.steps.PlayerSteps;
+import com.wakaleo.gameoflife.webtests.requirements.GameOfLifeApplication;
+import com.wakaleo.gameoflife.webtests.steps.PlayerSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;

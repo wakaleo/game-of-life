@@ -13,10 +13,8 @@
     <name>gameoflife-web</name>
 
     <properties>
-        <thucydides.version>0.4.19</thucydides.version>
         <jetty.port>9090</jetty.port>
         <jetty.stop.port>9999</jetty.stop.port>
-        <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
     </properties>
 
     <build>
@@ -31,45 +29,6 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.9</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>unit-tests</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <parallel>classes</parallel>
-                            <excludes>
-                                <exclude>**/webtests/*.java</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>integration-tests</id>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <parallel>classes</parallel>
-                            <includes>
-                                <include>**/webtests/*.java</include>
-                            </includes>
-                            <excludes>
-                                <exclude>**/pages/*.java</exclude>
-                            </excludes>
-                            <systemPropertyVariables>
-                                <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
@@ -86,26 +45,6 @@
                     <stopKey>foo</stopKey>
                     <stopPort>${jetty.stop.port}</stopPort>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
-                            <daemon>true</daemon>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -147,6 +86,7 @@
         </plugins>
     </build>
     <profiles>
+        <!-- Deprecated: needs to be migrated to the webtests module. -->
         <profile>
             <id>performance</id>
             <build>
@@ -240,36 +180,6 @@
             <groupId>org.easytesting</groupId>
             <artifactId>fest-assert</artifactId>
             <version>1.4</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>net.thucydides</groupId>
-            <artifactId>thucydides-core</artifactId>
-            <version>${thucydides.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.thucydides</groupId>
-            <artifactId>thucydides-junit</artifactId>
-            <version>${thucydides.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.thucydides.easyb</groupId>
-            <artifactId>thucydides-easyb-plugin</artifactId>
-            <version>${thucydides.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.lambdaj</groupId>
-            <artifactId>lambdaj</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>1.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
