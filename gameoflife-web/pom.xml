@@ -62,13 +62,6 @@
                     </archive>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.cloudbees</groupId>
-                <artifactId>bees-maven-plugin</artifactId>
-                <configuration>
-                    <port>8085</port>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
     <profiles>
