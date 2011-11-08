@@ -1,9 +1,10 @@
 package com.wakaleo.gameoflife.webtests;
 
-import com.wakaleo.gameoflife.webtests.requirements.GameOfLifeApplication.RunSimulations.RunASimulation;
+import com.wakaleo.gameoflife.webtests.requirements.GameOfLifeApplication.LearnApplication.ViewHomePage;
 import com.wakaleo.gameoflife.webtests.steps.PlayerSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
@@ -13,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-@Story(RunASimulation.class)
+@Story(ViewHomePage.class)
 public class WhenTheUserGoesToTheHomePage {
 
     @Managed
@@ -31,4 +32,14 @@ public class WhenTheUserGoesToTheHomePage {
         player.opens_home_page();
         player.should_see_title_of("The Game Of Life");
     }
+
+
+    @Test
+    @Pending
+    public void homePageShouldDisplayHistoryLink() {
+
+        //player.opens_home_page();
+        //player.should_see_a_page_containing_text("History");
+    }
+
 }

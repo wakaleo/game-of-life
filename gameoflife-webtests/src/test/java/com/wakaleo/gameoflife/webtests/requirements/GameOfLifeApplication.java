@@ -10,6 +10,16 @@ public class GameOfLifeApplication {
     }
 
     @Feature
+    public class LearnApplication {
+        public class ViewHomePage {}
+    }
+
+    @Feature
+    public class History {
+        public class ViewHistory {}
+    }
+
+    @Feature
     public class RecordResults {
         public class RecordASimulation {}
         public class ViewPastSimulationResults {}
