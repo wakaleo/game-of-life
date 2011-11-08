@@ -37,7 +37,6 @@ public class WhenTheUserGoesToTheHomePage {
     @Test
     @Pending
     public void homePageShouldDisplayHistoryLink() {
-
         //player.opens_home_page();
         //player.should_see_a_page_containing_text("History");
     }
