@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-       <artifactId>gameoflife</artifactId>
-       <groupId>com.wakaleo.gameoflife</groupId>
-       <version>0.8.8-SNAPSHOT</version>
+        <artifactId>gameoflife</artifactId>
+        <groupId>com.wakaleo.gameoflife</groupId>
+        <version>0.8.9-SNAPSHOT</version>
     </parent>
     <artifactId>gameoflife-webtests</artifactId>
     <name>gameoflife-webtests</name>
@@ -167,6 +167,30 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>development</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife-dev.thucydides.cloudbees.net/</webdriver.base.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>integration</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife-integration.thucydides.cloudbees.net/</webdriver.base.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>staging</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife-staging.thucydides.cloudbees.net/</webdriver.base.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife.thucydides.cloudbees.net/</webdriver.base.url>
+            </properties>
         </profile>
     </profiles>
 </project>
