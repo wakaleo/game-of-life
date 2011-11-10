@@ -90,6 +90,10 @@ occur:
 <a href="${newGamePage}">New Game</a>
 </div>
 
+<div class="action-button">
+<a href="${newGamePage}">History</a>
+</div>
+
 <%
 	InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("/system.properties");
 	Properties prop = new Properties();  

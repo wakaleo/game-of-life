@@ -1,6 +1,6 @@
 package com.wakaleo.gameoflife.webtests;
 
-import com.wakaleo.gameoflife.webtests.requirements.GameOfLifeApplication.LearnApplication.ViewHomePage;
+import com.wakaleo.gameoflife.webtests.requirements.GameOfLifeApplication.History.ViewHistory;
 import com.wakaleo.gameoflife.webtests.steps.PlayerSteps;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-@Story(ViewHomePage.class)
-public class WhenTheUserGoesToTheHomePage {
+@Story(ViewHistory.class)
+public class WhenTheUserViewsGameHistory {
 
     @Managed
     WebDriver driver;
@@ -27,17 +27,18 @@ public class WhenTheUserGoesToTheHomePage {
     PlayerSteps player;
 
     @Test
-    public void homePageShouldDisplayWelcomeMessage() {
-
-        player.opens_home_page();
-        player.should_see_title_of("The Game Of Life");
+    @Pending
+    public void theUserShouldBeAbleToAccessGameHistoryFromTheHomePage() {
     }
 
+    @Test
+    @Pending
+    public void theHistoryPageShouldInitiallyBeEmpty() {
+    }
 
     @Test
-    public void homePageShouldDisplayHistoryLink() {
-        player.opens_home_page();
-        player.should_see_a_page_containing_text("History");
+    @Pending
+    public void whenTheUserPlaysAGameItShouldThenAppearInTheHistoryPage() {
     }
 
 }
