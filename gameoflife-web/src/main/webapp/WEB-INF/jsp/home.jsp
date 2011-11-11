@@ -10,6 +10,7 @@
 h2 {
 	color: blue;
 	font-family: sans-serif;
+    font-size: 2em;
 }
 
 .intro {
