@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>com.wakaleo.gameoflife</groupId>
 			<artifactId>gameoflife-core</artifactId>
-			<version>0.8.10-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
