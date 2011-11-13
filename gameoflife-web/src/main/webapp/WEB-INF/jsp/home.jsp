@@ -5,61 +5,8 @@
 <html>
 <head>
 <title>The Game Of Life</title>
-<!--  TODO: Don't inline this -->
-<style type="text/css">
-h2 {
-	color: blue;
-	font-family: sans-serif;
-    font-size: 2em;
-}
 
-.intro {
-	font-family: sans-serif;
-	background: rgb(200, 200, 200);
-	border: 1pt rgb(150, 150, 150) solid;
-	padding: 8px;
-	margin: 4px;
-	text-align: justify;
-	color: rgb(25,25,25)
-}
-
-.footer {
-    color: white;
-    font-size: medium;
-    text-align: right;
-    background-color: blue;
-    margin-top: 100px;
-    border-top: thin solid black;
-    padding: 2px;
-	font-family: sans-serif;
-	font-weight: bold;
-}
-
-.action-button {
-	border-bottom:2px solid rgb(100,100,100);
-	border-left:2px solid  rgb(100,100,100);
-	border-top:2px solid  rgb(150,150,150);
-	border-right:2px solid  rgb(150,150,150);
-	background: silver;
-	width: 100px;
-	margin: 8px;
-	padding: 4px;
-	text-align: center;
-}
-
-a {
-	text-decoration: none;
-	font-size: large;
-	font-weight: bold;
-	font-family: sans-serif;
-}
-
-li {
-	list-style: circle;
-	padding: 4px;
-}
-
-</style>
+    <link rel="stylesheet" href="/css/default.css" />
 </head>
 <body>
 <h2>Welcome to Conway's Game Of Life!</h2>
