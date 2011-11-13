@@ -4,8 +4,8 @@
 <%@page import="java.util.Properties" %>
 <html>
 <head>
-<title>The Game Of Life</title>
-    <link rel="stylesheet" href="/css/default.css" />
+<title>The Game Of Life</title>                       
+    <link rel="stylesheet" href="/css/default.css" /> 
 </head>
 <body>
 <h2>Welcome to Conway's Game Of Life!</h2>
