@@ -4,11 +4,11 @@
   <parent>
     <artifactId>gameoflife</artifactId>
     <groupId>com.wakaleo.gameoflife</groupId>
-    <version>0.8.23-SNAPSHOT</version>
+    <version>0.8.23</version>
   </parent>
   <groupId>com.wakaleo.gameoflife</groupId>
   <artifactId>gameoflife-build</artifactId>
   <packaging>jar</packaging>
-  <version>0.8.23-SNAPSHOT</version>
+  <version>0.8.23</version>
   <name>gameoflife-build</name>
 </project>
