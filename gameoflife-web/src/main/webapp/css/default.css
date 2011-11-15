@@ -1,8 +1,10 @@
 <style type="text/css">
+
+h1 {color:blue}
+
 h2 {
-	color: #00008B;
-	font-family: sans-serif;
-    font-size: 2em;
+    font-family: sans-serif;
+    color:blue
 }
 
 .intro {
@@ -68,3 +70,5 @@ li {
 
 .griddisplay {
 }
+
+</style>
