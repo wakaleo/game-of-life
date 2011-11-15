@@ -1,6 +1,6 @@
 <style type="text/css">
 h2 {
-	color: green;
+	color: blue;
 	font-family: sans-serif;
 }
 
@@ -56,7 +56,7 @@ li {
 }
 
 #grid {
-   border: 1px solid grey;
+   border: 1px solid gray;
    padding:4px;
    margin: 16px;
    margin-left: 4px;
