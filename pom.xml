@@ -93,6 +93,24 @@
                     <xmlOutput>true</xmlOutput>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.easyb</groupId>
+                <artifactId>maven-easyb-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <storyType>html</storyType>
+                    <storyReport>target/easyb/easyb.html</storyReport>
+                    <easybTestDirectory>src/test/stories</easybTestDirectory>
+                    <jvmArguments>-Xmx512m -Dwebdriver.driver=${webdriver.driver}</jvmArguments>
+                </configuration>
+            </plugin>
         </plugins>
 
         <pluginManagement>
