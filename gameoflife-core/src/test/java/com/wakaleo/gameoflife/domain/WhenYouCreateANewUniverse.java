@@ -1,7 +1,6 @@
 package com.wakaleo.gameoflife.domain;
 
 import org.junit.Test;
-import org.junit.Ignore;
 
 import com.wakaleo.gameoflife.domain.Universe;
 
