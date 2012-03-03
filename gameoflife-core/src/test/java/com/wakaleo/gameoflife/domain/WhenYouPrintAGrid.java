@@ -4,7 +4,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static com.wakaleo.gameoflife.domain.Cell.*;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.wakaleo.gameoflife.domain.Cell;
