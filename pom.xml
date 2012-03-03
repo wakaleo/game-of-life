@@ -14,7 +14,7 @@
         <!-- A workaround for a bug in PMD -->
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
-        <thucydides.version>0.4.22</thucydides.version>
+        <thucydides.version>0.7.10</thucydides.version>
     </properties>
 
     <scm>
