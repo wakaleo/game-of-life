@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 @Story(GameOfLifeApplication.RunSimulations.RunASimulation.class)
 public class WhenTheUserSpawnsTheNextGeneration {
      
-    @Managed(uniqueSession = true)
+    @Managed(uniqueSession = true, driver="htmlunit")
     WebDriver driver;
 
     @ManagedPages(defaultUrl = "http://localhost:9090")

@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 @Story(RunASimulation.class)
 public class WhenTheUserGoesToTheHomePage {
 
-    @Managed
+    @Managed(driver = "htmlunit")
     WebDriver driver;
 
     @ManagedPages(defaultUrl = "http://localhost:9090")
