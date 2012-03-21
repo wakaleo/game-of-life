@@ -176,14 +176,12 @@
     </modules>
     <distributionManagement>
         <repository>
-            <id>releases</id>
-            <url>http://wakaleo-labs.com:8082/nexus/content/repositories/releases
-            </url>
+            <id>cloudbees-releases</id>
+            <url>https://repository-thucydides.forge.cloudbees.com/release</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://wakaleo-labs.com:8082/nexus/content/repositories/snapshots
-            </url>
+            <id>cloudbees-snapshots</id>
+            <url>https://repository-thucydides.forge.cloudbees.com/snapshot</url>
         </snapshotRepository>
     </distributionManagement>
     <profiles>
