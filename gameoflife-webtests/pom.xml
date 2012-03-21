@@ -87,6 +87,7 @@
                         </goals>
                         <configuration>
                             <parallel>classes</parallel>
+                            <threadCount>4</threadCount>
                             <includes>
                                 <include>**/When*.java</include>
                                 <include>**/*Test.java</include>
