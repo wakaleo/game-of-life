@@ -94,6 +94,7 @@
                             </includes>
                             <systemPropertyVariables>
                                 <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                                <webdriver.driver>${webdriver.driver}</webdriver.driver>
                             </systemPropertyVariables>
                         </configuration>
                     </execution>
@@ -117,10 +118,27 @@
     </build>
     <profiles>
         <profile>
-            <id>integration-tests</id>
+            <id>development</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife-dev.thucydides.cloudbees.net</webdriver.base.url>
+                <webdriver.driver>firefox</webdriver.driver>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife-test.thucydides.cloudbees.net</webdriver.base.url>
+                <webdriver.driver>firefox</webdriver.driver>
+            </properties>
+        </profile>
+        <profile>
+            <id>local</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <webdriver.driver>htmlunit</webdriver.driver>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
