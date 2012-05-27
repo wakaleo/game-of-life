@@ -6,12 +6,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * This class rocks.
- * @author johnsmart
  *
+ * @author johnsmart
  */
 @Controller
 public class HomePageController {
-	// FIXME: do something nicer for the home page
+    // FIXME: do something nicer for the home page
     @RequestMapping("/")
     public ModelAndView index() {
         return new ModelAndView("home");

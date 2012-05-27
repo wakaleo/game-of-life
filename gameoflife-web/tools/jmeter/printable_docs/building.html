@@ -18,167 +18,205 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./../docs/css/style.css"/>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>JMeter - Building JMeter and Add-Ons</title>
+    <link rel="stylesheet" type="text/css" href="./../docs/css/style.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>JMeter - Building JMeter and Add-Ons</title>
 </head>
 <body bgcolor="#ffffff" text="#000000" link="#525D76">
 <table border="0" cellspacing="0">
-<tr>
-<td colspan="2">
-<a href="http://jakarta.apache.org"><img width="505" height="48" src="./../docs/images/jakarta-logo.gif" align="left" border="0"></a>
-</td>
-</tr>
+    <tr>
+        <td colspan="2">
+            <a href="http://jakarta.apache.org"><img width="505" height="48" src="./../docs/images/jakarta-logo.gif"
+                                                     align="left" border="0"></a>
+        </td>
+    </tr>
 </table>
 <table border="0" cellspacing="4">
-<tr><td>
-<hr noshade size="1">
-</td></tr>
-<tr>
-<td align="left" valign="top">
-<table>
-<tr>
-<td bgcolor="#525D76">
-<div align="right"><a href="index.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Index</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="$next"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="$prev"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Prev</font></a></div>
-</td>
-</tr>
-</table>
-<br>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<strong>Building JMeter and Add-Ons</strong></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<font color="red">
-<strong>
+    <tr>
+        <td>
+            <hr noshade size="1">
+        </td>
+    </tr>
+    <tr>
+        <td align="left" valign="top">
+            <table>
+                <tr>
+                    <td bgcolor="#525D76">
+                        <div align="right"><a href="index.html"><font size=-1 color="#ffffff"
+                                                                      face="arial,helvetica,sanserif">Index</font></a>
+                        </div>
+                    </td>
+                    <td bgcolor="#525D76">
+                        <div align="right"><a href="$next"><font size=-1 color="#ffffff"
+                                                                 face="arial,helvetica,sanserif">Next</font></a></div>
+                    </td>
+                    <td bgcolor="#525D76">
+                        <div align="right"><a href="$prev"><font size=-1 color="#ffffff"
+                                                                 face="arial,helvetica,sanserif">Prev</font></a></div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table border="0" cellspacing="0" cellpadding="2" width="100%">
+                <tr>
+                    <td bgcolor="#525D76">
+                        <font color="#ffffff" face="arial,helvetica,sanserif">
+                            <strong>Building JMeter and Add-Ons</strong></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                            <font color="red">
+                                <strong>
 
-Note to developers:
-This is a very brief overview. 
-There is more infomation on the JMeter Wiki.
+                                    Note to developers:
+                                    This is a very brief overview.
+                                    There is more infomation on the JMeter Wiki.
 
-</strong>
-</font>
-<h2>
-Building Add-Ons
-</h2>
-<p>
+                                </strong>
+                            </font>
 
-There is no need to build JMeter if you just want to build an add-on.
-Just download the binary archive and add the jars to the classpath.
-You may want to also download the source so it can be used by the IDE.
+                            <h2>
+                                Building Add-Ons
+                            </h2>
 
-</p>
-<p>
-See the extras/addons* files in the source tree for some suggestions
-</p>
-<h2>
-Building JMeter
-</h2>
-<h3>
-Acquiring the source
-</h3>
-<p>
-The source and bundled jars can be downloaded from SVN.
-</p>
-<p>
-Or you can download the binary and source archives for a release and unpack them in the same directory structure.
-</p>
-<h3>
-Other jars you may need
-</h3>
-<p>
+                            <p>
 
-You may also need to download JAF/JavaMail, JMS and JDBC jars
- - see 
-<a href="usermanual/get-started.html">
-Getting Started
-</a>
+                                There is no need to build JMeter if you just want to build an add-on.
+                                Just download the binary archive and add the jars to the classpath.
+                                You may want to also download the source so it can be used by the IDE.
 
+                            </p>
 
-</p>
-<h3>
-Compiling and packaging JMeter using Ant
-</h3>
-<p>
+                            <p>
+                                See the extras/addons* files in the source tree for some suggestions
+                            </p>
 
-JMeter can be built entirely using Ant; see build.xml for the targets that can be used.
+                            <h2>
+                                Building JMeter
+                            </h2>
 
-</p>
-<h3>
-Compiling and packaging JMeter using Eclipse
-</h3>
-<p>
+                            <h3>
+                                Acquiring the source
+                            </h3>
 
-Once you have downloaded the source from SVN or the release archives, you can configure Eclipse.
-The easiest way to do this is to replace the Eclipse .classpath file with the eclipse.classpath file provided with JMeter.
-This will set up the source-paths and most of the libraries.
-If you have downloaded any of the optional jars (JavaMail etc) you will need to update the project classpath.
+                            <p>
+                                The source and bundled jars can be downloaded from SVN.
+                            </p>
 
-<p>
+                            <p>
+                                Or you can download the binary and source archives for a release and unpack them in the
+                                same directory structure.
+                            </p>
 
-See also the file eclipse.readme.
+                            <h3>
+                                Other jars you may need
+                            </h3>
 
-</p>
+                            <p>
+
+                                You may also need to download JAF/JavaMail, JMS and JDBC jars
+                                - see
+                                <a href="usermanual/get-started.html">
+                                    Getting Started
+                                </a>
 
 
-</p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
-</table>
-<br>
-<table>
-<tr>
-<td bgcolor="#525D76">
-<div align="right"><a href="index.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Index</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="$next"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="$prev"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Prev</font></a></div>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr><td>
-<hr noshade size="1">
-</td></tr>
-<tr>
-<td>
-<table width=100%>
-<tr>
-<td>
-<font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2009, Apache Software Foundation
-</em></font>
-</td>
-<td align="right">
-<font color="#525D76" size="-1"><em>
-Updated: $updated
-</em></font>
-</td>
-</tr>
-<tr><td colspan="2">
-<div align="center"><font color="#525D76" size="-1">
-"Apache", the Apache feather, and the Apache JMeter logo are
-trademarks of the Apache Software Foundation for our open source software.
-</font>
-</div>
-</td></tr>
-</table>
-</td>
-</tr>
+                            </p>
+
+                            <h3>
+                                Compiling and packaging JMeter using Ant
+                            </h3>
+
+                            <p>
+
+                                JMeter can be built entirely using Ant; see build.xml for the targets that can be used.
+
+                            </p>
+
+                            <h3>
+                                Compiling and packaging JMeter using Eclipse
+                            </h3>
+
+                            <p>
+
+                                Once you have downloaded the source from SVN or the release archives, you can configure
+                                Eclipse.
+                                The easiest way to do this is to replace the Eclipse .classpath file with the
+                                eclipse.classpath file provided with JMeter.
+                                This will set up the source-paths and most of the libraries.
+                                If you have downloaded any of the optional jars (JavaMail etc) you will need to update
+                                the project classpath.
+
+                            <p>
+
+                                See also the file eclipse.readme.
+
+                            </p>
+
+
+                            </p>
+                        </blockquote>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr>
+                    <td bgcolor="#525D76">
+                        <div align="right"><a href="index.html"><font size=-1 color="#ffffff"
+                                                                      face="arial,helvetica,sanserif">Index</font></a>
+                        </div>
+                    </td>
+                    <td bgcolor="#525D76">
+                        <div align="right"><a href="$next"><font size=-1 color="#ffffff"
+                                                                 face="arial,helvetica,sanserif">Next</font></a></div>
+                    </td>
+                    <td bgcolor="#525D76">
+                        <div align="right"><a href="$prev"><font size=-1 color="#ffffff"
+                                                                 face="arial,helvetica,sanserif">Prev</font></a></div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <hr noshade size="1">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width=100%>
+                <tr>
+                    <td>
+                        <font color="#525D76" size="-1"><em>
+                            Copyright &copy; 1999-2009, Apache Software Foundation
+                        </em></font>
+                    </td>
+                    <td align="right">
+                        <font color="#525D76" size="-1"><em>
+                            Updated: $updated
+                        </em></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center"><font color="#525D76" size="-1">
+                            "Apache", the Apache feather, and the Apache JMeter logo are
+                            trademarks of the Apache Software Foundation for our open source software.
+                        </font>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
 </table>
 </body>
 </html>

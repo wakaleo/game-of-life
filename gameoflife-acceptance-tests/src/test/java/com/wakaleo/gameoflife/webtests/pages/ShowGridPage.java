@@ -10,14 +10,14 @@ import java.util.List;
 
 public class ShowGridPage extends GameOfLifePage {
 
-    @FindBy(id="submit")
+    @FindBy(id = "submit")
     WebElement nextButton;
 
     public ShowGridPage(WebDriver driver) {
         super(driver);
     }
 
-    public String[][] getDisplayedGrid() {        
+    public String[][] getDisplayedGrid() {
         return getTableWithId("grid");
     }
 
@@ -40,7 +40,7 @@ public class ShowGridPage extends GameOfLifePage {
     }
 
     private String[][] tableContentsAsAnArray(List<String[]> tableContents,
-            int numberOfColumns) {
+                                              int numberOfColumns) {
         int numberOfRows = tableContents.size();
         return tableContents.toArray(new String[numberOfRows][numberOfColumns]);
     }

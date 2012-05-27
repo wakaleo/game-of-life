@@ -15,8 +15,8 @@
    limitations under the License.
 */
 
-a[name]:hover:after{
-/*Shows the value of the name attribute when hovered*/
+a[name]:hover:after {
+    /*Shows the value of the name attribute when hovered*/
     content: " #" attr(name);
     font-size: 90%;
     text-decoration: none;

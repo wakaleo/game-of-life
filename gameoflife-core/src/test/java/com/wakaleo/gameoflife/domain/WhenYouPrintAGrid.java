@@ -11,20 +11,20 @@ import com.wakaleo.gameoflife.domain.GridWriter;
 
 public class WhenYouPrintAGrid {
 
-	private final String NEW_LINE = System.getProperty("line.separator");
+    private final String NEW_LINE = System.getProperty("line.separator");
 
     @Test
     public void shouldBeAbleToReadAGridOfCellsFromAString() {
         Cell[][] gridContents = {
                 {DEAD_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, DEAD_CELL, DEAD_CELL}, 
-                {DEAD_CELL, DEAD_CELL, DEAD_CELL} 
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, DEAD_CELL, DEAD_CELL}
         };
-        
-        String expectedPrintedGrid = "..." + NEW_LINE + 
-                                     "..." + NEW_LINE +
-                                     "..." + NEW_LINE + "";
-        
+
+        String expectedPrintedGrid = "..." + NEW_LINE +
+                "..." + NEW_LINE +
+                "..." + NEW_LINE + "";
+
         GridWriter gridWriter = new GridWriter();
         String printedGrid = gridWriter.convertToString(gridContents);
         assertThat(printedGrid, is(expectedPrintedGrid));
@@ -34,14 +34,14 @@ public class WhenYouPrintAGrid {
     public void shouldBeAbleToReadAStringGridContainingLiveAndDeadCells() {
         Cell[][] gridContents = {
                 {LIVE_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL} 
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL},
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL}
         };
-        
-        String expectedPrintedGrid = "*.." + NEW_LINE + 
-                                     ".*." + NEW_LINE +
-                                     ".*." + NEW_LINE + "";
-        
+
+        String expectedPrintedGrid = "*.." + NEW_LINE +
+                ".*." + NEW_LINE +
+                ".*." + NEW_LINE + "";
+
         GridWriter gridWriter = new GridWriter();
         String printedGrid = gridWriter.convertToString(gridContents);
         assertThat(printedGrid, is(expectedPrintedGrid));
@@ -50,36 +50,36 @@ public class WhenYouPrintAGrid {
     @Test
     public void shouldBeAbleToReadALargeStringGridContainingLiveAndDeadCells() {
         Cell[][] gridContents = {
-                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL,LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
+                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
                 {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
-                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL,LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
                 {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
-                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL,LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
+                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
                 {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
-                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL,LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
-                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL,DEAD_CELL, LIVE_CELL, DEAD_CELL}, 
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
+                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
+                {LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL},
+                {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
                 {DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL, DEAD_CELL, LIVE_CELL, DEAD_CELL},
         };
-        
-        String expectedPrintedGrid = "*..*..*..*.." + NEW_LINE + 
-                                     ".*..*..*..*." + NEW_LINE +
-                                     ".*..*..*..*." + NEW_LINE + 
-                                     "*..*..*..*.." + NEW_LINE + 
-                                     ".*..*..*..*." + NEW_LINE +
-                                     ".*..*..*..*." + NEW_LINE +
-                                     "*..*..*..*.." + NEW_LINE + 
-                                     ".*..*..*..*." + NEW_LINE +
-                                     ".*..*..*..*." + NEW_LINE +
-                                     "*..*..*..*.." + NEW_LINE + 
-                                     ".*..*..*..*." + NEW_LINE +
-                                     ".*..*..*..*." + NEW_LINE + "";
-        
+
+        String expectedPrintedGrid = "*..*..*..*.." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                "*..*..*..*.." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                "*..*..*..*.." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                "*..*..*..*.." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE +
+                ".*..*..*..*." + NEW_LINE + "";
+
         GridWriter gridWriter = new GridWriter();
         String printedGrid = gridWriter.convertToString(gridContents);
         assertThat(printedGrid, is(expectedPrintedGrid));
     }
-    
+
 }

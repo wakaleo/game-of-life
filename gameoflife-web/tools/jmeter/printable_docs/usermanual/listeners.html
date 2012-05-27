@@ -18,124 +18,154 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../../docs/css/style.css"/>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>JMeter - User's Manual: Listeners</title>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/style.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>JMeter - User's Manual: Listeners</title>
 </head>
 <body bgcolor="#ffffff" text="#000000" link="#525D76">
 <table border="0" cellspacing="0">
-<tr>
-<td colspan="2">
-<a href="http://jakarta.apache.org"><img width="505" height="48" src="../../docs/images/jakarta-logo.gif" align="left" border="0"></a>
-</td>
-</tr>
+    <tr>
+        <td colspan="2">
+            <a href="http://jakarta.apache.org"><img width="505" height="48" src="../../docs/images/jakarta-logo.gif"
+                                                     align="left" border="0"></a>
+        </td>
+    </tr>
 </table>
 <table border="0" cellspacing="4">
-<tr><td>
-<hr noshade size="1">
-</td></tr>
+<tr>
+    <td>
+        <hr noshade size="1">
+    </td>
+</tr>
 <tr>
 <td align="left" valign="top">
 <table>
-<tr>
-<td bgcolor="#525D76">
-<div align="right"><a href="index.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Index</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="remote-test.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="build-monitor-test-plan.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Prev</font></a></div>
-</td>
-</tr>
+    <tr>
+        <td bgcolor="#525D76">
+            <div align="right"><a href="index.html"><font size=-1 color="#ffffff"
+                                                          face="arial,helvetica,sanserif">Index</font></a></div>
+        </td>
+        <td bgcolor="#525D76">
+            <div align="right"><a href="remote-test.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a>
+            </div>
+        </td>
+        <td bgcolor="#525D76">
+            <div align="right"><a href="build-monitor-test-plan.html"><font size=-1 color="#ffffff"
+                                                                            face="arial,helvetica,sanserif">Prev</font></a>
+            </div>
+        </td>
+    </tr>
 </table>
 <br>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="intro"><strong>14. Introduction to listeners</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
-A listener is a component that shows the results of the
-samples. The results can be shown in a tree, tables, graphs or simply written to a log
-file. To view the contents of a response from any given sampler, add either of the Listeners "View
-Results Tree" or "View Results in table" to a test plan. To view the response time graphically, add
-graph results, spline results or distribution graph. 
-The 
-<a href="../usermanual/component_reference.html#listeners">listeners</a>
- 
-section of the components page has full descriptions of all the listeners.
-</p>
-<p><table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
-<tr><td>
-Different listeners display the response information in different ways. 
-However, they all write the same raw data to the output file - if one is specified.
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="intro"><strong>14. Introduction to listeners</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
+                    A listener is a component that shows the results of the
+                    samples. The results can be shown in a tree, tables, graphs or simply written to a log
+                    file. To view the contents of a response from any given sampler, add either of the Listeners "View
+                    Results Tree" or "View Results in table" to a test plan. To view the response time graphically, add
+                    graph results, spline results or distribution graph.
+                    The
+                    <a href="../usermanual/component_reference.html#listeners">listeners</a>
 
-</td></tr>
-</table></p>
-<p>
+                    section of the components page has full descriptions of all the listeners.
+                </p>
 
-The "Configure" button can be used to specify which fields to write to the file, and whether to 
-write it as CSV or XML. 
-CSV files are much smaller than XML files, so use CSV if you are generating lots of samples.
+                <p>
+                <table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+                    <tr>
+                        <td>
+                            Different listeners display the response information in different ways.
+                            However, they all write the same raw data to the output file - if one is specified.
 
-</p>
-<p>
+                        </td>
+                    </tr>
+                </table>
+                </p>
+                <p>
+
+                    The "Configure" button can be used to specify which fields to write to the file, and whether to
+                    write it as CSV or XML.
+                    CSV files are much smaller than XML files, so use CSV if you are generating lots of samples.
+
+                </p>
+
+                <p>
 
 
+                </p>
 
-</p>
-<p>
+                <p>
 
-If you only wish to record certain samples, add the Listener as a child of the sampler.
-Or you can use a Simple Controller to group a set of samplers, and add the Listener to that.
-The same filename can be used by multiple samplers - but make sure they all use the same configuration!
+                    If you only wish to record certain samples, add the Listener as a child of the sampler.
+                    Or you can use a Simple Controller to group a set of samplers, and add the Listener to that.
+                    The same filename can be used by multiple samplers - but make sure they all use the same
+                    configuration!
 
-</p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="defaults"><strong>14.1 Default Configuration</strong></a></font>
-</td></tr>
-<tr><td>
+<tr>
+    <td bgcolor="#525D76">
+        <font color="#ffffff" face="arial,helvetica,sanserif">
+            <a name="defaults"><strong>14.1 Default Configuration</strong></a></font>
+    </td>
+</tr>
+<tr>
+<td>
 <blockquote>
 <p>
 
-The default items to be saved can be defined in the jmeter.properties (or user.properties) file.
-The properties are used as the initial settings for the Listener Config pop-up, and are also
-used for the log file specified by the -l command-line flag (commonly used for non-GUI test runs).
+    The default items to be saved can be defined in the jmeter.properties (or user.properties) file.
+    The properties are used as the initial settings for the Listener Config pop-up, and are also
+    used for the log file specified by the -l command-line flag (commonly used for non-GUI test runs).
 
 </p>
+
 <p>
-To change the default format, find the following line in jmeter.properties:
+    To change the default format, find the following line in jmeter.properties:
 </p>
+
 <p>
-jmeter.save.saveservice.output_format=
+    jmeter.save.saveservice.output_format=
 </p>
+
 <p>
 
-The information to be saved is configurable.  For maximum information, choose "xml" as the format and specify "Functional Test Mode" on the Test Plan element.  If this box is not checked, the default saved
-data includes a time stamp (the number of milliseconds since midnight,
-January 1, 1970 UTC), the data type, the thread name, the label, the
-response time, message, and code, and a success indicator.  If checked, all information, including the full response data will be logged.
+    The information to be saved is configurable. For maximum information, choose "xml" as the format and specify
+    "Functional Test Mode" on the Test Plan element. If this box is not checked, the default saved
+    data includes a time stamp (the number of milliseconds since midnight,
+    January 1, 1970 UTC), the data type, the thread name, the label, the
+    response time, message, and code, and a success indicator. If checked, all information, including the full response
+    data will be logged.
 </p>
+
 <p>
 
-The following example indicates how to set
-properties to get a vertical bar ("|") delimited format that will
-output results like:.
+    The following example indicates how to set
+    properties to get a vertical bar ("|") delimited format that will
+    output results like:.
 </p>
+
 <p>
 
 
-<code>
+    <code>
 
 
 <pre>
@@ -148,21 +178,22 @@ timeStamp|time|label|responseCode|threadName|dataType|success|failureMessage
 </pre>
 
 
-</code>
+    </code>
 </p>
 <p>
 
-The corresponding jmeter.properties that need to be set are shown below.  One oddity
-in this example is that the output_format is set to csv, which
-typically
-indicates comma-separated values.  However, the default_delimiter was
-set to be a vertical bar instead of a comma, so the csv tag is a
-misnomer in this case. (Think of CSV as meaning character separated values)
+    The corresponding jmeter.properties that need to be set are shown below. One oddity
+    in this example is that the output_format is set to csv, which
+    typically
+    indicates comma-separated values. However, the default_delimiter was
+    set to be a vertical bar instead of a comma, so the csv tag is a
+    misnomer in this case. (Think of CSV as meaning character separated values)
 </p>
+
 <p>
 
 
-<code>
+    <code>
 
 
 <pre>
@@ -174,12 +205,12 @@ jmeter.save.saveservice.default_delimiter=|
 </pre>
 
 
-</code>
+    </code>
 
 
 <p>
 
-The full set of properties that affect result file output is shown below.
+    The full set of properties that affect result file output is shown below.
 
 </p>
 
@@ -269,102 +300,132 @@ sampleresult.timestamp.start=true
 </p>
 <p>
 
-The date format to be used for the timestamp_format is described in 
-<a HREF="http://java.sun.com/j2se/1.4/docs/api/java/text/SimpleDateFormat.html">
+    The date format to be used for the timestamp_format is described in
+    <a HREF="http://java.sun.com/j2se/1.4/docs/api/java/text/SimpleDateFormat.html">
 
 
-<b>
-SimpleDateFormat
-</b>
-</a>
-.
-Bear in mind that choosing a date format other than "ms" is likely to
-make it impossible for JMeter to interpret the value when it is read
-in later for viewing purposes.
+        <b>
+            SimpleDateFormat
+        </b>
+    </a>
+    .
+    Bear in mind that choosing a date format other than "ms" is likely to
+    make it impossible for JMeter to interpret the value when it is read
+    in later for viewing purposes.
 </p>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="sample_variables"><strong>14.1.1 Sample Variables</strong></a>
-</font>
-</td></tr>
-<tr><td>
-<blockquote>
+    <tr>
+        <td bgcolor="#828DA6">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="sample_variables"><strong>14.1.1 Sample Variables</strong></a>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
+
+                    Versions of JMeter after 2.3.1 allow one to use the
+                    <b>
+                        sample_variables
+                    </b>
+
+                    property to define a list of additional JMeter variables which are to be saved with
+                    each sample in the JTL files. The values are written to CSV files as additional columns,
+                    and as additional attributes in XML files. See above for an example.
+
+                </p>
+            </blockquote>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+    <tr>
+        <td bgcolor="#828DA6">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="sample_configuration"><strong>14.1.2 Sample Result Save Configuration</strong></a>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
+
+                    Listeners can be configured to save different items to the result log files (JTL) by using the
+                    Config popup as shown below.
+                    The defaults are defined as described in the
+                    <a href="#defaults">
+                        Listener Default Configuration
+                    </a>
+                    section above.
+                    Items with (CSV) after the name only apply to the CSV format; items with (XML) only apply to XML
+                    format.
+                    CSV format cannot currently be used to save any items that include line-breaks.
+
+                </p>
+
+                <p>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><img width='$width' height='$height'
+                                 src="../../docs/images/screenshots/sample_result_config.png"><br>
+                            <font size="-1"><br>
+                                </br>
+                                <b>
+                                    Configuration dialogue
+                                </b>
+                            </font></td>
+                    </tr>
+                </table>
+                </p>
+            </blockquote>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
+</table>
 <p>
 
-Versions of JMeter after 2.3.1 allow one to use the 
-<b>
-sample_variables
-</b>
- 
-property to define a list of additional JMeter variables which are to be saved with
-each sample in the JTL files. The values are written to CSV files as additional columns,
-and as additional attributes in XML files. See above for an example.
+    Note that cookies, method and the query string are saved as part of the "Sampler Data" option.
 
 </p>
 </blockquote>
-</td></tr>
-<tr><td><br></td></tr>
+</p>
+</td>
+</tr>
+<tr>
+    <td><br></td>
+</tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="sample_configuration"><strong>14.1.2 Sample Result Save Configuration</strong></a>
-</font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="batch"><strong>14.2 non-GUI (batch) test runs</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
 
-Listeners can be configured to save different items to the result log files (JTL) by using the Config popup as shown below.
-The defaults are defined as described in  the 
-<a href="#defaults">
-Listener Default Configuration
-</a>
- section above.
-Items with (CSV) after the name only apply to the CSV format; items with (XML) only apply to XML format.
-CSV format cannot currently be used to save any items that include line-breaks.
+                    When running in non-GUI mode, the -l flag can be used to create a top-level listener for the test
+                    run.
+                    This is in addition to any Listeners defined in the test plan.
+                    The configuration of this listener is controlled by entries in the file jmeter.properties
+                    as described in the previous section.
 
-</p>
-<p><table border="0" cellspacing="0" cellpadding="0"><tr><td><img width='$width' height='$height' src="../../docs/images/screenshots/sample_result_config.png"><br>
-<font size="-1"><br>
-</br>
-<b>
-Configuration dialogue
-</b>
-</font></td></tr></table></p>
-</blockquote>
-</td></tr>
-<tr><td><br></td></tr>
-</table>
-<p>
+                </p>
 
-Note that cookies, method and the query string are saved as part of the "Sampler Data" option.
+                <p>
 
-</p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="batch"><strong>14.2 non-GUI (batch) test runs</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
-
-When running in non-GUI mode, the -l flag can be used to create a top-level listener for the test run.
-This is in addition to any Listeners defined in the test plan.
-The configuration of this listener is controlled by entries in the file jmeter.properties
-as described in the previous section.
-
-</p>
-<p>
-
-This feature can be used to specify different data and log files for each test run, for example:
+                    This feature can be used to specify different data and log files for each test run, for example:
 
 <pre>
 
@@ -374,227 +435,246 @@ jmeter -n -t testplan.jmx -l testplan_02.jtl -j testplan_02.log
 </pre>
 
 
-</p>
-<p>
+                </p>
+                <p>
 
-Note that JMeter logging messages are written to the file 
-<b>
-jmeter.log
-</b>
- by default.
-This file is recreated each time, so if you want to keep the log files for each run, 
-you will need to rename it using the -j option as above. The -j option was added in version 2.3.
+                    Note that JMeter logging messages are written to the file
+                    <b>
+                        jmeter.log
+                    </b>
+                    by default.
+                    This file is recreated each time, so if you want to keep the log files for each run,
+                    you will need to rename it using the -j option as above. The -j option was added in version 2.3.
 
-</p>
-<p>
-Versions of JMeter after 2.3.1 support variables in the log file name.
-If the filename contains  paired single-quotes, then the name is processed
-as a SimpleDateFormat format applied to the current date, for example:
+                </p>
 
-<b>
-log_file='jmeter_'yyyyMMddHHmmss'.tmp'
-</b>
-. 
-This can be used to generate a unique name for each test run.
+                <p>
+                    Versions of JMeter after 2.3.1 support variables in the log file name.
+                    If the filename contains paired single-quotes, then the name is processed
+                    as a SimpleDateFormat format applied to the current date, for example:
 
-</p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                    <b>
+                        log_file='jmeter_'yyyyMMddHHmmss'.tmp'
+                    </b>
+                    .
+                    This can be used to generate a unique name for each test run.
+
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="resources"><strong>14.3 Resource usage</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
-<b>
-Listeners can use a lot of memory if there are a lot of samples.
-</b>
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="resources"><strong>14.3 Resource usage</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
+                    <b>
+                        Listeners can use a lot of memory if there are a lot of samples.
+                    </b>
 
-Most of the listeners currently keep a copy of every sample they display, apart from:
+                    Most of the listeners currently keep a copy of every sample they display, apart from:
 
-</p>
-<ul>
-
-
-<li>
-Simple Data Writer
-</li>
+                </p>
+                <ul>
 
 
-<li>
-BeanShell Listener
-</li>
+                    <li>
+                        Simple Data Writer
+                    </li>
 
 
-<li>
-Assertion Results
-</li>
+                    <li>
+                        BeanShell Listener
+                    </li>
 
 
-<li>
-Mailer Visualizer
-</li>
+                    <li>
+                        Assertion Results
+                    </li>
 
 
-<li>
-Monitor Results
-</li>
+                    <li>
+                        Mailer Visualizer
+                    </li>
 
 
-<li>
-Summary Report
-</li>
+                    <li>
+                        Monitor Results
+                    </li>
 
 
-</ul>
-<p>
-To minimise the amount of memory needed, use the Simple Data Writer, and use the CSV format.
-</p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                    <li>
+                        Summary Report
+                    </li>
+
+
+                </ul>
+                <p>
+                    To minimise the amount of memory needed, use the Simple Data Writer, and use the CSV format.
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="csvlogformat"><strong>14.4 CSV Log format</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="csvlogformat"><strong>14.4 CSV Log format</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
 
-The CSV log format depends on which data items are selected in the configuration.
-Only the specified data items are recorded in the file.
-The order of appearance of columns is fixed, and is as follows:
+                    The CSV log format depends on which data items are selected in the configuration.
+                    Only the specified data items are recorded in the file.
+                    The order of appearance of columns is fixed, and is as follows:
 
-</p>
-<ul>
-
-
-<li>
-timeStamp - in milliseconds since 1/1/1970
-</li>
+                </p>
+                <ul>
 
 
-<li>
-elapsed - in milliseconds
-</li>
+                    <li>
+                        timeStamp - in milliseconds since 1/1/1970
+                    </li>
 
 
-<li>
-label - sampler label
-</li>
+                    <li>
+                        elapsed - in milliseconds
+                    </li>
 
 
-<li>
-responseCode - e.g. 200, 404
-</li>
+                    <li>
+                        label - sampler label
+                    </li>
 
 
-<li>
-responseMessage - e.g. OK
-</li>
+                    <li>
+                        responseCode - e.g. 200, 404
+                    </li>
 
 
-<li>
-threadName
-</li>
+                    <li>
+                        responseMessage - e.g. OK
+                    </li>
 
 
-<li>
-dataType - e.g. text
-</li>
+                    <li>
+                        threadName
+                    </li>
 
 
-<li>
-success - true or false
-</li>
+                    <li>
+                        dataType - e.g. text
+                    </li>
 
 
-<li>
-failureMessage - if any
-</li>
+                    <li>
+                        success - true or false
+                    </li>
 
 
-<li>
-bytes - number of bytes in the sample
-</li>
+                    <li>
+                        failureMessage - if any
+                    </li>
 
 
-<li>
-grpThreads - number of active threads in this thread group
-</li>
+                    <li>
+                        bytes - number of bytes in the sample
+                    </li>
 
 
-<li>
-allThreads - total number of active threads in all groups
-</li>
+                    <li>
+                        grpThreads - number of active threads in this thread group
+                    </li>
 
 
-<li>
-URL
-</li>
+                    <li>
+                        allThreads - total number of active threads in all groups
+                    </li>
 
 
-<li>
-Filename - if Save Response to File was used
-</li>
+                    <li>
+                        URL
+                    </li>
 
 
-<li>
-latency - time to first response
-</li>
+                    <li>
+                        Filename - if Save Response to File was used
+                    </li>
 
 
-<li>
-encoding
-</li>
+                    <li>
+                        latency - time to first response
+                    </li>
 
 
-<li>
-SampleCount - number of samples (1, unless multiple samples are aggregated)
-</li>
+                    <li>
+                        encoding
+                    </li>
 
 
-<li>
-ErrorCount - number of errors (0 or 1, unless multiple samples are aggregated)
-</li>
+                    <li>
+                        SampleCount - number of samples (1, unless multiple samples are aggregated)
+                    </li>
 
 
-<li>
-Hostname where the sample was generated
-</li>
+                    <li>
+                        ErrorCount - number of errors (0 or 1, unless multiple samples are aggregated)
+                    </li>
 
 
-<li>
-Variables, if specified
-</li>
+                    <li>
+                        Hostname where the sample was generated
+                    </li>
 
 
-</ul>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                    <li>
+                        Variables, if specified
+                    </li>
+
+
+                </ul>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="xmlformat2.0"><strong>14.5 XML Log format 2.0</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="xmlformat2.0"><strong>14.5 XML Log format 2.0</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
 
-The format of the original XML (2.0) is as follows (line breaks will be different):
+                    The format of the original XML (2.0) is as follows (line breaks will be different):
 
-</p>
+                </p>
 <pre>
 
 &lt;?xml version="1.0" encoding="UTF-8"?>
@@ -623,23 +703,29 @@ The format of the original XML (2.0) is as follows (line breaks will be differen
 &lt;/testResults>
 
 </pre>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="xmlformat2.1"><strong>14.6 XML Log format 2.1</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="xmlformat2.1"><strong>14.6 XML Log format 2.1</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
 
-The format of the updated XML (2.1) is as follows (line breaks will be different):
+                    The format of the updated XML (2.1) is as follows (line breaks will be different):
 
-</p>
+                </p>
 <pre>
 
 &lt;?xml version="1.0" encoding="UTF-8"?>
@@ -726,407 +812,464 @@ Content-Type: text/html; charset=ISO-8859-1
 &lt;/testResults>
 
 </pre>
-<p>
+                <p>
 
-Note that the sample node name may be either "sample" or "httpSample".
+                    Note that the sample node name may be either "sample" or "httpSample".
 
-</p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="attributes"><strong>14.7 Sample Attributes</strong></a></font>
-</td></tr>
-<tr><td>
+<tr>
+    <td bgcolor="#525D76">
+        <font color="#ffffff" face="arial,helvetica,sanserif">
+            <a name="attributes"><strong>14.7 Sample Attributes</strong></a></font>
+    </td>
+</tr>
+<tr>
+<td>
 <blockquote>
 <p>
 
-The sample attributes have the following meaning:
+    The sample attributes have the following meaning:
 
 </p>
 <table>
 <tr>
-<td bgcolor="#039acc"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Attribute
-</font>
-</td>
-<td bgcolor="#039acc"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Content
-</font>
-</td>
+    <td bgcolor="#039acc" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Attribute
+        </font>
+    </td>
+    <td bgcolor="#039acc" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Content
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-by
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Bytes
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            by
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Bytes
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-de
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Data encoding
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            de
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Data encoding
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-dt
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Data type
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            dt
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Data type
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-ec
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Error count (0 or 1, unless multiple samples are aggregated)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            ec
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Error count (0 or 1, unless multiple samples are aggregated)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-hn
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Hostname where the sample was generated
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            hn
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Hostname where the sample was generated
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-lb
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Label
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            lb
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Label
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-lt
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Latency = time to initial response (milliseconds) - not all samplers support this
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            lt
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Latency = time to initial response (milliseconds) - not all samplers support this
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-na
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Number of active threads for all thread groups
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            na
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Number of active threads for all thread groups
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-ng
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Number of active threads in this group
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            ng
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Number of active threads in this group
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-rc
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Response Code (e.g. 200)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            rc
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Response Code (e.g. 200)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-rm
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Response Message (e.g. OK)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            rm
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Response Message (e.g. OK)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
- s
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Success flag (true/false)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            s
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Success flag (true/false)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-sc
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Sample count (1, unless multiple samples are aggregated)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            sc
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Sample count (1, unless multiple samples are aggregated)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
- t
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Elapsed time (milliseconds)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            t
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Elapsed time (milliseconds)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-tn
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Thread Name
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            tn
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Thread Name
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-ts
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-timeStamp (milliseconds since midnight Jan 1, 1970 UTC)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            ts
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            timeStamp (milliseconds since midnight Jan 1, 1970 UTC)
+        </font>
+    </td>
 </tr>
 <tr>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-varname
-</font>
-</td>
-<td bgcolor="#a0ddf0"   valign="top" align="left">
-<font color="#000000" size="-1" face="arial,helvetica,sanserif">
-Value of the named variable (versions of JMeter after 2.3.1)
-</font>
-</td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            varname
+        </font>
+    </td>
+    <td bgcolor="#a0ddf0" valign="top" align="left">
+        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
+            Value of the named variable (versions of JMeter after 2.3.1)
+        </font>
+    </td>
 </tr>
 </table>
 <p>
 
-Versions 2.1 and 2.1.1 of JMeter saved the Response Code as "rs", but read it back expecting to find "rc".
-This has been corrected so that it is always saved as "rc"; either "rc" or "rs" can be read.
+    Versions 2.1 and 2.1.1 of JMeter saved the Response Code as "rs", but read it back expecting to find "rc".
+    This has been corrected so that it is always saved as "rc"; either "rc" or "rs" can be read.
 
 </p>
-<p><table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
-<tr><td>
-Versions of JMeter after 2.3.1 allow additional variables to be saved with the test plan.
-Currently, the variables are saved as additional attributes. 
-The testplan variable name is used as the attribute name.
-See 
-<a href="#sample_variables">
-Sample variables
-</a>
- (above) for more information.
 
-</td></tr>
-</table></p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="saving"><strong>14.8 Saving response data</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
 <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+    <tr>
+        <td>
+            Versions of JMeter after 2.3.1 allow additional variables to be saved with the test plan.
+            Currently, the variables are saved as additional attributes.
+            The testplan variable name is used as the attribute name.
+            See
+            <a href="#sample_variables">
+                Sample variables
+            </a>
+            (above) for more information.
 
-As shown above, the response data can be saved in the XML log file if required.
-However, this can make the file rather large, and the text has to be encoded so
-that it is still valid XML. Also, images cannot be included.
-
-<br>
-</br>
-
-Another solution is to use the Post-Processor 
-<a href="../usermanual/component_reference.html#Save_Responses_to_a_file">Save_Responses_to_a_file</a>
-.
-This generates a new file for each sample, and saves the file name with the sample.
-The file name can then be included in the sample log output.
-The data will be retrieved from the file if necessary when the sample log file is reloaded.
-
+        </td>
+    </tr>
+</table>
 </p>
 </blockquote>
 </p>
-</td></tr>
-<tr><td><br></td></tr>
+</td>
+</tr>
+<tr>
+    <td><br></td>
+</tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="loading"><strong>14.9 Loading (reading) response data</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
-To view an existing results file, you can use the File "Browse..." button to select a file.
-If necessary, just create a dummy testplan with the appropriate Listener in it.
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="saving"><strong>14.8 Saving response data</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
 
-</p>
-<p>
-Results can be read from XML or CSV format files.
-When reading from CSV results files, the header (if present) is used to determine which fields were saved.
+                    As shown above, the response data can be saved in the XML log file if required.
+                    However, this can make the file rather large, and the text has to be encoded so
+                    that it is still valid XML. Also, images cannot be included.
 
-<b>
-In order to interpret a header-less CSV file correctly, the appropriate JMeter properties must be set.
-</b>
+                    <br>
+                    </br>
 
+                    Another solution is to use the Post-Processor
+                    <a href="../usermanual/component_reference.html#Save_Responses_to_a_file">Save_Responses_to_a_file</a>
+                    .
+                    This generates a new file for each sample, and saves the file name with the sample.
+                    The file name can then be included in the sample log output.
+                    The data will be retrieved from the file if necessary when the sample log file is reloaded.
 
-</p>
-<p><table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
-<tr><td>
-Versions of JMeter up to 2.3.2 used to clear any current data before loading the new file.
-This is no longer done, thus allowing files to be merged.
-If the previous behaviour is required, 
-use the menu item Run/Clear (Ctrl+Shift+E) or Run/Clear All (Ctrl+E) before loading the file.
-
-</td></tr>
-</table></p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr><td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="screencap"><strong>14.10 Saving Listener GUI data</strong></a></font>
-</td></tr>
-<tr><td>
-<blockquote>
-<p>
-JMeter is capable of saving any listener as a PNG file. To do so, select the
-listener in the left panel. Click edit -> Save As Image. A file dialog will
-appear. Enter the desired name and save the listener.
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="loading"><strong>14.9 Loading (reading) response data</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
+                    To view an existing results file, you can use the File "Browse..." button to select a file.
+                    If necessary, just create a dummy testplan with the appropriate Listener in it.
 
-</p>
-<p>
+                </p>
 
-The Listeners which generate output as tables can also be saved using Copy/Paste.
-Select the desired cells in the table, and use the OS Copy short-cut (normally Control+C).
-The data will be saved to the clipboard, from where it can be pasted into another application,
-e.g. a spreadsheet or text editor.
+                <p>
+                    Results can be read from XML or CSV format files.
+                    When reading from CSV results files, the header (if present) is used to determine which fields were
+                    saved.
 
-</p>
-<p><table border="0" cellspacing="0" cellpadding="0"><tr><td><img width='$width' height='$height' src="../../docs/images/screenshots/save_image.png"><br>
-<font size="-1">Figure 1 - Edit -> Save As Image
-</font></td></tr></table></p>
-</blockquote>
-</p>
-</td></tr>
-<tr><td><br></td></tr>
+                    <b>
+                        In order to interpret a header-less CSV file correctly, the appropriate JMeter properties must
+                        be set.
+                    </b>
+
+
+                </p>
+
+                <p>
+                <table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+                    <tr>
+                        <td>
+                            Versions of JMeter up to 2.3.2 used to clear any current data before loading the new file.
+                            This is no longer done, thus allowing files to be merged.
+                            If the previous behaviour is required,
+                            use the menu item Run/Clear (Ctrl+Shift+E) or Run/Clear All (Ctrl+E) before loading the
+                            file.
+
+                        </td>
+                    </tr>
+                </table>
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+    <tr>
+        <td bgcolor="#525D76">
+            <font color="#ffffff" face="arial,helvetica,sanserif">
+                <a name="screencap"><strong>14.10 Saving Listener GUI data</strong></a></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <blockquote>
+                <p>
+                    JMeter is capable of saving any listener as a PNG file. To do so, select the
+                    listener in the left panel. Click edit -> Save As Image. A file dialog will
+                    appear. Enter the desired name and save the listener.
+
+                </p>
+
+                <p>
+
+                    The Listeners which generate output as tables can also be saved using Copy/Paste.
+                    Select the desired cells in the table, and use the OS Copy short-cut (normally Control+C).
+                    The data will be saved to the clipboard, from where it can be pasted into another application,
+                    e.g. a spreadsheet or text editor.
+
+                </p>
+
+                <p>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><img width='$width' height='$height' src="../../docs/images/screenshots/save_image.png"><br>
+                            <font size="-1">Figure 1 - Edit -> Save As Image
+                            </font></td>
+                    </tr>
+                </table>
+                </p>
+            </blockquote>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><br></td>
+    </tr>
 </table>
 <br>
 <table>
-<tr>
-<td bgcolor="#525D76">
-<div align="right"><a href="index.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Index</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="remote-test.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a></div>
-</td>
-<td bgcolor="#525D76">
-<div align="right"><a href="build-monitor-test-plan.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Prev</font></a></div>
-</td>
-</tr>
+    <tr>
+        <td bgcolor="#525D76">
+            <div align="right"><a href="index.html"><font size=-1 color="#ffffff"
+                                                          face="arial,helvetica,sanserif">Index</font></a></div>
+        </td>
+        <td bgcolor="#525D76">
+            <div align="right"><a href="remote-test.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a>
+            </div>
+        </td>
+        <td bgcolor="#525D76">
+            <div align="right"><a href="build-monitor-test-plan.html"><font size=-1 color="#ffffff"
+                                                                            face="arial,helvetica,sanserif">Prev</font></a>
+            </div>
+        </td>
+    </tr>
 </table>
 </td>
 </tr>
-<tr><td>
-<hr noshade size="1">
-</td></tr>
 <tr>
-<td>
-<table width=100%>
-<tr>
-<td>
-<font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2009, Apache Software Foundation
-</em></font>
-</td>
-<td align="right">
-<font color="#525D76" size="-1"><em>
-Updated: $Date: 2009-02-15 01:15:11 +0000 (Sun, 15 Feb 2009) $
-</em></font>
-</td>
+    <td>
+        <hr noshade size="1">
+    </td>
 </tr>
-<tr><td colspan="2">
-<div align="center"><font color="#525D76" size="-1">
-"Apache", the Apache feather, and the Apache JMeter logo are
-trademarks of the Apache Software Foundation for our open source software.
-</font>
-</div>
-</td></tr>
-</table>
-</td>
+<tr>
+    <td>
+        <table width=100%>
+            <tr>
+                <td>
+                    <font color="#525D76" size="-1"><em>
+                        Copyright &copy; 1999-2009, Apache Software Foundation
+                    </em></font>
+                </td>
+                <td align="right">
+                    <font color="#525D76" size="-1"><em>
+                        Updated: $Date: 2009-02-15 01:15:11 +0000 (Sun, 15 Feb 2009) $
+                    </em></font>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div align="center"><font color="#525D76" size="-1">
+                        "Apache", the Apache feather, and the Apache JMeter logo are
+                        trademarks of the Apache Software Foundation for our open source software.
+                    </font>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
 </tr>
 </table>
 </body>

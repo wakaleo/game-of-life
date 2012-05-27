@@ -1,150 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.1">
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouCreateACell.java">
-<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-<error line="10" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouCreateAGrid.java">
-<error line="5" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Grid." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="11" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="13" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
-<error line="76" column="55" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="80" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="85" column="55" severity="warning" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="91" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="92" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="97" column="55" severity="warning" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="124" column="40" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="151" column="40" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="152" column="43" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="156" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="156" column="17" severity="warning" message="Name &apos;ModifyingTheGridContentsAsAnArrayShouldNotModifyTheOriginalContents&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouCreateANewUniverse.java">
-<error line="4" column="8" severity="warning" message="Unused import - org.junit.Ignore." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="6" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Universe." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="14" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="16" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
-<error line="39" column="5" severity="warning" message="File contains tab characters (this is the first instance)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
-<error line="39" column="45" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="39" column="47" severity="warning" message="&apos;5&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="46" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="59" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouPlayTheGameOfLife.java">
-<error line="5" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Universe." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="12" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="16" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="17" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="20" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="21" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="32" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="33" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="34" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="37" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="38" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="49" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="50" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="51" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="54" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="55" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="67" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="68" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="69" column="38" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="72" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="73" column="43" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouPrintAGrid.java">
-<error line="7" column="8" severity="warning" message="Unused import - org.junit.Ignore." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="10" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Cell." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="11" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.GridWriter." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="13" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="23" column="46" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="24" column="46" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="40" column="46" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="41" column="46" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="49" column="5" severity="warning" message="Method length is 33 lines (max allowed is 25)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
-<error line="52" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="53" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="54" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="55" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="56" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="57" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="58" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="59" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="60" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="61" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="62" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="63" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="66" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="67" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="68" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="69" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="70" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="71" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="72" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="73" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="74" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="75" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="76" column="55" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouReadAGridFromAString.java">
-<error line="9" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Cell." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="10" column="1" severity="warning" message="Redundant import from the same package - com.wakaleo.gameoflife.domain.GridReader." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
-<error line="12" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="40" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="41" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="58" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="59" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="76" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="77" column="39" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="93" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="94" column="40" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="95" column="40" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="112" column="42" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="113" column="42" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="114" column="42" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="115" column="42" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="116" column="42" severity="warning" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="120" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="121" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="122" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="123" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="124" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="125" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/hamcrest/HasSizeMatcher.java">
-<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-<error line="7" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="7" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="8" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
-<error line="10" column="27" severity="warning" message="Parameter expectedSize should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="10" column="31" severity="warning" message="&apos;expectedSize&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="14" column="34" severity="warning" message="Parameter collection should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="18" column="28" severity="warning" message="Parameter description should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="19" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/hamcrest/MyMatchers.java">
-<error line="7" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="7" column="1" severity="warning" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
-<error line="8" column="1" severity="warning" message="File contains tab characters (this is the first instance)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
-<error line="10" severity="warning" message="Line is longer than 80 characters." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="10" column="65" severity="warning" message="&apos;(&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
-<error line="10" column="66" severity="warning" message="Parameter expectedSize should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="10" column="82" severity="warning" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/hamcrest/WhenIUseMyCustomHamcrestMatchers.java">
-<error line="11" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="13" column="1" severity="warning" message="File contains tab characters (this is the first instance)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/test/categories/IntegrationTests.java">
-<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-<error line="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/test/categories/RegressionTests.java">
-<error line="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/test/categories/SlowTests.java">
-<error line="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouCreateACell.java">
+        <error line="0" severity="warning" message="Missing package-info.java file."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+        <error line="10" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouCreateAGrid.java">
+        <error line="5" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Grid."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="11" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="13" column="5" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+        <error line="76" column="55" severity="warning" message="&apos;3&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="80" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="85" column="55" severity="warning" message="&apos;8&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="91" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="92" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="97" column="55" severity="warning" message="&apos;8&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="124" column="40" severity="warning" message="&apos;3&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="151" column="40" severity="warning" message="&apos;3&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="152" column="43" severity="warning" message="&apos;3&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="156" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="156" column="17" severity="warning"
+               message="Name &apos;ModifyingTheGridContentsAsAnArrayShouldNotModifyTheOriginalContents&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;."
+               source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouCreateANewUniverse.java">
+        <error line="4" column="8" severity="warning" message="Unused import - org.junit.Ignore."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+        <error line="6" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Universe."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="14" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="16" column="5" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+        <error line="39" column="5" severity="warning"
+               message="File contains tab characters (this is the first instance)."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+        <error line="39" column="45" severity="warning" message="&apos;4&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="39" column="47" severity="warning" message="&apos;5&apos; is a magic number."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+        <error line="46" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="59" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouPlayTheGameOfLife.java">
+        <error line="5" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Universe."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="12" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="16" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="17" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="20" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="21" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="32" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="33" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="34" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="37" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="38" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="49" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="50" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="51" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="54" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="55" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="67" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="68" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="69" column="38" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="72" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="73" column="43" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouPrintAGrid.java">
+        <error line="7" column="8" severity="warning" message="Unused import - org.junit.Ignore."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+        <error line="10" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Cell."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="11" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.GridWriter."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="13" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="23" column="46" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="24" column="46" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="40" column="46" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="41" column="46" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="49" column="5" severity="warning" message="Method length is 33 lines (max allowed is 25)."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+        <error line="52" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="53" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="54" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="55" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="56" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="57" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="58" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="59" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="60" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="61" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="62" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="63" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="66" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="67" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="68" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="69" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="70" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="71" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="72" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="73" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="74" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="75" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="76" column="55" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/domain/WhenYouReadAGridFromAString.java">
+        <error line="9" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.Cell."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="10" column="1" severity="warning"
+               message="Redundant import from the same package - com.wakaleo.gameoflife.domain.GridReader."
+               source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+        <error line="12" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="40" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="41" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="58" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="59" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="76" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="77" column="39" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="93" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="94" column="40" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="95" column="40" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="112" column="42" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="113" column="42" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="114" column="42" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="115" column="42" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="116" column="42" severity="warning" message="&apos;+&apos; should be on a new line."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+        <error line="120" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="121" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="122" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="123" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="124" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="125" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/hamcrest/HasSizeMatcher.java">
+        <error line="0" severity="warning" message="Missing package-info.java file."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+        <error line="7" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="7" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="8" column="5" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+        <error line="10" column="27" severity="warning" message="Parameter expectedSize should be final."
+               source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+        <error line="10" column="31" severity="warning" message="&apos;expectedSize&apos; hides a field."
+               source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+        <error line="14" column="34" severity="warning" message="Parameter collection should be final."
+               source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+        <error line="18" column="28" severity="warning" message="Parameter description should be final."
+               source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+        <error line="19" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/hamcrest/MyMatchers.java">
+        <error line="7" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="7" column="1" severity="warning"
+               message="Utility classes should not have a public or default constructor."
+               source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
+        <error line="8" column="1" severity="warning"
+               message="File contains tab characters (this is the first instance)."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+        <error line="10" severity="warning" message="Line is longer than 80 characters."
+               source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+        <error line="10" column="65" severity="warning" message="&apos;(&apos; is followed by whitespace."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+        <error line="10" column="66" severity="warning" message="Parameter expectedSize should be final."
+               source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+        <error line="10" column="82" severity="warning" message="&apos;)&apos; is preceded with whitespace."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/hamcrest/WhenIUseMyCustomHamcrestMatchers.java">
+        <error line="11" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+        <error line="13" column="1" severity="warning"
+               message="File contains tab characters (this is the first instance)."
+               source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/test/categories/IntegrationTests.java">
+        <error line="0" severity="warning" message="Missing package-info.java file."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+        <error line="3" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/test/categories/RegressionTests.java">
+        <error line="3" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+    </file>
+    <file name="/Users/johnsmart/Projects/Demos/hudson-demo/gameoflife/gameoflife-core/src/test/java/com/wakaleo/gameoflife/test/categories/SlowTests.java">
+        <error line="3" severity="warning" message="Missing a Javadoc comment."
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+    </file>
 </checkstyle>

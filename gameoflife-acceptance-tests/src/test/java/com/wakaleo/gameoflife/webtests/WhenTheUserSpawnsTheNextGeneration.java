@@ -15,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 @RunWith(ThucydidesRunner.class)
 @Story(GameOfLifeApplication.RunSimulations.RunASimulation.class)
 public class WhenTheUserSpawnsTheNextGeneration {
-     
+
     @Managed(uniqueSession = true)
     WebDriver driver;
 
@@ -27,85 +27,85 @@ public class WhenTheUserSpawnsTheNextGeneration {
 
 
     final static String[][] EMPTY_GRID
-        = new String[][] {{".", ".", "."},
-                          {".", ".", "."},
-                          {".", ".", "."}};
+            = new String[][]{{".", ".", "."},
+            {".", ".", "."},
+            {".", ".", "."}};
 
 
-   @Test
-   public void anEmptyGridShouldProduceAnEmptyGrid() {
-       String[][] expectedGrid  = new String[][]  {{".", ".", "."},
-                                                   {".", ".", "."},
-                                                   {".", ".", "."}};
+    @Test
+    public void anEmptyGridShouldProduceAnEmptyGrid() {
+        String[][] expectedGrid = new String[][]{{".", ".", "."},
+                {".", ".", "."},
+                {".", ".", "."}};
 
-       player.opens_home_page();
-       player.chooses_to_start_a_new_game();
-       player.starts_simulation();
-       player.continues_simulation();
-       player.should_see_grid(expectedGrid);
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.starts_simulation();
+        player.continues_simulation();
+        player.should_see_grid(expectedGrid);
 
-   }
+    }
 
-   @Test
-   public void aGridWithOneCellShouldProduceAnEmptyGrid() {
-       String[][] expectedGrid  = new String[][]  {{".", ".", "."},
-                                                   {".", ".", "."},
-                                                   {".", ".", "."}};
+    @Test
+    public void aGridWithOneCellShouldProduceAnEmptyGrid() {
+        String[][] expectedGrid = new String[][]{{".", ".", "."},
+                {".", ".", "."},
+                {".", ".", "."}};
 
-       player.opens_home_page();
-       player.chooses_to_start_a_new_game();
-       player.clicks_on_cell_at(1,1);
-       player.starts_simulation();
-       player.continues_simulation();
-       player.should_see_grid(expectedGrid);
-   }
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.clicks_on_cell_at(1, 1);
+        player.starts_simulation();
+        player.continues_simulation();
+        player.should_see_grid(expectedGrid);
+    }
 
-   @Test
-   public void aGridWithTwoCellsShouldProduceAnEmptyGrid() {
-       String[][] expectedGrid  = new String[][]  {{".", ".", "."},
-                                                   {".", ".", "."},
-                                                   {".", ".", "."}};
+    @Test
+    public void aGridWithTwoCellsShouldProduceAnEmptyGrid() {
+        String[][] expectedGrid = new String[][]{{".", ".", "."},
+                {".", ".", "."},
+                {".", ".", "."}};
 
-       player.opens_home_page();
-       player.chooses_to_start_a_new_game();
-       player.clicks_on_cell_at(1,1);
-       player.clicks_on_cell_at(0,1);
-       player.starts_simulation();
-       player.continues_simulation();
-       player.should_see_grid(expectedGrid);
-   }
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.clicks_on_cell_at(1, 1);
+        player.clicks_on_cell_at(0, 1);
+        player.starts_simulation();
+        player.continues_simulation();
+        player.should_see_grid(expectedGrid);
+    }
 
 
-   @Test
+    @Test
     public void aStableCellSetShouldProduceTheSameSetOfCells() {
-        String[][] expectedGrid  = new String[][]  {{"*", "*", "."},
-                                                    {"*", "*", "."},
-                                                    {".", ".", "."}};
+        String[][] expectedGrid = new String[][]{{"*", "*", "."},
+                {"*", "*", "."},
+                {".", ".", "."}};
 
-       player.opens_home_page();
-       player.chooses_to_start_a_new_game();
-       player.clicks_on_cell_at(0,0);
-       player.clicks_on_cell_at(0,1);
-       player.clicks_on_cell_at(1,0);
-       player.clicks_on_cell_at(1,1);
-       player.starts_simulation();
-       player.continues_simulation();
-       player.should_see_grid(expectedGrid);
+        player.opens_home_page();
+        player.chooses_to_start_a_new_game();
+        player.clicks_on_cell_at(0, 0);
+        player.clicks_on_cell_at(0, 1);
+        player.clicks_on_cell_at(1, 0);
+        player.clicks_on_cell_at(1, 1);
+        player.starts_simulation();
+        player.continues_simulation();
+        player.should_see_grid(expectedGrid);
     }
 
     @Test
     public void aRotatingCellSetShouldProduceTheExpectedNewSetOfCells() {
-        String[][] expectedGrid  = new String[][]  {{".", ".", "."},
-                                                    {".", "*", "."},
-                                                    {".", "*", "."}};
+        String[][] expectedGrid = new String[][]{{".", ".", "."},
+                {".", "*", "."},
+                {".", "*", "."}};
 
         player.opens_home_page();
         player.chooses_to_start_a_new_game();
-        player.clicks_on_cell_at(0,0);
-        player.clicks_on_cell_at(0,1);
-        player.clicks_on_cell_at(1,0);
-        player.clicks_on_cell_at(1,1);
-        player.clicks_on_cell_at(1,2);
+        player.clicks_on_cell_at(0, 0);
+        player.clicks_on_cell_at(0, 1);
+        player.clicks_on_cell_at(1, 0);
+        player.clicks_on_cell_at(1, 1);
+        player.clicks_on_cell_at(1, 2);
         player.starts_simulation();
         player.continues_simulation();
         player.continues_simulation();
@@ -115,15 +115,15 @@ public class WhenTheUserSpawnsTheNextGeneration {
 
     @Test
     public void aRotatingCellSetShouldProduceTheOriginalSetOfCellsAfterTwoGenerations() {
-        String[][] expectedGrid  = new String[][]  {{".", ".", "."},
-                                                    {"*", "*", "*"},
-                                                    {".", ".", "."}};
+        String[][] expectedGrid = new String[][]{{".", ".", "."},
+                {"*", "*", "*"},
+                {".", ".", "."}};
 
         player.opens_home_page();
         player.chooses_to_start_a_new_game();
-        player.clicks_on_cell_at(1,0);
-        player.clicks_on_cell_at(1,1);
-        player.clicks_on_cell_at(1,2);
+        player.clicks_on_cell_at(1, 0);
+        player.clicks_on_cell_at(1, 1);
+        player.clicks_on_cell_at(1, 2);
         player.starts_simulation();
         player.continues_simulation();
         player.continues_simulation();
@@ -132,15 +132,15 @@ public class WhenTheUserSpawnsTheNextGeneration {
 
     @Test
     public void aRotatingCellSetShouldProduceTheOriginalSetOfCellsAfterThreeGenerations() {
-        String[][] expectedGrid  = new String[][]  {{".", "*", "."},
-                                                    {".", "*", "."},
-                                                    {".", "*", "."}};
+        String[][] expectedGrid = new String[][]{{".", "*", "."},
+                {".", "*", "."},
+                {".", "*", "."}};
 
         player.opens_home_page();
         player.chooses_to_start_a_new_game();
-        player.clicks_on_cell_at(1,0);
-        player.clicks_on_cell_at(1,1);
-        player.clicks_on_cell_at(1,2);
+        player.clicks_on_cell_at(1, 0);
+        player.clicks_on_cell_at(1, 1);
+        player.clicks_on_cell_at(1, 2);
         player.starts_simulation();
         player.continues_simulation();
         player.continues_simulation();

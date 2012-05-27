@@ -18,45 +18,45 @@
    limitations under the License.
 -->
 
-	<!-- all users, uses round robin selection -->
-	<allthreads>
-	        <!-- unique parameters for each individual thread (ie user) -->
+<!-- all users, uses round robin selection -->
+<allthreads>
+    <!-- unique parameters for each individual thread (ie user) -->
 
-		<thread>
-			<parameter>
-                             <paramname>username</paramname>
-                             <paramvalue>dduck</paramvalue>
-                        </parameter>
-			<parameter>
-                             <paramname>password</paramname>
-                             <paramvalue>quack</paramvalue>
-                        </parameter>
-		</thread>
-		<thread>
-			<parameter>
-                             <paramname>username</paramname>
-                             <paramvalue>mmouse</paramvalue>
-                        </parameter>
-			<parameter>
-                             <paramname>password</paramname>
-                             <paramvalue>squeak</paramvalue>
-                        </parameter>
-		</thread>
-		<thread>
-			<parameter>
-                             <paramname>username</paramname>
-                             <paramvalue>bbunney</paramvalue>
-                        </parameter>
-			<parameter>
-                             <paramname>password</paramname>
-                             <paramvalue>carrot</paramvalue>
-                        </parameter>
-			<parameter>
-                             <paramname>manager</paramname>
-                             <paramvalue>yes</paramvalue>
-                        </parameter>
-		</thread>
-	</allthreads>
+    <thread>
+        <parameter>
+            <paramname>username</paramname>
+            <paramvalue>dduck</paramvalue>
+        </parameter>
+        <parameter>
+            <paramname>password</paramname>
+            <paramvalue>quack</paramvalue>
+        </parameter>
+    </thread>
+    <thread>
+        <parameter>
+            <paramname>username</paramname>
+            <paramvalue>mmouse</paramvalue>
+        </parameter>
+        <parameter>
+            <paramname>password</paramname>
+            <paramvalue>squeak</paramvalue>
+        </parameter>
+    </thread>
+    <thread>
+        <parameter>
+            <paramname>username</paramname>
+            <paramvalue>bbunney</paramvalue>
+        </parameter>
+        <parameter>
+            <paramname>password</paramname>
+            <paramvalue>carrot</paramvalue>
+        </parameter>
+        <parameter>
+            <paramname>manager</paramname>
+            <paramvalue>yes</paramvalue>
+        </parameter>
+    </thread>
+</allthreads>
 
 
 

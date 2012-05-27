@@ -16,24 +16,24 @@
    limitations under the License.
 -->
 <project name="schematic" default="all">
-	<description>
-	To create the schematic report:
-		ant -Dtest=script
+    <description>
+        To create the schematic report:
+        ant -Dtest=script
 
-	</description>
+    </description>
 
-	<property name="testpath" value="${user.dir}"/>
+    <property name="testpath" value="${user.dir}"/>
 
-	<!-- Name of test (without .jmx) -->
-	<property name="test" value="Test"/>
+    <!-- Name of test (without .jmx) -->
+    <property name="test" value="Test"/>
 
-	<target name="all">
-		<xslt
-			force="true"
-		    in="${testpath}/${test}.jmx"
-		    out="${testpath}/${test}.html"
-		    style="${basedir}/schematic.xsl">
-		</xslt>
-	</target>
+    <target name="all">
+        <xslt
+                force="true"
+                in="${testpath}/${test}.jmx"
+                out="${testpath}/${test}.html"
+                style="${basedir}/schematic.xsl">
+        </xslt>
+    </target>
 
 </project>

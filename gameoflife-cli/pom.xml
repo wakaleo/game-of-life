@@ -1,25 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>gameoflife</artifactId>
-		<groupId>com.wakaleo.gameoflife</groupId>
-		<version>0.9.13-SNAPSHOT</version>
-	</parent>
-	<artifactId>gameoflife-cli</artifactId>
-	<packaging>jar</packaging>
+    <parent>
+        <artifactId>gameoflife</artifactId>
+        <groupId>com.wakaleo.gameoflife</groupId>
+        <version>0.9.13-SNAPSHOT</version>
+    </parent>
+    <artifactId>gameoflife-cli</artifactId>
+    <packaging>jar</packaging>
 
-	<name>gameoflife-cli</name>        
+    <name>gameoflife-cli</name>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.wakaleo.gameoflife</groupId>
-			<artifactId>gameoflife-core</artifactId>
-			<version>0.9.13-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.wakaleo.gameoflife</groupId>
+            <artifactId>gameoflife-core</artifactId>
+            <version>0.9.13-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -10,7 +10,7 @@ import static com.wakaleo.gameoflife.domain.Cell.*;
 
 public class WhenYouCreateAGrid {
 
-	private static final String NEW_LINE = System.getProperty("line.separator");
+    private static final String NEW_LINE = System.getProperty("line.separator");
 
     public static final String EMPTY_GRID = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE;
 
@@ -25,7 +25,7 @@ public class WhenYouCreateAGrid {
 
         String gridContents = "..." + NEW_LINE + "..." + NEW_LINE + "...";
 
-        String expectedPrintedGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..."  + NEW_LINE;
+        String expectedPrintedGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE;
 
         Grid grid = new Grid(gridContents);
         assertThat(grid.toString(), is(expectedPrintedGrid));
@@ -90,9 +90,9 @@ public class WhenYouCreateAGrid {
     @Test
     public void shouldNotCountTheTargetCellAsANeighbour() {
 
-        String gridContents = "***" + NEW_LINE + 
-                              "***" + NEW_LINE + 
-                              "***";
+        String gridContents = "***" + NEW_LINE +
+                "***" + NEW_LINE +
+                "***";
 
         Grid grid = new Grid(gridContents);
 
@@ -137,7 +137,7 @@ public class WhenYouCreateAGrid {
     public void shouldBeAbleToObtainTheGridContentsAsAnArray() {
         String currentContents = "*.." + NEW_LINE + "*.." + NEW_LINE + ".*." + NEW_LINE;
         Grid grid = new Grid(currentContents);
-        
+
         Cell[][] contents = grid.getContents();
         assertThat(contents[0][0], is(LIVE_CELL));
         assertThat(contents[1][0], is(LIVE_CELL));
@@ -148,21 +148,21 @@ public class WhenYouCreateAGrid {
     public void theGridContentsAsAnArrayShouldBeTheCorrectSize() {
         String currentContents = "*.." + NEW_LINE + "*.." + NEW_LINE + ".*." + NEW_LINE;
         Grid grid = new Grid(currentContents);
-        
+
         Cell[][] contents = grid.getContents();
         assertThat(contents.length, is(3));
         assertThat(contents[0].length, is(3));
     }
-    
+
     @Test
     public void ModifyingTheGridContentsAsAnArrayShouldNotModifyTheOriginalContents() {
         String currentContents = "*.." + NEW_LINE + ".*." + NEW_LINE + "..*" + NEW_LINE;
         Grid grid = new Grid(currentContents);
-        
+
         Cell[][] contents = grid.getContents();
         contents[1][1] = DEAD_CELL;
 
         assertThat(grid.getCellAt(1, 1), is(LIVE_CELL));
     }
-    
+
 }

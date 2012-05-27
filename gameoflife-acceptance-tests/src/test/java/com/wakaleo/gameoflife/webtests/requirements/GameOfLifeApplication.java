@@ -6,13 +6,19 @@ public class GameOfLifeApplication {
 
     @Feature
     public class RunSimulations {
-        public class RunASimulation {}
+        public class RunASimulation {
+        }
     }
 
     @Feature
     public class RecordResults {
-        public class RecordASimulation {}
-        public class ViewPastSimulationResults {}
-        public class ViewSimulationStatistics {}
+        public class RecordASimulation {
+        }
+
+        public class ViewPastSimulationResults {
+        }
+
+        public class ViewSimulationStatistics {
+        }
     }
 }
