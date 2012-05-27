@@ -14,7 +14,7 @@
         <!-- A workaround for a bug in PMD -->
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
-        <thucydides.version>0.7.11</thucydides.version>
+        <thucydides.version>0.8.20</thucydides.version>
     </properties>
 
     <scm>
@@ -37,6 +37,7 @@
                 <version>2.10</version>
                 <configuration>
                     <parallel>classes</parallel>
+                    <argLine>-Xmx512m</argLine>
                     <threadCount>4</threadCount>                    
                     <includes>
                         <include>**/When*.java</include>
@@ -185,7 +186,7 @@
         <module>gameoflife-web</module>
         <module>gameoflife-webservice</module>
         <module>gameoflife-cli</module>
-        <module>gameoflife-webtests</module>
+        <module>gameoflife-acceptancetests</module>
     </modules>
     <distributionManagement>
         <repository>
