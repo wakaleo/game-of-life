@@ -29,7 +29,7 @@ public class GameController {
     @RequestMapping("/start")
     public ModelAndView firstGeneration(@RequestParam("rows") final int rows,
                                         @RequestParam("columns") final int columns,
-                                        HttpServletRequest request) {
+                                        final HttpServletRequest request) {
 
         Universe universe = universeInstanciatedFromClickedCells(rows, columns, request);
         // TODO: Hate this code
@@ -52,7 +52,7 @@ public class GameController {
         return showGridScreen(universe);
     }
 
-    private void thinkABit(int max) {
+    private void thinkABit(final int max) {
         int thinkingTime = randomGenerator.nextInt(max / 4);
         try {
             Thread.currentThread().sleep(thinkingTime);
@@ -61,9 +61,6 @@ public class GameController {
         }
     }
 
-    /**
-     * @deprecated
-     */
     private Universe universeInstanciatedByDimensions(final int rows, final int columns) {
         Universe universe = new Universe(rows, columns);
         for (int row = 0; row < rows; row++) {

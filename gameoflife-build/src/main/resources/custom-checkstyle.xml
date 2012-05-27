@@ -14,23 +14,6 @@ Slightly modified version of Sun Checks that better matches the default code for
     <property name="severity" value="warning"/>
     <module name="TreeWalker">
         <property name="tabWidth" value="4"/>
-        <module name="JavadocMethod">
-            <property name="scope" value="public"/>
-            <property name="allowUndeclaredRTE" value="true"/>
-            <property name="allowThrowsTagsForSubclasses" value="true"/>
-            <property name="allowMissingParamTags" value="true"/>
-            <property name="allowMissingThrowsTags" value="true"/>
-            <property name="allowMissingReturnTag" value="true"/>
-            <property name="allowMissingJavadoc" value="true"/>
-            <property name="allowMissingPropertyJavadoc" value="true"/>
-            <property name="logLoadErrors" value="true"/>
-            <property name="suppressLoadErrors" value="true"/>
-        </module>
-        <module name="JavadocType"/>
-        <module name="JavadocVariable"/>
-        <module name="JavadocStyle">
-            <property name="scope" value="public"/>
-        </module>
         <module name="ConstantName"/>
         <module name="LocalFinalVariableName"/>
         <module name="LocalVariableName"/>
@@ -44,9 +27,11 @@ Slightly modified version of Sun Checks that better matches the default code for
         <module name="IllegalImport"/>
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
-        <module name="LineLength"/>
+        <module name="LineLength">
+            <property name="max" value="100"/>
+        </module>
         <module name="MethodLength">
-            <property name="max" value="25"/>
+            <property name="max" value="40"/>
         </module>
         <module name="ParameterNumber"/>
         <module name="EmptyForIteratorPad"/>
@@ -118,7 +103,6 @@ Slightly modified version of Sun Checks that better matches the default code for
             <property name="max" value="10"/>
         </module>
     </module>
-    <module name="JavadocPackage"/>
     <module name="NewlineAtEndOfFile">
         <property name="severity" value="ignore"/>
         <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>

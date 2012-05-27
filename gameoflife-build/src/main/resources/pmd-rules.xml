@@ -115,7 +115,6 @@
     <rule ref="rulesets/j2ee.xml/DoNotCallSystemExit"/>
     <rule ref="rulesets/j2ee.xml/StaticEJBFieldShouldBeFinal"/>
     <rule ref="rulesets/j2ee.xml/DoNotUseThreads"/>
-    <rule ref="rulesets/optimizations.xml/LocalVariableCouldBeFinal"/>
     <rule ref="rulesets/optimizations.xml/MethodArgumentCouldBeFinal"/>
     <rule ref="rulesets/optimizations.xml/AvoidInstantiatingObjectsInLoops"/>
     <rule ref="rulesets/optimizations.xml/UseArrayListInsteadOfVector"/>
@@ -198,8 +197,6 @@
     <rule ref="rulesets/controversial.xml/AvoidUsingNativeCode"/>
     <rule ref="rulesets/controversial.xml/AvoidAccessibilityAlteration"/>
     <rule ref="rulesets/controversial.xml/DoNotCallGarbageCollectionExplicitly"/>
-    <rule ref="rulesets/naming.xml/ShortVariable"/>
-    <rule ref="rulesets/naming.xml/LongVariable"/>
     <rule ref="rulesets/naming.xml/ShortMethodName"/>
     <rule ref="rulesets/naming.xml/VariableNamingConventions"/>
     <rule ref="rulesets/naming.xml/MethodNamingConventions"/>

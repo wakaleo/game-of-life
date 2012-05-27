@@ -9,6 +9,7 @@
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
     <properties>
+        <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.5</easyb.version>
         <cobertura.version>2.5.1</cobertura.version>
@@ -120,6 +121,34 @@
                         <version>${project.version}</version>
                     </dependency>
                 </dependencies>
+                <configuration>
+                    <configLocation>custom-checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
+
+            <!-- PMD -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>2.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.wakaleo.gameoflife</groupId>
+                        <artifactId>gameoflife-build</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <targetJdk>1.6</targetJdk>
+                    <aggregate>true</aggregate>
+                    <format>xml</format>
+                    <rulesets>
+                        <ruleset>pmd-rules.xml</ruleset>
+                    </rulesets>
+                    <!-- CPD options -->
+                    <minimumTokens>20</minimumTokens>
+                    <ignoreIdentifiers>true</ignoreIdentifiers>
+                </configuration>
             </plugin>
 
             <!-- FINDBUGS -->
@@ -216,6 +245,13 @@
     </distributionManagement>
     <profiles>
         <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+        </profile>
+        <profile>
             <id>metrics</id>
             <build>
                 <plugins>
@@ -288,7 +324,7 @@
                                     <artifactId>maven-checkstyle-plugin</artifactId>
                                     <version>3.0.1</version>
                                     <!--<configuration>-->
-                                    <!--<configLocation>checkstyle.xml</configLocation>-->
+                                    <!--<configLocation>gol-checkstyle.xml</configLocation>-->
                                     <!--</configuration>-->
                                 </plugin>
                                 <plugin>
@@ -399,10 +435,9 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-checkstyle-plugin</artifactId>
-                        <version>2.6</version>
+                        <version>2.9.1</version>
                         <configuration>
-                            <configLocation>gameoflife-build/checkstyle.xml
-                            </configLocation>
+                            <configLocation>gameoflife-build/checkstyle.xml</configLocation>
                         </configuration>
                     </plugin>
                     <plugin>

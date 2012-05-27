@@ -5,7 +5,7 @@ import java.util.List;
 
 public class GridReader {
 
-    private final static String NEW_LINE = System.getProperty("line.separator");
+    private static final String NEW_LINE = System.getProperty("line.separator");
 
     public Cell[][] loadFrom(final String gridContents) {
         List<Cell[]> rows = new ArrayList<Cell[]>();

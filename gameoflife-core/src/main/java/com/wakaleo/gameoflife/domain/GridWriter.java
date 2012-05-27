@@ -2,9 +2,9 @@ package com.wakaleo.gameoflife.domain;
 
 public class GridWriter {
 
-    private final String LINE_SEPARATOR = System.getProperty("line.separator");
+    private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
-    public String convertToString(Cell[][] gridContents) {
+    public String convertToString(final Cell[][] gridContents) {
         StringBuffer printedGrid = new StringBuffer();
         for (Cell[] row : gridContents) {
             for (Cell cell : row) {
