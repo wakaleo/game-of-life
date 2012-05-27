@@ -186,7 +186,7 @@
         <module>gameoflife-web</module>
         <module>gameoflife-webservice</module>
         <module>gameoflife-cli</module>
-        <module>gameoflife-acceptancetests</module>
+        <module>gameoflife-acceptance-tests</module>
     </modules>
     <distributionManagement>
         <repository>
