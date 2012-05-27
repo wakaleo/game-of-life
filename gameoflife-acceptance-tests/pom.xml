@@ -7,8 +7,8 @@
         <groupId>com.wakaleo.gameoflife</groupId>
         <version>0.9.13-SNAPSHOT</version>
     </parent>
-    <artifactId>gameoflife-acceptancetests</artifactId>
-    <name>gameoflife-acceptancetests</name>
+    <artifactId>gameoflife-acceptance-tests</artifactId>
+    <name>gameoflife-acceptance-tests</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.port>9090</jetty.port>
@@ -140,7 +140,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <webdriver.driver>firefox</webdriver.driver>
+                <webdriver.driver>htmlunit</webdriver.driver>
             </properties>
             <build>
                 <plugins>
