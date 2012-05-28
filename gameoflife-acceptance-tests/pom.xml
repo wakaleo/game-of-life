@@ -4,11 +4,12 @@
     <parent>
         <artifactId>gameoflife</artifactId>
         <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.9.36-SNAPSHOT</version>
+        <version>0.9.22</version>
     </parent>
     <artifactId>gameoflife-acceptance-tests</artifactId>
     <name>gameoflife-acceptance-tests</name>
     <properties>
+        <target.version>LATEST</target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.port>9090</jetty.port>
         <jetty.stop.port>9999</jetty.stop.port>
@@ -66,7 +67,7 @@
         <dependency>
             <groupId>com.wakaleo.gameoflife</groupId>
             <artifactId>gameoflife-web</artifactId>
-            <version>${project.version}</version>
+            <version>${target.version}</version>
             <type>war</type>
         </dependency>
     </dependencies>

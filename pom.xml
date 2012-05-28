@@ -148,18 +148,8 @@
         <module>gameoflife-web</module>
         <module>gameoflife-webservice</module>
         <module>gameoflife-cli</module>
-        <module>gameoflife-acceptance-tests</module>
     </modules>
     <distributionManagement>
-<!--        <repository>
-            <id>cloudbees-releases</id>
-            <url>dav:https://repository-thucydides.forge.cloudbees.com/release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>cloudbees-snapshots</id>
-            <url>dav:https://repository-thucydides.forge.cloudbees.com/snapshot/</url>
-        </snapshotRepository>
--->
         <repository>
             <id>wakaleo-releases</id>
             <name>wakaleo-releases</name>
