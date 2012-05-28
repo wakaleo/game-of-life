@@ -153,13 +153,10 @@
     </modules>
     <distributionManagement>
         <repository>
-            <id>cloudbees-releases</id>
-            <url>dav:https://repository-thucydides.forge.cloudbees.com/release/</url>
+            <id>wakaleo</id>
+            <name>wakaleo-releases</name>
+            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-releases-local</url>
         </repository>
-        <snapshotRepository>
-            <id>cloudbees-snapshots</id>
-            <url>dav:https://repository-thucydides.forge.cloudbees.com/snapshot/</url>
-        </snapshotRepository>
     </distributionManagement>
     <profiles>
         <profile>
@@ -167,7 +164,6 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-
         </profile>
         <profile>
             <id>metrics</id>
