@@ -64,7 +64,6 @@ public class WhenYouPlayTheGameOfLife {
         assertThat(nextGrid, is(expectedNextGrid));
     }
 
-
     @Test
     public void aLiveCellWithExactlyTwoLiveNeighbourShouldRemainAliveInTheNextGeneration() {
         String initialGrid = "..." + NEW_LINE +
@@ -81,7 +80,6 @@ public class WhenYouPlayTheGameOfLife {
         String nextGrid = theUniverse.getGrid();
         assertThat(nextGrid, is(expectedNextGrid));
     }
-
 
     @Test
     public void aCellWithNoNeighboursShouldDieInTheNextGeneration() {
