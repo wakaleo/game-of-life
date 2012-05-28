@@ -14,7 +14,7 @@
         <jetty.port>9090</jetty.port>
         <jetty.stop.port>9999</jetty.stop.port>
         <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
-        <webdriver.driver>firefox</webdriver.driver>
+        <webdriver.driver>htmlunit</webdriver.driver>
     </properties>
     <dependencies>
         <dependency>
@@ -128,9 +128,23 @@
             </properties>
         </profile>
         <profile>
-            <id>test</id>
+            <id>integration</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-test.thucydides.cloudbees.net</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife-integration.thucydides.cloudbees.net/</webdriver.base.url>
+                <webdriver.driver>firefox</webdriver.driver>
+            </properties>
+        </profile>
+        <profile>
+            <id>staging</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife-staging.thucydides.cloudbees.net</webdriver.base.url>
+                <webdriver.driver>firefox</webdriver.driver>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <webdriver.base.url>http://gameoflife.thucydides.cloudbees.net/</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
