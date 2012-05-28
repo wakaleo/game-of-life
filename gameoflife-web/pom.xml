@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>gameoflife</artifactId>
         <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.9.13-SNAPSHOT</version>
+        <version>0.9.13</version>
     </parent>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife-web</artifactId>
@@ -96,9 +95,9 @@
                                 </goals>
                                 <configuration>
                                     <tasks>
-                                        <echo message="Starting JMeter tests"/>
-                                        <ant antfile="build.xml" target="jmeter"/>
-                                        <echo message="JMeter tests done"/>
+                                        <echo message="Starting JMeter tests" />
+                                        <ant antfile="build.xml" target="jmeter" />
+                                        <echo message="JMeter tests done" />
                                     </tasks>
                                 </configuration>
                             </execution>
@@ -126,12 +125,12 @@
         <dependency>
             <groupId>com.wakaleo.gameoflife</groupId>
             <artifactId>gameoflife-core</artifactId>
-            <version>0.9.13-SNAPSHOT</version>
+            <version>0.9.13</version>
         </dependency>
         <dependency>
             <groupId>com.wakaleo.gameoflife</groupId>
             <artifactId>gameoflife-webservice</artifactId>
-            <version>0.9.13-SNAPSHOT</version>
+            <version>0.9.13</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
