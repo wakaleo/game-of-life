@@ -16,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 @RunWith(ThucydidesRunner.class)
 @Story(RunASimulation.class)
 
-@WithTag("")
+@WithTag("Viewing previous games")
 public class WhenTheUserGoesToTheHomePage {
 
     @Managed
