@@ -161,12 +161,12 @@
         </snapshotRepository>
 -->
         <repository>
-            <id>wakaleo</id>
+            <id>wakaleo-releases</id>
             <name>wakaleo-releases</name>
             <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-releases-local</url>
         </repository>
         <snapshotRepository>
-            <id>wakaleo</id>
+            <id>wakaleo-snapshots</id>
             <name>wakaleo-snapshots</name>
             <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-snapshots-local</url>
         </snapshotRepository>
