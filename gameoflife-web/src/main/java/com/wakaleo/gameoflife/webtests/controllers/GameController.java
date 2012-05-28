@@ -15,7 +15,7 @@ import com.wakaleo.gameoflife.domain.Universe;
 @RequestMapping("/game")
 public class GameController {
 
-    Random randomGenerator = new Random();
+    private Random randomGenerator = new Random();
 
     @RequestMapping("/new")
     public ModelAndView newGame() {

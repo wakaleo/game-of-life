@@ -66,10 +66,7 @@ public class Grid {
     }
 
     private boolean cellIsOutsideBorders(final int x, final int y) {
-        if ((y < 0 || y > getMaxRow()) || (x < 0 || x > getMaxColumn())) {
-            return true;
-        }
-        return false;
+        return (y < 0 || y > getMaxRow()) || (x < 0 || x > getMaxColumn());
     }
 
     private int getMaxRow() {
