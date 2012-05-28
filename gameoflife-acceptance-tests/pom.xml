@@ -4,7 +4,7 @@
     <parent>
         <artifactId>gameoflife</artifactId>
         <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.9.17-SNAPSHOT</version>
+        <version>0.9.17</version>
     </parent>
     <artifactId>gameoflife-acceptance-tests</artifactId>
     <name>gameoflife-acceptance-tests</name>
