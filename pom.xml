@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>0.9.14-SNAPSHOT</version>
+    <version>0.9.13-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
@@ -151,11 +152,25 @@
         <module>gameoflife-acceptance-tests</module>
     </modules>
     <distributionManagement>
+<!--        <repository>
+            <id>cloudbees-releases</id>
+            <url>dav:https://repository-thucydides.forge.cloudbees.com/release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>cloudbees-snapshots</id>
+            <url>dav:https://repository-thucydides.forge.cloudbees.com/snapshot/</url>
+        </snapshotRepository>
+-->
         <repository>
             <id>wakaleo</id>
             <name>wakaleo-releases</name>
             <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-releases-local</url>
         </repository>
+        <snapshotRepository>
+            <id>wakaleo</id>
+            <name>wakaleo-snapshots</name>
+            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-snapshots-local</url>
+        </snapshotRepository>
     </distributionManagement>
     <profiles>
         <profile>
@@ -163,6 +178,7 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+
         </profile>
         <profile>
             <id>metrics</id>
