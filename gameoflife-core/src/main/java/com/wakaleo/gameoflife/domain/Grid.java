@@ -14,7 +14,7 @@ public class Grid {
     private GridReader gridReader = new GridReader();
     private GridWriter gridWriter = new GridWriter();
 
-    public Grid(String gridContents) {
+    public Grid(final String gridContents) {
         this.cells = makeCellArrayFrom(gridContents);
     }
 
@@ -62,7 +62,11 @@ public class Grid {
         if (cellIsOutsideBorders(x, y)) {
             return 0;
         }
-        return (cells[y][x] == LIVE_CELL) ? 1 : 0;
+        if (cells[y][x] == LIVE_CELL) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     private boolean cellIsOutsideBorders(final int x, final int y) {
