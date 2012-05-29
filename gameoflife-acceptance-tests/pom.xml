@@ -87,8 +87,8 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
-                            <parallel>classes</parallel>
                             <argLine>-Xmx512m</argLine>
+                            <parallel>both</parallel>
                             <threadCount>4</threadCount>
                             <includes>
                                 <include>**/When*.java</include>
