@@ -88,7 +88,7 @@
                         </goals>
                         <configuration>
                             <argLine>-Xmx512m</argLine>
-                            <parallel>methods</parallel>
+                            <parallel>classes</parallel>
                             <threadCount>4</threadCount>
                             <includes>
                                 <include>**/When*.java</include>
