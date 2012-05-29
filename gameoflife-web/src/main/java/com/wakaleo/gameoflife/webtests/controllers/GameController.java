@@ -32,7 +32,6 @@ public class GameController {
                                         final HttpServletRequest request) {
 
         Universe universe = universeInstanciatedFromClickedCells(rows, columns, request);
-        // TODO: Hate this code
         thinkABit(200);
 
         return showGridScreen(universe);
@@ -75,7 +74,6 @@ public class GameController {
                                                           final int columns,
                                                           final HttpServletRequest request) {
         Universe universe = universeInstanciatedByDimensions(rows, columns);
-        // TODO: tidy up
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
                 if (cellWasClickedAt(row, column, request)) {
