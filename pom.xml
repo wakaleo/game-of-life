@@ -12,7 +12,7 @@
 	
  	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<easyb.version>1.1</easyb.version>
+		<easyb.version>1.2</easyb.version>
 		<cobertura.version>2.4</cobertura.version>
 		<!-- A workaround for a bug in PMD -->
 		<targetJdk>1.6</targetJdk>
@@ -100,27 +100,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.easyb</groupId>
-					<artifactId>maven-easyb-plugin</artifactId>
-					<version>0.9.8</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>test</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<storyType>html</storyType>
-						<storyReport>${basedir}/target/easyb/easyb-report.html
-            </storyReport>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 	<dependencyManagement>
 		<dependencies>
