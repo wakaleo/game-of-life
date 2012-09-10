@@ -4,7 +4,7 @@
     <parent>
         <artifactId>gameoflife</artifactId>
         <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.9.37-SNAPSHOT</version>
+        <version>0.9.47-SNAPSHOT</version>
     </parent>
     <artifactId>gameoflife-acceptance-tests</artifactId>
     <name>gameoflife-acceptance-tests</name>
@@ -14,7 +14,7 @@
         <jetty.port>9090</jetty.port>
         <jetty.stop.port>9999</jetty.stop.port>
         <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
-        <webdriver.driver>htmlunit</webdriver.driver>
+        <webdriver.driver>firefox</webdriver.driver>
     </properties>
     <dependencies>
         <dependency>
