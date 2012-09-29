@@ -121,16 +121,7 @@
         <dependency>
             <groupId>com.wakaleo.gameoflife</groupId>
             <artifactId>gameoflife-core</artifactId>
-<<<<<<< HEAD
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wakaleo.gameoflife</groupId>
-            <artifactId>gameoflife-webservice</artifactId>
-            <version>0.9.66-SNAPSHOT</version>
-=======
-            <version>0.9.67-SNAPSHOT</version>
->>>>>>> master
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
