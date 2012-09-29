@@ -127,6 +127,20 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>com.jelastic</groupId>
+                <artifactId>jelastic-maven-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <email>${jelastic.username}</email>
+                    <password>${jelastic.password}</password>
+                    <context>gameoflife</context>
+                    <environment>wakaleo</environment>
+                    <api_hoster>app.jelastic.servint.net</api_hoster>
+                    <finalName>gameoflife</finalName>
+                </configuration>
+            </plugin>
+
         </plugins>
 
         <pluginManagement>
