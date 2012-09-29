@@ -16,6 +16,7 @@
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
         <thucydides.version>0.9.22</thucydides.version>
+        <jelastic.context>gameoflife</jelastic.context>
     </properties>
 
     <scm>
@@ -134,10 +135,9 @@
                 <configuration>
                     <email>${jelastic.username}</email>
                     <password>${jelastic.password}</password>
-                    <context>gameoflife</context>
+                    <context>${jelastic.context}</context>
                     <environment>wakaleo</environment>
                     <api_hoster>app.jelastic.servint.net</api_hoster>
-                    <finalName>gameoflife</finalName>
                 </configuration>
             </plugin>
 
