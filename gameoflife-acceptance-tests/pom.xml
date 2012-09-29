@@ -5,7 +5,7 @@
     <parent>
         <artifactId>gameoflife</artifactId>
         <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.9.47-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>gameoflife-acceptance-tests</artifactId>
     <name>gameoflife-acceptance-tests</name>
@@ -16,6 +16,7 @@
         <jetty.stop.port>9999</jetty.stop.port>
         <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
         <webdriver.driver>firefox</webdriver.driver>
+        <thucydides.version>0.9.22</thucydides.version>
     </properties>
     <dependencies>
         <dependency>
