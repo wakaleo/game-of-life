@@ -5,8 +5,8 @@ public enum Cell {
 
     private String symbol;
 
-    private Cell(final String initialSymbol) {
-        this.symbol = initialSymbol;
+    private Cell(String symbol) {
+        this.symbol = symbol;
     }
 
     @Override
@@ -14,7 +14,7 @@ public enum Cell {
         return symbol;
     }
 
-    static Cell fromSymbol(final String symbol) {
+    static Cell fromSymbol(String symbol) {
         Cell cellRepresentedBySymbol = null;
         for (Cell cell : Cell.values()) {
             if (cell.symbol.equals(symbol)) {
