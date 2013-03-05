@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>0.9.67-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
@@ -16,6 +16,8 @@
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
         <thucydides.version>0.9.22</thucydides.version>
+        <jelastic.context>gameoflife</jelastic.context>
+        <jelastic.environment>wakaleo</jelastic.environment>
     </properties>
 
     <scm>
@@ -134,10 +136,9 @@
                 <configuration>
                     <email>${jelastic.username}</email>
                     <password>${jelastic.password}</password>
-                    <context>gameoflife</context>
-                    <environment>wakaleo</environment>
+                    <context>${jelastic.context}</context>
+                    <environment>${jelastic.environment}</environment>
                     <api_hoster>app.jelastic.servint.net</api_hoster>
-                    <finalName>gameoflife</finalName>
                 </configuration>
             </plugin>
 
@@ -233,66 +234,36 @@
             <id>metrics</id>
             <build>
                 <plugins>
-
-                    <!-- CODE COVERAGE -->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>cobertura-maven-plugin</artifactId>
-                        <version>${cobertura.version}</version>
-                        <configuration>
-                            <formats>
-                                <format>html</format>
-                                <format>xml</format>
-                            </formats>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>clean</goal>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
                     <!-- CHECKSTYLE -->
-                    <plugin>
-                        <artifactId>maven-checkstyle-plugin</artifactId>
-                        <version>2.9.1</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>com.wakaleo.gameoflife</groupId>
-                                <artifactId>gameoflife-build</artifactId>
-                                <version>${project.version}</version>
-                            </dependency>
-                        </dependencies>
-                        <configuration>
-                            <configLocation>custom-checkstyle.xml</configLocation>
-                        </configuration>
-                    </plugin>
+                    <!--<plugin>-->
+                        <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                        <!--<version>2.9.1</version>-->
+                        <!--<dependencies>-->
+                            <!--<dependency>-->
+                                <!--<groupId>com.wakaleo.gameoflife</groupId>-->
+                                <!--<artifactId>gameoflife-build</artifactId>-->
+                                <!--<version>${project.version}</version>-->
+                            <!--</dependency>-->
+                        <!--</dependencies>-->
+                        <!--<configuration>-->
+                            <!--<configLocation>custom-checkstyle.xml</configLocation>-->
+                        <!--</configuration>-->
+                    <!--</plugin>-->
 
                     <!-- PMD -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
                         <version>2.5</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>com.wakaleo.gameoflife</groupId>
-                                <artifactId>gameoflife-build</artifactId>
-                                <version>${project.version}</version>
-                            </dependency>
-                        </dependencies>
                         <configuration>
                             <targetJdk>1.6</targetJdk>
                             <aggregate>true</aggregate>
                             <format>xml</format>
-                            <rulesets>
-                                <ruleset>pmd-rules.xml</ruleset>
-                            </rulesets>
                             <!-- CPD options -->
                             <minimumTokens>20</minimumTokens>
-                            <ignoreIdentifiers>true</ignoreIdentifiers>
+                            <!--<ignoreIdentifiers>true</ignoreIdentifiers>-->
+                            <failOnViolation>true</failOnViolation>
+                            <failurePriority>2</failurePriority>
                         </configuration>
                     </plugin>
 
