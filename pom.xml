@@ -203,6 +203,12 @@
             <version>1.9.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+	        <artifactId>commons-parent</artifactId>
+	       <version>28</version>
+        </dependency>
+            
     </dependencies>
 
     <modules>
