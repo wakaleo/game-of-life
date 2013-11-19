@@ -10,12 +10,12 @@
     <properties>
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easyb.version>1.5</easyb.version>
-        <cobertura.version>2.5.1</cobertura.version>
+        <easyb.version>1.4</easyb.version>
+        <cobertura.version>2.6</cobertura.version>
         <!-- A workaround for a bug in PMD -->
-        <targetJdk>1.6</targetJdk>
+        <targetJdk>1.7</targetJdk>
         <github.account>wakaleo</github.account>
-        <thucydides.version>0.9.107</thucydides.version>
+        <thucydides.version>0.9.222</thucydides.version>
         <jelastic.context>gameoflife</jelastic.context>
         <jelastic.environment>wakaleo</jelastic.environment>
     </properties>
@@ -78,7 +78,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.5.10.201208310627</version>
+                <version>0.6.3.201306030806</version>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
@@ -210,18 +210,6 @@
         <module>gameoflife-core</module>
         <module>gameoflife-web</module>
     </modules>
-    <distributionManagement>
-        <repository>
-            <id>wakaleo-releases</id>
-            <name>wakaleo-releases</name>
-            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-releases-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>wakaleo-snapshots</id>
-            <name>wakaleo-snapshots</name>
-            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-snapshots-local</url>
-        </snapshotRepository>
-    </distributionManagement>
     <profiles>
         <profile>
             <id>development</id>
@@ -270,7 +258,7 @@
                     <!-- FINDBUGS -->
                     <plugin>
                         <artifactId>findbugs-maven-plugin</artifactId>
-                        <version>2.4.0</version>
+                        <version>2.5.2</version>
                         <configuration>
                             <effort>Max</effort>
                             <xmlOutput>true</xmlOutput>
@@ -322,7 +310,6 @@
                                     <version>${cobertura.version}</version>
                                     <configuration>
                                         <formats>
-                                            <format>html</format>
                                             <format>xml</format>
                                         </formats>
                                     </configuration>
@@ -362,7 +349,7 @@
                                 </plugin>
                                 <plugin>
                                     <artifactId>maven-javadoc-plugin</artifactId>
-                                    <version>2.7</version>
+                                    <version>2.9.1</version>
                                     <configuration>
                                         <source>1.6</source>
                                         <doclet>
