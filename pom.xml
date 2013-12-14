@@ -11,7 +11,8 @@
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.4</easyb.version>
-        <cobertura.version>2.6</cobertura.version>
+<!--        <cobertura.version>2.6</cobertura.version> -->
+	<cobertura.version>2.5.1</cobertura.version>
         <!-- A workaround for a bug in PMD -->
         <targetJdk>1.7</targetJdk>
         <github.account>wakaleo</github.account>
