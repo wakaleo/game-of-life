@@ -40,40 +40,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.11</version>
                 <configuration>
-                    <skip>true</skip>
+                  <includes>
+                    <include>**/When*.java</include>
+                    <include>**/*Test.java</include>
+                  </includes>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>unit-tests</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <includes>
-                                <include>**/When*.java</include>
-                                <include>**/*Test.java</include>
-                            </includes>
-                            <excludes>
-                                <exclude>%regex[.*integration.*]</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>integration-tests</id>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <includes>
-                                <include>%regex[.*integration.*]</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <!-- CODE COVERAGE -->
             <plugin>
