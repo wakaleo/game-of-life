@@ -98,7 +98,7 @@
 
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.5.1</version>
                 <configuration>
                     <preparationGoals>clean install</preparationGoals>
                 </configuration>
