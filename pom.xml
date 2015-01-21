@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>0.9.67-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>gameoflife</name>
-    <url>https://github.com/wakaleo/game-of-life</url>
+    <url>https://github.com/rajneeshsharma76/game-of-life/</url>
     <properties>
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,7 +15,7 @@
         <!-- A workaround for a bug in PMD -->
 		<!-- A workaround for a bug in PMD -->
         <targetJdk>1.6</targetJdk>
-        <github.account>wakaleo</github.account>
+        <github.account>rajneeshsharma76</github.account>
         <thucydides.version>0.9.22</thucydides.version>
     </properties>
 
@@ -214,12 +214,12 @@
         <repository>
             <id>wakaleo-releases</id>
             <name>wakaleo-releases</name>
-            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-releases-local</url>
+            <url>http://ec2-54-69-139-65.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>wakaleo-snapshots</id>
             <name>wakaleo-snapshots</name>
-            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-snapshots-local</url>
+            <url>http://ec2-54-69-139-65.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
     <profiles>
