@@ -215,12 +215,12 @@
         <repository>
             <id>wakaleo-releases</id>
             <name>wakaleo-releases</name>
-            <url>http://ec2-54-69-139-65.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/releases/</url>
+            <url>http://ec2-54-148-226-223.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>wakaleo-snapshots</id>
             <name>wakaleo-snapshots</name>
-            <url>http://ec2-54-69-139-65.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/snapshots</url>
+            <url>http://ec2-54-148-226-223.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
     <profiles>
