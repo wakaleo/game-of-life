@@ -8,6 +8,7 @@
     <name>gameoflife</name>
     <url>https://github.com/rajneeshsharma76/game-of-life/</url>
     <properties>
+    <!-- test -->
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.5</easyb.version>
