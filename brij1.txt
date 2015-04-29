@@ -1,0 +1,33 @@
+
+Windows IP Configuration
+
+
+Wireless LAN adapter Wireless Network Connection:
+
+   Connection-specific DNS Suffix  . : Belkin
+   Link-local IPv6 Address . . . . . : fe80::c1e7:a903:b30e:6305%14
+   IPv4 Address. . . . . . . . . . . : 192.168.2.5
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.2.1
+
+Ethernet adapter Local Area Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : asiapacific.hpqcorp.net
+
+Tunnel adapter Local Area Connection* 11:
+
+   Connection-specific DNS Suffix  . : 
+   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:6ab8:247c:1d19:3f57:fdfa
+   Link-local IPv6 Address . . . . . : fe80::247c:1d19:3f57:fdfa%11
+   Default Gateway . . . . . . . . . : ::
+
+Tunnel adapter isatap.Belkin:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : Belkin
+
+Tunnel adapter 6TO4 Adapter:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
