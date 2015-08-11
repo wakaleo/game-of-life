@@ -13,7 +13,7 @@ public class GridWriter {
             // TODO: This simply masks the problem: why empty rows being passed?
             if (row.length > 0) {
                 printedGrid.append(LINE_SEPARATOR);
-                throw new IllegalArgumentException("yoyo");
+                //throw new IllegalArgumentException("yoyo");
             }
         }
         return printedGrid.toString();
