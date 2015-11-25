@@ -21,7 +21,7 @@
         <jelastic.environment>wakaleo</jelastic.environment>
         <!---new project-->
     </properties>
-
+<!---hi--->
     <scm>
         <connection>scm:git:git@github.com:${github.account}/game-of-life.git</connection>
         <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
