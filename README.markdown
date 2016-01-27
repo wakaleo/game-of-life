@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿Does it really works. Yes it does ! This is a simple demonstration application used in the [Jenkins: The Definitive Guide](http://wakaleo.com/books/jenkins-the-definitive-guide) book.
+=======
+This is a simple demonstration application used in the [Jenkins: The Definitive Guide](http://wakaleo.com/books/jenkins-the-definitive-guide) book.
+>>>>>>> parent of 05cdfad... updated
 
 ## Building the project
 
