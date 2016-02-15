@@ -25,7 +25,7 @@ public class WhenCreatingANewGame {
     @Test
     public void anEmptyUniverseShouldBeAddedToTheSession() {
         ModelAndView homeView = controller.newGame();
-        assertThat(homeView.getModel().get("universe"), is(nullValue()));
+        assertThat(homeView.getModel().get("universe"), is(not(nullValue())));
     }
 //Comment test
     @Test
