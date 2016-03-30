@@ -52,14 +52,12 @@
             <version>1.6.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.6.1</version>
             <scope>test</scope>
         </dependency>
-        -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
