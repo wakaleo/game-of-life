@@ -204,11 +204,11 @@
             <version>1.9.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- 
         <dependency>
             <groupId> org.apache.cassandra</groupId>
             <artifactId>cassandra-all</artifactId>
             <version>0.8.1</version>
-            
             <exclusions>
                 <exclusion> 
                     <groupId>org.slf4j</groupId>
@@ -219,9 +219,8 @@
                     <artifactId>log4j</artifactId>
                 </exclusion>
             </exclusions> 
-
         </dependency>
-
+        -->
     </dependencies>
 
     <modules>
