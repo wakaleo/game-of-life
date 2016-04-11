@@ -12,7 +12,7 @@ The application is a very simple online version of [Conway's 'game of life'](htt
 
 The acceptance tests are written using Webdriver and [Thucydides](http://thucydides.info). They are designed to run against a running server. Run the jetty instance as described about, then, in another window, go to the gameoflife-acceptance-tests directory and run `mvn clean verify`. The test reports will be generated in the `target/site/thucydides` directory.
 
-## The book
+## The book details
 
 Streamline software development with Jenkins, the popular Java-based open source tool that has revolutionized the way teams think about Continuous Integration (CI). This complete guide shows you how to automate your build, integration, release, and deployment processes with Jenkins—and demonstrates how CI can save you time, money, and many headaches.
 
@@ -26,6 +26,6 @@ Ideal for developers, software architects, and project managers, Jenkins: The De
  - Manage a farm of Jenkins servers to run distributed builds
  - Implement automated deployment and continuous delivery
 
-## The author
+## The author details
 
 John is an experienced consultant and trainer specialising in Enterprise Java, Web Development, and Open Source technologies, based in Sydney, Australia. Well known in the Java community for his many published articles, and as author of Java Power Tools, John helps organisations around the world to optimize their Java development processes and infrastructures and provides training and mentoring in open source technologies, SDLC tools, and agile development processes. John is CEO of [Wakaleo Consulting](http://www.wakaleo.com), a company that provides consulting, training and mentoring services in Enterprise Java and Agile Development. He is also part of the founding team of [Test Automation](http://www.testautomation.com.au/), a service that automates the manual regression tests conducted during the integration and acceptance testing stages of a web site release.
