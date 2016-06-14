@@ -18,7 +18,7 @@
         <thucydides.version>0.7.10</thucydides.version>
     </properties>
     <scm>
-        <connection>scm:git:git@github.com:${github.account}/game-of-life.git</connection>
+       <connection>scm:git:git@github.com:${github.account}/game-of-life.git</connection>
         <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
