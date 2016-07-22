@@ -1,5 +1,6 @@
 node {
-  git url: 'https://jbgipson@hotmail.com:Rush$2112@github.com/jbgipson/game-of-life.git'
-  def mvnHome = tool 'M2'
-  sh "${mvnHome}/bin/mvn -B verify"
-}
+   git url: 'https://github.com/jbgipson/game-of-life.git'
+   withEnv(["PATH+MAVEN=${tool 'Maven'}/bin"]) {
+     bat 'mvn -B verify'
+   }
+ }
