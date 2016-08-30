@@ -1,7 +1,7 @@
 ##DevOps BootCamp Fall 2016
 
 ###Welcome
-This is an introduction, demo, and workshop to DevOps. Today we will be working
+This is an introduction, demo, and workshop of DevOps. Today we will be working
 with some common tools found in industry hopefully giving you better insight on
 what can be done with modern software engineering tools.
 
