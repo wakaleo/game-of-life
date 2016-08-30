@@ -36,9 +36,13 @@ what can be done with modern software engineering tools.
    2. "Clone" the repository to your computer.
 2. Install project dependencies that are required to build/test/run your application.
    1. Select your OS from the list of README's below then return to this page after installion is complete.
+      * [Mac OS X using Homebrew](Other-READMES/mac-homebrew-setup.md) _*Recommended_.
+      * [Mac OS X manual install](Other-READMES/mac-manual-setup.md)
+      * [Ubuntu](Other-READMES/ubuntu-env-setup.md)
+      * [Windows](Other-READMES/windows-env-setup.md)
    2. NEED TO UPDATE
 3. Build and test the application locally.
-   1. Follow the instructions located in the application's README.md file located [here](/orig_README.markdown).
+   1. Follow the instructions located in the application's README.md file located [here](Other-READMES/orig_README.markdown).
 4. Determine what is breaking and change the applications code
 5. Build again and fix the errors until they are completely gone.
    1. This may take a few attempts
