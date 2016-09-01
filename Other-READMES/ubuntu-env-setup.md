@@ -16,13 +16,6 @@ Run the following command:
 ```
 $ sudo apt-get install maven
 ```
-
-####Step 3: Install Jetty  
-Run the following command:
-```
-$ sudo apt-get install jetty
-```
-
 ####Complete
 You have now finished the set up of your environment so you can return to
 the previous page by [clicking here](../README.md)
