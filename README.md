@@ -24,11 +24,18 @@ what can be done with modern software engineering tools.
 1. Get a copy of the code for the exercise.
    1. Fork the application repository at github.com/liatrio/game-of-life to one or more of your team members' Github Accounts.
    2. If you don't have a Github account you should create one now.
-2. See you repository build on our build server.
-   1. Clone the Liatrio Jenkins repository //NEED TO UPDATE
-   2. Edit the build JSON to include your app's Github URL.
-   3. Create a pull request to have the app added to our automation job.
-   4. Verify that you job is added to Jenkins and that a build starts and fails like the original application.
+2. See your repository build on our build server.
+   1. Browse to [jenkins.chico.liatr.io](jenkins.chico.liatr.io) and sign in using the information given to you.
+   2. Create a new Jenkins job with your repository
+      1. Click _New Item_ on the left hand side.
+      2. Enter the name of your job
+      3. Click _Maven Project_
+      4. Scroll down to _Source Code Management_, select _Git_, and enter the link to your repository.
+      5. Scroll down to _Build Triggers_ and click _Poll SCM_ and enter "* * * * *"
+      6. Scroll down to _Build_  and add "clean install" to _Goals and Options_
+      7. Click _Save_
+   4. Verify that your job is added to Jenkins start a build.
+      1. It should fail like the original application.
 
 ###Step 3: Working With the Application Code and the Delivery Pipeline
 1. Pull down the code from your forked repository
@@ -36,9 +43,13 @@ what can be done with modern software engineering tools.
    2. "Clone" the repository to your computer.
 2. Install project dependencies that are required to build/test/run your application.
    1. Select your OS from the list of README's below then return to this page after installion is complete.
+      * [Mac OS X using Homebrew](Other-READMES/mac-homebrew-setup.md) _*Recommended_.
+      * [Mac OS X manual install](Other-READMES/mac-manual-setup.md)
+      * [Ubuntu](Other-READMES/ubuntu-env-setup.md)
+      * [Windows](Other-READMES/windows-env-setup.md)
    2. NEED TO UPDATE
 3. Build and test the application locally.
-   1. Follow the instructions located in the application's README.md file located [here](/orig_README.markdown).
+   1. Follow the instructions located in the application's README.md file located [here](Other-READMES/orig_README.markdown).
 4. Determine what is breaking and change the applications code
 5. Build again and fix the errors until they are completely gone.
    1. This may take a few attempts
