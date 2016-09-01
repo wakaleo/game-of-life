@@ -30,7 +30,7 @@ $ brew install caskroom/cask/brew-cask
 ####Step 2: Install the Dependencies for Game of Life via Brew
 ```bash
 $ brew install maven
-$ brew install
+$ brew install jetty
 $ brew cask install java
 ```
 
