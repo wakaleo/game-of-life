@@ -19,16 +19,6 @@
 7. Verify successful install
     * ```$ mvn -v```
 
-####Step 3: Install Jetty  
-1. Browse to [Jetty on Eclipse](www.eclipse.org/jetty/download.html).
-2. Move download from Downloads directory to opt directory.
-    * ```$ sudo mv jetty* /opt/jetty```
-3. Change to opt directory and test wheb server.
-    * ```$ cd /opt/jetty```
-    * ```$ sudo java -jar start.jar```
-
-To stop the process click _ctrl+c_
-
 ####Complete
 You have now finished the set up of your environment so you can return to
 the previous page by [clicking here](../README.md)

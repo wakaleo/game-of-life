@@ -38,10 +38,7 @@ what can be done with modern software engineering tools.
       4. Scroll down to _Source Code Management_, select _Git_, and enter the link to your repository.
       5. Scroll down to _Build Triggers_ and click _Poll SCM_ and enter "* * * * *"
       6. Scroll down to _Build_  and add "clean install" to _Goals and Options_
-      7. Add a _Post Step_ and insert the follow: ```scp -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no \
-$WORKSPACE/gameoflife-web/target/gameoflife.war \
-tomcat-deploy@ip-172-31-26-108.us-west-2.compute.internal:/var/lib/tomcat8/webapps/game-of-life.war```
-      8. Click _Save_
+      7. Click _Save_
 3. Verify that your job is added to Jenkins start a build.
       * It should fail like the original application.
 
