@@ -18,6 +18,7 @@ what can be done with modern software engineering tools.
 ###Step 1: Organize
 1. Break up into small teams of 2-4 people.
 2. Look at the failing build at [jenkins.chico.liatr.io](https://jenkins.chico.liatr.io)
+   (Login credentials will be provided)
 3. Review the documentation and decide how to proceed.
 4. Install project dependencies that are required to build/test/run your application.
    * Select your OS from the list of README's below then return to this page after installion is complete.
