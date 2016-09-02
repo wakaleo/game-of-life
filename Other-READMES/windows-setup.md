@@ -1,4 +1,4 @@
-## Mac OS X Environment Set Up
+## Windows Environment Set Up
 ### Manual Installation
 
 #### Step 1: Install the Java JDK 8
