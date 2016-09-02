@@ -26,17 +26,15 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>7.1.0.v20100505</version>
+                <version>9.3.0.v20150612</version>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>${jetty.port}</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                    </connectors>
+                   <scanIntervalSeconds>10</scanIntervalSeconds>
+                   <httpConnector>
+                      <port>${jetty.port}</port>
+                      <idleTimeout>60000</idleTimeout>
+                    </httpConnector>
                     <stopKey>foo</stopKey>
                     <stopPort>${jetty.stop.port}</stopPort>
                 </configuration>
