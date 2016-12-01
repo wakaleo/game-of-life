@@ -1,4 +1,4 @@
-#test change
+//test change
 package com.wakaleo.gameoflife.domain;
 
 public class GridWriter {
