@@ -74,8 +74,8 @@ public class GameController {
                                                           final int columns,
                                                           final HttpServletRequest request) {
         Universe universe = universeInstanciatedByDimensions(rows, columns);
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
+        for (int row = 1; row < rows; row++) {
+            for (int column = 1; column < columns; column++) {
                 if (cellWasClickedAt(row, column, request)) {
                     universe.setLiveCellAt(row, column);
                 }
