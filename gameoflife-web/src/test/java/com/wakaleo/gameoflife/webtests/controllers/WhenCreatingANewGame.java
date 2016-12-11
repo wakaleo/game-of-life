@@ -25,6 +25,8 @@ public class WhenCreatingANewGame {
 
     /*  kjhkjhjkhgjkh */
 
+    /* I'm not pusing just commiting */
+
     @Test
     public void anEmptyShouldBeAddedToTheSession() {
         ModelAndView homeView = controller.newGame();
