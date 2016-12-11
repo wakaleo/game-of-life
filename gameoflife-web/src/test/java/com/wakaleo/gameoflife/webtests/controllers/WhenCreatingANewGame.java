@@ -20,6 +20,7 @@ public class WhenCreatingANewGame {
     @Before
     public void initializeController() {
         controller = new GameController();
+        
     }
 
     @Test
