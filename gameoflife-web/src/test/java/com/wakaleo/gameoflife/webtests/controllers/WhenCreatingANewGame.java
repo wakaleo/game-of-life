@@ -20,8 +20,10 @@ public class WhenCreatingANewGame {
     @Before
     public void initializeController() {
         controller = new GameController();
-        
+
     }
+
+    /*  kjhkjhjkhgjkh */
 
     @Test
     public void anEmptyShouldBeAddedToTheSession() {
