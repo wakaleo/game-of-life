@@ -10,12 +10,13 @@
     <properties>
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easyb.version>1.5</easyb.version>
-        <cobertura.version>2.5.1</cobertura.version>
+        <easyb.version>1.4</easyb.version>
+        <cobertura.version>2.6</cobertura.version>
         <!-- A workaround for a bug in PMD -->
-        <targetJdk>1.6</targetJdk>
+        <sourceJdk>1.7</sourceJdk>
+        <targetJdk>1.7</targetJdk>
         <github.account>wakaleo</github.account>
-        <thucydides.version>0.9.22</thucydides.version>
+        <thucydides.version>0.9.268</thucydides.version>
         <jelastic.context>gameoflife</jelastic.context>
         <jelastic.environment>wakaleo</jelastic.environment>
     </properties>
@@ -29,15 +30,15 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.2</version>
+                <version>3.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.10</version>
+                <version>2.11</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -78,7 +79,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.5.10.201208310627</version>
+                <version>0.7.2.201409121644</version>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
@@ -99,7 +100,7 @@
 
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.5</version>
                 <configuration>
                     <preparationGoals>clean install</preparationGoals>
                 </configuration>
@@ -107,7 +108,7 @@
 
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.7</version>
+                <version>2.8.2</version>
             </plugin>
 
             <plugin>
@@ -158,7 +159,7 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <storyType>html</storyType>
+                        <storyType>html</storyType>                         l
                         <storyReport>${basedir}/target/easyb/easyb-report.html
                         </storyReport>
                     </configuration>
@@ -187,8 +188,8 @@
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>4.10</version>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -210,18 +211,6 @@
         <module>gameoflife-core</module>
         <module>gameoflife-web</module>
     </modules>
-    <distributionManagement>
-        <repository>
-            <id>wakaleo-releases</id>
-            <name>wakaleo-releases</name>
-            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-releases-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>wakaleo-snapshots</id>
-            <name>wakaleo-snapshots</name>
-            <url>http://wakaleo.artifactoryonline.com/wakaleo/libs-snapshots-local</url>
-        </snapshotRepository>
-    </distributionManagement>
     <profiles>
         <profile>
             <id>development</id>
@@ -254,7 +243,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
-                        <version>2.5</version>
+                        <version>3.2</version>
                         <configuration>
                             <targetJdk>1.6</targetJdk>
                             <aggregate>true</aggregate>
@@ -309,28 +298,22 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-site-plugin</artifactId>
-                        <version>3.0</version>
+                        <version>3.3</version>
                         <configuration>
                             <reportPlugins>
                                 <plugin>
                                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                                    <version>2.2</version>
+                                    <version>2.7</version>
                                 </plugin>
                                 <plugin>
-                                    <groupId>org.codehaus.mojo</groupId>
-                                    <artifactId>cobertura-maven-plugin</artifactId>
-                                    <version>${cobertura.version}</version>
-                                    <configuration>
-                                        <formats>
-                                            <format>html</format>
-                                            <format>xml</format>
-                                        </formats>
-                                    </configuration>
+                                    <groupId>org.jacoco</groupId>
+                                    <artifactId>jacoco-maven-plugin</artifactId>
+                                    <version>0.7.2.201409121644</version>
                                 </plugin>
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
                                     <artifactId>maven-checkstyle-plugin</artifactId>
-                                    <version>2.9.1</version>
+                                    <version>3.0.1</version>
                                     <!--<configuration>-->
                                     <!--<configLocation>gol-checkstyle.xml</configLocation>-->
                                     <!--</configuration>-->
@@ -338,7 +321,7 @@
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
                                     <artifactId>maven-pmd-plugin</artifactId>
-                                    <version>2.5</version>
+                                    <version>3.2</version>
                                     <configuration>
                                         <targetJdk>1.6</targetJdk>
                                         <aggregate>true</aggregate>
@@ -354,7 +337,7 @@
                                 <plugin>
                                     <groupId>org.codehaus.mojo</groupId>
                                     <artifactId>findbugs-maven-plugin</artifactId>
-                                    <version>2.3.2</version>
+                                    <version>2.4.0</version>
                                     <configuration>
                                         <effort>Max</effort>
                                         <xmlOutput>true</xmlOutput>
@@ -362,7 +345,7 @@
                                 </plugin>
                                 <plugin>
                                     <artifactId>maven-javadoc-plugin</artifactId>
-                                    <version>2.7</version>
+                                    <version>2.9.1</version>
                                     <configuration>
                                         <source>1.6</source>
                                         <doclet>
@@ -383,7 +366,7 @@
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
                                     <artifactId>maven-jxr-plugin</artifactId>
-                                    <version>2.1</version>
+                                    <version>2.4</version>
                                 </plugin>
                             </reportPlugins>
                         </configuration>
@@ -477,7 +460,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>findbugs-maven-plugin</artifactId>
-                        <version>2.3</version>
+                        <version>2.4.0</version>
                         <configuration>
                             <effort>Max</effort>
                             <xmlOutput>true</xmlOutput>
