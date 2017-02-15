@@ -32,7 +32,7 @@ node{
         try {
             sh 'echo "INTEGRATION TEST"'
             build("gameoflife-integration")
-\        } catch (e) {
+        } catch (e) {
             // If there was an exception thrown, the build failed
             currentBuild.result = "FAILED"
             notifyBuild(currentBuild.result)
