@@ -82,12 +82,12 @@
     </style>
 </head>
 <body>
-<h2>The Game!</h2>
+<h2>The Game of Life!</h2>
 <c:url value="/home" var="homePage"/>
 <c:url value="/game/next" var="nextPage"/>
 
 <div class="breadcrumbs">
-    <a href="${homePage}">home</a> > Game in Progress
+    <a href="${homePage}">home</a> > Current Game Progress
 </div>
 <div class="intro">Press 'Next Generation' to see how this universe evolves...</div>
 <div class="griddisplay">
