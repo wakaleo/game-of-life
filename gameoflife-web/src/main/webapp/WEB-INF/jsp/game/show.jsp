@@ -73,6 +73,8 @@
             margin: 16px;
             margin-left: 4px;
             font-family: sans-serif;
+            font-size: small;
+            font-weight: bold;
             background-color: rgb(225, 255, 225);
         }
 
