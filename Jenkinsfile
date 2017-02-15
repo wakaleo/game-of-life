@@ -3,7 +3,7 @@ node{
         try {
             notifyBuild('STARTED')
             sh 'echo "CONTINUOUS BUILD"'
-            build("gameoflife-deploy")
+            build("gameoflife-build")
         } catch (e) {
             // If there was an exception thrown, the build failed
             currentBuild.result = "FAILED"
