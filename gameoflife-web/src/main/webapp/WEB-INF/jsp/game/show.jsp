@@ -75,7 +75,7 @@
             font-family: sans-serif;
             font-size: medium;
             font-weight: bold;
-            background-color: rgb(225, 255, 225);
+            background-color: rgb(225, 155, 225);
         }
 
         .griddisplay {
