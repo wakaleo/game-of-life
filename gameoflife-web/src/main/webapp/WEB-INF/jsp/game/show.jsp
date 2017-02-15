@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.io.InputStream" %>
 <%@page import="java.io.IOException" %>
-<%@page import="java.util.Poperties" %>
+<%@page import="java.util.Properties" %>
 <html>
 <head>
     <title>The Game Of Life</title>
