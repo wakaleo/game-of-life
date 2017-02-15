@@ -27,7 +27,6 @@ node{
             // Success or failure, always send notifications
         }
     }
-}
 
     stage('INTEGRATION TEST'){
         try {
@@ -42,7 +41,6 @@ node{
             // Success or failure, always send notifications
         }
     }
-}
 
     stage('DEPLOY'){
         try {
@@ -57,6 +55,7 @@ node{
             // Success or failure, always send notifications
         }
     }
+}
 
 def notifyBuild(String buildStatus = 'STARTED') {
   // build status of null means successful
