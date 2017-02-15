@@ -73,7 +73,7 @@
             margin: 16px;
             margin-left: 4px;
             font-family: sans-serif;
-            background-color: rgb(205, 255, 225);
+            background-color: rgb(225, 255, 225);
         }
 
         .griddisplay {
