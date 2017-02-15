@@ -8,7 +8,7 @@
     <title>The Game Of Life</title>
     <style type="text/css">
         h1 {
-            color: blue;
+            color: red;
             font-family: sans-serif;
         }
 
