@@ -31,8 +31,8 @@ node{
     stage('INTEGRATION TEST'){
         try {
             sh 'echo "INTEGRATION TEST"'
-            sleep 12;
-        } catch (e) {
+            build("gameoflife-integration")
+\        } catch (e) {
             // If there was an exception thrown, the build failed
             currentBuild.result = "FAILED"
             notifyBuild(currentBuild.result)
