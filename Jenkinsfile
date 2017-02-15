@@ -16,7 +16,7 @@ node{
 
     stage('UNIT TEST'){
         try {
-            sh 'echo "UNIT TEST"'
+            sh 'echo "CONTINUOUS TESTING"'
             sleep 10;
         } catch (e) {
             // If there was an exception thrown, the build failed
@@ -28,9 +28,9 @@ node{
         }
     }
 
-    stage('INTEGRATION TEST'){
+    stage('INTEGRATION'){
         try {
-            sh 'echo "INTEGRATION TEST"'
+            sh 'echo "CONTINUOUS INTEGRATION"'
             build("gameoflife-integration")
         } catch (e) {
             // If there was an exception thrown, the build failed
@@ -44,7 +44,7 @@ node{
 
     stage('QA'){
         try {
-            sh 'echo "QA TESTING"'
+            sh 'echo "QA TEST AUTOMATION"'
             sleep 12;
         } catch (e) {
             // If there was an exception thrown, the build failed
@@ -72,7 +72,7 @@ node{
 
     stage('STAGING'){
         try {
-            sh 'echo "STAGING"'
+            sh 'echo "CONTINUOUS DELIVERY"'
             sleep 7;
         } catch (e) {
             // If there was an exception thrown, the build failed
