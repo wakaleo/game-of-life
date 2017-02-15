@@ -16,8 +16,37 @@ node{
 
     stage('UNIT TEST'){
         try {
-            sh 'echo "CONTINUOUS TEST"'
+            sh 'echo "UNIT TEST"'
             sleep 10;
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            notifyBuild(currentBuild.result)
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+        }
+    }
+}
+
+    stage('INTEGRATION TEST'){
+        try {
+            sh 'echo "INTEGRATION TEST"'
+            build("gameoflife-integration")
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            notifyBuild(currentBuild.result)
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+        }
+    }
+
+    stage('ARCHIVE'){
+        try {
+            sh 'echo "ARCHIVE ARTIFACT"'
+            sleep 5;
         } catch (e) {
             // If there was an exception thrown, the build failed
             currentBuild.result = "FAILED"
@@ -27,7 +56,34 @@ node{
             notifyBuild(currentBuild.result)
         }
     }
-}
+
+    stage('QA'){
+        try {
+            sh 'echo "QA"'
+            sleep 12;
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+            notifyBuild(currentBuild.result)
+        }
+    }
+
+    stage('DEPLOY'){
+        try {
+            sh 'echo "CONTINUOUS DEPLOYMENT"'
+            build("gameoflife-deploy")
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            notifyBuild(currentBuild.result)
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+        }
+    }
 
 def notifyBuild(String buildStatus = 'STARTED') {
   // build status of null means successful
