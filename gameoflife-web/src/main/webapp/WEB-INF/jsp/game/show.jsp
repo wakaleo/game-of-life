@@ -7,7 +7,7 @@
 <head>
     <title>The Game Of Life</title>
     <style type="text/css">
-        h2 {
+        h1 {
             color: blue;
             font-family: sans-serif;
         }
@@ -73,7 +73,7 @@
             margin: 16px;
             margin-left: 4px;
             font-family: sans-serif;
-            background-color: rgb(225, 255, 225);
+            background-color: rgb(205, 255, 225);
         }
 
         .griddisplay {
@@ -82,7 +82,7 @@
     </style>
 </head>
 <body>
-<h2>The Game of Life!</h2>
+<h1>The Game of Life!</h1>
 <c:url value="/home" var="homePage"/>
 <c:url value="/game/next" var="nextPage"/>
 
