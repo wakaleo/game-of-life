@@ -2,8 +2,22 @@ node{
     stage('BUILD'){
         try {
             notifyBuild('STARTED')
-                sh 'echo "CONTINUOUS BUILD"'
-                build("gameoflife-deploy")
+            sh 'echo "CONTINUOUS BUILD"'
+            build("gameoflife-deploy")
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+            notifyBuild(currentBuild.result)
+        }
+    }
+
+    stage('UNIT TEST'){
+        try {
+            sh 'echo "CONTINUOUS TEST"'
+            sleep 10;
         } catch (e) {
             // If there was an exception thrown, the build failed
             currentBuild.result = "FAILED"
