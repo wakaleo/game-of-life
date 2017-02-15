@@ -42,6 +42,48 @@ node{
         }
     }
 
+    stage('QA'){
+        try {
+            sh 'echo "QA TESTING"'
+            sleep 12;
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            notifyBuild(currentBuild.result)
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+        }
+    }
+
+    stage('ARCHIVE'){
+        try {
+            sh 'echo "ARCHIVE"'
+            sleep 10;
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+            notifyBuild(currentBuild.result)
+        }
+    }
+
+    stage('STAGING'){
+        try {
+            sh 'echo "STAGING"'
+            sleep 7;
+        } catch (e) {
+            // If there was an exception thrown, the build failed
+            currentBuild.result = "FAILED"
+            notifyBuild(currentBuild.result)
+            throw e
+        } finally {
+            // Success or failure, always send notifications
+        }
+    }
+
     stage('DEPLOY'){
         try {
             sh 'echo "CONTINUOUS DEPLOYMENT"'
