@@ -4,6 +4,7 @@ ENV MAVEN_VERSION 3.3.3
 ENV DISPLAY :99
 
 USER root
+sfdsgsgsgdgfdgfdgdgfdgdfgfdgdfdgssddsdsgdgfdfgdfdfh
 
 RUN apt-get update -qqy \
   && apt-get install -y openjdk-8-jdk && \
