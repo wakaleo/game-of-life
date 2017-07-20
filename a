@@ -1,0 +1,3 @@
+#!/bin/bash 
+touch sample files
+exit 
