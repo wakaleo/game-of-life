@@ -424,13 +424,21 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>cobertura-maven-plugin</artifactId>
-                        <version>${cobertura.version}</version>
+                        <version>1.9.8</version>
                         <configuration>
                             <formats>
                                 <format>html</format>
                                 <format>xml</format>
                             </formats>
                         </configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>cobertura</goal>
+								</goals>
+							</execution>
+						</executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
