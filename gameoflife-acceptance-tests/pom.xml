@@ -2,12 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <artifactId>gameoflife</artifactId>
-        <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.9.47-SNAPSHOT</version>
-    </parent>
+    <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife-acceptance-tests</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <name>gameoflife-acceptance-tests</name>
     <properties>
         <target.version>0.9.22</target.version>
@@ -16,6 +13,7 @@
         <jetty.stop.port>9999</jetty.stop.port>
         <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
         <webdriver.driver>firefox</webdriver.driver>
+        <thucydides.version>0.9.268</thucydides.version>
     </properties>
     <dependencies>
         <dependency>
@@ -73,7 +71,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.9</version>
                 <configuration>
-                    <skip>true</skip>
+                    <skip>false</skip>
                 </configuration>
             </plugin>
             <plugin>
@@ -123,28 +121,28 @@
         <profile>
             <id>development</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-dev.thucydides.cloudbees.net</webdriver.base.url>
-                <webdriver.driver>htmlunit</webdriver.driver>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
+                <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
         <profile>
             <id>integration</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-integration.thucydides.cloudbees.net/</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
         <profile>
             <id>staging</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-staging.thucydides.cloudbees.net</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
         <profile>
             <id>production</id>
             <properties>
-                <webdriver.base.url>http://gameoflife.thucydides.cloudbees.net/</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
