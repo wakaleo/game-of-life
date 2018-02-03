@@ -3,14 +3,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('build') { 
             steps {
-                echo 'Building..'
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'mvn clean test'
             }
         }
         stage('Deploy') {
