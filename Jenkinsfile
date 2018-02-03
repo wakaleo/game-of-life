@@ -13,9 +13,9 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        stage('Deploy') {
+        stage('Results') {
             steps {
-                echo 'Deploying....'
+                sh ' step([$class: \'JUnitResultArchiver\', keepLongStdio: true, testResults: \'target/test-reports/TEST*.xml\'])'
             }
         }
     }
