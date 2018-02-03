@@ -1,3 +1,4 @@
+
 #!groovy
 pipeline {
     agent any
@@ -13,7 +14,12 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        stage('Deploy') {
+        stage('Results') {
+                 junit '**/target/surefire-reports/TEST-*.xml'
+                 archive 'target/*.jar'
+       }
+     }
+stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
