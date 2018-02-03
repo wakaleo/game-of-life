@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Results') {
             steps {
-                step([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: \'target/test-reports/TEST*.xml\'])'
+                step([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: 'target/test-reports/TEST*.xml'])'
             }
         }
     }
