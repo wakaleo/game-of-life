@@ -1,7 +1,6 @@
 #!groovy
 pipeline {
     agent any
-
     stages {
         stage('build') { 
             steps {
@@ -14,6 +13,7 @@ pipeline {
             }
         }
         stage('Results') {
+            steps {
                  junit '**/target/surefire-reports/TEST-*.xml'
                  archive 'target/*.jar'
        }
