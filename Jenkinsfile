@@ -1,4 +1,3 @@
-
 #!groovy
 pipeline {
     agent any
@@ -20,7 +19,7 @@ pipeline {
         junit '**/reports/junit/*.xml'
        }
      }
-
+        }
 stage('Deploy') {
             steps {
                 echo 'Deploying....'
