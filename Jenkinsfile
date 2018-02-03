@@ -1,6 +1,8 @@
+
 #!groovy
 pipeline {
     agent any
+
     stages {
         stage('build') { 
             steps {
@@ -13,12 +15,13 @@ pipeline {
             }
         }
         stage('Results') {
-            steps {
-                 junit '**/target/surefire-reports/TEST-*.xml'
-                 archive 'target/*.jar'
+                 post {
+      always {
+        junit '**/reports/junit/*.xml'
        }
      }
-          stage('Deploy') {
+
+stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
