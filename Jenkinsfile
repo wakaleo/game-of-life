@@ -1,4 +1,3 @@
-
 #!groovy
 pipeline {
     agent any
@@ -19,7 +18,7 @@ pipeline {
                  archive 'target/*.jar'
        }
      }
-stage('Deploy') {
+          stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
