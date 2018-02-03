@@ -1,6 +1,7 @@
 #!groovy
 pipeline {
     agent any
+
     stages {
         stage('build') { 
             steps {
@@ -13,14 +14,15 @@ pipeline {
             }
         }
         stage('Results') {
-                             
-    steps([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: '**/target/surefire-reports/TEST-*.xml'])
+                 junit '**/target/surefire-reports/TEST-*.xml'
+                 archive 'target/*.jar'
        }
      }
-          stage('Deploy') {
+
+stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
         }
     }
-
+}
