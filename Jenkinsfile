@@ -1,7 +1,6 @@
 #!groovy
 pipeline {
     agent any
-
     stages {
         stage('build') { 
             steps {
@@ -13,13 +12,12 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        post {
-      always {
-        junit '**/reports/junit/*.xml'
+        stage('Results') {
+                             
+    step([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: '**/target/surefire-reports/TEST-*.xml'])
        }
      }
-        
-stage('Deploy') {
+          stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
