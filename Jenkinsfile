@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Results') {
                              
-    step([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: '**/target/surefire-reports/TEST-*.xml'])
+    steps([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: '**/target/surefire-reports/TEST-*.xml'])
        }
      }
           stage('Deploy') {
