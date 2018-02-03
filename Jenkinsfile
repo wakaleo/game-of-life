@@ -13,13 +13,12 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        stage('Results') {
-                 post {
+        post {
       always {
         junit '**/reports/junit/*.xml'
        }
      }
-        }
+        
 stage('Deploy') {
             steps {
                 echo 'Deploying....'
