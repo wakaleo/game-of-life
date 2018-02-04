@@ -40,7 +40,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.11</version>
                 <configuration>
-                    <skip>true</skip>
+<!--<skip>true</skip> https://github.com/wakaleo/jenkins-the-definitive-guide-book/issues/15 --
                 </configuration>
                 <executions>
                     <execution>
