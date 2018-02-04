@@ -421,25 +421,25 @@
             </build>
             <reporting>
                 <plugins>
-               <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <version>2.5.2</version>
-            <configuration>
-                <instrumentation>
-                    <excludes>
-                        <exclude>*/*Test.class</exclude>
-                    </excludes>
-                </instrumentation>
-            </configuration>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>clean</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+             <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>cobertura-maven-plugin</artifactId>
+    <version>2.5.2</version>
+    <configuration>
+      <formats>
+        <format>xml</format>
+      </formats>
+    </configuration>
+ <extensions>true</extensions>
+    <executions>
+      <execution>
+        <phase>test</phase>
+        <goals>
+          <goal>cobertura</goal>
+        </goals>
+      </execution>
+    </executions>
+  </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
