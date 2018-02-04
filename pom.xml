@@ -40,9 +40,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.11</version>
                 <configuration>
-                        <!--<skip>true</skip> https://github.com/wakaleo/jenkins-the-definitive-guide-book/issues/15 -->
+                    <skip>true</skip>
                 </configuration>
-<executions>
+                <executions>
                     <execution>
                         <id>unit-tests</id>
                         <phase>test</phase>
@@ -421,7 +421,7 @@
             </build>
             <reporting>
                 <plugins>
-       <plugin>
+                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>cobertura-maven-plugin</artifactId>
                         <version>${cobertura.version}</version>
@@ -431,8 +431,7 @@
                                 <format>xml</format>
                             </formats>
                         </configuration>
-</plugin>
-
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
