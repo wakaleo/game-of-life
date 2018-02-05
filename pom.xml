@@ -144,7 +144,8 @@
             </plugin>
 
         </plugins>
- <distributionManagement>
+ ...
+        <distributionManagement>
                <repository>
                 <uniqueVersion>false</uniqueVersion>
                 <id>admin</id>
@@ -153,6 +154,7 @@
            <layout>default</layout>
     </repository>
    </distributionManagement>
+    ...
         <pluginManagement>
             <plugins>
                 <plugin>
