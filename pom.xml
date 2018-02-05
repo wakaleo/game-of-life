@@ -44,8 +44,7 @@
             <url>http://test01.edureka.com:8080</url>
            <layout>default</layout>
     </repository>
-    ...
-</distributionManagement>
+   </distributionManagement>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.11</version>
