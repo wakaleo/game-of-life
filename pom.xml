@@ -27,16 +27,7 @@
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
     <build>
-        <distributionManagement>
-               <repository>
-                <uniqueVersion>false</uniqueVersion>
-                <id>admin</id>
-                <name>tomcat</name>
-            <url>http://test01.edureka.com:8080</url>
-           <layout>default</layout>
-    </repository>
-   </distributionManagement>
-        <plugins>
+            <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -499,8 +490,19 @@
                         <artifactId>maven-jxr-plugin</artifactId>
                         <version>2.1</version>
                     </plugin>
+                    
+                    <distributionManagement>
+               <repository>
+                <uniqueVersion>false</uniqueVersion>
+                <id>admin</id>
+                <name>tomcat</name>
+            <url>http://test01.edureka.com:8080</url>
+           <layout>default</layout>
+    </repository>
+   </distributionManagement>
+                    
                 </plugins>
-            </reporting>
+                /reporting>
         </profile>
     </profiles>
 </project>
