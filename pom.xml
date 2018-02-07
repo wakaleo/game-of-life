@@ -43,7 +43,7 @@
   <configuration>
     <url>http://test01.edureka.com:8083/manager/text</url>
     <server>Apache_Tomcat_8</server>
-    <path>game</path>
+    <path>/game</path>
       <update>true</update>
   </configuration>
 </plugin>
