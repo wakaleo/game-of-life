@@ -18,5 +18,10 @@ pipeline {
                 step([$class: 'JUnitResultArchiver', keepLongStdio: true, testResults: '**/target/surefire-reports/TEST*.xml'])
             }
         }
+    stage('Deploy') {
+            steps {
+                sh 'mvn clean tomcat7:deploy'
+            }
+     }
     }
 }
