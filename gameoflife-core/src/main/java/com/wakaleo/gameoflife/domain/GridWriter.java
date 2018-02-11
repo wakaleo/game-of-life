@@ -23,6 +23,7 @@ public class GridWriter {
 			// Note: does not add seperator for empty rows
             if (row.length > 0) {
                 printedGrid.append(LINE_SEPARATOR);
+                //throw new IllegalArgumentException("yoyo");
             }
         }
         return printedGrid.toString();
