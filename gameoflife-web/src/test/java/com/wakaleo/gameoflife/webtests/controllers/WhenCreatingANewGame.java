@@ -20,12 +20,22 @@ public class WhenCreatingANewGame {
     @Before
     public void initializeController() {
         controller = new GameController();
+
+    }
+
+    /*  kjhkjhjkhgjkh */
+
+    /* I'm not pusing just commiting */
+
+    @Test
+    public void anEmptyShouldBeAddedToTheSession() {
+        ModelAndView homeView = controller.newGame();
+        assertThat(homeView.getModel().get("universe"), is(not(nullValue())));
     }
 
     @Test
-    public void anEmptyUniverseShouldBeAddedToTheSession() {
-        ModelAndView homeView = controller.newGame();
-        assertThat(homeView.getModel().get("universe"), is(not(nullValue())));
+    public void anEmpty{
+
     }
 
     @Test

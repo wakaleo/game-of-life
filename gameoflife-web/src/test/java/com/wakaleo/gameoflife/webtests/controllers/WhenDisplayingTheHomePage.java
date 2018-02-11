@@ -1,5 +1,5 @@
 package com.wakaleo.gameoflife.webtests.controllers;
-
+/* welcome */
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
