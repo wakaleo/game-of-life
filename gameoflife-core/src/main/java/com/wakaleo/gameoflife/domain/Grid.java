@@ -3,14 +3,10 @@ package com.wakaleo.gameoflife.domain;
 import static com.wakaleo.gameoflife.domain.Cell.DEAD_CELL;
 import static com.wakaleo.gameoflife.domain.Cell.LIVE_CELL;
 
- /**
- * Wakaleo Consulting - John Ferguson Smart
- * Game of life, demonstration application for Jenkins: The Definitive Guide
- *
- * Grid.java
- * Grid object class, containing information on a collection of cells
- */
-public class Grid {
+
+public class Grid {{
+=======
+
 
     private static final int DEFAULT_ROW_COUNT = 3;
     private static final int DEFAULT_COLUMN_COUNT = 3;
