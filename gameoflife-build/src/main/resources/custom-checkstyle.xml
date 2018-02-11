@@ -3,7 +3,8 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <!--
-    This configuration file was written by the eclipse-cs plugin configuration editor
+    This configuration file was written by the eclipse-cs plugin configuration editor.
+    comments...
 -->
 <!--
     Checkstyle-Configuration: Game Of Life Checkst
