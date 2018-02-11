@@ -27,7 +27,7 @@
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
     <build>
-        <plugins>
+            <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -36,7 +36,18 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-            <plugin>
+                <plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+   <version>2.2</version>
+  <configuration>
+    <url>http://172.17.0.4:8080/manager/text</url>
+    <server>Apache_Tomcat_8</server>
+    <path>/game</path>
+      <update>true</update>
+  </configuration>
+</plugin>
+                <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.11</version>
                 <configuration>
@@ -144,8 +155,7 @@
             </plugin>
 
         </plugins>
-
-        <pluginManagement>
+         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.easyb</groupId>
@@ -176,7 +186,12 @@
         </extensions>
     </build>
     <dependencyManagement>
-        <dependencies>
+                <dependencies>
+                    <dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-simple</artifactId>
+  <version>1.7.21</version>
+</dependency>
             <dependency>
                 <groupId>org.easyb</groupId>
                 <artifactId>easyb-core</artifactId>
@@ -490,9 +505,9 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-jxr-plugin</artifactId>
                         <version>2.1</version>
-                    </plugin>
+                    </plugin>                          
                 </plugins>
-            </reporting>
+                </reporting>
         </profile>
     </profiles>
 </project>
