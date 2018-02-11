@@ -127,4 +127,8 @@ public class Grid {
         }
         return contentCopy;
     }
+	
+	private void testMethod(){
+		System.out.println("test method");
+	}
 }
