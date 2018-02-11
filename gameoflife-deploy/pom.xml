@@ -54,7 +54,7 @@
     </dependencies>
     <properties>
         <target.version>RELEASE</target.version>
-        <tomcat.manager.url>http://localhost:8888/manager</tomcat.manager.url>
+        <tomcat.manager.url>http://localhost:8888/manager/text</tomcat.manager.url>
         <tomcat.username>admin</tomcat.username>
         <tomcat.password>password</tomcat.password>
     </properties>
