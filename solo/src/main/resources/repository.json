@@ -1,0 +1,499 @@
+{
+    "description": "Description of repository structures, for generation (DDL: http://en.wikipedia.org/wiki/Data_Definition_Language) of the relational database table and persistence validation.",
+    "version": "3.1.0.0, Sep 21, 2017",
+    "authors": [
+        "Liang Ding"
+    ],
+    "since": "0.4.0",
+    "repositories": [
+        {
+            "name": "category",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 19
+                },
+                {
+                    "name": "categoryTitle",
+                    "type": "String",
+                    "length": 64
+                },
+                {
+                    "name": "categoryURI",
+                    "type": "String",
+                    "length": 32
+                },
+                {
+                    "name": "categoryDescription",
+                    "type": "String",
+                    "length": 512
+                },
+                {
+                    "name": "categoryOrder",
+                    "type": "int"
+                },
+                {
+                    "name": "categoryTagCnt",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "category_tag",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 19
+                },
+                {
+                    "name": "category_oId",
+                    "type": "String",
+                    "length": 19
+                },
+                {
+                    "name": "tag_oId",
+                    "type": "String",
+                    "length": 19
+                }
+            ]
+        },
+        {
+            "name": "archiveDate",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "archiveDateArticleCount",
+                    "type": "int"
+                },
+                {
+                    "name": "archiveDatePublishedArticleCount",
+                    "type": "int"
+                },
+                {
+                    "name": "archiveTime",
+                    "type": "long"
+                }
+            ]
+        },
+        {
+            "name": "archiveDate_article",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "archiveDate_oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "article_oId",
+                    "type": "String",
+                    "length": 255
+                }
+            ]
+        },
+        {
+            "name": "comment",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "commentContent",
+                    "type": "String",
+                    "length": 2000
+                },
+                {
+                    "name": "commentDate",
+                    "type": "Date"
+                },
+                {
+                    "name": "commentEmail",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "commentName",
+                    "type": "String",
+                    "length": 50
+                },
+                {
+                    "name": "commentOnId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "commentOnType",
+                    "type": "String",
+                    "length": 20
+                },
+                {
+                    "name": "commentSharpURL",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "commentThumbnailURL",
+                    "type": "String",
+                    "length": 512
+                },
+                {
+                    "name": "commentURL",
+                    "type": "String",
+                    "length": "255"
+                },
+                {
+                    "name": "commentOriginalCommentId",
+                    "type": "String",
+                    "length": 255,
+                    "nullable": true
+                },
+                {
+                    "name": "commentOriginalCommentName",
+                    "type": "String",
+                    "length": 50,
+                    "nullable": true
+                }
+            ]
+        },
+        {
+            "name": "link",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "linkAddress",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "linkDescription",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "linkOrder",
+                    "type": "int"
+                },
+                {
+                    "name": "linkTitle",
+                    "type": "String",
+                    "length": 255
+                }
+            ]
+        },
+        {
+            "name": "page",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "pageCommentCount",
+                    "type": "int"
+                },
+                {
+                    "name": "pageContent",
+                    "type": "String",
+                    "length": 1048576
+                },
+                {
+                    "name": "pageOrder",
+                    "type": "int"
+                },
+                {
+                    "name": "pagePermalink",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "pageTitle",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "pageCommentable",
+                    "type": "boolean"
+                },
+                {
+                    "name": "pageType",
+                    "type": "String",
+                    "length": 10
+                },
+                {
+                    "name": "pageOpenTarget",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "pageEditorType",
+                    "description": "Editor Type (TinyMCE, CodeMirror-Markdown, etc)",
+                    "type": "String",
+                    "length": 20,
+                    "nullable": true
+                },
+                {
+                    "name": "pageIcon",
+                    "type": "String",
+                    "length": 255
+                }
+            ]
+        },
+        {
+            "name": "plugin",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "author",
+                    "type": "String",
+                    "length": 2000
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "status",
+                    "type": "String",
+                    "length": 10
+                },
+                {
+                    "name": "version",
+                    "type": "String",
+                    "length": 10
+                },
+                {
+                    "name": "setting",
+                    "type": "String",
+                    "length": 2000,
+                    "nullable": true
+                }
+            ]
+        },
+        {
+            "name": "tag",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "tagPublishedRefCount",
+                    "type": "int"
+                },
+                {
+                    "name": "tagReferenceCount",
+                    "type": "int"
+                },
+                {
+                    "name": "tagTitle",
+                    "type": "String",
+                    "length": 255
+                }
+            ]
+        },
+        {
+            "name": "tag_article",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "article_oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "tag_oId",
+                    "type": "String",
+                    "length": 255
+                }
+            ]
+        },
+        {
+            "name": "user",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "userEmail",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "userName",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "userURL",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "userPassword",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "userRole",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "userArticleCount",
+                    "type": "int"
+                },
+                {
+                    "name": "userPublishedArticleCount",
+                    "type": "int"
+                },
+                {
+                    "name": "userAvatar",
+                    "type": "String",
+                    "length": 255
+                }
+            ]
+        },
+        {
+            "name": "article",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "articleTitle",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "articleAbstract",
+                    "type": "String",
+                    "length": 2000
+                },
+                {
+                    "name": "articleTags",
+                    "type": "String",
+                    "length": 2000
+                },
+                {
+                    "name": "articleAuthorEmail",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "articleCommentCount",
+                    "type": "int"
+                },
+                {
+                    "name": "articleViewCount",
+                    "type": "int"
+                },
+                {
+                    "name": "articleContent",
+                    "type": "String",
+                    "length": 1048576
+                },
+                {
+                    "name": "articlePermalink",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "articleHadBeenPublished",
+                    "type": "boolean"
+                },
+                {
+                    "name": "articleIsPublished",
+                    "type": "boolean"
+                },
+                {
+                    "name": "articlePutTop",
+                    "type": "boolean"
+                },
+                {
+                    "name": "articleCreateDate",
+                    "type": "Date"
+                },
+                {
+                    "name": "articleUpdateDate",
+                    "type": "Date"
+                },
+                {
+                    "name": "articleRandomDouble",
+                    "type": "double"
+                },
+                {
+                    "name": "articleSignId",
+                    "type": "String",
+                    "length": 255
+                },
+                {
+                    "name": "articleCommentable",
+                    "type": "boolean"
+                },
+                {
+                    "name": "articleViewPwd",
+                    "type": "String",
+                    "legnth": 255
+                },
+                {
+                    "name": "articleEditorType",
+                    "description": "Editor Type (TinyMCE, CodeMirror-Markdown, etc)",
+                    "type": "String",
+                    "length": 20,
+                    "nullable": true
+                }
+            ]
+        },
+        {
+            "name": "option",
+            "keys": [
+                {
+                    "name": "oId",
+                    "type": "String",
+                    "length": 64
+                },
+                {
+                    "name": "optionValue",
+                    "type": "String",
+                    "length": 10240
+                },
+                {
+                    "name": "optionCategory",
+                    "type": "String",
+                    "legnth": 20
+                }
+            ]
+        }
+    ]
+}

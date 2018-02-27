@@ -1,0 +1,33 @@
+{
+  "name": "Solo",
+  "version": "2.2.0",
+  "description": "A blogging system written in Java, feel free to create your or your team own blog. 一个用 Java 实现的博客系统，为你或你的团队创建个博客吧！",
+  "homepage": "https://github.com/b3log/solo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/b3log/solo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/b3log/solo/issues"
+  },
+  "license": "GPLv3",
+  "private": true,
+  "author": "Daniel <dl882509@gmail.com> (http://88250.b3log.org) & Vanessa <lly219@gmail.com> (http://vanessa.b3log.org)",
+  "maintainers": [
+    {
+      "name": "Daniel",
+      "email": "dl88250@gmail.com"
+    },
+    {
+      "name": "Vanessa",
+      "email": "lly219@gmail.com"
+    }
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "2.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-clean-css": "^2.0.13",
+    "marked": "^0.3.6"
+  }
+}
