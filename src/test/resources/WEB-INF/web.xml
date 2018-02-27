@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2010-2016, b3log.org & hacpai.com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!--
+    Description: Solo web deployment descriptor.
+    Version: 1.0.5.1, Sep 27, 2013
+    Author: Liang Ding
+-->
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <listener>
+        <listener-class>org.b3log.solo.SoloServletListener</listener-class>
+    </listener>
+    
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>org.b3log.latke.servlet.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>requestEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>responseEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>org.b3log.solo.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/admin-index.do</url-pattern>
+        <url-pattern>/admin-main.do</url-pattern>
+        <url-pattern>/admin-article.do</url-pattern>
+        <url-pattern>/admin-article-list.do</url-pattern>
+        <url-pattern>/admin-comment-list.do</url-pattern>
+        <url-pattern>/admin-link-list.do</url-pattern>
+        <url-pattern>/admin-preference.do</url-pattern>
+        <url-pattern>/admin-page-list.do</url-pattern>
+        <url-pattern>/admin-others.do</url-pattern>
+        <url-pattern>/admin-draft-list.do</url-pattern>
+        <url-pattern>/admin-user-list.do</url-pattern>
+        <url-pattern>/admin-plugin-list.do</url-pattern>
+        <url-pattern>/admin-about.do</url-pattern>
+        <url-pattern>/rm-all-data.do</url-pattern>
+        <url-pattern>/fix/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>PermalinkFilter</filter-name>
+        <filter-class>org.b3log.solo.filter.PermalinkFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PermalinkFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>InitCheckFilter</filter-name>
+        <filter-class>org.b3log.solo.filter.InitCheckFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>InitCheckFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <session-config>
+        <session-timeout>
+            5
+        </session-timeout>
+    </session-config>
+    
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.b3log.latke.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/403.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.html</location>
+    </error-page>
+
+</web-app>

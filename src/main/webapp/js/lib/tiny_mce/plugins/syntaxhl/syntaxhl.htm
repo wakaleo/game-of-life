@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{#syntaxhl_dlg.title}</title>
+        <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+        <script type="text/javascript" src="../../utils/mctabs.js"></script>
+        <script type="text/javascript" src="syntaxhl.js"></script>
+        <style type="text/css" media="screen">
+            input {
+                vertical-align: middle;
+            }
+            label {
+                vertical-align: middle;
+            }
+            fieldset {
+                margin-bottom: 10px;
+            }
+            textarea {
+                width: 100%; 
+                height: 100%; 
+                font-family: 'Courier New',Courier,mono; 
+                font-size: 12px;
+            }
+            .panel_wrapper div.current {
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <form onsubmit="SyntaxHLDialog.insert(); return false;" action="#">
+            <div class="tabs">
+                <ul>
+                    <li id="general_tab" class="current" aria-controls="general_panel">
+                        <span>
+                            <a href="javascript:mcTabs.displayTab('general_tab','general_panel');"
+                               onmousedown="return false;">
+                                SyntaxHighLighter
+                            </a>
+                        </span>
+                    </li>
+                    <li id="appearance_tab" aria-controls="appearance_panel">
+                        <span>
+                            <a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');" 
+                               onmousedown="return false;">
+                                google code prettify
+                            </a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel_wrapper">
+                <div id="general_panel" class="panel current">
+                    <label for="syntaxhl_language">{#syntaxhl_dlg.choose_lang}:</label>	
+                    <select name="syntaxhl_language" id="syntaxhl_language">
+                        <option value="applescript">Apple Script</option>
+                        <option value="actionscript3">Action Script3</option>
+                        <option value="bash">Bash</option>
+                        <option value="coldfusion">Cold Fusion</option>
+                        <option value="cpp">C++</option>
+                        <option value="c#">C#</option>
+                        <option value="css">CSS</option>
+                        <option value="delphi">Delphi</option>
+                        <option value="diff">Diff</option>
+                        <option value="erl">Erlang</option>
+                        <option value="groovy">Groovy</option>
+                        <option value="java" selected="selected">Java</option>
+                        <option value="jfx">JavaFX</option>
+                        <option value="js">JavaScript</option>
+                        <option value="perl">Perl</option>
+                        <option value="php">PHP</option>
+                        <option value="plain">Plain</option>
+                        <option value="ps">PowerShell</option>
+                        <option value="py">Python</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="sass">Sass</option>
+                        <option value="scala">Scala</option>
+                        <option value="sql">SQL</option>
+                        <option value="vb">Visual Basic</option>
+                        <option value="xml">XML</option>
+                    </select>
+
+                    <textarea name="syntaxhl_code" id="syntaxhl_code" rows="15" cols="100" class="mceFocus"></textarea>
+
+                    <fieldset id="syntaxhl_options">
+                        <legend>{#syntaxhl_dlg.highlight_options}</legend>
+
+                        <table border="0" width="100%">
+                            <tr>
+                                <td width="50%"><input type="checkbox" name="syntaxhl_gutter" id="syntaxhl_gutter" /><label for="syntaxhl_gutter" >{#syntaxhl_dlg.gutter}</label></td>
+                                <td><input type="checkbox" name="syntaxhl_toolbar" id="syntaxhl_toolbar" /><label for="syntaxhl_toolbar" >{#syntaxhl_dlg.toolbar}</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="syntaxhl_autolinks" id="syntaxhl_autolinks" /><label for="syntaxhl_autolinks" >{#syntaxhl_dlg.autolinks}</label></td>
+                                <td><input type="checkbox" name="syntaxhl_collapse" id="syntaxhl_collapse" /><label for="syntaxhl_collapse" >{#syntaxhl_dlg.collapse}</label></td>
+                            </tr><!--tr>
+                                <td><input type="checkbox" name="syntaxhl_ruler" id="syntaxhl_ruler" /><label for="syntaxhl_ruler" >{#syntaxhl_dlg.ruler}</label></td>
+                                <td><input type="checkbox" name="syntaxhl_wrap_lines" id="syntaxhl_wrap_lines" /><label for="syntaxhl_wrap_lines" >{#syntaxhl_dlg.wrap_lines}</label></td>
+                            </tr-->
+                            <tr>
+                                <td><input type="checkbox" name="syntaxhl_light" id="syntaxhl_light" /><label for="syntaxhl_light" >{#syntaxhl_dlg.light}</label></td>
+                                <td><input type="checkbox" name="syntaxhl_htmlscript" id="syntaxhl_htmlscript" /><label for="syntaxhl_htmlscript" >{#syntaxhl_dlg.htmlscript}</label></td>
+                            </tr>
+                            <tr>
+                                <td><label for="syntaxhl_firstline">{#syntaxhl_dlg.firstline}:</label><input type="text" name="syntaxhl_firstline" id="syntaxhl_firstline" value="1" style="width:20px;" /></td>
+                                <td><label for="syntaxhl_highlight">{#syntaxhl_dlg.highlight}:</label><input type="text" name="syntaxhl_highlight" id="syntaxhl_highlight" style="width:60px;" /></td>
+                            </tr>
+                        </table>	
+                    </fieldset>
+                </div>
+
+                <div id="appearance_panel" class="panel">
+                    <textarea name="prettify_code" id="prettify_code" rows="25" cols="100" class="mceFocus"></textarea>
+                </div>
+            </div>
+
+
+            <div class="mceActionPanel">
+                <div style="float: left">
+                    <input type="submit" id="insert" name="insert" value="{#insert}" />
+                </div>
+                <div style="float: right">
+                    <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
