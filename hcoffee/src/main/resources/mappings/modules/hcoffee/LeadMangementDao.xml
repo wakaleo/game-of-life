@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.LeadMangementDao" > 
+
+		
+    <!-- 查询所有字段 -->
+  <select id="list"  resultType="com.huilian.hlej.hcf.vo.LeadManagementVo"  >
+		SELECT hcf_LeadManagement.*
+		
+		FROM
+			hcf_LeadManagement
+	</select>
+	
+	<select id="getCommunityPage" resultType="com.huilian.hlej.hcf.vo.LeadManagementVo" parameterType="com.huilian.hlej.hcf.vo.LeadManagementVo">
+	        SELECT
+				hcf_LeadManagement.*
+			FROM
+				hcf_LeadManagement
+				
+			where 1=1	
+			<if test="lMName != null and  lMName != ''">
+                AND hcf_LeadManagement.LMName  like  CONCAT('%','${lMName}','%' )
+            </if>
+            <if test="state != null and  state != ''">
+                AND hcf_LeadManagement.State = #{state}
+            </if>
+            <if test="searchText != null and  searchText != ''">
+				AND
+				(hcf_LeadManagement.lmName = #{searchText} OR hcf_LeadManagement.lmPhone = #{searchText})
+			</if>
+            
+			ORDER BY hcf_LeadManagement.creationTime DESC
+	        
+    </select>
+    
+    	<select id="getLeadManagementById" resultType="com.huilian.hlej.hcf.vo.LeadManagementVo" parameterType="com.huilian.hlej.hcf.vo.LeadManagementVo">
+	        SELECT
+				hcf_LeadManagement.*
+			FROM
+				hcf_LeadManagement
+			WHERE id = #{id}
+    </select>
+    
+  
+    <update id="updateLeadMangementById" parameterType="com.huilian.hlej.hcf.vo.LeadManagementVo" >
+       UPDATE `hcf_LeadManagement`
+		<set>
+			<if test="state !=null and state !=''">
+				State = #{state},
+			</if>
+			<if test="remark !=null and remark !=''">
+				remark = #{remark},
+			</if>
+		hcf_LeadManagement.updateTime = now()
+		</set>
+		WHERE id = #{id}	
+    </update>
+   
+    <!-- 导出数据 -->
+        <select id="getLeadManagementList"  resultType="com.huilian.hlej.hcf.vo.LeadManagementVo" parameterType="com.huilian.hlej.hcf.vo.LeadManagementVo">
+		 SELECT
+				hcf_LeadManagement.*
+			FROM
+				hcf_LeadManagement
+			where 1=1	
+			<if test="lMName != null and  lMName != ''">
+                AND hcf_LeadManagement.LMName  like  CONCAT('%','${lMName}','%' )
+            </if>
+            <if test="lMPhone != null and  lMPhone != ''">
+                AND hcf_LeadManagement.LMPhone  like  CONCAT('%','${lMPhone}','%' )
+            </if>
+            <if test="lMAdd != null and  lMAdd != ''">
+                AND hcf_LeadManagement.LMAdd  like  CONCAT('%','${lMAdd}','%' )
+            </if>
+            
+            <if test="applicationTime != null and  applicationTime != ''">
+                AND hcf_LeadManagement.applicationTime    &gt;=  #{applicationTime}
+            </if>
+    		<if test="creationTime != null and  creationTime != ''">
+                AND hcf_LeadManagement.creationTime   &lt;=  #{creationTime}
+            </if>
+             <if test="state != null and  state != ''">
+                AND hcf_LeadManagement.State  like  CONCAT('%','${state}','%' )
+            </if>
+             <if test="idList != null and  idList != ''">
+                AND hcf_LeadManagement.id   in  (${idList})
+            </if>
+			ORDER BY hcf_LeadManagement.creationTime DESC
+	</select>	
+    	
+    <resultMap id="operationHistoryMap" type="com.huilian.hlej.hcf.vo.LeadManagementVo">
+    	<result column="operationTime" property="operationTimeStr" jdbcType="VARCHAR"/>
+    	<result column="operationPerson"  property="operationPerson" jdbcType="VARCHAR"/>
+    	<result column="operationAction"  property="operationAction" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- 查询操作历史 -->
+    <select id="getOperationHistory" parameterType="java.lang.Integer" resultMap="operationHistoryMap">
+    	SELECT DATE_FORMAT(t.operationTime,'%Y-%m-%d %H:%m:%s') as operationTime,t.operationPerson,t.operationAction FROM hcf_lead_history t WHERE t.leadId = #{id}
+    	order by t.operationTime desc
+    </select>
+    
+    <!-- 插入操作历史 -->
+    <insert id="addOperationHistory" parameterType="com.huilian.hlej.hcf.vo.LeadManagementVo">
+    	insert into hcf_lead_history(operationTime,operationPerson,operationAction,leadId) VALUE (now(),#{operationPerson},#{operationAction},${leadId})
+    </insert>
+</mapper>   

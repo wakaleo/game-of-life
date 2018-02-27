@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.BitMachineAisleInfoDao" > 
+
+	
+	<resultMap id="bitMachineAisleInfoVoMap" type="com.huilian.hlej.hcf.vo.BitMachineAisleInfoVo">
+		<result column="machine_aisle_id" property="id" jdbcType="VARCHAR"/>
+		<result column="aisle_goods_selling_price" property="aisleGoodsSellingPrice" jdbcType="VARCHAR"/>
+		<result column="aisle_name" property="aisleName" jdbcType="VARCHAR"/>
+		<result column="default_goods_stock" property="defaultGoodsStock" jdbcType="VARCHAR"/>
+		<result column="goods_stock" property="goodsStock" jdbcType="VARCHAR"/>
+		<result column="is_sale_enabled" property="isSaleEnabled" jdbcType="VARCHAR"/>
+		<result column="is_break" property="isBreak" jdbcType="VARCHAR"/>
+		<result column="machine_id" property="machineId" jdbcType="VARCHAR"/>
+		<result column="goods_sku_info_goods_sku_id" property="goodsSkuInfoGoodsSkuId" jdbcType="VARCHAR"/>
+		<result column="goods_sku_subject" property="goodsSkuSubject" jdbcType="VARCHAR"/>
+		<result column="gmt_created" property="gmtCreated" jdbcType="VARCHAR"/>
+		<result column="gmt_modified" property="gmtModified" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="findBitMachineAisleInfoVoList" resultMap="bitMachineAisleInfoVoMap"
+		parameterType="com.huilian.hlej.hcf.vo.BitMachineAisleInfoVo">
+		SELECT
+			h.machine_aisle_id,
+			h.aisle_goods_selling_price,
+			h.aisle_name,
+			h.default_goods_stock,
+			h.goods_stock,
+			h.is_sale_enabled,
+			h.is_break,
+			h.machine_id,
+			h.goods_sku_info_goods_sku_id,
+			g.goods_sku_subject,
+			h.gmt_created,
+			h.gmt_modified
+		FROM
+			machine_aisle_info AS h
+			LEFT OUTER JOIN goods_sku_info AS g ON h.goods_sku_info_goods_sku_id=g.goods_sku_id
+		WHERE 1=1
+		<if test="machineId != null and  machineId != ''">
+			AND h.machine_id = #{machineId}
+		</if>
+		ORDER BY h.is_break ASC,h.machine_aisle_id ASC
+	</select>
+	
+	
+	<resultMap id="bitMachineAisleCountVoMap" type="com.huilian.hlej.hcf.vo.BitMachineBaseInfoVo">
+		<result column="machine_id" property="id" jdbcType="VARCHAR"/>
+		<result column="machine_code" property="machineCode" jdbcType="VARCHAR"/>
+		<result column="QHSPS" property="QHSPS" jdbcType="VARCHAR"/>
+		<result column="ZKCRL" property="ZKCRL" jdbcType="VARCHAR"/>
+		<result column="ZHDS" property="ZHDS" jdbcType="VARCHAR"/>
+		<result column="GZHDS" property="GZHDS" jdbcType="VARCHAR"/>
+		<result column="DHHDS" property="DHHDS" jdbcType="VARCHAR"/>
+		<result column="QHHDS" property="QHHDS" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="getBitMachineAisleCountVo" resultMap="bitMachineAisleCountVoMap"
+		parameterType="com.huilian.hlej.hcf.vo.BitMachineAisleInfoVo">
+		SELECT
+			a.machine_id,
+			b.machine_code,
+			SUM(a.default_goods_stock-a.goods_stock) AS QHSPS,
+			SUM(a.default_goods_stock) AS ZKCRL,
+			COUNT(1) AS ZHDS,
+			(SELECT COUNT(1) FROM `machine_aisle_info` AS t1 WHERE 1=1 
+			<if test="machineId != null and  machineId != ''">
+				AND t1.machine_id = #{machineId}
+			</if>
+			 AND t1.is_break &lt;&gt; 0) AS GZHDS ,
+			(SELECT COUNT(1) FROM `machine_aisle_info` AS t2 WHERE 1=1 
+			<if test="machineId != null and  machineId != ''">
+				AND t2.machine_id = #{machineId}
+			</if>
+			 AND t2.goods_stock=0) AS DHHDS ,
+			(SELECT COUNT(1) FROM `machine_aisle_info` AS t3 WHERE 1=1 
+			<if test="machineId != null and  machineId != ''">
+				AND t3.machine_id = #{machineId}
+			</if>
+			 AND t3.goods_stock &lt; t3.default_goods_stock AND t3.goods_stock &gt; 0) AS QHHDS 
+		FROM
+			machine_aisle_info AS a 
+			LEFT OUTER JOIN machine_base_info AS b ON a.machine_id=b.machine_id
+		WHERE 1=1
+		<if test="machineId != null and  machineId != ''">
+			AND a.machine_id = #{machineId}
+		</if>
+	</select>
+	
+	
+	
+	
+</mapper>   

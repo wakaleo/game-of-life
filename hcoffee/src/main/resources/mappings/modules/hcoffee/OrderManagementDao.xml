@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.OrderManagementDao" > 
+
+		
+    <!-- 查询所有字段 -->
+  <select id="list"  resultType="com.huilian.hlej.hcf.vo.OrderManagementVo"  >
+		SELECT hcf_LeadManagement.*
+		
+		FROM
+			hcf_LeadManagement
+	</select>
+	
+	<select id="getOrderManagementPage" resultType="com.huilian.hlej.hcf.vo.OrderManagementVo" parameterType="com.huilian.hlej.hcf.vo.OrderManagementVo">
+	        SELECT
+				hcf_order_ditel.*
+			FROM
+				hcf_order_ditel
+				
+			where 1=1	
+			<if test="orderId != null and  orderId != ''">
+                AND hcf_order_ditel.OrderID  like  CONCAT('%','${orderId}','%' )
+            </if>
+            <if test="orderState != null and  orderState != ''">
+                AND hcf_order_ditel.OrderState  like  CONCAT('%','${orderState}','%' )
+            </if>
+             <if test="removeOrder != null and  removeOrder != ''">
+                AND hcf_order_ditel.RemoveOrder  like  CONCAT('%','${removeOrder}','%' )
+            </if>
+            
+            
+           <!--  <if test="startTime != null and  startTime != ''">
+                AND hsh_community.create_time    &gt;=  #{startTime}
+            </if>
+    		<if test="endTime != null and  endTime != ''">
+                AND hsh_community.create_time    &lt;=  #{endTime}
+            </if> -->
+            
+		<!-- 	ORDER BY hsh_community.create_time DESC ,hsh_community.id asc -->
+	        
+    </select>
+    
+    	<select id="getLeadManagementById" resultType="com.huilian.hlej.hcf.vo.LeadManagementVo" parameterType="com.huilian.hlej.hcf.vo.LeadManagementVo">
+	        SELECT
+				hcf_LeadManagement.*
+			FROM
+				hcf_LeadManagement
+			WHERE id = #{id}
+    </select>
+    
+    <!-- 
+    	 SELECT
+				hkf_upload_ad.id as id,
+				hkf_upload_ad.channel_id as channelId,
+				hkf_upload_ad.schemeNo as schemeNo,
+				hsh_channel.channel_name as channelName,
+				hsh_activity_scheme.schemeName as schemeName,
+				hkf_upload_ad.createTime,
+				hkf_upload_ad.adStatus as adStatus
+			FROM
+				hkf_upload_ad ,
+				hsh_channel ,
+				hsh_activity_scheme  
+			    where hkf_upload_ad.channel_id = hsh_channel.channel_id
+			     AND hkf_upload_ad.schemeNo = hsh_activity_scheme.schemeNo 
+    
+     -->
+  	<select id="selectALl" resultType="com.huilian.hlej.hcf.vo.OrderManagementVo" parameterType="com.huilian.hlej.hcf.vo.OrderManagementVo">
+  			SELECT
+  			<!-- 订单表 -->
+  				hcf_order_ditel.*,
+  			<!-- 中间表 -->
+  				hcf_orderGood_ditel.*,
+  			<!-- 商品表 -->
+  				hcf_goods_details.goodsName,
+  				hcf_goods_details.priceInto
+  			FROM
+  			 	hcf_order_ditel,
+  			 	hcf_orderGood_ditel,
+  			 	hcf_goods_details
+  			 	where hcf_order_ditel.id=hcf_orderGood_ditel.CommodityID
+  	</select>
+  
+  
+    <update id="updateOrderMangementById" parameterType="com.huilian.hlej.hcf.vo.OrderManagementVo" >
+       UPDATE `hcf_order_ditel`
+		<set>
+			<if test="removeOrder !=null and removeOrder !=''">
+				RemoveOrder = #{removeOrder}
+			</if>
+		</set>
+		WHERE id = #{id}	
+    </update>
+    
+</mapper>   

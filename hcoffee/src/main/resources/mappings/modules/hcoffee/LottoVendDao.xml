@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.LottoVendDao" > 
+
+	<insert id="saveLottoVendVo" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO `hcf_lotto_vend_prize` (
+			  `activityNo` ,
+			  `activityName` ,
+			  `vendCode` ,
+			  `prizeName` ,
+			  `prizeType` ,
+			  `location` ,
+			  `shelf` ,
+			  `goodsID` ,
+			  `prizeUrl` ,
+			  `prizeNum` ,
+			  `probability` ,
+			  `sort` ,
+			  `createTime`
+			)
+			VALUES
+				(
+					#{activityNo},
+					#{activityName},
+					#{vendCode},
+					#{prizeName},
+					#{prizeType},
+					#{location},
+					#{shelf},
+					#{goodsID},
+					#{prizeUrl},
+					#{prizeNum},
+					#{probability},
+					#{sort},
+					now()
+				)
+			]]> 
+	</insert>
+	
+	<resultMap id="lottoVendVoMap" type="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="activityNo" property="activityNo" jdbcType="VARCHAR"/>
+		<result column="activityName" property="activityName" jdbcType="VARCHAR"/>
+		<result column="vendCode" property="vendCode" jdbcType="VARCHAR"/>
+		<!-- <result column="prizeName" property="prizeName" jdbcType="VARCHAR"/>
+		<result column="prizeType" property="prizeType" jdbcType="VARCHAR"/>
+		<result column="shelf" property="shelf" jdbcType="VARCHAR"/>
+		<result column="goodsID" property="goodsID" jdbcType="VARCHAR"/>
+		<result column="prizeUrl" property="prizeUrl" jdbcType="VARCHAR"/>
+		<result column="prizeNum" property="prizeNum" jdbcType="VARCHAR"/>
+		<result column="probability" property="probability" jdbcType="VARCHAR"/>
+		<result column="sort" property="sort" jdbcType="VARCHAR"/> -->
+	</resultMap>
+
+	<select id="findLottoVendVoList" resultMap="lottoVendVoMap"
+		parameterType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		SELECT
+			h.id,
+			h.activityNo,
+			h.activityName,
+			h.vendCode
+			<!-- h.prizeName,
+			h.prizeType,
+			h.shelf,
+			h.goodsID,
+			h.prizeUrl,
+			h.prizeNum,
+			h.probability,
+			h.sort -->
+		FROM
+			hcf_lotto_vend_prize AS h
+		where 1=1
+		<if test="activityName != null and  activityName != ''">
+			AND h.activityName like CONCAT('%','${activityName}','%' )
+		</if>
+		<if test="activityNo != null and  activityNo != ''">
+			AND h.activityNo = #{activityNo}
+		</if>
+		<if test="vendCode != null and  vendCode != ''">
+			AND h.vendCode = #{vendCode} 
+		</if>
+		GROUP BY h.vendCode ,h.activityNo
+		ORDER BY h.sort ASC ,h.createTime DESC
+	</select>
+	
+	<update id="updateLottoVendVo" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		UPDATE `hcf_lotto_vend_prize`
+		<set>
+			<if test="activityNo!=null and activityNo!=''">
+				activityNo = #{activityNo},
+			</if>
+			<if test="activityName!=null and activityName!=''">
+				activityName = #{activityName},
+			</if>
+			
+			<if test="vendCode!=null and vendCode!=''">
+				vendCode = #{vendCode},
+			</if>
+			<if test="prizeName!=null and prizeName!=''">
+				prizeName = #{prizeName},
+			</if>
+			<if test="prizeType!=null and prizeType!=''">
+				prizeType = #{prizeType},
+			</if>
+			<if test="location!=null and location!=''">
+				location = #{location},
+			</if>
+			<if test="shelf!=null and shelf!=''">
+				shelf = #{shelf},
+			</if>
+			<if test="goodsID!=null and goodsID!=''">
+				goodsID = #{goodsID},
+			</if>
+			<if test="prizeUrl!=null and prizeUrl!=''">
+				prizeUrl = #{prizeUrl},
+			</if>
+			<if test="prizeNum!=null and prizeNum!=''">
+				prizeNum = #{prizeNum},
+			</if>
+			<if test="probability!=null and probability!=''">
+				probability = #{probability},
+			</if>
+			<if test="sort!=null and sort!=''">
+				sort = #{sort},
+			</if>
+		</set>
+		<where>
+				id = ${id}
+		</where>
+				
+	</update>
+	
+	
+	
+	
+	
+	<resultMap id="lottoActivityVoMap" type="com.huilian.hlej.hcf.vo.LottoActivityVo">
+		<result column="activityNo" property="activityNo" jdbcType="VARCHAR"/>
+		<result column="activityName" property="activityName" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="getLottoActivityVoAll" resultMap="lottoActivityVoMap">
+		<![CDATA[
+			SELECT
+				activityNo,
+				activityName
+			FROM
+				hcf_lotto_activity
+		]]>	
+	</select>
+	
+	
+	<select id="getPrizeList" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo" resultType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			SELECT *  FROM hcf_lotto_vend_prize AS t WHERE 1=1 
+		]]>
+		<if test="vendCode != null and  vendCode != ''">
+			AND t.vendCode = #{vendCode}
+		</if>
+		<if test="activityNo != null and  activityNo != ''">
+			AND t.activityNo=#{activityNo}
+		</if>
+	</select>
+	<select id="getLottoVendVo" parameterType="java.lang.String" resultType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			SELECT *  FROM hcf_lotto_vend_prize AS t WHERE 1=1 AND t.id = #{id}
+		]]>
+	</select>
+	<delete id="deletePrize" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			DELETE from hcf_lotto_vend_prize where id=#{id}
+		]]>
+	</delete>
+	
+	<select id="checkPrizeName" parameterType="java.lang.String" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT count(1) from hcf_lotto_vend_prize where prizeName = #{prizeName}
+		]]>
+	</select>
+	
+	<select id="getLottoVendVoListByActivityNoAndVendCode" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo" 
+		resultType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			SELECT *  FROM hcf_lotto_vend_prize AS t WHERE 1=1 
+		]]>
+		<if test="vendCode != null and  vendCode != ''">
+			AND t.vendCode = #{vendCode}
+		</if>
+		<if test="activityNo != null and  activityNo != ''">
+			AND t.activityNo=#{activityNo}
+		</if>
+	</select>
+	
+	<delete id="deleteListByActivityNoAndVendCode" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			DELETE from hcf_lotto_vend_prize where activityNo=#{activityNo} AND vendCode=#{vendCode}
+		]]>
+	</delete>
+</mapper>   

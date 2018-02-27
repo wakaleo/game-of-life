@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendingStateDao" > 
+
+		 <select id="getVendingStatisticsPage" resultType="VendingStartVo" >
+		       SELECT t.*
+		       FROM
+		       hcf_vend_monitor t
+		        <where>
+		        1 = 1
+	        	<if test="vendCode != null and vendCode != ''">
+	               AND t.vend_code like CONCAT('%','${vendCode}','%' )
+	            </if>
+	        	<if test="status != null and status != ''">
+	              AND t.status like CONCAT('%','${status}','%' )
+	            </if>
+	            </where>
+	            ORDER BY  t.status desc , t.id asc
+	   </select>
+
+</mapper>   

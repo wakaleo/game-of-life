@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.TradeDao" > 
+	
+	<resultMap  id="offlineTradeMap" type="com.huilian.hlej.hcf.vo.TradeInfoVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="orderNo" property="orderNo" jdbcType="VARCHAR"/>
+		<result column="phoneNo" property="phoneNo" jdbcType="VARCHAR"/>
+		<result column="userName" property="userName" jdbcType="VARCHAR"/>
+		<result column="location" property="location" jdbcType="VARCHAR"/>
+		<result column="goodsName" property="goodsName" jdbcType="VARCHAR"/>
+		<result column="amount" property="amount" jdbcType="NUMERIC"/>
+		<result column="shelf" property="shelf" jdbcType="VARCHAR"/>
+		<result column="vendCode" property="vendCode" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	
+	<!-- 设备信息查询 -->	
+	<select id="findTradeInfoVoList" parameterType="com.huilian.hlej.hcf.vo.TradeInfoVo" resultMap="offlineTradeMap">
+		<![CDATA[
+			SELECT
+				t.id,
+				t.orderNo,
+				t.phoneNo,
+				t.userName,
+				t.location,
+				t.goodsName,
+				t.amount * 0.01 as amount,
+				t.vendCode,
+				t.shelf
+			FROM
+				hcf_offline_vend_order AS t
+		]]>
+		<where>
+			1=1
+			<if test="orderNo != null and  orderNo != ''">
+           		AND t.orderNo = #{orderNo}
+           	</if>
+           	<if test="phoneNo != null and  phoneNo != ''">
+           		AND t.phoneNo = #{phoneNo}
+           	</if>
+           	<if test="userName != null and  userName != ''">
+           		AND t.userName = #{userName}
+           	</if>
+           	<if test="vendCode != null and  vendCode != ''">
+           		AND t.vendCode = #{vendCode}
+           	</if>
+		</where>
+			ORDER BY t.id DESC
+	</select>
+</mapper>   

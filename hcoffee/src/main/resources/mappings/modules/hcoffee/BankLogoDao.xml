@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.BankLogoDao" > 
+	<!-- 添加模版 -->
+	<insert id="saveBankLogoVo" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO `hcf_dealer_bank_logo` (
+			  `bankName` ,
+			  `logoUrl` ,
+			  `createTime` ,
+			  `createBy` ,
+			  `bankCode` 
+			)
+			VALUES
+				(
+					#{bankName},
+					#{logoUrl},
+					now(),
+					#{createBy},
+					#{bankCode}
+				)
+			]]> 
+	</insert>
+	
+	<!-- 根据银行名称 -->
+	<select id="queryBankName" parameterType="java.lang.Integer" resultType="java.lang.String">
+		<![CDATA[
+			SELECT label FROM sys_dict WHERE TYPE = 'act_bank' and value=#{value} ORDER BY sort
+		]]>
+	</select>
+	
+	<resultMap id="findBankLogoVoMap" type="com.huilian.hlej.hcf.vo.BankLogoVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="bankName" property="bankName" jdbcType="VARCHAR"/>
+		<result column="logoUrl" property="logoUrl" jdbcType="VARCHAR"/>
+		<result column="createTime" property="createTime" jdbcType="VARCHAR"/>
+		<result column="bankCode" property="bankCode" jdbcType="NUMERIC"/>
+	</resultMap>
+
+	<select id="findBankLogoVoList" resultMap="findBankLogoVoMap"
+		parameterType="com.huilian.hlej.hcf.vo.BankLogoVo">
+		SELECT
+			id,
+			bankName,
+			logoUrl,
+			DATE_FORMAT(createTime,'%Y-%m-%d %H:%m:%s') as createTime,
+			createBy,
+			bankCode
+		FROM
+			hcf_dealer_bank_logo
+		where 1=1
+		<if test="bankName != null and  bankName != ''">
+			AND hcf_dealer_bank_logo.bankName like CONCAT('%','${bankName}','%' )
+		</if>
+		ORDER BY hcf_dealer_bank_logo.createTime DESC  
+	</select>
+
+	<!-- 根据id查询银行卡logo -->
+	<select id="queryBankLogoVo" parameterType="java.lang.String" resultType="com.huilian.hlej.hcf.vo.BankLogoVo">
+		SELECT * from hcf_dealer_bank_logo where id=#{id}
+	</select>
+	
+	<!-- 修改银行卡信息 -->
+	<update id="updateBankLogoVo" parameterType="com.huilian.hlej.hcf.vo.BankLogoVo">
+		UPDATE `hcf_dealer_bank_logo`
+		<set>
+			<if test="bankName != null and bankName != ''">
+				bankName = #{bankName},
+			</if>
+			<if test="bankCode != null and bankCode != ''">
+				bankCode = #{bankCode},
+			</if>
+			<if test="logoUrl != null and logoUrl != ''">
+				logoUrl = #{logoUrl},
+			</if>
+			<if test="createBy != null and createBy != ''">
+				createBy = #{createBy},
+			</if>
+			createTime = now()
+			<where>
+				id = #{id}
+			</where>
+		</set>
+	</update>
+	
+	<!-- 根据id删除银行卡logo信息 -->
+	<delete id="deleteBankLogoVoById" parameterType="java.lang.String">
+		DELETE FROM hcf_dealer_bank_logo WHERE id=#{id}
+	</delete>
+</mapper>   

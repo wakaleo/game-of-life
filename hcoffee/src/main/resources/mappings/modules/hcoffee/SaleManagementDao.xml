@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.SaleManagementDao" > 
+	
+	<resultMap id="saleManagementVoListMap" type="com.huilian.hlej.hcf.vo.SaleManagementVo">
+		<result column="ID" property="ID" jdbcType="NUMERIC"/>
+		<result column="loginName" property="loginName" jdbcType="VARCHAR"/>
+		<result column="dealerName" property="dealerName" jdbcType="VARCHAR"/>
+		<result column="cellPhone" property="cellPhone" jdbcType="VARCHAR"/>
+		<result column="machineNum" property="machineNum" jdbcType="NUMERIC"/>
+	</resultMap>
+
+	<!-- 查代理商及其所拥有的机器数 -->
+	<select id="getSaleManagementList" resultMap="saleManagementVoListMap" parameterType="com.huilian.hlej.hcf.vo.SaleManagementVo">
+		<![CDATA[
+			SELECT 
+			  loginName,
+			  id,
+			  dealerName,
+			  cellPhone,
+			  IF(saleCount IS NULL,0, saleCount) as saleCount,
+			  IF(saleMoney IS NULL,0, saleMoney) as saleMoney,
+			  machineNum 
+			FROM
+			  (SELECT 
+			    COUNT(1) AS machineNum,
+			    temp1.loginName,
+			    temp1.id,
+			    temp1.dealerName,
+			    temp1.cellPhone,
+			    temp1.shipTime,
+			    SUM(temp1.saleCount) AS saleCount,
+			    SUM(temp1.saleMoney) AS saleMoney 
+			  FROM
+			    (SELECT 
+			      t3.loginName,
+			      t3.id,
+			      t3.dealerName,
+			      t3.cellPhone,
+			      temp.saleCount,
+			      temp.saleMoney,
+			      temp.shipTime 
+			    FROM
+			      (SELECT 
+			        t1.shipTime,
+			        t1.vendCode,
+			        COUNT(t1.goodsId) AS saleCount,
+			        TRUNCATE(SUM(t1.amount * 0.01), 2) AS saleMoney 
+			      FROM
+			        hcf_vend_order_info t1 
+			      GROUP BY t1.vendCode) temp 
+			      LEFT JOIN hcf_vend_dealer t2 
+			        ON (temp.vendCode = t2.vendCode) 
+			      RIGHT JOIN hcf_dealer_baseInfo t3 
+			        ON (t2.loginName = t3.loginName) 
+			    ]]>
+			    	<where>
+			    		t3.loginName &lt;&gt; ''
+			    	</where>
+			    	<![CDATA[
+			    ) AS temp1
+			    ]]>
+			    <![CDATA[ 
+			  GROUP BY temp1.loginName) temp2 
+		]]>
+		<where>
+            <if test="searchContent != null and  searchContent != ''">
+				AND
+				(loginName = #{searchContent} OR dealerName = #{searchContent} OR cellPhone = #{searchContent})
+			</if>
+			<if test="startTimeStr != null and  startTimeStr != ''">
+                AND DATE_FORMAT(shipTime,'%Y-%m-%d') &gt;=  #{startTimeStr}
+            </if>
+    		<if test="endTimeStr != null and  endTimeStr != ''">
+                AND DATE_FORMAT(shipTime,'%Y-%m-%d') &lt;=  #{endTimeStr}
+            </if>
+		</where>
+		<![CDATA[
+			ORDER BY shipTime DESC
+		]]>	
+	</select>
+	
+	<resultMap id="saleDetailVoListMap" type="com.huilian.hlej.hcf.vo.SaleDetailVo">
+		<result column="id" property="id" jdbcType="NUMERIC"/>
+		<result column="vendCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="location" property="location" jdbcType="VARCHAR"/>
+		<result column="shipTime" property="shipTime" jdbcType="DATE"/>
+		<result column="saleMoney" property="saleMoney" jdbcType="DOUBLE"/>
+		<result column="saleCount" property="saleCount" jdbcType="NUMERIC"/>
+	</resultMap>
+	
+	<select id="getSaleDetailVoList" parameterType="com.huilian.hlej.hcf.vo.SaleDetailVo" resultMap="saleDetailVoListMap">
+		<![CDATA[
+			SELECT 
+				t1.vendCode,
+				t2.location,
+				DATE_FORMAT(t1.shipTime, '%Y-%m-%d') AS shipTime,
+				DATE_FORMAT(t1.shipTime, '%Y-%m-%d') AS days,
+				COUNT(t1.goodsId) AS saleCount,
+				TRUNCATE(SUM(t1.amount*0.01),2) as saleMoney
+			FROM
+			  hcf_vend_order_info t1,
+			  hcf_vend_dealer t2,
+			  hcf_dealer_baseInfo t3 
+		]]>
+		<where>
+			t1.vendCode = t2.vendCode
+			AND t2.loginName = t3.loginName 
+			<if test="vendCode != null and vendCode != ''">
+				AND t1.vendCode = #{vendCode}
+			</if>
+			<if test="vendCodes != null and vendCodes != ''">
+				AND t1.vendCode in (${vendCodes})
+			</if>
+			<if test="location != null and location != ''">
+				AND t2.location = #{location}
+			</if>
+			<if test="loginName != null and loginName != ''">
+				AND t2.loginName = #{loginName}
+			</if>
+			<if test="startTimeStr != null and  startTimeStr != ''">
+                AND DATE_FORMAT(t1.shipTime,'%Y-%m-%d') &gt;=  #{startTimeStr}
+            </if>
+    		<if test="endTimeStr != null and  endTimeStr != ''">
+                AND DATE_FORMAT(t1.shipTime,'%Y-%m-%d') &lt;=  #{endTimeStr}
+            </if>
+            <if test="searchContent != null and  searchContent != ''">
+				AND
+				(t3.loginName = #{searchContent} OR t3.dealerName = #{searchContent} OR t3.cellPhone = #{searchContent})
+			</if>
+		</where>
+		<![CDATA[
+			GROUP BY t1.vendCode,days
+		]]>
+	</select>
+	
+	<resultMap id="orderDetailVoListMap" type="com.huilian.hlej.hcf.vo.OrderDetailVo">
+		<result column="id" property="id" jdbcType="NUMERIC"/>
+		<result column="runningAccount" property="runningAccount" jdbcType="VARCHAR"/>
+		<result column="orderNo" property="orderNo" jdbcType="VARCHAR"/>
+		<result column="payType" property="payType" jdbcType="NUMERIC"/>
+		<result column="saleMoney" property="saleMoney" jdbcType="DOUBLE"/>
+		<result column="saleCount" property="saleCount" jdbcType="NUMERIC"/> 
+		<result column="payTime" property="payTime" jdbcType="DATE"/>
+		<result column="orderCreateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+		<result column="shipTime" property="shipTime" jdbcType="TIMESTAMP"/>
+		<result column="shipStatus" property="shipStatus" jdbcType="NUMERIC"/>
+		<result column="vendCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="location" property="location" jdbcType="VARCHAR"/>
+		<result column="shelf" property="shelf" jdbcType="VARCHAR"/>
+		<result column="goodsName" property="goodsName" jdbcType="VARCHAR"/>
+		<result column="dealerName" property="dealerName" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="getOrderDatailVoList" parameterType="com.huilian.hlej.hcf.vo.OrderDetailVo" resultMap="orderDetailVoListMap">
+		<![CDATA[
+			 SELECT 
+			  t1.runningAccount,
+			  t1.orderNo,
+			  t1.payType,
+			  t1.vendCode,
+			  t2.location,
+			  COUNT(1) AS saleCount,
+			  TRUNCATE(COUNT(1) * t1.amount*0.01,2) AS saleMoney,
+			  t1.payTime,
+			  t1.shipTime,
+			  t1.orderCreateTime,
+			  t1.shipStatus,
+			  t1.shelf,
+			  t1.goodsName,
+			  t3.dealerName
+			FROM
+			  hcf_vend_order_info t1,
+			  hcf_vend_dealer t2,
+			  hcf_dealer_baseInfo t3 
+		]]>
+		<where>
+			t1.vendCode = t2.vendCode 
+			AND t2.loginName = t3.loginName
+			<if test="vendCode != null and vendCode != ''">
+				AND t1.vendCode = #{vendCode}
+			</if>
+			<if test="vendCodes != null and vendCodes != ''">
+				AND t1.vendCode in (${vendCodes})
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND t1.orderNo = #{orderNo}
+			</if>
+			<if test="orderStatus != null and orderStatus != ''">
+				AND t1.orderStatus = #{orderStatus}
+			</if>
+			<if test="payType != null and payType != ''">
+				AND t1.payType = #{payType}
+			</if>
+			<if test="payStatus != null and payStatus != ''">
+				AND t1.payStatus = #{payStatus}
+			</if>
+			<if test="shipStatus != null and shipStatus != ''">
+				AND t1.shipStatus = #{shipStatus}
+			</if>
+			<if test="shipTimeStr != null and  shipTimeStr != ''">
+	            AND DATE_FORMAT(t1.shipTime,'%Y-%m-%d') = #{shipTimeStr}
+	        </if>
+			<if test="startTime != null and  startTime != ''">
+	            AND t1.shipTime &gt;=  #{startTime}
+	        </if>
+	   		<if test="endTime != null and  endTime != ''">
+	            AND t1.shipTime &lt;=  #{endTime}
+	        </if>
+		</where>
+		<![CDATA[
+			GROUP BY t1.goodsName
+		]]>
+	</select>
+	
+	<!--  查询销售数，销售总金额 -->
+	<select id="getAmountAndMoneySum" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		<![CDATA[
+		SELECT 
+		  SUM(c1) as saleCount,
+		  TRUNCATE(SUM(c2),2) as saleMoney
+		FROM
+		  (SELECT 
+		    COUNT(1) AS c1,
+		    COUNT(1) * t.amount*0.01 AS c2 
+		  FROM
+		    hcf_vend_order_info t 
+		  WHERE t.vendCode IN (${vendCodes}) 
+		  GROUP BY t.goodsName) as TEMP
+		  ]]>
+	</select>
+	
+	<resultMap id="vendCodesListMap" type="com.huilian.hlej.hcf.vo.DealerEqRelationVo">
+		<result column="vendCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="location" property="location" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!--  查询销售数，销售总金额 -->
+	<select id="getVendCodesListByLoginName" parameterType="java.lang.String" resultMap="vendCodesListMap">
+		<![CDATA[
+		SELECT DISTINCT 
+		  t2.vendCode,
+		  t1.location 
+		FROM
+		  hcf_vend_dealer t1 
+		  LEFT JOIN hcf_vend_order_info t2 
+		    ON (t1.vendCode = t2.vendCode) 
+		]]>
+		<where>
+			t2.vendCode  &lt;&gt; ''
+			AND t1.loginName = #{loginName}
+		</where>
+	</select>
+	
+</mapper>   

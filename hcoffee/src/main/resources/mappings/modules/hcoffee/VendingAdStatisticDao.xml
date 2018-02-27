@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendingAdStatisticDao" > 
+
+	 	<select id="getRewardRecordListPage" resultType="com.huilian.hlej.hcf.vo.StatistTotelVo" parameterType="com.huilian.hlej.hcf.vo.StatistTotelVo">
+			 SELECT 
+				hkf_vend_totel_statist.*, hsh_vend_qr_code.channel,
+				hsh_vend_qr_code.communityId,
+				hsh_vend_qr_code.channelName,
+  				hsh_vend_qr_code.communityName
+			FROM
+				hkf_vend_totel_statist,
+				hsh_vend_qr_code 
+	        <where>
+	           hkf_vend_totel_statist.vendCode = hsh_vend_qr_code.vendcode
+	        
+	            <if test="startTime != null and  startTime != ''">
+	                AND hkf_vend_totel_statist.addTime    &gt;=  #{startTime}
+	            </if>
+	    		<if test="endTime != null and  endTime != ''">
+	                AND hkf_vend_totel_statist.addTime    &lt;=  #{endTime}
+	            </if>
+	            <if test="adId != null and  adId != ''">
+	                AND hkf_vend_totel_statist.adId  like  CONCAT('%','${adId}','%' )
+	            </if>
+	            
+	        </where>
+    	</select>
+    	 
+    	
+		<select id="getVendingAdStatisticPage" resultType="com.huilian.hlej.hcf.vo.VendingConterAdVo" parameterType="com.huilian.hlej.hcf.vo.VendingConterAdVo">
+				 SELECT *
+                  FROM   
+            hkf_vend_conter_ad ss 
+             <where>
+              <if test="startTime != null and  startTime != ''">
+	                AND ss.createTime    &gt;=  #{startTime}
+	            </if>
+	    		<if test="endTime != null and  endTime != ''">
+	                AND ss.createTime    &lt;=  #{endTime}
+	            </if>
+	            
+	            <if test="imgName != null and  imgName != ''">
+	                AND ss.imgName  like  CONCAT('%','${imgName}','%' )
+	            </if>
+	          </where>
+	           ORDER BY  ss.createTime desc
+    	</select>
+    	
+		<select id="getVendByImgName" resultType="com.huilian.hlej.hcf.vo.VendingAdStatisticVo" parameterType="com.huilian.hlej.hcf.vo.VendingAdStatisticVo">
+			SELECT *
+                  FROM   
+            hkf_vend__ad_statist 
+            
+            <where>
+	        	imgName   =  #{0}
+	        </where>
+	        
+    	</select>
+    	
+		<select id="getVendByAdId" resultType="com.huilian.hlej.hcf.vo.StatistTotelVo" parameterType="com.huilian.hlej.hcf.vo.StatistTotelVo">
+			SELECT *
+                  FROM   
+            hkf_vend_totel_statist 
+            
+            <where>
+	        	adId   =  #{0}
+	        </where>
+	        GROUP BY vendCode
+    	</select>
+    	
+    	
+		<select id="getVendmotorByVendCode" resultType="com.huilian.hlej.hcf.vo.VendingStartVo" parameterType="com.huilian.hlej.hcf.vo.VendingStartVo">
+			SELECT *
+                  FROM   
+            hcf_vend_monitor 
+            
+            <where>
+	        	vend_code   =  #{vendCode}
+	        </where>
+	        
+    	</select>
+    	
+    	
+    	
+    	
+		<select id="getVending" resultType="com.huilian.hlej.hcf.vo.VendingMachineVo" parameterType="com.huilian.hlej.hcf.vo.VendingMachineVo">
+			SELECT *
+                  FROM   
+            hsh_vend_qr_code 
+	        
+    	</select>
+    	
+    	
+		<select id="getUpdateTime" resultType="com.huilian.hlej.hcf.vo.StatistTotelVo" parameterType="com.huilian.hlej.hcf.vo.StatistTotelVo">
+			SELECT *
+                  FROM   
+            hkf_vend_totel_statist  ORDER BY addTime DESC LIMIT 0,1  
+    	</select>
+    	
+    	
+    	
+		<select id="getChanelByimgName" resultType="com.huilian.hlej.hcf.vo.VendingAdStatisticVo" parameterType="com.huilian.hlej.hcf.vo.VendingAdStatisticVo">
+		  SELECT
+			 DISTINCT
+				
+				hsh_vend_qr_code.channelName
+  			
+			FROM
+				hkf_vend_totel_statist,
+				hsh_vend_qr_code 
+            <where>
+	        	hkf_vend_totel_statist.vendCode = hsh_vend_qr_code.vendcode and hkf_vend_totel_statist.adId=#{0}
+	        </where>
+	        
+    	</select>
+    	
+    	
+    	
+
+</mapper>   

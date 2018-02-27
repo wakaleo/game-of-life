@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.ImportDao" > 
+
+	
+	<insert id="save" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType ="java.lang.Integer" keyProperty= "id"
+                   order= "AFTER">
+                 SELECT LAST_INSERT_ID()
+        </selectKey >
+		<![CDATA[
+			INSERT INTO `hcf_vend_order_info_import` (
+			  `source` ,
+			  `orderNo` ,
+			  `orderStatus`,
+			  `orderCreateTime`,
+			  `vendCode`,
+			  `goodsId`,
+			  `goodsName`,
+			  `shelf`,
+			  `amount`,
+			  `payStatus`,
+			  `payUser`,
+			  `shipStatus`,
+			  `shipTime`,
+			  `updateTime`,
+			  `runningAccount`
+			)
+			VALUES
+		]]> 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+				#{item.source},
+				#{item.orderNo},
+				#{item.orderStatus},
+				#{item.orderCreateTime},
+				#{item.vendCode},
+				#{item.goodsId},
+				#{item.goodsName},
+				#{item.shelf},
+				#{item.amount},
+				#{item.payStatus},
+				#{item.payUser},
+				#{item.shipStatus},
+				#{item.shipTime},
+				#{item.updateTime},
+				#{item.runningAccount}
+			)
+		</foreach>
+	</insert>
+	
+	<insert id="saveVo" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO `hcf_vend_order_info_import` (
+			   `source` ,
+			  `orderNo` ,
+			  `orderStatus`,
+			  `orderCreateTime`,
+			  `vendCode`,
+			  `goodsId`,
+			  `goodsName`,
+			  `shelf`,
+			  `amount`,
+			  `payType`,
+			  `payStatus`,
+			  `payTime`,
+			  `payUser`,
+			  `shipStatus`,
+			  `shipTime`,
+			  `updateTime`,
+			  `runningAccount`,
+			  `type`
+			)
+			VALUES
+				(
+				#{source},
+				#{orderNo},
+				#{orderStatus},
+				#{orderCreateTime},
+				#{vendCode},
+				#{goodsId},
+				#{goodsName},
+				#{shelf},
+				#{amount},
+				#{payType},
+				#{payStatus},
+				#{payTime},
+				#{payUser},
+				#{shipStatus},
+				#{shipTime},
+				#{updateTime},
+				#{runningAccount},
+				#{type}
+				)
+			]]> 
+	</insert>
+</mapper>   

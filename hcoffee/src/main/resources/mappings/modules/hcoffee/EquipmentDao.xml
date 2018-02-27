@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.EquipmentDao" > 
+	
+	
+	<resultMap  id="InfoMap" type="com.huilian.hlej.hcf.vo.EquipmentInfoVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="machineCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="simpleLocation" property="location" jdbcType="VARCHAR"/>
+		<result column="location" property="address" jdbcType="VARCHAR"/>
+		<result column="networkStatus" property="networkState" jdbcType="NUMERIC"/>
+		<result column="status" property="faultState" jdbcType="NUMERIC"/>
+		<result column="updateTime" property="updateTimeStr" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	
+	<!-- 设备信息查询 -->	
+	<select id="findEquipmentInfoVoList" parameterType="com.huilian.hlej.hcf.vo.EquipmentInfoVo" resultMap="InfoMap">
+		<![CDATA[
+			SELECT
+				b.id,
+				b.machineCode,
+				b.simpleLocation,
+				b.location,
+				b.networkStatus,
+				b.status,
+				DATE_FORMAT(b.updateTime,'%Y-%m-%d %H:%m:%s') as updateTimeStr
+			FROM
+				hcf_coffee_machine_info AS b
+		]]>
+		where
+			NOT EXISTS (
+				SELECT
+					1
+				FROM
+					hcf_coffee_machine_info
+				WHERE
+					machineCode = b.machineCode
+				AND b.createTime &lt; createTime
+			) AND isDelete = 2
+			<if test="vendCode != null and  vendCode != ''">
+           		AND b.machineCode = #{vendCode}
+           	</if>
+           	<if test="faultState != null and  faultState != ''">
+           		AND b.status = #{faultState}
+           	</if>
+           	<if test="networkState != null and  networkState != ''">
+           		AND b.networkStatus = #{networkState}
+           	</if>
+		ORDER BY b.updateTime DESC
+	</select>
+	
+	<resultMap  id="tradeMap" type="com.huilian.hlej.hcf.vo.EquipmentTradeVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="machineCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="orderCode" property="orderNo" jdbcType="VARCHAR"/>
+		<result column="goodsCode" property="productCode" jdbcType="VARCHAR"/>
+		<result column="payType" property="payType" jdbcType="NUMERIC"/>
+		<result column="goodsPrice" property="price" jdbcType="DOUBLE"/>
+		<result column="tradeTimeStr" property="tradeTimeStr" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 设备交易查询 -->	
+	<select id="findEquipmentTradeVoList" parameterType="equipmentTradeVo" resultMap="tradeMap">
+		<![CDATA[
+			SELECT
+				machineCode,
+				orderCode,
+				goodsCode,
+				goodsPrice * 0.01 as goodsPrice,
+				payType,
+				DATE_FORMAT(finishTime,'%Y-%m-%d %H:%m:%s') as tradeTimeStr
+			FROM
+				hcf_coffee_order_info
+		]]>
+		<where>
+			1=1
+			<if test="vendCode != null and  vendCode != ''">
+           		AND machineCode = #{vendCode}
+           	</if>
+			<if test="orderNo != null and  orderNo != ''">
+           		AND orderCode = #{orderNo}
+           	</if>
+           	<if test="payType != null and  payType != ''">
+           		AND payType = #{payType}
+           	</if>
+           	<if test="startTimeStr != null and  startTimeStr != ''">
+                AND DATE_FORMAT(finishTime,'%Y-%m-%d') &gt;=  #{startTimeStr}
+            </if>
+    		<if test="endTimeStr != null and  endTimeStr != ''">
+                AND DATE_FORMAT(finishTime,'%Y-%m-%d') &lt;=  #{endTimeStr}
+            </if>
+		</where>
+		ORDER BY finishTime DESC
+	</select>
+	
+	<resultMap  id="warnMap" type="com.huilian.hlej.hcf.vo.EquipmentWarnVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="machineCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="simpleLocation" property="location" jdbcType="VARCHAR"/>
+		<result column="location" property="address" jdbcType="VARCHAR"/>
+		<result column="alarmCode" property="warnNo" jdbcType="VARCHAR"/>
+		<result column="alarmDesc" property="warnDes" jdbcType="VARCHAR"/>
+		<result column="status" property="faultState" jdbcType="NUMERIC"/>
+		<result column="warnTimeStr" property="warnTimeStr" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 设备报警查询 -->	
+	<select id="findEquipmentWarnVoList" parameterType="equipmentWarnVo" resultMap="warnMap">
+		<![CDATA[
+				SELECT
+					t.machineCode,
+					t1.simpleLocation,
+					t1.location,
+					t1.status,
+					t.alarmCode,
+					t.alarmDesc,
+					DATE_FORMAT(t.alarmTime,'%Y-%m-%d %H:%m:%s') as warnTimeStr
+				FROM
+					hcf_coffee_alarm_info t
+				left join hcf_coffee_machine_info t1
+				on(t.machineCode = t1.machineCode)	
+			]]>
+				where
+				NOT EXISTS (
+					SELECT
+						1
+					FROM
+						hcf_coffee_alarm_info
+					WHERE
+						machineCode = t.machineCode
+					AND t.createTime &lt; createTime
+				)
+				AND isDelete=2
+				<if test="vendCode != null and  vendCode != ''">
+	           		AND t.machineCode = #{vendCode}
+	           	</if>
+				<if test="faultState != null and  faultState != ''">
+	           		AND t1.status = #{faultState}
+	           	</if>
+			ORDER BY t.alarmTime DESC
+	</select>
+	
+	<resultMap id="materiaMap" type="com.huilian.hlej.hcf.vo.EquipmentMateriaVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="machineCode" property="vendCode" jdbcType="VARCHAR"/>
+		<result column="simpleLocation" property="location" jdbcType="VARCHAR"/>
+		<result column="location" property="address" jdbcType="VARCHAR"/>
+		<result column="materielName" property="materiaName" jdbcType="VARCHAR"/>
+		<result column="materielNumber" property="surplusNum" jdbcType="NUMERIC"/>
+		<result column="updateTimeStr" property="updateTimeStr" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 查询设备物料 -->	
+	<select id="findEquipmentMateriaVoList" parameterType="equipmentMateriaVo" resultMap="materiaMap">
+		<![CDATA[
+				SELECT
+					t.machineCode,
+					t1.simpleLocation,
+					t1.location,
+					t.materielName,
+					t.materielNumber,
+					DATE_FORMAT(t.updateTime,'%Y-%m-%d %H:%m:%s') as updateTimeStr
+				FROM
+					hcf_coffee_materiel_info t
+				left join hcf_coffee_machine_info t1
+				on(t.machineCode = t1.machineCode)	and t1.isDelete=2
+			]]>
+			<where>
+				1=1 
+				<if test="vendCode != null and  vendCode != ''">
+	           		AND t.machineCode = #{vendCode}
+	           	</if>
+			</where>
+			ORDER BY t.updateTime DESC
+	</select>
+	
+	<resultMap id="hisWarnMap" type="com.huilian.hlej.hcf.vo.EquipmentWarnVo">
+		<result column="alarmDesc" property="warnDes" jdbcType="VARCHAR"/>
+		<result column="warnTimeStr" property="warnTimeStr" jdbcType="VARCHAR"/>
+	</resultMap>
+	<!-- 查询故障历史信息 -->
+	<select id="findHisWarnList" parameterType="com.huilian.hlej.hcf.vo.EquipmentWarnVo" resultMap="hisWarnMap">
+		<![CDATA[
+		SELECT
+			t.alarmDesc,
+			DATE_FORMAT(
+				t.alarmTime,
+				'%Y-%m-%d %H:%m:%s'
+			) AS warnTimeStr
+		FROM
+			hcf_coffee_alarm_info t
+		]]>
+		<where>
+			1=1 and t.isNew = 1
+			<if test="vendCode != null and  vendCode != ''">
+           		AND t.machineCode = #{vendCode}
+           	</if>
+		</where>
+	</select>
+	
+	<resultMap id="coffeeActivityMap" type="com.huilian.hlej.hcf.vo.CoffeeActivityInfoVo">
+		<result column="id" property="id" jdbcType="NUMERIC"/>
+		<result column="schemeNo" property="schemeNo" jdbcType="VARCHAR"/>
+		<result column="drawCode" property="drawCode" jdbcType="VARCHAR"/>
+		<result column="status" property="status" jdbcType="NUMERIC"/>
+		<result column="acquireDateStr" property="acquireDateStr" jdbcType="VARCHAR"/>
+		<result column="createDateStr" property="createDateStr" jdbcType="VARCHAR"/>
+		<result column="invaliDateStr" property="invaliDateStr" jdbcType="VARCHAR"/>
+		<result column="phoneNo" property="phoneNo" jdbcType="VARCHAR"/>
+		<result column="goodsId" property="goodsId" jdbcType="VARCHAR"/>
+		<result column="price" property="price" jdbcType="NUMERIC"/>
+		<result column="remark" property="remark" jdbcType="VARCHAR"/>
+		<result column="createMachineCode" property="createMachineCode" jdbcType="NUMERIC"/>
+		<result column="getMachineCode" property="getMachineCode" jdbcType="NUMERIC"/>
+		<result column="orderNo" property="orderNo" jdbcType="VARCHAR"/>
+		<result column="fastCode" property="fastCode" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 咖啡机活动信息查询 -->
+	<select id="findCoffeeActivityInfoList" parameterType="com.huilian.hlej.hcf.vo.CoffeeActivityInfoVo" resultMap="coffeeActivityMap">
+		<![CDATA[
+				SELECT
+					t.id,
+					t.schemeNo,
+					t.drawCode,
+					t.status,
+					DATE_FORMAT(t.acquireDate,'%Y-%m-%d %H:%m:%s') as acquireDateStr,
+					DATE_FORMAT(t.createDate,'%Y-%m-%d %H:%m:%s') as createDateStr,
+					DATE_FORMAT(t.invalidDate,'%Y-%m-%d %H:%m:%s') as invaliDateStr,
+					t.phoneNo,
+				  	t.goodsId,
+				 	t.goodsName,
+				  	t.price * 0.01 as price,
+				  	t.remark,
+				  	t.createMachineCode,
+				  	t.getMachineCode,
+				  	t.orderNo,
+				  	t.fastCode
+				FROM
+					hcf_coffee_reward t
+			]]>
+			<where>
+				1=1 
+				<if test="schemeNo != null and  schemeNo != ''">
+	           		AND t.schemeNo = #{schemeNo}
+	           	</if>
+				<if test="phoneNo != null and  phoneNo != ''">
+	           		AND t.phoneNo = #{phoneNo}
+	           	</if>
+				<if test="drawCode != null and  drawCode != ''">
+	           		AND t.drawCode = #{drawCode}
+	           	</if>
+				<if test="orderNo != null and orderNo != ''">
+	           		AND t.orderNo = #{orderNo}
+	           	</if>
+	           	<if test="status != null and status != '' || status == 0">
+					AND t.status = #{status}
+				</if>
+	           	<if test="startTimeStr != null and  startTimeStr != ''">
+	                AND DATE_FORMAT(t.createDate,'%Y-%m-%d') &gt;=  #{startTimeStr}
+	            </if>
+	    		<if test="endTimeStr != null and  endTimeStr != ''">
+	                AND DATE_FORMAT(t.createDate,'%Y-%m-%d') &lt;=  #{endTimeStr}
+	            </if>
+			</where>
+			ORDER BY t.createDate DESC
+	</select>
+</mapper>   

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.WechatMaterialDao" > 
+
+	<insert id="saveWechatMaterialVo" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO `hcf_wechat_material` (
+			  `wechat_name` ,
+			  `wechat_no` ,
+			  `start_time` ,
+			  `end_time` ,
+			  `top_url` ,
+			  `bottom_url` ,
+			  `logo_url` ,
+			  `create_time`
+			)
+			VALUES
+				(
+					#{wechatName},
+					#{wechatNo},
+					#{startTime},
+					#{endTime},
+					#{topUrl},
+					#{bottomUrl},
+					#{logoUrl},
+					#{createTime}
+				)
+			]]> 
+	</insert>
+	
+	<resultMap id="wechatMaterialVoMap" type="com.huilian.hlej.hcf.vo.WechatMaterialVo">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="wechat_name" property="wechatName" jdbcType="VARCHAR"/>
+		<result column="wechat_no" property="wechatNo" jdbcType="VARCHAR"/>
+		<result column="start_time" property="startTime" jdbcType="VARCHAR"/>
+		<result column="end_time" property="endTime" jdbcType="VARCHAR"/>
+		<result column="top_url" property="topUrl" jdbcType="VARCHAR"/>
+		<result column="bottom_url" property="bottomUrl" jdbcType="VARCHAR"/>
+		<result column="logo_url" property="logoUrl" jdbcType="VARCHAR"/>
+		<result column="create_time" property="createTime" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="findWechatMaterialVoList" resultMap="wechatMaterialVoMap"
+		parameterType="com.huilian.hlej.hcf.vo.WechatMaterialVo">
+		SELECT
+			h.id,
+			h.wechat_name,
+			h.wechat_no,
+			h.start_time,
+			h.end_time,
+			h.top_url,
+			h.bottom_url,
+			h.logo_url,
+			h.create_time
+		FROM
+			hcf_wechat_material AS h
+		where 1=1
+		<if test="wechatName != null and  wechatName != ''">
+			AND h.wechat_name like CONCAT('%','${wechatName}','%' )
+		</if>
+		<if test="wechatNo != null and  wechatNo != ''">
+			AND h.wechat_no = #{wechatNo}
+		</if>
+		<if test="searchText != null and  searchText != ''">
+			AND (h.wechat_name like CONCAT('%','${searchText}','%' ) OR h.wechat_no like CONCAT('%','${searchText}','%' ))
+		</if>
+		ORDER BY h.create_time DESC
+	</select>
+	
+	<delete id="deleteWechatMaterialVo" parameterType="com.huilian.hlej.hcf.vo.WechatMaterialVo">
+		<![CDATA[
+			DELETE from hcf_wechat_material where id=#{id}
+		]]>
+	</delete>
+	
+	
+	<update id="updateWechatMaterialVo" parameterType="com.huilian.hlej.hcf.vo.WechatMaterialVo">
+		UPDATE `hcf_wechat_material` 
+		<set>
+			<if test="wechatName !=null and wechatName !=''">
+				wechat_name = #{wechatName},
+			</if>
+			<if test="wechatNo !=null and wechatNo !=''">
+				wechat_no = #{wechatNo},
+			</if>
+			
+			<if test="startTime !=null and startTime !=''">
+				start_time = #{startTime},
+			</if>
+			<if test="endTime !=null and endTime !=''">
+				end_time = #{endTime},
+			</if>
+			<if test="topUrl !=null and topUrl !=''">
+				top_url = #{topUrl},
+			</if>
+			<if test="bottomUrl !=null and bottomUrl !=''">
+				bottom_url = #{bottomUrl},
+			</if>
+			<if test="logoUrl !=null and logoUrl !=''">
+				logo_url = #{logoUrl},
+			</if>
+			<if test="createTime !=null and createTime !=''">
+				create_time = #{createTime},
+			</if>
+		</set>
+		<where>
+				id = ${id}
+		</where>
+				
+	</update>
+	
+	<select id="getWechatMaterialVo" parameterType="java.lang.String" resultType="com.huilian.hlej.hcf.vo.WechatMaterialVo">
+		<![CDATA[
+			SELECT *  FROM hcf_wechat_material AS t WHERE 1=1 AND t.id = #{id}
+		]]>
+	</select>
+	
+	<select id="checkNameOfNo" parameterType="java.lang.String" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT count(1) from hcf_wechat_material AS h where 1=1 
+		]]>
+		<if test="wechatName != null and  wechatName != ''">
+			AND h.wechat_name = #{wechatName}
+		</if>
+		<if test="wechatNo != null and  wechatNo != ''">
+			AND h.wechat_no = #{wechatNo}
+		</if>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	<resultMap id="lottoActivityVoMap" type="com.huilian.hlej.hcf.vo.LottoActivityVo">
+		<result column="activityNo" property="activityNo" jdbcType="VARCHAR"/>
+		<result column="activityName" property="activityName" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="getLottoActivityVoAll" resultMap="lottoActivityVoMap">
+		<![CDATA[
+			SELECT
+				activityNo,
+				activityName
+			FROM
+				hcf_lotto_activity
+		]]>	
+	</select>
+	
+	
+	<select id="getPrizeList" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo" resultType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			SELECT *  FROM hcf_lotto_vend_prize AS t WHERE 1=1 
+		]]>
+		<if test="vendCode != null and  vendCode != ''">
+			AND t.vendCode = #{vendCode}
+		</if>
+		<if test="activityNo != null and  activityNo != ''">
+			AND t.activityNo=#{activityNo}
+		</if>
+	</select>
+	
+	
+	
+	
+	<select id="getLottoVendVoListByActivityNoAndVendCode" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo" 
+		resultType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			SELECT *  FROM hcf_lotto_vend_prize AS t WHERE 1=1 
+		]]>
+		<if test="vendCode != null and  vendCode != ''">
+			AND t.vendCode = #{vendCode}
+		</if>
+		<if test="activityNo != null and  activityNo != ''">
+			AND t.activityNo=#{activityNo}
+		</if>
+	</select>
+	
+	<delete id="deleteListByActivityNoAndVendCode" parameterType="com.huilian.hlej.hcf.vo.LottoVendVo">
+		<![CDATA[
+			DELETE from hcf_lotto_vend_prize where activityNo=#{activityNo} AND vendCode=#{vendCode}
+		]]>
+	</delete>
+</mapper>   

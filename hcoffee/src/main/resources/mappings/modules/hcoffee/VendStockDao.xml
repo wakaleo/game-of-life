@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 符号转义说明 &lt; < &gt; > &lt;&gt; <> &amp; & &apos; ' &quot; " <![CDATA[ 
+	这里写你的SQL或者符号 ]]> -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendStockDao">
+
+	<!-- 机器库存显示列表 -->
+	<select id="queryStockInfoVoPage" resultType="com.huilian.hlej.hcf.vo.StockInfoVo"
+		parameterType="com.huilian.hlej.hcf.vo.StockInfoVo">
+		SELECT 
+		  t1.`vendCode`,
+		  t1.`vendName`,
+		  t1.`ailseId`,
+		  t1.`goodsId`,
+		  t1.`goodsName`,
+		  t1.`goodsPrice`,
+		  t1.`stockAmount`,
+		  t1.`changeAmount`,
+		  t1.`ailseCapacity`,
+		  t1.`setType`,
+		  DATE_FORMAT(t1.`setTime`,'%Y-%m-%d %H:%m:%s') as setTimeStr,
+		  t3.`loginName`,t3.`dealerName`,t3.`cellPhone` 
+		FROM
+		  hcf_dealer_vend_stock_info t1 
+		  LEFT JOIN hcf_vend_dealer t2 
+		    ON (t1.`vendCode` = t2.`vendCode`) 
+		  LEFT JOIN hcf_dealer_baseInfo t3 
+		    ON (t2.`loginName` = t3.`loginName`)
+		WHERE 1=1
+		<if test="setType != null and  setType != ''">
+		 	AND t1.`setType` = #{setType}
+		</if>
+		<if test="vendCode != null and  vendCode != ''">
+		 	AND t1.`vendCode` = #{vendCode}
+		</if>
+		<if test="ailseId != null and  ailseId != ''">
+		 	AND t1.`ailseId` = #{ailseId}
+		</if>
+		<if test="searchContent != null and  searchContent != ''">
+		    AND
+		    (t3.loginName like CONCAT('%','${searchContent}','%' ) OR t3.dealerName like CONCAT('%','${searchContent}','%' ) OR t3.cellPhone = #{searchContent})
+		</if> 
+		<if test="startTimeStr != null and  startTimeStr != ''">
+            AND DATE_FORMAT(t1.setTime,'%Y-%m-%d') &gt;=  #{startTimeStr}
+        </if>
+   		<if test="endTimeStr != null and  endTimeStr != ''">
+            AND DATE_FORMAT(t1.setTime,'%Y-%m-%d') &lt;=  #{endTimeStr}
+        </if>   
+		ORDER BY t1.`createTime` DESC    
+	</select>
+	
+	<!-- 机器商品库存显示列表 -->
+	<select id="queryVendGoodsStockPage" resultType="com.huilian.hlej.hcf.vo.VendGoodsStockVo"
+		parameterType="com.huilian.hlej.hcf.vo.VendGoodsStockVo">
+		SELECT 
+			t1.goodsId,
+			t1.goodsName,
+			sum(t1.stockAmount) as stockAmount
+		FROM 
+			hcf_dealer_vend_stock_info t1 
+		  LEFT JOIN hcf_vend_dealer t2 
+		    ON (t1.`vendCode` = t2.`vendCode`) 
+		  LEFT JOIN hcf_dealer_baseInfo t3 
+		    ON (t2.`loginName` = t3.`loginName`)
+		WHERE 
+			1=1
+		<if test="vendCode != null and  vendCode != ''">
+		 	AND t1.`vendCode` = #{vendCode}
+		</if>
+		<if test="searchContent != null and  searchContent != ''">
+		    AND
+		(t3.loginName like CONCAT('%','${searchContent}','%' ) OR t3.dealerName like CONCAT('%','${searchContent}','%' ) OR t3.cellPhone = #{searchContent})
+		</if> 	
+		GROUP BY goodsId
+	</select>
+</mapper>   

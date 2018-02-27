@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendingAdDao" > 
+
+		<select id="selectVendAdList" resultType="com.huilian.hlej.hcf.vo.VendingReleVo" parameterType="com.huilian.hlej.hcf.vo.VendingReleVo">
+	       SELECT
+				hkf_vend_rele_ad.*, hsh_vend_qr_code.channel,
+				hsh_vend_qr_code.communityId,
+				hsh_vend_qr_code.channelName,
+  				hsh_vend_qr_code.communityName
+			FROM
+				hkf_vend_rele_ad,
+				hsh_vend_qr_code
+	        <where>
+	        	hkf_vend_rele_ad.vendCode = hsh_vend_qr_code.vendcode
+	        	<if test="vendCode != null and  vendCode != ''">
+	                AND hkf_vend_rele_ad.vendCode  like  CONCAT('%','${vendCode}','%' )
+	            </if>
+	            <if test="channel != null and  channel != ''">
+	                AND hsh_vend_qr_code.channel  =  #{channel}
+	            </if>
+	            <if test="startTime != null and  startTime != ''">
+	                AND hkf_vend_rele_ad.createTime    &gt;=  #{startTime}
+	            </if>
+	    		<if test="endTime != null and  endTime != ''">
+	                AND hkf_vend_rele_ad.createTime    &lt;=  #{endTime}
+	            </if>
+	          
+	        </where>
+       		    ORDER BY  hkf_vend_rele_ad.createTime desc
+    	</select>
+<!-- 
+		<select id="selectVendAdList" resultType="com.huilian.hlej.hcf.vo.VendingAdVo" parameterType="com.huilian.hlej.hcf.vo.VendingAdVo">
+	       SELECT
+				hkf_vend_ad.*, hsh_vend_qr_code.channel,
+				hsh_vend_qr_code.communityId,
+				hsh_vend_qr_code.channelName,
+  				hsh_vend_qr_code.communityName
+			FROM
+				hkf_vend_ad,
+				hsh_vend_qr_code
+	        <where>
+	        	hkf_vend_ad.vendCode = hsh_vend_qr_code.vendcode
+	        	<if test="vendCode != null and  vendCode != ''">
+	                AND hkf_vend_ad.vendCode  like  CONCAT('%','${vendCode}','%' )
+	            </if>
+	            <if test="channel != null and  channel != ''">
+	                AND hsh_vend_qr_code.channel  =  #{channel}
+	            </if>
+	            <if test="startTime != null and  startTime != ''">
+	                AND hkf_vend_ad.createTime    &gt;=  #{startTime}
+	            </if>
+	    		<if test="endTime != null and  endTime != ''">
+	                AND hkf_vend_ad.createTime    &lt;=  #{endTime}
+	            </if>
+	           <if test="vendCodeList != null and  vendCodeList != ''">
+                AND hkf_vend_ad.vendCode   in  (${vendCodeList})
+            </if>
+	        </where>
+       		    ORDER BY  hkf_vend_ad.createTime desc
+    	</select> -->
+    	
+		<select id="getVendingAdByCode" resultType="com.huilian.hlej.hcf.vo.VendingReleVo" >
+	       SELECT
+				hkf_vend_rele_ad.*, hsh_vend_qr_code.channel,
+				hsh_vend_qr_code.communityId,
+				hsh_vend_qr_code.channelName,
+  				hsh_vend_qr_code.communityName
+			FROM
+				hkf_vend_rele_ad,
+				hsh_vend_qr_code
+	        <where>
+	        	hkf_vend_rele_ad.vendCode = hsh_vend_qr_code.vendcode
+	            AND hkf_vend_rele_ad.vendCode   =  #{0}
+	        </where>
+    	</select>
+<!-- 		<select id="getVendingAdByCode" resultType="com.huilian.hlej.hcf.vo.VendingAdVo" >
+	       SELECT
+				hkf_vend_ad.*, hsh_vend_qr_code.channel,
+				hsh_vend_qr_code.communityId,
+				hsh_vend_qr_code.channelName,
+  				hsh_vend_qr_code.communityName
+			FROM
+				hkf_vend_ad,
+				hsh_vend_qr_code
+	        <where>
+	        	hkf_vend_ad.vendCode = hsh_vend_qr_code.vendcode
+	            AND hkf_vend_ad.vendCode   =  #{0}
+	        </where>
+    	</select> -->
+    	
+		<select id="getChanelComtityByCode" resultType="com.huilian.hlej.hcf.entity.VendingMachine" >
+			     SELECT
+					vm.channelName, vm.communityName
+				FROM
+					hsh_vend_qr_code vm    where 1=1  and vendCode=#{0}
+    	</select>
+    	
+    	
+		<update id="updateVendAdByCode" >
+	       UPDATE `hkf_vend_rele_ad`
+			<set>
+				
+				<if test="adStatus !=null and adStatus !=''">
+					adStatus = #{adStatus},
+				</if>
+				
+				updateTime = now()
+			</set>
+			WHERE vendCode = #{vendCode}	
+	       
+	    </update>
+<!-- 		<update id="updateVendAdByCode" >
+	       UPDATE `hkf_vend_ad`
+			<set>
+				<if test="imgPath1 !=null and imgPath1 !=''">
+					imgPath1 = #{imgPath1},
+				</if>
+				<if test="imgPath2 !=null and imgPath2 !=''">
+					imgPath2 = #{imgPath2},
+				</if>
+				<if test="imgPath3 !=null and imgPath3 !=''">
+					imgPath3 = #{imgPath3},
+				</if>
+				<if test="vedioPath !=null and vedioPath !=''">
+					vedioPath = #{vedioPath},
+				</if>
+				<if test="adStatus !=null and adStatus !=''">
+					adStatus = #{adStatus},
+				</if>
+				<if test="adType !=null and adType !=''">
+					adType = #{adType},
+				</if>
+				updateTime = now()
+			</set>
+			WHERE vendCode = #{vendCode}	
+	       
+	    </update> -->
+	    
+		<update id="updateVendingAdById" parameterType="com.huilian.hlej.hcf.vo.VendingAdVo">
+	       UPDATE `hkf_vend_ad`
+			<set>
+				<if test="imgPath1 !=null and imgPath1 !=''">
+					imgPath1 = #{imgPath1},
+				</if>
+				<if test="imgPath2 !=null and imgPath2 !=''">
+					imgPath2 = #{imgPath2},
+				</if>
+				<if test="imgPath3 !=null and imgPath3 !=''">
+					imgPath3 = #{imgPath3},
+				</if>
+				
+				<if test="imgLink1 !=null and imgLink1 !=''">
+					imgLink1 = #{imgLink1},
+				</if>
+				<if test="imgLink2 !=null and imgLink2 !=''">
+					imgLink2 = #{imgLink2},
+				</if>
+				<if test="imgLink1 !=null and imgLink1 !=''">
+					imgLink3 = #{imgLink3},
+				</if>
+
+				<if test="vedioPath !=null and vedioPath !=''">
+					vedioPath = #{vedioPath},
+				</if>
+				<if test="adStatus !=null and adStatus !=''">
+					adStatus = #{adStatus},
+				</if>
+				<if test="adType !=null and adType !=''">
+					adType = #{adType},
+				</if>
+				updateTime = now()
+			</set>
+			WHERE id = #{id}	
+	       
+	    </update>
+		
+	    <insert id="addVendingAd" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO `hkf_vend_ad` (
+			
+ 		  `vendCode` ,
+		  `imgPath1` ,
+		   `imgPath2` ,
+		  `imgPath3`,
+		  `imgLink1`,
+		  `imgLink2`,
+		  `imgLink3`,
+		  `vedioPath` ,
+		  `adType` ,
+		  `adStatus`,
+		  `createTime` 
+		)
+		VALUES
+			(
+				#{vendCode},
+				#{imgPath1},
+				#{imgPath2},
+				#{imgPath3},
+				#{imgLink1},
+				#{imgLink2},
+				#{imgLink3},
+				#{vedioPath},
+				#{adType},
+				#{adStatus},
+				now()
+			);
+	</insert>
+</mapper>   

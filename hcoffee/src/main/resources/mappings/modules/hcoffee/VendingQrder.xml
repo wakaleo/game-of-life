@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 符号转义说明 &lt; < &gt; > &lt;&gt; <> &amp; & &apos; ' &quot; " <![CDATA[ 
+	这里写你的SQL或者符号 ]]> -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendingQrder">
+	<select id="getTransactionQueryPage" resultType="TranQueryVo">
+		SELECT t.*
+		FROM
+		hcf_vending_order t
+		<where>
+			<if test="vendCode != null and vendCode != ''">
+			AND t.vendCode like CONCAT('%','${vendCode}','%' )
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+			AND	t.orderNo like CONCAT('%','${orderNo}','%' )
+			</if>
+			<if test="orderStatus != null and orderStatus != ''">
+			AND t.orderStatus like CONCAT('%','${orderStatus}','%' )
+			</if>
+			<if test="paymentStatus != null and paymentStatus != ''">
+			AND t.paymentStatus like CONCAT('%','${paymentStatus}','%' )
+			</if>
+			<if test="shipmentStatus != null and shipmentStatus != ''">
+			AND t.shipmentStatus like CONCAT('%','${shipmentStatus}','%' )
+			</if>
+			 <if test="startTime != null and  startTime != ''">
+                AND t.createDate    &gt;=  #{startTime}
+            </if>
+    		<if test="endTime != null and  endTime != ''">
+                AND t.createDate    &lt;=  #{endTime}
+            </if>
+			<if test="channel != null and channel != ''">
+			AND t.channel like CONCAT('%','${channel}','%' )
+			</if>
+		 
+		</where>
+		  ORDER BY  t.paymentDate desc
+	</select>
+
+</mapper>   

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+ <!-- 
+ 	汇咖啡后后台管理模块字典查询
+  -->
+<mapper namespace="com.huilian.hlej.hcf.dao.DictionariesDao" > 
+	
+	<resultMap id="dictMap" type="com.huilian.hlej.hcf.vo.DictionariesVo">
+		<result column="value" property="value" jdbcType="NUMERIC"/>
+		<result column="lable" property="lable" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 查询订单状态 -->
+	<select id="getOrderStatusList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_orderStatus' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询订单状态（商品销售明细） -->
+	<select id="getGoodsSaleDetailOrderStatusList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_goodDetail_orderStatus' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询订货中心支付类型 -->
+	<select id="getOrderPayWayList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_payWay' and t.value &lt;&gt; 3 ORDER BY t.sort
+	</select>
+	
+	<!-- 查询销售管理支付类型 -->
+	<select id="getSalePayWayList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_payWay' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询订单来源 -->
+	<select id="getOrderSourceList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_orderSource' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询支付状态 -->
+	<select id="getPayStatusList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_payStatus' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询支付方式 -->
+	<select id="getPayTypeList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_payType' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询出货状态 -->
+	<select id="getShipStatusList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_shipStatus' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询代理类型 -->
+	<select id="getDealerTypeList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_dealerType' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询代理级别 -->
+	<select id="getDealerGradeList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_dealerGrade' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询合作状态 -->
+	<select id="getConStatusList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict t WHERE t.type='act_conStatus' ORDER BY t.sort
+	</select>
+	
+	<!-- 查询性别 -->
+	<select id="getSexList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'sex' ORDER BY sort
+	</select>
+	
+	<!-- 查询跟进状态 -->
+	<select id="getStateList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'act_state' ORDER BY sort
+	</select>
+	
+	<!-- 查询抽奖活动状态 -->
+	<select id="getLottoActivityStatusList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'hcf_lotto_activity_status' ORDER BY sort
+	</select>
+	
+	<!-- 查询抽奖方式 -->
+	<select id="getLottoWayList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'hcf_lotto_way' ORDER BY sort
+	</select>
+	
+	<!-- 查询抽奖活动触发条件 -->
+	<select id="getLottoTriggerConditionList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'hcf_lotto_triggerCondition' ORDER BY sort
+	</select>
+	
+	<!-- 查询抽奖奖品类型-->
+	<select id="getLottoPrizeTypeList" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'hcf_lotto_prizeType' ORDER BY sort
+	</select>
+	
+	<!-- 查询抽奖来源-->
+	<select id="getLottoSource" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'hcf_lotto_lottoSource' ORDER BY sort
+	</select>
+	
+	<!-- 查询银行字典 -->
+	<select id="getBankName" resultMap="dictMap">
+		SELECT value,label FROM sys_dict WHERE TYPE = 'act_bank' ORDER BY sort
+	</select>
+</mapper>   

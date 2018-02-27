@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendingAdConterDao" > 
+
+	<select id="selectVendAdList" resultType="com.huilian.hlej.hcf.vo.VendingConterAdVo" parameterType="com.huilian.hlej.hcf.vo.VendingConterAdVo">
+       SELECT *
+        FROM   
+       hkf_vend_conter_ad ss 
+      
+        <where>
+            
+            <if test="imgName != null and  imgName != ''">
+            AND ss.imgName  like  CONCAT('%','${imgName}','%' )
+            </if>
+            <if test="adId != null and  adId != ''">
+            AND ss.adId  like  CONCAT('%','${adId}','%' )
+            </if>
+            
+        </where>
+       		    ORDER BY  ss.updateTime desc,ss.createTime desc
+    	</select>
+    	
+    	<select id="getVendingConterAdByCode" resultType="com.huilian.hlej.hcf.vo.VendingConterAdVo" >
+	       SELECT
+				*
+			FROM
+			  hkf_vend_conter_ad
+	        <where>
+	        	adId   =  #{0}
+	        </where>
+    	</select>
+    	
+    	<select id="getVendListConterAdByCode" resultType="com.huilian.hlej.hcf.vo.StatistVo" >
+	       SELECT
+				*
+			FROM
+			  hkf_vend__ad_statist
+	        <where>
+	        	vendCode   =  #{0}  GROUP BY adId
+	        </where>
+    	</select>
+    	
+    	<select id="getVendReleByVendCode" resultType="com.huilian.hlej.hcf.vo.VendingReleVo" >
+	       SELECT
+				*
+			FROM
+			  hkf_vend_rele_ad
+	        <where>
+	        	vendCode   =  #{0}
+	        </where>
+    	</select>
+    	
+    	
+    	<select id="getVendAdByADId" parameterType="java.lang.String" resultType="com.huilian.hlej.hcf.vo.VendingConterAdVo" >
+	       SELECT
+				*
+			FROM
+			  hkf_vend_conter_ad
+	        <where>
+	        	adId = #{adId}
+	        </where>
+    	</select>
+    	
+    	<select id="getVendingConterAdByadId" resultType="com.huilian.hlej.hcf.vo.VendingConterAdVo" >
+	       SELECT
+				*
+			FROM
+			  hkf_vend_conter_ad
+	        <where>
+	        	imgName   =  #{0}
+	        </where>
+    	</select>
+    	
+    	
+ 
+  <insert id="addVendingConterAd" useGeneratedKeys="true" keyProperty="id">
+  	 INSERT INTO `hkf_vend_conter_ad`(
+	 		  `imgName` ,
+	 		  `adType` ,
+	 		  `imgPath` ,
+			  `vedioPath`,
+			  `adStatus`,
+			  `playTime`,
+			  `linkUrl`,
+			  `adId`,
+			  `startTime`,
+			  `endTime`,
+			  `groundType`,
+			  `createTime`,
+			  `coordinateX`,
+			  `coordinateY`,
+			  `qrCodeW`,
+			  `qrCodeH`,
+			  `putType`,
+			  `qrCodeValue`
+		)
+		VALUES
+			(
+				#{imgName},
+				#{adType},
+				#{imgPath},
+				#{vedioPath},
+				#{adStatus},
+				#{playTime},
+				#{linkUrl},
+				#{adId},
+				#{startTime},
+				#{endTime},
+				#{groundType},
+				now(),
+				#{coordinateX},
+				#{coordinateY},
+				#{qrCodeW},
+				#{qrCodeH},
+				#{putType},
+				#{qrCodeValue}
+			)
+ </insert>
+  <insert id="addVendingStatistAd" useGeneratedKeys="true" keyProperty="id">
+  	 INSERT INTO `hkf_vend__ad_statist`(
+	 		  `vendCode` ,
+	 		  `imgName` ,
+	 		  `createTime` ,
+	 		  `playTime` ,
+			  `adId`
+			 
+		)
+		VALUES
+			(
+				#{vendCode},
+				#{imgName},
+				#{createTime},
+				#{playTime},
+				#{adId}
+				
+			);
+ </insert>
+ 
+  <insert id="saveVendingReleAd" useGeneratedKeys="true" keyProperty="id">
+  	 INSERT INTO `hkf_vend_rele_ad`(
+	 		  `vendCode` ,
+	 		  `aDList` ,
+	 		  `adStatus` ,
+			  `createTime`
+		)
+		VALUES
+			(
+				#{vendCode},
+				#{aDList},
+				#{adStatus},
+				now()
+			);
+ </insert>
+ 
+ 
+ 
+ <update id="deleteVendingAdByCode" parameterType="com.huilian.hlej.hcf.vo.VendingConterAdVo" >
+	       DELETE  from  `hkf_vend_conter_ad`
+	       
+			WHERE id = #{id}
+	       
+    </update>
+ <update id="deleteVendingAdByVendCode" parameterType="com.huilian.hlej.hcf.vo.StatistVo" >
+	       DELETE  from  `hkf_vend__ad_statist`
+	       
+			WHERE vendCode = #{vendCode}
+	       
+    </update>
+    
+ <update id="deletevendingReleByCode" parameterType="com.huilian.hlej.hcf.vo.VendingReleVo" >
+	       DELETE  from  `hkf_vend_rele_ad`
+	       
+			WHERE vendCode = #{vendCode}
+	       
+    </update>
+    
+    
+    <update id="updateVendingConterAd">
+		UPDATE `hkf_vend_conter_ad`
+		<set>
+			<if test="adId!=null and adId!=''">
+				adId = #{adId},
+			</if>
+			<if test="adType!=null and adType!=''">
+				adType = #{adType},
+			</if>
+			<if test="imgPath!=null and imgPath!=''">
+				imgPath = #{imgPath},
+			</if>
+			<if test="vedioPath!=null and vedioPath!=''">
+				vedioPath = #{vedioPath},
+			</if>
+			<if test="playTime!=null and playTime!=''">
+				playTime = #{playTime},
+			</if>
+ 	         <if test="linkUrl!=null and linkUrl!=''">
+				linkUrl = #{linkUrl},
+			</if>
+			<if test="imgName!=null and imgName!=''">
+				imgName = #{imgName},
+			</if>
+			<if test="adStatus!=null and adStatus!=''">
+				adStatus = #{adStatus},
+			</if>
+			<if test="startTime!=null and startTime!=''">
+				startTime = #{startTime},
+			</if>
+			<if test="endTime!=null and endTime!=''">
+				endTime = #{endTime},
+			</if>
+			updateTime = now(),
+			<if test="coordinateX!=null and coordinateX!=''">
+				coordinateX = #{coordinateX},
+			</if>
+			<if test="coordinateY!=null and coordinateY!=''">
+				coordinateY = #{coordinateY},
+			</if>
+			<if test="qrCodeW!=null and qrCodeW!=''">
+				qrCodeW = #{qrCodeW},
+			</if>
+			<if test="qrCodeH!=null and qrCodeH!=''">
+				qrCodeH = #{qrCodeH},
+			</if>
+			<if test="putType!=null and putType!=''">
+				putType = #{putType},
+			</if>
+			<if test="qrCodeValue!=null and qrCodeValue!=''">
+				qrCodeValue = #{qrCodeValue}
+			</if>
+		</set>
+		WHERE id = #{id}		
+	</update>
+	
+	
+    <update id="updateVendingRele">
+		UPDATE `hkf_vend_rele_ad`
+		<set>
+			<if test="vendCode!=null and vendCode!=''">
+				vendCode = #{vendCode},
+			</if>
+			<if test="aDList!=null and aDList!=''">
+				aDList = #{aDList},
+			</if>
+			
+			updateTime = now()
+		
+		</set>
+		WHERE vendCode = #{vendCode} and  aDList = #{aDList}
+	</update>
+	
+	
+    <update id="updateSortByvendCode">
+		UPDATE `hkf_vend__ad_statist`
+		<set>
+			<if test="sort!=null and sort!=''">
+				sort = #{sort},
+			</if>
+			createTime = now()
+		
+		</set>
+		WHERE vendCode = #{vendCode} and  adId = #{adId}
+	</update>
+	
+	
+	
+		<select id="updateByAdId" resultType="com.huilian.hlej.hcf.vo.VendingConterAdVo" >
+	            UPDATE `hkf_vend_conter_ad`
+			<set>
+			
+			<if test="adStatus!=null and adStatus!=''">
+				adStatus = #{adStatus},
+			</if>
+			<if test="num!=null and num!=''">
+				num = #{num},
+			</if>
+				
+				updateTime = now()
+			</set>
+	         WHERE	adId   =  #{adId} 
+	        
+    	</select>
+    	
+    	<resultMap id="getAllVndCodeMap" type="com.huilian.hlej.hcf.vo.VendingConterAdVo">
+    		<result column="vendCode" property="vendCode" jdbcType="VARCHAR"/>
+    	</resultMap>
+    	
+		<select id="queryAllVendCodeList" resultMap="getAllVndCodeMap">
+			select vendCode from hsh_vend_qr_code group by vendCode
+		</select>
+		
+		<select id="queryParamMap" parameterType="java.util.Map" resultType="java.util.Map">
+		<![CDATA[
+			SELECT
+				imgName,playTime
+			FROM
+				hkf_vend_conter_ad
+			WHERE
+				adId = #{adId}
+		]]>
+	</select>
+	<select id="queryBeforAdList" parameterType="java.lang.String" resultType="java.lang.String">
+		select aDList from hkf_vend_rele_ad where vendCode=#{vendCode}
+	</select>
+	<update id="updateVendingReleAd" parameterType="com.huilian.hlej.hcf.vo.VendingConterAdVo">
+		update hkf_vend_rele_ad set aDList=#{aDList} where vendCode = #{vendCode}
+	</update>
+	<select id="isExist" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(1) from hkf_vend_rele_ad where vendCode=#{vendCode} and find_in_set(#{adId}, aDList)
+	</select>
+</mapper>   

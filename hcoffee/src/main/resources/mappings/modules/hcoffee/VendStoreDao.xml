@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.VendStoreDao" > 
+
+		 <select id="getVendStorePage" resultType="com.huilian.hlej.hcf.vo.VendStoreVo" parameterType="com.huilian.hlej.hcf.vo.VendStoreVo" >
+		       SELECT t.*
+		       FROM
+		       hcf_vend_store t
+		        <where>
+		        1 = 1
+	        	<if test="vendCode != null and vendCode != ''">
+	               AND t.vendCode like CONCAT('%','${vendCode}','%' )
+	            </if>
+	        	<if test="goodsName != null and goodsName != ''">
+	              AND t.goodsName like CONCAT('%','${goodsName}','%' )
+	            </if>
+	            </where>
+	            ORDER BY  t.createTime desc , t.id asc
+	   </select>
+	   
+	   <delete id="deleteVendStore">
+  		   delete from hcf_vend_store where id = #{id}
+	  </delete>
+	  
+	  
+	<select id="getVendStore"  resultType="com.huilian.hlej.hcf.vo.VendStoreVo"  >
+		SELECT
+			vm.*
+		FROM
+			hcf_vend_store vm    where 1=1  and id=#{0}
+	</select>
+
+
+
+		<insert id="saveVendStore" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO `hcf_vend_store` (
+			
+ 		  `vendCode` ,
+		  `shelf` ,
+		   `goodsName` ,
+		  `goodsID`,
+		  `amount` ,
+		  `store_goods_id` ,
+		  `store_goods_link` ,
+		  `createTime` 
+		)
+		VALUES
+			(
+				#{vendCode},
+				#{shelf},
+				#{goodsName},
+				#{goodsID},
+				#{amount},
+				#{storeGoodsId},
+				#{storeGoodsLink},
+				now()
+			);
+		</insert>
+	
+	
+		<update id="updateVendStore">
+		UPDATE `hcf_vend_store`
+		<set>
+			<if test="vendCode !=null and vendCode !=''">
+				vendCode = #{vendCode},
+			</if>
+			<if test="shelf !=null and shelf !=''">
+				shelf = #{shelf},
+			</if>
+			<if test="goodsID !=null and goodsID !=''">
+				goodsID = #{goodsID},
+			</if>
+ 
+			<if test="goodsName !=null and goodsName !=''">
+				goodsName = #{goodsName},
+			</if>
+ 
+			<if test="amount !=null and amount !=''">
+				amount = #{amount},
+			</if>
+			
+			<if test="storeGoodsId !=null and storeGoodsId !=''">
+				store_goods_id = #{storeGoodsId},
+			</if>
+			<if test="storeGoodsLink !=null and storeGoodsLink !=''">
+				store_goods_link = #{storeGoodsLink},
+			</if>
+			createTime = now()
+		</set>
+		WHERE id = #{id}	
+	</update>
+	
+</mapper>   

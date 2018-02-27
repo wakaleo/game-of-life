@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+         符号转义说明
+    &lt;          < 	
+    &gt;          >  
+    &lt;&gt;     <>
+    &amp;        & 
+    &apos;       '
+    &quot;       "
+  <![CDATA[ 这里写你的SQL或者符号 ]]> 
+ -->
+<mapper namespace="com.huilian.hlej.hcf.dao.OrderCenterDao" > 
+	
+	<resultMap id="OrderBaseInfoVoListMap" type="com.huilian.hlej.hcf.vo.OrderBaseInfoVo">
+		<result column="id" property="id" jdbcType="NUMERIC"/>
+		<result column="orderNo" property="orderNo" jdbcType="VARCHAR"/>
+		<result column="createTime" property="createTime" jdbcType="VARCHAR"/>
+		<result column="money" property="money" jdbcType="DOUBLE"/>
+		<result column="userId" property="userId" jdbcType="NUMERIC"/>
+		<result column="goodsId" property="goodsId" jdbcType="NUMERIC"/>
+		<result column="goodsCount" property="goodsCount" jdbcType="NUMERIC"/>
+		<result column="runningAccount" property="runningAccount" jdbcType="VARCHAR"/>
+		<result column="payWay" property="payWay" jdbcType="NUMERIC"/>
+		<result column="orderSource" property="orderSource" jdbcType="NUMERIC"/>
+		<result column="orderStatus" property="orderStatus" jdbcType="NUMERIC"/>
+		<result column="consignee" property="consignee" jdbcType="VARCHAR"/>
+		<result column="address" property="address" jdbcType="VARCHAR"/>
+		<result column="dealerName" property="dealerName" jdbcType="VARCHAR"/>
+		<result column="cellPhone" property="cellPhone" jdbcType="VARCHAR"/>
+		<result column="buyerMessage" property="buyerMessage" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="getOrderBaseInfoVoList" resultMap="OrderBaseInfoVoListMap" parameterType="com.huilian.hlej.hcf.vo.OrderBaseInfoVo">
+			<![CDATA[
+			SELECT
+				id,
+				orderNo,
+				money,
+				goodsCount,
+				userId,
+				goodsId,
+				runningAccount,
+				payWay,
+				orderSource,
+				orderStatus,
+				consignee,
+				address,
+				cellPhone,
+				dealerName,
+				buyerMessage,
+				createTime,
+				syncStatus,
+  				syncRemark
+			FROM
+				(
+					SELECT
+						t1.id,
+						orderNo,
+						TRUNCATE(SUM(money),2) AS money,
+						userId,
+						goodsId,
+						SUM(goodsCount) AS goodsCount,
+						runningAccount,
+						payWay,
+						orderSource,
+						orderStatus,
+						consignee,
+						address,
+						t1.cellPhone,
+						t2.dealerName,
+						t1.buyerMessage,
+						t1.createTime,
+						t1.syncStatus,
+      					t1.syncRemark
+					FROM
+						hcf_dealer_order t1
+					LEFT JOIN 
+						hcf_dealer_baseInfo t2
+					ON 
+						t1.userId = t2.id
+					]]>	
+					<where>
+					    	1=1
+						<if test="orderNo != null and orderNo != ''">
+							AND t1.orderNo like CONCAT('%','${orderNo}','%' )
+						</if>
+						<if test="dealerName != null and dealerName != ''">
+							AND t2.dealerName like CONCAT('%','${dealerName}','%' )
+						</if>
+						<if test="payWay != null and payWay != ''">
+							AND t1.payWay = #{payWay}
+						</if>
+						<if test="orderSource != null and orderSource != ''">
+							AND t1.orderSource = #{orderSource}
+						</if>
+						<if test="orderStatus != null and orderStatus != ''">
+							AND t1.orderStatus = #{orderStatus}
+						</if>
+						<if test="syncStatus != null and syncStatus != '' and syncStatus != 3 ">
+							AND t1.syncStatus = ${syncStatus}
+						</if>
+						<if test="syncStatus != null and syncStatus != '' and syncStatus == 3 ">
+							AND t1.syncStatus is null
+						</if>
+						<if test="startTime != null and  startTime != ''">
+			                AND t1.createTime &gt;=  #{startTime}
+			            </if>
+			    		<if test="endTime != null and  endTime != ''">
+			                AND t1.createTime &lt;=  #{endTime}
+			            </if>
+					</where>
+					<![CDATA[
+						GROUP BY t1.orderNo 
+					]]>	
+				<![CDATA[		
+				) AS temp1 ORDER BY createTime desc
+				]]>
+	</select>
+	
+	<select id="getOrderBaseInfoVo" parameterType="java.lang.String" resultType="com.huilian.hlej.hcf.vo.OrderBaseInfoVo">
+		<![CDATA[
+			SELECT 
+			  id,
+			  orderNo,
+			  orderStatus,
+			  ifnull(logisticsCompany,0) as logisticsCompany,
+			  ifnull(orderRemark,'') as orderRemark
+			FROM
+			  	hcf_dealer_order
+			WHERE 
+			  	id = #{id}
+		]]>
+	</select>
+	
+	<update id="updateOrderBaseInfoVo" parameterType="com.huilian.hlej.hcf.vo.OrderBaseInfoVo">
+		UPDATE `hcf_dealer_order`
+		SET 
+			orderStatus = #{orderStatus},
+			logisticsCompany = #{logisticsCompany},
+			orderRemark = #{orderRemark}
+		WHERE
+			id = #{id}	
+	</update>
+	
+	<resultMap id="goodslistMap" type="com.huilian.hlej.hcf.vo.OrderGoodsVo">
+		<result column="pictureUrl" property="goods.pictureUrl" jdbcType="VARCHAR"/>
+		<result column="goodsName" property="goods.goodsName" jdbcType="VARCHAR"/>
+		<result column="typeName" property="goodsType.typeName" jdbcType="NUMERIC"/>
+		<result column="goodsBrand" property="goods.goodsBrand" jdbcType="VARCHAR"/>
+		<result column="specification" property="goods.specification" jdbcType="VARCHAR"/>
+		<result column="packagesNumber" property="goods.packagesNumber" jdbcType="VARCHAR"/>
+		<result column="priceOut" property="goods.priceOut" jdbcType="NUMERIC"/>
+		<result column="goodsCount" property="orderBaseInfo.goodsCount" jdbcType="NUMERIC"/>
+		<result column="money" property="orderBaseInfo.money" jdbcType="DOUBLE"/>
+	</resultMap>
+	
+	<select id="goodslist" parameterType="java.lang.String" resultMap="goodslistMap">
+		<![CDATA[
+			SELECT 
+			  h.pictureUrl,
+			  h.goodsName,
+			  t.typeName,
+			  h.goodsBrand,
+			  h.specification,
+			  h.packagesNumber,
+			  TRUNCATE(h.priceOut* 0.01,2) as priceOut,
+			  o.goodsCount,
+			  o.money
+			FROM
+			  hcf_dealer_order o 
+			  LEFT JOIN hcf_goods_details h 
+			    ON (o.goodsId = h.goodsId)
+			  LEFT JOIN hcf_goods_type t
+    			ON (h.typeId = t.id)     
+			WHERE o.orderNo = #{orderNo}
+		]]>
+	</select>
+	
+	<update id="updateOrderSyncStatus" parameterType="java.util.HashMap">
+		update hcf_dealer_order set syncStatus = ${syncStatus},syncRemark=#{syncRemark} where orderNo=#{orderNo}
+	</update>
+	
+</mapper>   
