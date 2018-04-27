@@ -496,6 +496,7 @@
         </profile>
     </profiles>
     <distributionManagement>
+        
         <repository>
             <id>/Release</id>
             <name>Releases</name>
@@ -506,5 +507,6 @@
             <name>Snapshot</name>
             <url>http://localhost:8081/repository/Snapshot/</url>
         </snapshotRepository>
+        
     </distributionManagement> 
 </project>
