@@ -242,3 +242,4 @@
     <rule ref="rulesets/logging-java.xml/SystemPrintln"/>
     <rule ref="rulesets/logging-java.xml/AvoidPrintStackTrace"/>
 </ruleset>
+
