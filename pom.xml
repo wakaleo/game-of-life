@@ -204,6 +204,11 @@
             <version>1.9.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.shared</groupId>
+            <artifactId>maven-shared-utils</artifactId>
+            <version>0.4</version>
+        </dependency>
     </dependencies>
 
     <modules>
