@@ -501,10 +501,5 @@
 	  <name>Releases</name>
       <url>http://ec2-54-144-234-81.compute-1.amazonaws.com:8081/nexus/content/repositories/releases/</url>
    </repository>
-   <repository>
-      <id>snapshots</id>
-	 <name>Snapshots</name>
-      <url>http://ec2-54-144-234-81.compute-1.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
-   </repository>
 </distributionManagement>
 </project>
