@@ -13,7 +13,7 @@
         <jetty.stop.port>9999</jetty.stop.port>
         <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
         <webdriver.driver>firefox</webdriver.driver>
-        <thucydides.version>0.9.22</thucydides.version>
+        <thucydides.version>0.9.268</thucydides.version>
     </properties>
     <dependencies>
         <dependency>
@@ -71,7 +71,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.9</version>
                 <configuration>
-                    <skip>true</skip>
+                    <skip>false</skip>
                 </configuration>
             </plugin>
             <plugin>
@@ -121,28 +121,28 @@
         <profile>
             <id>development</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-dev.thucydides.cloudbees.net</webdriver.base.url>
-                <webdriver.driver>htmlunit</webdriver.driver>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
+                <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
         <profile>
             <id>integration</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-integration.thucydides.cloudbees.net/</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
         <profile>
             <id>staging</id>
             <properties>
-                <webdriver.base.url>http://gameoflife-staging.thucydides.cloudbees.net</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
         <profile>
             <id>production</id>
             <properties>
-                <webdriver.base.url>http://gameoflife.thucydides.cloudbees.net/</webdriver.base.url>
+                <webdriver.base.url>http://gameoflife:${jetty.port}</webdriver.base.url>
                 <webdriver.driver>firefox</webdriver.driver>
             </properties>
         </profile>
