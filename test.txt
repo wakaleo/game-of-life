@@ -1,1 +1,2 @@
 My first game of life project.
+My second game of life project.
