@@ -23,6 +23,8 @@ import com.wakaleo.gameoflife.domain.Universe;
 public class GameController {
 	// For generating random thread sleep times
     private Random randomGenerator = new Random();
+	
+	//for checking pollscm
 
 	// Clicking the "New Game" button on the main page loads the cell seletion page
     @RequestMapping("/new")
