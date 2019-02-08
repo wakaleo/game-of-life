@@ -499,7 +499,7 @@
    <repository>
       <id>releases</id>
 	  <name>Releases</name>
-      <url>http://ec2-52-23-227-85.compute-1.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
+      <url>http://ec2-3-95-183-215.compute-1.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
    </repository>
 </distributionManagement>
 </project>
