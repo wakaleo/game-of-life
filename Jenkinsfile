@@ -5,7 +5,7 @@ node {
     
     stage('Build & Package') {
         
-            sh 'mvn clean package sonar:sonar'
+            sh 'mvn clean package '
        
     }
    
