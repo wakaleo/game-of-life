@@ -1,0 +1,2 @@
+d=`date +%Y%m%d%s`
+cp /u01/pycode/func_doc.py /u01/pycode/func_$d.py
