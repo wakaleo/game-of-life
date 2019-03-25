@@ -1,3 +1,4 @@
+<!-- Build file for PT External User Feeds Helper Application. Usage : ant [clean | compile | javadoc | jar | tar | all | mr-ext-feeds-control-files]  -->
 <project default="jmeter">
 
     <path id="jmeter.lib.path">
