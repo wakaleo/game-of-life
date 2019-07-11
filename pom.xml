@@ -497,9 +497,9 @@
     </profiles>
 	<distributionManagement>
    <repository>
-      <id>releases</id>
+      <id>maven-releases</id>
 	  <name>Releases</name>
-      <url>http://ec2-35-174-167-229.compute-1.amazonaws.com:8081/nexus/content/repositories/releases/</url>
+      <url>http://ec2-34-207-95-224.compute-1.amazonaws.com:8081/nexus/repository/maven-releases/</url>
    </repository>
 </distributionManagement>
 </project>
