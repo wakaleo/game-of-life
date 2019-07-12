@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.5.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
@@ -495,4 +495,11 @@
             </reporting>
         </profile>
     </profiles>
+	<distributionManagement>
+   <repository>
+      <id>maven-releases</id>
+	  <name>Releases</name>
+      <url>http://ec2-34-207-95-224.compute-1.amazonaws.com:8081/nexus/repository/maven-releases/</url>
+   </repository>
+</distributionManagement>
 </project>
