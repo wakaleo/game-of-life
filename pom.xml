@@ -305,6 +305,13 @@
                                     <artifactId>maven-project-info-reports-plugin</artifactId>
                                     <version>2.7</version>
                                 </plugin>
+                                <distributionManagement>
+                                <!-- Publish the versioned releases here -->
+                                <repository>
+                                <id>nexus</id>
+                                <name>nexus</name>
+                                    <url>dav:http://3.81.38.197:8081/nexus/#view-repositories;releases~browsestorage</url>
+                                </repository>
                                 <plugin>
                                     <groupId>org.jacoco</groupId>
                                     <artifactId>jacoco-maven-plugin</artifactId>
