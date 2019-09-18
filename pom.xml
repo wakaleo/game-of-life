@@ -500,13 +500,13 @@
     <repository>
     <id>releases</id>
     <name>Releases</name>
-    <url>http://18.220.30.249:8081/nexus/content/repositories/releases</url>
+    <url>http://18.189.17.172:8081/nexus/content/repositories/releases</url>
     </repository>
 
     <snapshotRepository>
     <id>snapshots</id>
     <name>Snapshots</name>
-    <url>http://18.220.30.249:8081/nexus/content/repositories/snapshots</url>
+    <url>http://18.189.17.172:8081/nexus/content/repositories/snapshots</url>
     </snapshotRepository>
 
   </distributionManagement>
