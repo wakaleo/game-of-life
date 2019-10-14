@@ -5,7 +5,7 @@
   - name: Stop Tomcat
     service:
       name: tomcat8
-      state: stop
+      state: stopped
   - name: Deploy War File
     get_url:
        url: http://18.223.76.84:8081/nexus/service/local/artifact/maven/redirect?r=releases&g=com.wakaleo.gameoflife&a=gameoflife&p=war&v=LATEST
@@ -13,4 +13,4 @@
   - name: Start Tomcat
     service:
       name: tomcat8
-      state: start  
+      state: started  
