@@ -2,7 +2,8 @@
 - hosts: webservers
   become: true
   tasks:
-  - service:
+  - name: Stop Tomcat
+    service:
       name: tomcat8
       state: stop
   - name: Deploy War File
@@ -10,5 +11,6 @@
        url: http://18.223.76.84:8081/nexus/service/local/artifact/maven/redirect?r=releases&g=com.wakaleo.gameoflife&a=gameoflife&p=war&v=LATEST
        dest: /root/apache-tomcat-8.5.46/webapps/gameoflife.war
   - name: Start Tomcat
+    service:
       name: tomcat8
       state: start  
