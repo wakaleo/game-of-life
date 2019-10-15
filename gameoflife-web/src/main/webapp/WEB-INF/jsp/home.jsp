@@ -61,7 +61,7 @@
     </style>
 </head>
 <body>
-<h2>Welcome to QENTELLI's Game Of Life!</h2>
+<h2>Welcome to SANKAR's Game Of Life!</h2>
 
 <div class="intro">
     <p>This is a really cool web version of Conway's famous Game Of
