@@ -38,7 +38,7 @@ stages {
   stage('Results') {
       steps {
       junit '**/target/surefire-reports/TEST-*.xml'
-      archiveArtifacts 'target/*.war'
+      
       }
  }
  stage('Sonarqube') {
@@ -62,10 +62,10 @@ stages {
 }
 post {
         success {
-            mail to:"raknas000@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build success"
+            archiveArtifacts 'target/*.war'
         }
         failure {
-            mail to:"raknas000@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+            mail to:"sankar.dadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         }
     }       
 }
