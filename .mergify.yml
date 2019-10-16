@@ -1,6 +1,7 @@
 pull_request_rules:
   - name: automatic merge on CI success and review
-    conditions: []
+    conditions: 
+      - label!=work-in-progress
     actions:
       merge:
         method: merge
