@@ -25,7 +25,7 @@ pipeline {
       steps {
         sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/
       
-        aws s3 cp *.war s3://ajayvarma-s3
+       AWS_ACCESS_KEY_ID=AKIAYA7GUKHLEMTJTB7B AWS_SECRET_ACCESS_KEY=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 aws s3 cp *.war s3://ajayvarma-s3
           '''
         
 
