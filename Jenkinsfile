@@ -25,7 +25,7 @@ pipeline {
       steps {
         sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/
         #check that 
-        if[*.war]
+        if[gameoflife.war] 
         then 
         echo war exists
         else
