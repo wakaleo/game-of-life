@@ -1,5 +1,5 @@
 pipeline {
-  agent Pre-prod
+  agent any
   stages {
     stage('checkout') {
       steps {
