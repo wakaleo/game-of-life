@@ -23,7 +23,7 @@ pipeline {
     }
      stage('s3') {
       steps {
-        sh 'cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/
+        sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/
         #check that 
         if[*.war]
         then 
@@ -32,7 +32,7 @@ pipeline {
           echo war not present
         fi
         aws s3 cp *.war s3://ajayvarma-s3/
-          '
+          '''
         
 
       }
