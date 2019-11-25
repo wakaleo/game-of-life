@@ -24,7 +24,7 @@ pipeline {
      stage('s3') {
       steps {
         sh 'cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/'
-        aws s3 cp *.war s3://ajay-s3bucket/
+        aws s3 cp *.war s3://ajayvarma-s3/
 
       }
     }
