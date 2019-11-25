@@ -25,7 +25,7 @@ pipeline {
       steps {
         sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/
       
-        aws s3 cp *.war s3://ajayvarma-s3/
+        aws s3 cp *.war s3://ajayvarma-s3
           '''
         
 
