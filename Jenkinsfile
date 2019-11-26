@@ -33,7 +33,7 @@ pipeline {
     }
  stage('deploy') {
       steps {
-        node(Pre-prod: 'stage'){
+        node(Pre-prod: 'stage') {
         sh 'cp -f /var/lib/jenkins/workspace/pipeline/gameoflife-web/target/gameoflife.war /root/apache-tomcat-9.0.27/webapps'
       }
     }
