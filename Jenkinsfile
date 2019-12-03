@@ -34,8 +34,8 @@ pipeline {
    stage('deploy') {
       steps {
       
-        sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target && scp gameoflife.war jenkins@18.138.150.204:/home/jenkins/apache-tomcat-9.0.29/webapps'''
-    
+                sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target && scp gameoflife.war jenkins@18.138.150.204:/home/jenkins/apache-tomcat-9.0.29/webapps'''
+
     }
   }
 }
