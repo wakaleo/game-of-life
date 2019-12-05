@@ -18,7 +18,7 @@ pipeline {
     }
     stage('sonar') {
       steps {
-        sh 'mvn sonar:sonar'
+        sh 'sonar-project.properties'
       }
     }
     stage('s3') {
