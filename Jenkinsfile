@@ -16,11 +16,17 @@ pipeline {
         sh 'mvn test'
       }
     }
-    stage('sonar') {
-      steps {
-        sh 'sonar-project.properties'
-      }
+   stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'sonarqube'
     }
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+       
+    }
+}
     stage('s3') {
       steps {
         sh '''cd /var/lib/jenkins/workspace/game-of-life_develop/gameoflife-web/target/
