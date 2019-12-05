@@ -33,8 +33,6 @@ pipeline {
       
        AWS_ACCESS_KEY_ID=AKIAYA7GUKHLATBHUZWC AWS_SECRET_ACCESS_KEY=8mzEhHuU8R0QhHrd0nX5Om6GaQGJAm1Jwnzgh96j aws s3 cp *.war s3://madhu-sample
           '''
-        
-
       }
     }
    stage('deploy') {
