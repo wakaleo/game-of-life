@@ -61,7 +61,7 @@
     </style>
 </head>
 <body>
-<h2>Welcome to madhuri's Game Of Life dev!</h2>
+<h2>Welcome to madhuri.ch's Game Of Life !</h2>
 
 <div class="intro">
     <p>This is a really cool web version of Conway's famous Game Of
