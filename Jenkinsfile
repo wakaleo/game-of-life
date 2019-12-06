@@ -37,13 +37,7 @@ pipeline {
 
       }
     }
-    stage('Slack notificaton') {
-            steps {
-                slackSend channel: '#jenkins',
-                    color: 'good',
-                    message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
-      }
-    }
+    
    stage('deploy') {
       steps {
       
@@ -51,6 +45,13 @@ pipeline {
     
     }
   }
+    stage('Slack notificaton') {
+            steps {
+                slackSend channel: '#jenkins',
+                    color: 'good',
+                    message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
+      }
+    }
     
 }
 }
