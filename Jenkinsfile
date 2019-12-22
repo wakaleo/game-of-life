@@ -4,9 +4,9 @@ node {
     }
     
     stage('Build & Package') {
-        withSonarQubeEnv('sonar') {
+       
             sh 'mvn clean package sonar:sonar'
-        }
+        
     }
     
     
