@@ -1,11 +1,11 @@
 version: 0.2
 
 phases:
-install:
+  install:
     runtime-versions:
       java: openjdk8    
     commands:
-      - echo Nothing to do in the install phase... 
+      - echo Nothing to do in the install phase...
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
@@ -18,5 +18,4 @@ install:
       - echo Build completed on `date`
 artifacts:
   files:
-    - 'target/ccdemo.war'
-    
+    - 'target/game-of-life.war'
