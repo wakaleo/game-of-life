@@ -19,4 +19,4 @@ phases:
 artifacts:
   discard-paths: yes
   files:
-   - 'target/ccdemo.war'
+   - 'target/gameoflife-web-1.0-SNAPSHOT.war'
