@@ -19,4 +19,4 @@ phases:
 artifacts:
   discard-paths: yes
   files:
-   - 'target/gameoflife-web-1.0-SNAPSHOT.war'
+   - '/root/.m2/repository/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHOT/gameoflife-web-1.0-SNAPSHOT.war'
