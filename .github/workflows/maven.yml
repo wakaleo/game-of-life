@@ -22,5 +22,7 @@ jobs:
         java-package: jdk  
     - run: |
         mvn -f pom.xml clean package
+        echo $GITHUB_WORKSPACE
+        ls gameoflife-web
         
  
