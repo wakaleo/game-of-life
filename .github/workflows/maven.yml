@@ -1,0 +1,19 @@
+name: Maven Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Running Maven Action to Build!
+    - name: action-maven
+      id: maven_id
+      uses: comchangs/action-maven@v0.4-beta
+    - name: Access the variables
+      run: echo ${{jobs.build.steps.id}}
+          
