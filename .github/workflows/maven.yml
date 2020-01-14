@@ -8,14 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: comchangs/action-maven@v0.4-beta
     - uses: actions/checkout@v1
     - name: Run a one-line script
       run: echo Running Maven Action to Build!
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: action-maven
+      uses: comchangs/action-maven@v0.4-beta
     - name: maven commands
       run: |
         - echo Running Maven Commands
-        - mvn clean package
-    - name: Access the variables
-      run: echo ${{steps.id}}
+        - mvn clean package --file pom.xml
           
