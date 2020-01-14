@@ -14,6 +14,10 @@ jobs:
     - name: action-maven
       id: maven_id
       uses: comchangs/action-maven@v0.4-beta
+    - name: maven commands
+      run: |
+        - echo Running Maven Commands
+        - mvn clean package
     - name: Access the variables
       run: echo ${{steps.id}}
           
