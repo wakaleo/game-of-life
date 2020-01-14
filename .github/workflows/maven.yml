@@ -15,5 +15,5 @@ jobs:
       id: maven_id
       uses: comchangs/action-maven@v0.4-beta
     - name: Access the variables
-      run: echo ${{jobs.build.steps.id}}
+      run: echo ${{steps.id}}
           
