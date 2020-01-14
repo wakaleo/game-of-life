@@ -11,10 +11,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a one-line script
       run: echo Running Maven Action to Build!
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
+#    - name: Set up JDK 1.8
+#      uses: actions/setup-java@v1
+#      with:
+#        java-version: 1.8
     - name: action-maven
       uses: comchangs/action-maven@v0.4-beta
     - name: maven commands
