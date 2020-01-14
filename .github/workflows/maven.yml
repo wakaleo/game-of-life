@@ -23,6 +23,16 @@ jobs:
     - run: |
         mvn -f pom.xml clean package
         echo $GITHUB_WORKSPACE
-        ls gameoflife-web
+        ls gameoflife-web/target 
         
- 
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v1
+      with:
+    # Publish profile (*.publishsettings) file contents with Web Deploy secrets
+        publish-profile: ${{azureWebappPublishProfile}}
+    # Name of the Azure Web App
+        app-name: tommycat
+    # Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
+        package: gameoflife-web/target/*.war
+    # Enter an existing Slot other than the Production slot
+    #   slot-name: # optional, default is production
