@@ -25,14 +25,38 @@ jobs:
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target 
         
-    - name: Azure WebApp
-      uses: Azure/webapps-deploy@v1
-      with:
+#    - name: Azure WebApp
+#      uses: Azure/webapps-deploy@v1
+#      with:
     # Publish profile (*.publishsettings) file contents with Web Deploy secrets
-        publish-profile: ${{secrets.azureWebappPublishProfile}}
+#        publish-profile: ${{secrets.azureWebappPublishProfile}}
     # Name of the Azure Web App
-        app-name: tommycat
+#        app-name: tommycat
     # Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
-        package: gameoflife-web/target/*.war
+#        package: gameoflife-web/target/*.war
     # Enter an existing Slot other than the Production slot
     #   slot-name: # optional, default is production
+    - uses: azure/login@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    - name: Azure App Service Settings
+      uses: Azure/appservice-settings@v1
+      with:
+    # Name of the Azure Web App
+        app-name: 'tommycat'
+    # Name of an existing slot other than the production slot. Default value is production
+    #    slot-name: # optional
+    # Application settings using the JSON syntax set as value of secret variable: APP_SETTINGS
+        app-settings-json: '${{ secrets.APP_SETTINGS }}'
+    # Connection Strings using the JSON syntax set as value of secret variable: CONNECTION_STRINGS
+    #    connection-strings-json: 
+    # General configuration settings using dictionary syntax - Key Value pairs
+    #    general-settings-json: # optional
+      id: settings
+    - run: |
+        echo "The webapp-url is ${{ steps.settings.outputs.webapp-url }}"
+        az logout
+  
+  
+  
+  
