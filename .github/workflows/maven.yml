@@ -28,6 +28,18 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v1
+      with:
+    # Publish profile (*.publishsettings) file contents with Web Deploy secrets
+    #    publish-profile: ${{secrets.azureWebappPublishProfile}}
+    # Name of the Azure Web App
+        app-name: tommycat
+    # Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
+        package: gameoflife-web/target/*.war
+    # Enter an existing Slot other than the Production slot
+    #   slot-name: # optional, default is production 
+      
     - name: Azure App Service Settings
       uses: Azure/appservice-settings@v1
       with:
@@ -46,16 +58,6 @@ jobs:
         echo "The webapp-url is ${{ steps.settings.outputs.webapp-url }}"
         az logout
   
-    - name: Azure WebApp
-      uses: Azure/webapps-deploy@v1
-      with:
-    # Publish profile (*.publishsettings) file contents with Web Deploy secrets
-    #    publish-profile: ${{secrets.azureWebappPublishProfile}}
-    # Name of the Azure Web App
-        app-name: tommycat
-    # Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
-        package: gameoflife-web/target/*.war
-    # Enter an existing Slot other than the Production slot
-    #   slot-name: # optional, default is production  
+ 
   
   
