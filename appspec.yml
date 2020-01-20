@@ -3,7 +3,7 @@ version: 0.0
 os: linux
 files:
   - source: gameoflife-web-1.0-SNAPSHOT.war
-    destination: /usr/share/tomcat8/webapps/
+    destination: /usr/share/tomcat/webapps/
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
