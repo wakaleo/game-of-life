@@ -20,3 +20,8 @@ artifacts:
   discard-paths: yes
   files:
    - '/root/.m2/repository/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHOT/gameoflife-web-1.0-SNAPSHOT.war'
+   - 'appspec.yml'
+   - 'scripts/before_install.sh'
+   - 'scripts/after_install.sh'
+   - 'scripts/start_server.sh'
+   - 'scripts/stop_server.sh'
