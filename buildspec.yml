@@ -6,6 +6,14 @@ phases:
       java: corretto8 
     commands:
       - echo Nothing to do in the install phase...
+  pre_build:version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8 
+    commands:
+      - echo Nothing to do in the install phase...
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
@@ -26,3 +34,16 @@ artifacts:
    - 'scripts/start_server.sh'
    - 'scripts/stop_server.sh'
 
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  discard-paths: yes
+  files:
+   - '/root/.m2/repository/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHOT/gameoflife-web-1.0-SNAPSHOT.war'
