@@ -61,12 +61,12 @@
     </style>
 </head>
 <body>
-<h2>Welcome to Conway's Game Of Life!</h2>
+<h2>Welcome to qentelli's Game Of Life!</h2>
 
 <div class="intro">
     <p>This is a really cool web version of Conway's famous Game Of
         Life. The Game of Life is a cellular automaton devised by the British
-        mathematician John Horton Conway way back in 1970.</p>
+        mathematician John Horton Conway way back in 1980.</p>
 
     <p>The universe of the Game of Life is an infinite two-dimensional
         orthogonal grid of square cells, each of which is in one of two possible
@@ -113,3 +113,4 @@
 </div>
 </body>
 </html>
+
