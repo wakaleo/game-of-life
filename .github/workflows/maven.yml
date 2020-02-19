@@ -28,7 +28,11 @@ jobs:
       run: |
         echo "*******************"
         echo ${{ github.workspace }}
-        echo "&&&&&&&&&&&&&&&&&&&&&"
+        echo "**********************"
+        ls -lart /home/runner/work/game-of-life/game-of-life
+        echo "-------------------------------------"
+        ls -lart /home/runner/work/game-of-life/game-of-life/gameoflife-web
+        echo "----------------------------------"
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
