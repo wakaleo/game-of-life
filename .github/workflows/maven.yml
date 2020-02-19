@@ -39,20 +39,20 @@ jobs:
     # Artifact name
        name: gameoflife2.war
     # Directory containing files to upload
-       path: ${{ github.workspace }}
+       path: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
           
-   # - uses: azure/login@v1
-    #  with:
-   #     creds: '${{ secrets.AZURE_CREDENTIALS }}'
-  #  - name: Azure WebApp
-   #   uses: Azure/webapps-deploy@v1
-   #   with:
+    - uses: azure/login@v1
+      with:
+         creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v1
+      with:
     # Publish profile (*.publishsettings) file contents with Web Deploy secrets
-  #      publish-profile: ${{secrets.azureWebappPublishProfile}}
+        publish-profile: ${{secrets.azureWebappPublishProfile}}
     # Name of the Azure Web App
-  #      app-name: actiondeploy
+        app-name: actiondeploy
     # Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
-   #     package: gameoflife-web/target/*.war
+        package: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
     # Enter an existing Slot other than the Production slot
     #   slot-name: # optional, default is production 
       
