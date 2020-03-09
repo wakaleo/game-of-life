@@ -36,7 +36,7 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-    	        
+	    	<plugin> 
 	    	<executions>
                     <execution>
                         <id>unit-tests</id>
