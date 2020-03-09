@@ -36,13 +36,7 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-	    <plugin>    
-		<artifactId>maven-surefire-plugin</artifactId>
-                <version>2.11</version>
-                <configuration>
-                    <skip>true</skip>
-	        </configuration>
-                <executions>
+    		    <executions>
                     <execution>
                         <id>unit-tests</id>
                         <phase>test</phase>
