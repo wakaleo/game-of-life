@@ -4,17 +4,7 @@ pipeline {
         maven 'Maven 3.6.3'
         jdk 'Java 8'
     }
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    }"
-                '''
-            }
-        }
-
-        stage ('Build') {
+    stage ('Build') {
             steps {
                 sh 'mvn clean package' 
             }
@@ -24,5 +14,4 @@ pipeline {
                 }
             }
         }
-    }
-}
+ }
