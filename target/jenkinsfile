@@ -4,7 +4,8 @@ pipeline {
         maven 'Maven 3.6.3'
         jdk 'Java 8'
     }
-    stage ('Build') {
+    stages {
+	stage('Build') {
             steps {
                 sh 'mvn clean package' 
             }
@@ -14,4 +15,5 @@ pipeline {
                 }
             }
         }
- }
+    }
+}
