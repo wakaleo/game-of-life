@@ -175,6 +175,15 @@
             </extension>
         </extensions>
     </build>
+    
+    <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>PhanindraReddyP</name>
+        <url>https://maven.pkg.github.com/PhanindraReddyP/NewRepo</url>
+      </repository>
+    </distributionManagement>
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
