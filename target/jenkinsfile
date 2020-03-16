@@ -1,27 +1,28 @@
 pipeline {
-	agent any
-	stages {
-		stage('Compile Stage'){
-			steps{
-			withMaven(maven: 'Maven 3.6.3'){
-			sh 'mvn clean'
-				}
- 
-			}
-		}	
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'Java 8'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    }"
+                '''
+            }
+        }
 
-		stage('Testing Stage'){
-                        steps{
-                        withMaven(maven: 'Maven 3.6.3'){
-                        sh 'mvn test'
-                                }
-
-                        }
-		}
-   
-                  
-
-
-	}
-
+        stage ('Build') {
+            steps {
+                sh 'mvn clean package' 
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/*.xml' 
+                }
+            }
+        }
+    }
 }
