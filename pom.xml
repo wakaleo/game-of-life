@@ -504,11 +504,13 @@
   </repositories>
   <distributionManagement>
     <snapshotRepository>
-      <id>maven-snapshots</id>
+	    <id>deployment</id>
+	    <name>Internal Snapshot Releases</name>
       <url>http://100.80.46.56:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
     <repository>
-      <id>maven-releases</id>
+	    <id>deployment</id>
+	    <name>Internal Releases</name>
       <url>http://100.80.46.56:8081/repository/maven-releases/</url>
     </repository>
   </distributionManagement>
