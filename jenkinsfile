@@ -14,7 +14,7 @@ pipeline {
 	stage('Deploy') {
      		steps{
 		echo 'Deploying...'
-		nexusPublisher nexusInstanceId: 'localnexus3', nexusRepositoryId: 'maven_releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '1.3']]]
+		nexusPublisher nexusInstanceId: 'localnexus3', nexusRepositoryId: 'maven_releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '1.0.3']]]
 
 
 }
