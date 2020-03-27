@@ -496,22 +496,14 @@
             </reporting>
         </profile>
 </profiles>
-<repositories>
-    <repository>
-      <id>maven-group</id>
-      <url>http://100.80.46.56:8081/repository/maven-group/</url>
-    </repository>
-  </repositories>
   <distributionManagement>
     <snapshotRepository>
-	    <id>deployment</id>
-	    <name>Internal Snapshot Releases</name>
-      <url>http://100.80.46.56:8081/repository/maven-snapshots/</url>
+      	    <id>maven-snapshots</id>
+      <url>http://localhost:8081/repository/SAVE_SNAP/</url>
     </snapshotRepository>
     <repository>
-	    <id>deployment</id>
-	    <name>Internal Releases</name>
-      <url>http://100.80.46.56:8081/repository/maven-releases/</url>
+      <id>maven-releases</id>
+      <url>http://localhost:8081/repository/SAVE_REL/</url>
     </repository>
   </distributionManagement>
 </project>
