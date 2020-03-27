@@ -498,11 +498,13 @@
 </profiles>
   <distributionManagement>
     <snapshotRepository>
-      	    <id>maven-snapshots</id>
+	    <id>deployment</id>
+	    <name>Internal Snapshot Release</name>
       <url>http://localhost:8081/repository/SAVE_SNAP/</url>
     </snapshotRepository>
     <repository>
-      <id>maven-releases</id>
+	    <id>deployment</id>
+	    <name>Internal Release</name>
       <url>http://localhost:8081/repository/SAVE_REL/</url>
     </repository>
   </distributionManagement>
