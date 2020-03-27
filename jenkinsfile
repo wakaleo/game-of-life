@@ -15,7 +15,7 @@ pipeline {
      		steps{
 		echo 'Deploying...'
 		 
-		sh 'mvn -Drevision=`git -C /home/carmel/gameOfLife/game-of-life rev-parse HEAD` deploy'
+		sh 'mvn deploy'
 }
 }
 }
