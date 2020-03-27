@@ -13,9 +13,11 @@ pipeline {
 	}
 	stage('Publish') {
      		steps{
-nexusPublisher nexusInstanceId: 'localnexus3', nexusRepositoryId: 'maven_releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'war/target/jenkins.war']], mavenCoordinate: [artifactId: 'jenkins-war', groupId: 'org.jenkins-ci.main', packaging: 'war', version: '2.23']]]
-   }
-	}
+		echo 'Deploying...'
+		 
+		sh 'mvn -Drevision=`git -C /home/carmel/gameOfLife/game-of-life rev-parse HEAD` deploy'
+}
+}
 }
             post {
                 success {
