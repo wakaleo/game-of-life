@@ -10,6 +10,11 @@ pipeline {
             steps {
                 sh 'mvn clean package' 
             }
+	 stage('Deploy') {
+            steps {
+                sh 'mvn deploy'
+            }
+
             post {
                 success {
                     junit '**/target/surefire-reports/*.xml' 
