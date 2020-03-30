@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
-    <version>1.0.3</version>
+    <version>1.0</version>
     <packaging>pom</packaging>
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
@@ -503,13 +503,13 @@
     </repository>
   </repositories>
   <distributionManagement>
-    <snapshotRepository>
+    <repository>
 	    <id>maven-releases</id>
 	    <url>http://100.80.46.56:8081/repository/maven-releases/</url>
-    </snapshotRepository>
-    <repository>
+    </repository>
+    <snapshotRepository>
 	    <id>maven-snapshots</id>
 	    <url>http://100.80.46.56:8081/repository/maven-snapshots/</url>
-    </repository>
+    </snapshotRepository>
   </distributionManagement>
 </project>
