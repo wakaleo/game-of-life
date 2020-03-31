@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'Java 8'
+    }
+    stages {
+	stage('Build') {
+            steps {
+                sh 'mvn clean package' 
+            }
+	}
+	stage('Deploy') {
+     		steps{
+		echo 'Deploying...'
+		nexusArtifactUploader artifacts: [[artifactId: 'gameoflife', classifier: '', file: 'gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'nexus-credentials', groupId: 'com.wakaleo.gameoflife', nexusUrl: 'localhost:8081/repository/maven-releases/', nexusVersion: 'nexus2', protocol: 'http', repository: 'maven-releases', version: '1.0.4'
+
+
+
+}
+}
+}
+            post {
+                success {
+                    junit '**/target/surefire-reports/*.xml' 
+                }
+            }
+        
+    }
