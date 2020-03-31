@@ -58,7 +58,7 @@
                             </includes>
                             <excludes>
                                 <exclude>%regex[.*integration.*]</exclude>
-                            </excludes>
+             napshots               </excludes>
                         </configuration>
                     </execution>
                     <execution>
@@ -512,10 +512,4 @@
 	    <url>http://100.80.46.56:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-<dependency>
-  <groupId>content.repositories.maven-snapshots.com.wakaleo.gameoflife</groupId>
-  <artifactId>gameoflife</artifactId>
-  <version>1.0.0.6-20200331.101847-1</version>
-  <type>war</type>
-</dependency>
 </project>
