@@ -23,6 +23,7 @@ pipeline {
             post {
                 success {
                     junit '**/target/surefire-reports/*.xml' 
+		    bzt 'gameoflife-web/src/test/jmeter/GameoflifeJM.jmx'
                 }
             }
         
