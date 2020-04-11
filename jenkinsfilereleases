@@ -25,7 +25,7 @@ pipeline {
                     junit '**/target/surefire-reports/*.xml' 
                 }
 		{
-		    sh jmeter.sh -Jjmeter.save.saveservice.output_format=xml -n -t /home/carmel/gameOfLife/game-of-life/gameoflife-web/src/test/jmeter/GameoflifeJM.jmx -l /home/carmel/gameOfLife/game-of-life/gameoflife-web/src/test/jmeter/GameoflifeJM.jtl
+		    sh '/home/carmel/Downloads/apache-jmeter-5.2.1/bin/jmeter.sh -n -t /home/carmel/gameOfLife/game-of-life/gameoflife-web/src/test/jmeter/GameoflifeJM.jmx -l GameoflifeJM.jtl'
 		}
             }
         
