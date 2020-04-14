@@ -37,7 +37,7 @@ public class GameOfLifeTest {
     @Test
     public void allCellsGridWillBeDeadInSecondGeneration() {
         String seededGrid = "***" + NEW_LINE + "***" + NEW_LINE + "***" + NEW_LINE + "";
-        String expectedNextGeneration = "..*" + NEW_LINE + "..." + NEW_LINE + "*.*" + NEW_LINE + "";
+        String expectedNextGeneration = "*.*" + NEW_LINE + "..." + NEW_LINE + "*.*" + NEW_LINE + "";
         String expectedNextNextGeneration = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
         Universe theUniverse = new Universe(seededWith(seededGrid));
         theUniverse.createNextGeneration();
