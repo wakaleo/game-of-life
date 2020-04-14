@@ -26,7 +26,7 @@ public class GameOfLifeTest {
 
     @Test
     public void oneCellGridWillBeDeadInNextGeneration() {
-        String seededGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
+        String seededGrid = ".*." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
         String expectedGrid = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
         Universe theUniverse = new Universe(seededWith(seededGrid));
         theUniverse.spawnsANewGeneration();
@@ -46,5 +46,16 @@ public class GameOfLifeTest {
         theUniverse.createNextGeneration();
         String nextGrid = theUniverse.getGrid();
         assertThat(nextGrid, is(expectedNextNextGeneration));
+    }
+
+
+    @Test
+    public void twoCellsTest(){
+        String seededGrid = "**." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
+        String expectedNextGeneration = "..." + NEW_LINE + "..." + NEW_LINE + "..." + NEW_LINE + "";
+        Universe theUniverse = new Universe(seededWith(seededGrid));
+        theUniverse.createNextGeneration();
+        String currentGrid = theUniverse.getGrid();
+        assertThat(currentGrid, is(expectedNextGeneration));
     }
 }
