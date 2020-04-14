@@ -24,9 +24,7 @@ pipeline {
                 success {
                     junit '**/target/surefire-reports/*.xml' 
                 }
-		{
-		    sh '/home/carmel/Downloads/apache-jmeter-5.2.1/bin/jmeter.sh -n -t /home/carmel/gameOfLife/game-of-life/gameoflife-web/src/test/jmeter/GameoflifeJM.jmx -l GameoflifeJM.jtl'
-		}
+		
             }
         
     }
