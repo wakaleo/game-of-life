@@ -206,10 +206,10 @@
             <scope>test</scope>
     </dependency>
     <dependency>
-<groupid>com.google.inject</groupid>
-<artifactid>guice</artifactid>
-<version>2.0</version>
-</dependency>
+    	    <groupId>com.google.inject</groupId>
+    	    <artifactId>guice</artifactId>
+    	    <version>4.2.3</version>
+    </dependency>
     </dependencies>
 
     <modules>
