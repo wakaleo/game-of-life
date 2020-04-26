@@ -17,14 +17,15 @@ pipeline {
         stage('Test') {
              steps {
                 sh 'mvn verify'
-		
+		sh 'selenium-side-runner /home/carmel/Downloads/side-suite-seleniumtest/seleniumtest.side'
+
             }
         }
 }
             post {
                 success {
                     echo 'Success!'
-                    sh 'selenium-side-runner /home/carmel/Downloads/side-suite-seleniumtest/seleniumtest.side'
+                    
 
                 }
 
