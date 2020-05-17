@@ -3,7 +3,8 @@ node{
 git 'https://github.com/prashanth203203/game-of-life'
 }
 stage ('Compaile Package'){
-sh 'mvn package'
+      def mvnhome * tool name: 'mvn', type: 'maven'
+  sh "${mvnhome}/bin/mvn packages'
 }
   
 }
