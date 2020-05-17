@@ -1,7 +1,7 @@
 This is a simple demonstration application used in the [Jenkins: The Definitive Guide](http://wakaleo.com/books/jenkins-the-definitive-guide) book.
 
 ## Building the project 
-## Checking the webhook which should trigger CI in Jenkins after selecting the github webook trigger checkbox in job configuration
+## Triggering the Github webhook to Jenkins
 
 The project is a simple multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
 
