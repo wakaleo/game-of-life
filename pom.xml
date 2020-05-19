@@ -177,11 +177,11 @@
     </build>
     
     <distributionManagement>
-      <repository>
-        <id>github</id>
-        <name>PhanindraReddyP</name>
-        <url>https://maven.pkg.github.com/PhanindraReddyP/NewRepo</url>
-      </repository>
+       <repository>
+         <id>github</id>
+         <name>GitHub OWNER Apache Maven Packages</name>
+         <url>https://maven.pkg.github.com/PhanindraReddyP/game-of-life</url>
+       </repository>
     </distributionManagement>
     
     <dependencyManagement>
