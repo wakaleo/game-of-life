@@ -20,11 +20,10 @@ jobs:
       with:
         java-version: 1.8
         java-package: jdk  
-    - run: |
-        # mvn -f pom.xml clean package
+    - run: |  
         mvn -f pom.xml clean deploy -Dregistry=https://maven.pkg.github.com/PhanindraReddyP -Dtoken=GH_TOKEN
         echo $GITHUB_WORKSPACE
-        ls gameoflife-web/target 
+        ls gameoflife-web/target
 #     - name: Run some echo's
 #       run: |
 #         echo "*******************"
