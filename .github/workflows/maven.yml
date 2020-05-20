@@ -21,7 +21,7 @@ jobs:
         java-version: 1.8
         java-package: jdk  
     - run: |  
-        mvn clean deploy -Dregistry=https://maven.pkg.github.com/PhanindraReddyP -Dtoken=${{ secrets.GITHUB_TOKEN }}
+        mvn -s settings.xml clean deploy
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
