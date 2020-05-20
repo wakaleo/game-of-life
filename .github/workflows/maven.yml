@@ -21,7 +21,7 @@ jobs:
         java-version: 1.8
         java-package: jdk  
     - run: |  
-        mvn -f pom.xml -s settings.xml clean package
+        mvn -f pom.xml -s settings.xml clean deploy
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
@@ -33,13 +33,13 @@ jobs:
 #         echo "-------------------------------------"
 #         ls -lart /home/runner/work/game-of-life/game-of-life/gameoflife-web/target
 #         echo "----------------------------------"
-#     - name: Upload artifact
-#       uses: actions/upload-artifact@v1.0.0
-#       with:
-#     # Artifact name
-#        name: gameoflife2.war
-#     # Directory containing files to upload
-#        path: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+      # Artifact name
+       name: gameoflife2.war
+      # Directory containing files to upload
+       path: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
           
 #     - uses: azure/login@v1
 #       with:
