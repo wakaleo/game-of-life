@@ -19,9 +19,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-        java-package: jdk  
+        java-package: jdk
     - run: |  
-        mvn -f pom.xml clean install
+        mvn -f pom.xml deploy -Dregistry=https://maven.pkg.github.com/PhanindraReddyP -Dtoken=${{ secrets.GH_TOKEN }}
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
@@ -40,21 +40,25 @@ jobs:
        name: gameoflife2.war
       # Directory containing files to upload
        path: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
+
+#***************** Build Docker image and push using docker commands
           
-    - name: Docker commands in my azureSHVM
-      run: |
-        echo "******************"
-        whoami
-        echo "******************"
-        pwd
-        echo "******************"
-        sudo su
-        echo "@@@@@@@@@@@@@@@@@@"
-        cat /root/TOKEN.txt | docker login docker.pkg.github.com -u PhanindraReddyP --password-stdin        
-        docker build -t game /root
-        docker tag game docker.pkg.github.com/phanindrareddyp/game-of-life/gameOL:1.0
-        docker push docker.pkg.github.com/phanindrareddyp/game-of-life/gameOL:1.0
-          
+#     - name: Docker commands in my azureSHVM
+#       run: |
+#         echo "******************"
+#         whoami
+#         echo "******************"
+#         pwd
+#         echo "******************"
+#         cd /home/testvm
+#         echo "@@@@@@@@@@@@@@@@@@"
+#         cat /root/TOKEN.txt | docker login docker.pkg.github.com -u PhanindraReddyP --password-stdin        
+#         docker build -t game /root
+#         docker tag game docker.pkg.github.com/phanindrareddyp/game-of-life/gameOL:1.0
+#         docker push docker.pkg.github.com/phanindrareddyp/game-of-life/gameOL:1.0
+
+#************** Download Build Artifact **************************
+
 #     - name: Download a Build Artifact
 #       uses: actions/download-artifact@v2
 #       with:
@@ -84,10 +88,7 @@ jobs:
 #     # Whether to push the image
 #        push: true      
 
-
-
-
-
+#****************** Deploy to Azure APP Service *******************
 
 #     - uses: azure/login@v1
 #       with:
