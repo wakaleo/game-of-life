@@ -48,10 +48,10 @@ jobs:
         echo "******************"
         pwd
         echo "******************"
-        cd /home/testvm
+        sudo su
         echo "@@@@@@@@@@@@@@@@@@"
-        cat /home/testvm/TOKEN.txt | docker login docker.pkg.github.com -u PhanindraReddyP --password-stdin        
-        docker build -t game /home/testvm
+        cat /root/TOKEN.txt | docker login docker.pkg.github.com -u PhanindraReddyP --password-stdin        
+        docker build -t game /root
         docker tag game docker.pkg.github.com/phanindrareddyp/game-of-life/gameOL:1.0
         docker push docker.pkg.github.com/phanindrareddyp/game-of-life/gameOL:1.0
           
