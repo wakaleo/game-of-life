@@ -62,8 +62,8 @@ jobs:
        repository: phanindrareddyp/game-of-life/game
     # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
        tags: 1.0
-    # Path to the build context
-       path: /home/testvm
+#     # Path to the build context
+#        path: /home/testvm
     # Path to the Dockerfile (Default is '{path}/Dockerfile')
        dockerfile: /home/testvm/Dockerfile
     # Whether to push the image
