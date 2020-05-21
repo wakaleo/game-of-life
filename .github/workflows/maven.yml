@@ -21,7 +21,7 @@ jobs:
         java-version: 1.8
         java-package: jdk  
     - run: |  
-        mvn -f pom.xml clean install -X
+        mvn -f pom.xml clean install
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
@@ -41,6 +41,39 @@ jobs:
       # Directory containing files to upload
        path: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
           
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2
+      with:
+    # Artifact name
+       name: gameoflife2.war
+    # Destination path
+       path: /home/testvm
+    
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1.1.0
+      with:
+    # Username used to log in to a Docker registry. If not set then no login will occur
+       username: PhanindraReddyP
+    # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
+       password: f2209dc81527a570713d10fe00f2abe7674845a6
+    # Server address of Docker registry. If not set then will default to Docker Hub
+       registry: docker.pkg.github.com
+    # Docker repository to tag the image with
+       repository: phanindrareddyp/game-of-life/game
+    # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
+       tags: 1.0
+    # Path to the build context
+       path: .
+    # Path to the Dockerfile (Default is '{path}/Dockerfile')
+       dockerfile: /home/testvm/Dockerfile
+    # Whether to push the image
+       push: true      
+
+
+
+
+
+
 #     - uses: azure/login@v1
 #       with:
 #          creds: '${{ secrets.AZURE_CREDENTIALS }}'
