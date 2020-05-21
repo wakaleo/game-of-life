@@ -41,13 +41,13 @@ jobs:
       # Directory containing files to upload
        path: ${{ github.workspace }}/gameoflife-web/target/gameoflife2.war
           
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2
-      with:
-    # Artifact name
-       name: gameoflife2.war
-    # Destination path
-       path: /home/testvm
+#     - name: Download a Build Artifact
+#       uses: actions/download-artifact@v2
+#       with:
+#     # Artifact name
+#        name: gameoflife2.war
+#     # Destination path
+#        path: /home/testvm
     
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
