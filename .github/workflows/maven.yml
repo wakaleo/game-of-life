@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: [azureSHVM]
 
     steps:
     - uses: actions/checkout@v1
@@ -20,20 +20,8 @@ jobs:
       with:
         java-version: 1.8
         java-package: jdk  
-  
-    - name: Copy file
-      uses: canastro/copy-action@0.0.2
-      with:
-      # Source file
-        source: settings.xml
-      # Target file
-        target: /home/runner/.m2
-    - run: |
-         echo "*********************"
-         ls -lart /home/runner/.m2
-         echo "*********************"
     - run: |  
-        mvn -f pom.xml clean deploy -X
+        mvn -f pom.xml clean install -X
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
