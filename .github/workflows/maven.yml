@@ -21,7 +21,7 @@ jobs:
         java-version: 1.8
         java-package: jdk
     - run: |  
-        mvn -f pom.xml deploy
+        mvn -f pom.xml deploy -DskipTests -s settings.xml
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
