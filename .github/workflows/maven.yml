@@ -8,6 +8,9 @@ jobs:
     runs-on: [azureSHVM]
 
     steps:
+    - uses: actions/labeler@v2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/checkout@v1
     - name: Run a one-line script
       run: |
@@ -21,7 +24,7 @@ jobs:
         java-version: 1.8
         java-package: jdk
     - run: |  
-        mvn -f pom.xml deploy -DskipTests -s settings.xml
+        mvn -f pom.xml deploy -DskipTests -Dregistry=https://maven.pkg.github.com/PhanindraReddyP -Dtoken=${{ secrets.GITHUB_TOKEN }}
         echo $GITHUB_WORKSPACE
         ls gameoflife-web/target
 #     - name: Run some echo's
