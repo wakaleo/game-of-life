@@ -7,7 +7,7 @@ sh 'mvn install'
 dir('gameoflife-web') {
 script {
 dockerImage = docker.build(registry + ":$BUILD_NUMBER")
-docker.withRegistry("512955384495.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-1:<your credential-id>") {
+docker.withRegistry("512955384495.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-1:AKIAJ47IUBJW2J56DPJA") {
 dockerTag = "latest"
 dockerImage.push(dockerTag)
 }
