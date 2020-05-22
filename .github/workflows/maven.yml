@@ -26,7 +26,7 @@ jobs:
     - name: Run a multi-line script
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: |  
+      run: |  
         echo "<settings><servers><server><id>github</id><username>OWNER</username><password>${GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
         mvn -f pom.xml deploy -DskipTests -Dregistry=https://maven.pkg.github.com/PhanindraReddyP
         echo $GITHUB_WORKSPACE
