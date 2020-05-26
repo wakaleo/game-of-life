@@ -15,8 +15,8 @@
     - name: get login for AWS ECR
       shell: aws ecr get-login --no-include-email
       environment:
-        AWS_ACCESS_KEY_ID: "AKIAIKTSEOWGRUO4POJA"
-        AWS_SECRET_ACCESS_KEY: "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"
+        AWS_ACCESS_KEY_ID: ""
+        AWS_SECRET_ACCESS_KEY: ""
         AWS_DEFAULT_REGION: "us-east-2"
       register: docker_ec2_login
       
