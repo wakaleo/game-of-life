@@ -1,0 +1,23 @@
+---
+
+- name: Deploying game of life application
+  hosts: "{{ host | default('staging') }}"
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  pre_tasks:
+   - include: ../tasks/load-vars.yml
+  tasks:
+    - name: Deploy game of life
+      docker_container:
+        name: game-of-life
+        image: "{{registry_url}}/gameoflife:{{ tag | default('latest') }}"
+        pull: yes
+        restart: yes
+        restart_policy: "always"
+        log_driver: "json-file"
+        log_options:
+          max-size: "10m"
+          max-file: "3"
+        ports:
+          - "8080:8080"

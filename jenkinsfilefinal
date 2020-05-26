@@ -1,28 +1,31 @@
 pipeline {
-agent any
-    tools {
-        maven 'Maven 3.6.3'
-        jdk 'Java 8'
-    }
-stages {
-stage('Build Application') {
-steps {
-sh 'mvn install'
-dir('gameoflife-web') {
-script {
-dockerImage = docker.build(registry + ":$BUILD_NUMBER")
-docker.withRegistry("512955384495.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-1:AKIAJ47IUBJW2J56DPJA") {
-dockerTag = "latest"
-dockerImage.push(dockerTag)
-}
-}
-}
-}
-}
-}
-environment {
-registry = '512955384495.dkr.ecr.us-east-2.amazonaws.com/gameoflife/golb'
-version = ''
-dockerImage = ''
-}
+	agent any
+	tools {
+		maven 'Maven 3.6.3'
+		jdk 'Java 8'
+	}
+	stages {
+		stage('Build Application') {
+			steps {
+				sh 'mvn install'
+				dir('gameoflife-web') {
+					script {
+						dockerImage = docker.build(registry + ":$BUILD_NUMBER")
+						docker.withRegistry("https://512955384495.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:e396dd8b-856a-4bbe-b82a-90d7ed52a08a") {
+							dockerTag = "latest"
+							dockerImage.push(dockerTag)
+						}
+					}
+				}
+				script {
+					ansiblePlaybook colorized: true, credentialsId: 'jenkins-ssh', disableHostKeyChecking: true, extras: "--extra-vars 'env=test tag=$dockerTag'", installation: 'ansible-2.9.7', inventory: 'ansible/environments/test/hosts.yml', playbook: 'ansible/playbook/game_of_life_app.yml'
+				}
+			}
+		}
+	}
+	environment {
+		registry = 'gameoflife'
+		version = ''
+		dockerImage = ''
+	}
 }

@@ -1,0 +1,18 @@
+---
+
+- name: Install Docker
+  hosts: "{{ host | default('all') }}"
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+
+  vars:
+    docker_install_compose: true
+    pip_install_packages:
+      - name: docker
+    docker_users:
+      - ubuntu
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker

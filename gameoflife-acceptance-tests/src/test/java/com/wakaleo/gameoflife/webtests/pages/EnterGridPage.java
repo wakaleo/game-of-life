@@ -1,5 +1,7 @@
 package com.wakaleo.gameoflife.webtests.pages;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
