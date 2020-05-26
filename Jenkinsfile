@@ -12,7 +12,7 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            build ' project10'
+            build ' Project10'
           }
         }
 
