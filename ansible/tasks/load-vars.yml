@@ -1,0 +1,4 @@
+---
+
+- include_vars: "{{ inventory_dir }}/../all/group_vars/vars.yml"
+- include_vars: "{{ inventory_dir }}/group_vars/vars.yml"

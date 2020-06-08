@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    triggers {
+	cron('@daily')
+    }
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'Java 8'
+    }
+    stages {
+	stage('Build') {
+            steps {
+                sh 'mvn clean package' 
+            }
+	}
+
+	stage('Test') {
+	     steps { 
+		sh 'mvn verify'
+	    }
+	}
+}
+            post {
+                success {
+		    echo 'Success!'
+		    sh '/home/carmel/Downloads/apache-jmeter-5.2.1/bin/jmeter.sh -n -t /home/carmel/gameOfLife/game-of-life/gameoflife-web/src/test/jmeter/GameoflifeJM.jmx -l GameoflifeJM.jtl'
+                    
+                }
+		
+            }
+        
+    }
+

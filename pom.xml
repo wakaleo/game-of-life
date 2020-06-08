@@ -25,7 +25,8 @@
         <connection>scm:git:git@github.com:${github.account}/game-of-life.git</connection>
         <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
-    </scm>
+      <tag>gameoflife-1.0</tag>
+  </scm>
     <build>
         <plugins>
             <plugin>
@@ -57,7 +58,7 @@
                             </includes>
                             <excludes>
                                 <exclude>%regex[.*integration.*]</exclude>
-                            </excludes>
+             napshots               </excludes>
                         </configuration>
                     </execution>
                     <execution>
@@ -108,8 +109,8 @@
 
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
-            </plugin>
+		<version>2.8.2</version>
+	    </plugin>
 
             <plugin>
                 <groupId>org.easyb</groupId>
@@ -189,7 +190,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.10</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -201,9 +202,14 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>1.9.0</version>
+            <version>1.9.5</version>
             <scope>test</scope>
-        </dependency>
+    </dependency>
+    <dependency>
+    	    <groupId>com.google.inject</groupId>
+    	    <artifactId>guice</artifactId>
+    	    <version>4.2.3</version>
+    </dependency>
     </dependencies>
 
     <modules>
@@ -494,5 +500,21 @@
                 </plugins>
             </reporting>
         </profile>
-    </profiles>
+</profiles>
+  <repositories>
+    <repository>
+      <id>maven-group</id>
+      <url>http://100.80.46.56:8081/repository/maven-group/</url>
+    </repository>
+  </repositories>
+  <distributionManagement>
+    <repository>
+	    <id>maven-releases</id>
+	    <url>http://100.80.46.56:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+	    <id>maven-snapshots</id>
+	    <url>http://100.80.46.56:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>

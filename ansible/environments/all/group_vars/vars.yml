@@ -1,0 +1,4 @@
+---
+app_name: "game of life"
+remote_user: "devops"
+registry_url: "512955384495.dkr.ecr.us-east-2.amazonaws.com"

@@ -1,0 +1,24 @@
+---
+
+- name: Authenticate Docker
+  hosts: "{{ host | default('staging') }}"
+  remote_user: ubuntu
+
+  tasks:
+    - name: Deploy game of life
+      become: yes
+      become_method: sudo
+      apt:
+        name: awscli
+        state: present
+    
+    - name: get login for AWS ECR
+      shell: aws ecr get-login --no-include-email
+      environment:
+        AWS_ACCESS_KEY_ID: ""
+        AWS_SECRET_ACCESS_KEY: ""
+        AWS_DEFAULT_REGION: "us-east-2"
+      register: docker_ec2_login
+      
+    - name: docker login AWS ECR
+      shell: "{{docker_ec2_login.stdout}}"    

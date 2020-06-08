@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    triggers {
+        cron('@daily')
+    }
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'Java 8'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Run Selenium Test') {
+             steps {
+                echo 'Run Selenium Tests'
+
+            }
+        }
+}
+            post {
+                success {
+                    echo 'Success!'
+                    
+
+                }
+
+            }
+
+    }
+

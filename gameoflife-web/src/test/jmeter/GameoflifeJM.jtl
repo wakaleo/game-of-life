@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="33" it="0" lt="31" ct="23" ts="1586614315257" s="true" lb="Home" rc="200" rm="OK" tn="Users 1-1" dt="text" by="3153" sby="119" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>Session ID is returned</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/</java.net.URL>
+</httpSample>
+<httpSample t="46" it="0" lt="46" ct="0" ts="1586614315300" s="true" lb="New Game" rc="200" rm="OK" tn="Users 1-1" dt="text" by="3610" sby="173" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/new</java.net.URL>
+</httpSample>
+<httpSample t="20" it="0" lt="20" ct="0" ts="1586614315348" s="true" lb="Select one cell" rc="200" rm="OK" tn="Users 1-1" dt="text" by="4114" sby="204" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/start?rows=3&amp;columns=3&amp;cell_0_0=on</java.net.URL>
+</httpSample>
+<httpSample t="62" it="0" lt="62" ct="0" ts="1586614315369" s="true" lb="Next Generation" rc="200" rm="OK" tn="Users 1-1" dt="text" by="4003" sby="203" ng="1" na="1">
+  <assertionResult>
+    <name>Response in 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/next?rows=3&amp;columns=3&amp;cell_0_0=on</java.net.URL>
+</httpSample>
+<httpSample t="1" it="0" lt="1" ct="0" ts="1586614315431" s="true" lb="Back Home" rc="200" rm="OK" tn="Users 1-1" dt="text" by="3019" sby="169" ng="1" na="1">
+  <assertionResult>
+    <name>Response in 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/home</java.net.URL>
+</httpSample>
+<httpSample t="1" it="0" lt="1" ct="0" ts="1586614315433" s="false" lb="Wrong Page" rc="404" rm="Not Found" tn="Users 1-1" dt="text" by="531" sby="170" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 404</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/admin</java.net.URL>
+</httpSample>
+<httpSample t="1" it="0" lt="1" ct="0" ts="1586614315436" s="true" lb="Back Home" rc="200" rm="OK" tn="Users 1-1" dt="text" by="3019" sby="169" ng="1" na="1">
+  <assertionResult>
+    <name>Response in 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/home</java.net.URL>
+</httpSample>
+<httpSample t="63" it="0" lt="63" ct="0" ts="1586614315437" s="true" lb="New Game" rc="200" rm="OK" tn="Users 1-1" dt="text" by="3610" sby="173" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/new</java.net.URL>
+</httpSample>
+<httpSample t="33" it="0" lt="33" ct="0" ts="1586614315501" s="true" lb="Select all cells " rc="200" rm="OK" tn="Users 1-1" dt="text" by="5002" sby="300" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/start?rows=3&amp;columns=3&amp;cell_0_0=on&amp;cell_0_1=on&amp;cell_0_2=on&amp;cell_1_0=on&amp;cell_1_1=on&amp;cell_1_2=on&amp;cell_2_0=on&amp;cell_2_1=on&amp;cell_2_2=on</java.net.URL>
+</httpSample>
+<httpSample t="42" it="0" lt="42" ct="0" ts="1586614315535" s="true" lb="Next Generation" rc="200" rm="OK" tn="Users 1-1" dt="text" by="4447" sby="299" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/next?rows=3&amp;columns=3&amp;cell_0_0=on&amp;cell_0_1=on&amp;cell_0_2=on&amp;cell_1_0=on&amp;cell_1_1=on&amp;cell_1_2=on&amp;cell_2_0=on&amp;cell_2_1=on&amp;cell_2_2=on</java.net.URL>
+</httpSample>
+<httpSample t="7" it="0" lt="7" ct="0" ts="1586614315578" s="true" lb="Next Generation" rc="200" rm="OK" tn="Users 1-1" dt="text" by="4003" sby="239" ng="1" na="1">
+  <assertionResult>
+    <name>Response is 200</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://localhost:9090/game/next?rows=3&amp;columns=3&amp;cell_0_0=on&amp;cell_0_2=on&amp;cell_2_0=on&amp;cell_2_2=on</java.net.URL>
+</httpSample>
+
+</testResults>
