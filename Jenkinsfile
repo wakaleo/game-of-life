@@ -1,5 +1,9 @@
 pipeline {
-  agent 'dfi-mac'
+  agent {
+    node {
+        label 'dfi-mac'
+    }
+  }
   stages {
     stage('') {
       steps {
