@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent 'osx'
   stages {
     stage('') {
       steps {
