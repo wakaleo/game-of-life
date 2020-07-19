@@ -1,5 +1,5 @@
 pipeline {
-  agent 'osx'
+  agent 'dfi-mac'
   stages {
     stage('') {
       steps {
