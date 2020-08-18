@@ -3,7 +3,7 @@ package com.wakaleo.gameoflife.domain;
  /**
  * Wakaleo Consulting - John Ferguson Smart
  * Game of life, demonstration application for Jenkins: The Definitive Guide
- *
+ * just for tes
  * Cell.java
  * Cell object class, contains information on individual cells (positions) in the grid
  */
