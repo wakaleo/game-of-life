@@ -1,0 +1,11 @@
+node {
+    stage ('SCM'){
+        git credentialsId: 'ubuntunode', url: 'https://github.com/gopi2662/game-of-life.git'
+    }
+    stage ('BUILD'){
+        sh 'mvn clean package'
+    }
+    stage ('post build action'){
+        build 'gameoflife'
+    }
+}
