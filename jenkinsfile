@@ -1,16 +1,20 @@
-node('HRMS&&QA'){
-    stage('git'){
-        git 'https://github.com/naresh86/game-of-life.git'
-    }
-    stage('build')
+pipeline{
+    agent{label 'HRMS&&QA'}
+    stages
     {
-        sh 'mvn clean package'
-    }
-    stage('testresults'){
-        junit 'gameoflife-web/target/surefire-reports/*.xml'        
-    }
-    stage('archiveartifacts')
-    {
-        archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
+        stage('git')
+        {
+            steps{
+                git branch: 'DeclarativePipeline', url: 'https://github.com/naresh86/game-of-life.git'
+
+            }
+        }
+        stage('compile')
+        {
+            steps{
+                sh mvn clean package
+            }
+        }
+
     }
 }
