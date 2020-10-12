@@ -1,5 +1,5 @@
 {
     "fruit": "Apple",
-    "size": "Large",
-    "color": "Red"
+    "size": "medium",
+    "color": "Red",   
 }
