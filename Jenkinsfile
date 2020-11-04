@@ -5,5 +5,8 @@ node ('SAGARLINUX'){
     stage('build'){
         sh 'mvn package'
     }
+    stage('postbuild'){
+        archiveArtifacts artifacts: 'gameoflife-web /target/*.war', followSymlinks: false
+        junit 'gameoflife-web /target/surefire-reports/*.xml'
+    }
 }
-
