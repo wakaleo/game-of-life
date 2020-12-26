@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * HomePageController.java
  * Controller to navigate to the main page
+ * commit adding for testing
  */
 @Controller
 public class HomePageController {
