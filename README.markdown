@@ -12,7 +12,7 @@ The application is a very simple online version of [Conway's 'game of life'](htt
 
 The acceptance tests are written using Webdriver and [Serenity (previously known as 'Thucydides')](http://thucydides.info). They are designed to run against a running server. Run the jetty instance as described about, then, in another window, go to the gameoflife-acceptance-tests directory and run `mvn clean verify`. The test reports will be generated in the `target/site/thucydides` directory.
 
-### The book####
+### The book#####
 
 Streamline software development with Jenkins, the popular Java-based open source tool that has revolutionized the way teams think about Continuous Integration (CI). This complete guide shows you how to automate your build, integration, release, and deployment processes with Jenkins—and demonstrates how CI can save you time, money, and many headaches.
 
