@@ -29,7 +29,7 @@ import com.wakaleo.gameoflife.domain.Universe;
  * Tenth commit added on git hub for testing 
  * Eleven commit added on git hub for testing 
  * Twelve comit added on git hub for testing 
- *Thirten commit added on git hub for testing
+ *Tthirten commit added on git hub for testing 
  */
 @Controller
 @RequestMapping("/game")
