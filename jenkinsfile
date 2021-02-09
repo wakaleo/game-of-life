@@ -5,10 +5,4 @@ node('jenkinsagent') {
     stage('build') {
         sh 'mvn package'
     }
-    stage('testresults') {
-        junit 'gameoflife-web/target/surefire-reports/*.xml'
-    }
-    stage('archiveartifacts') {
-        archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
-    }
 }
