@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git 'https://github.com/eswarsgithub/game-of-life.git'
             }
-        },
+        }
         stage ('compile') {
             steps {
                 sh 'mvn clean package'
