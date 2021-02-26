@@ -6,7 +6,7 @@ stage('Preparation'){
 stage('Build')
 {
 withMaven(jdk: 'JDK for Maven', maven: '3.6.3') {
-    sh label: '', script: 'clean package'
+    sh label: '', script: 'mvn clean install -U'
 }
 }
 stage('results'){
