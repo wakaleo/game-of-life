@@ -7,9 +7,9 @@ pipeline{
             sh "mvn clean install -U"
         }
     }
-}
 post{
     always{
         CleanWs()
     }
+}
 }
