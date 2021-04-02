@@ -1,4 +1,8 @@
 node('master'){
+    
+    parameters{
+        string(name: 'BRANCH_TO_BUILD' , defaultValue: 'master' , description: 'Enter branch to be built')
+    }
     stage('scm'){
         git 'https://github.com/devopstrainingvenkat/game-of-life'
 
