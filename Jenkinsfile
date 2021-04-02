@@ -7,7 +7,7 @@ node('master'){
     stage('build'){
         
         sh label: '', script: 'mvn package'
-
+        input 'continue to next step?'
     }
 
     stage('postbuild'){
