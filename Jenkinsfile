@@ -15,7 +15,7 @@ node('master'){
     }
     
     stage('Sonar') {
-        withSonarQubeEnv('SONAR-6.7.4') {
+        withSonarQubeEnv('sonarqube') {
              sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
         }
     }
