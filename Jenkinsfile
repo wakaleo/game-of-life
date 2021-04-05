@@ -13,6 +13,11 @@ node('master'){
         sh label: '', script: 'mvn package'
         input 'continue to next step?'
     }
+    
+    stage('Sonar') {
+        withSonarQubeEnv('SONAR-6.7.4') {
+             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+        }
 
     stage('postbuild'){
         
