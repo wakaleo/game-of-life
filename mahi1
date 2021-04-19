@@ -1,6 +1,6 @@
 node('HRMS&&QA')
 {
-    properties([pipelinetrigerrs([cron('30 * * * 1-5')])])
+    properties([pipelineTrigerrs([cron('30 * * * 1-5')])])
     stage('git')
     {
         git 'https://github.com/maheswari-88/game-of-life.git'
