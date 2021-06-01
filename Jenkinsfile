@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jenkinsagent'}
+    agent { label 'node1'}
     triggers { cron('* * * * 1-5') }
     stages {
         stage ('scm') {
