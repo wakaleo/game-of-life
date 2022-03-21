@@ -5,6 +5,7 @@ package com.wakaleo.gameoflife.domain;
  * Game of life, demonstration application for Jenkins: The Definitive Guide
  *
  * Cell.java
+ * new comment for testing 
  * Cell object class, contains information on individual cells (positions) in the grid
  */
 public enum Cell {
