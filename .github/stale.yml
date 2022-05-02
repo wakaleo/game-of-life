@@ -1,0 +1,9 @@
+# https://gecgithub01.walmart.com/mobile-platform/github-app-monolith
+# https://github.com/probot/stale#usage
+daysUntilStale: 1
+daysUntilClose: 2
+staleLabel: stale
+markComment: >
+  This issue has been automatically marked as stale because it has not had
+  recent activity. It will be closed if no further activity occurs. Thank you
+  for your contributions.
