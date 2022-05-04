@@ -7,7 +7,6 @@
      "semantic-pull-requests",
      "stalebot",
      "merge-queue",
-     "stale-branch-bot",
      "sync-base-branch"
    ],
    add_pr_label:"foo",
