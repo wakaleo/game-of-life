@@ -1,0 +1,17 @@
+nod('JDK8'){
+ 
+
+stage('source code'){
+   
+    git branch: 'sprint2', url: 'https://github.com/gopidevopss/game-of-life.git'
+}
+stage('build the package'){
+    sh 'mvn clean package'
+}
+stage('archiving the artifatcs'){
+archiveArtifacts artifacts: '**/*.war', followSymlinks: false
+}
+stage('publishing the test results'){
+    junit '**/surefire-reports/*.xml'
+}
+}
