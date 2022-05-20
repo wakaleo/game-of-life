@@ -1,4 +1,4 @@
-nod('JDK8'){
+node('JDK8'){
  
 
 stage('source code'){
