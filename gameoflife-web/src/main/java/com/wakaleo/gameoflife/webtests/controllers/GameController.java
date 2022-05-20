@@ -121,5 +121,9 @@ public class GameController {
 private int  getnum() {
         return 0;
     }
+private int  getnumb() {
+        return 0;
+    }
+
 
 }
