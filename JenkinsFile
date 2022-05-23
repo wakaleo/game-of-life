@@ -1,36 +1,27 @@
 pipeline{
-    agent { label 'jdk8'}
-    triggers{
-        pollSCM('* * * * *') 
-    }
-    stages
-   {
-        stage('source code'){
-            steps
-            {
-                git branch: 'sprint2', url: 'https://github.com/gopidevopss/game-of-life.git'
+    agent {lable 'jdk8'}
+    options { timeout(time: 1, unit: 'HOURS')
+               retry(2)
             }
-        }
-
-        stage('build the package'){
-            steps{
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('archiving the artifatcs')
-        {
-        steps{
-              archiveArtifacts artifacts: '**/*.war', followSymlinks: false
-             }
-
-        }
-
-        stage('publishing the test results')
-        {
-         steps{   
-                junit '**/surefire-reports/*.xml'
+    triggers {
+        cron(0 * * * *)
               }
-        }
+   stages{
+       stage('source code'){
+        git url:'https://github.com/gopidevopss/game-of-life.git',
+            branch: 'sprint2'
+       }
+       stage('build the package'){
+           sh: script 'mvn clean package'
+       }
+
+       stage('reporting'){
+           junit: testResults '**/surefire-reports/*.xml'
+       }
+   }
+
+   post{
+     success{ echo "success"}
+     unsuccessful { echo "failure"}
    }
 }
