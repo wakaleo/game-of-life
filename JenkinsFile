@@ -8,15 +8,21 @@ pipeline{
               }
    stages{
        stage('source code'){
+           steps{
         git url:'https://github.com/gopidevopss/game-of-life.git',
             branch: 'sprint2'
+           }
        }
        stage('build the package'){
+           steps{
            sh: script 'mvn clean package'
+           }
        }
 
        stage('reporting'){
+           steps{
            junit: testResults '**/surefire-reports/*.xml'
+           }
        }
    }
 
