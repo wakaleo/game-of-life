@@ -27,7 +27,11 @@ pipeline{
    }
 
    post{
-     success{ echo "success"}
+     success{ echo "success"
+     mail bcc: '', body: "build_no $BUILD_NUMBER Build Succeded", cc: '', 
+    from: 'devops@qtdevops.com', replyTo: '', 
+    subject: "job name $JOB_NAME ", to: 'qtdevops@gmail.com'
+     }
      unsuccessful { echo "failure"}
    }
 }
