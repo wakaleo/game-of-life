@@ -1,8 +1,6 @@
 pipeline{
     agent {label 'jdk8'}
-    environment{
-        AWS_ACCESS_KEY=credentials('aws_key')
-    }
+   
     options { timeout(time: 1, unit: 'HOURS')
                retry(2)
             }
@@ -31,7 +29,7 @@ pipeline{
 
    post{
      success{ echo "success"
-     mail bcc: '', body: " echo ${AWS_ACCESS_KEY} TEST RESULTS: ${RUN_TESTS_DISPLAY_URL} \n build_url:${BUILD_URL}  ", cc: '', 
+     mail bcc: '', body: "  TEST RESULTS: ${RUN_TESTS_DISPLAY_URL} \n build_url:${BUILD_URL}  ", cc: '', 
     from: 'devops@qtdevops.com', replyTo: '', 
     subject: " $JOB_NAME:$BUILD_NUMBER Succeded ", to: 'qtdevops@gmail.com'
      }
