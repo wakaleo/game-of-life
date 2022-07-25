@@ -8,7 +8,7 @@ pipeline {
             agent { label 'DOCKER' }
             steps('Docker build') {
                 
-                sh 'docker build --no-cache -t rajanikanthraju/gol_dev:v1.${BUILD_ID} .'
+                sh 'docker build --no-cache -t rajanikanthraju/gol_dev:v1.0 .'
                                   }
               }
             stage('DockerHub Login') {
@@ -20,7 +20,7 @@ pipeline {
           stage('Image Push') {
           agent { label 'DOCKER' }
 			steps {
-				sh 'docker push rajanikanthraju/gol_dev:v1.${BUILD_ID}'
+				sh 'docker push rajanikanthraju/gol_dev:v1.0'
 			}
 		}
        stage('Deploying image to K8s cluster') {
