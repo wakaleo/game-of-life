@@ -23,9 +23,9 @@ pipeline {
 				sh 'docker push rajanikanthraju/gol_dev:v1.${BUILD_ID}'
 			}
 		}
-       stage('Listing pods') {
+       stage('Deploying image to K8s cluster') {
           steps {
-				sh 'kubectl get po'
+				sh 'kubectl apply -f gol_svc.yml'
 			}
 		}
       }
