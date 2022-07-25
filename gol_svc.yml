@@ -1,0 +1,46 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gol-svc
+  namespace: development
+  labels:
+    app: golsvc
+  annotations:
+    kubernetes.io/change-cause: "version 1.2"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: golsvc
+  template:
+    metadata:
+      labels:
+        app: golsvc
+        version: v1.2
+    spec:
+      containers:
+        - image: rajanikanthraju/gol_dev
+          name: golsvc
+          ports:
+            - containerPort: 8080
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gol-svc
+  labels:
+    job: lb
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    app: golsvc
+  type: NodePort
