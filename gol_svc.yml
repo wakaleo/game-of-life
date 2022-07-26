@@ -7,14 +7,14 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gol-deployment
+  name: goldeploy
   namespace: development
   labels:
     app: golsvc
   annotations:
     kubernetes.io/change-cause: "version 1.2"
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: golsvc
@@ -29,18 +29,21 @@ spec:
           name: golsvc
           ports:
             - containerPort: 8080
-        
+      imagePullSecrets:
+        - name: docregcred        
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: gol-svc
+  namespace: development
   labels:
-    job: lb
+    job: nodeport
 spec:
   ports:
     - port: 8080
       targetPort: 8080
+      nodePort: 30001
       protocol: TCP
   selector:
     app: golsvc
