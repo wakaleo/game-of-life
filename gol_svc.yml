@@ -25,7 +25,7 @@ spec:
         version: v1.2
     spec:
       containers:
-        - image: rajanikanthraju/gol_dev:v1.0
+        - image: rajanikanthraju/gol_dev:v1.1
           name: golsvc
           ports:
             - containerPort: 8080
