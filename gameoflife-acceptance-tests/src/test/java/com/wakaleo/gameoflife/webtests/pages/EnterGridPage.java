@@ -13,6 +13,7 @@ public class EnterGridPage extends GameOfLifePage {
     WebElement goButton;
 
     public EnterGridPage(WebDriver driver) {
+        System.out.println("testcan");
         super(driver);
     }
 
