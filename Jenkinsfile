@@ -7,5 +7,3 @@ node{
          branch: 'master'
        }
    }   
-
-   
