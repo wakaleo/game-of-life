@@ -14,4 +14,4 @@ node('JDK11-SPC') {
         junit '**/surefire-reports/*.xml'
     }
     
-} 
+}  
