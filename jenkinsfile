@@ -1,0 +1,17 @@
+node('JDK11-SPC') {
+    stage('SourceCode') {
+        //get the code from git repo for the required branch
+        git credentialsId: 'Pipeline-practice', url: 'https://github.com/Prasadsgithub/game-of-life.git'
+    }
+
+    stage('build the code') {
+        //mvn code script here
+        sh 'mvn --package'
+    }
+
+    stage('archiving and test results') {
+        //script here
+        junit '**/surefire-reports/*.xml'
+    }
+    
+}  
