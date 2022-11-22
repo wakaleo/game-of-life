@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    
+    environment {
+        PATH = "/opt/apache-maven-3.8.6/bin:$PATH"
+    }
+
+    stages {
+        stage('clone') {
+            steps {
+              url: 'https://github.com/wakaleo/game-of-life.git' 
+            }
+        }
+        stage('build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+    }
+}
