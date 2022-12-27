@@ -1,0 +1,15 @@
+ const config = {
+   admin_users: ["pranaygupta5"], // this is owner of the repository we are going to add the bot
+   merge_user: "pranaygupta5", // this can be same as the admin any one can merge
+   enabled_features: [
+     "autolabeler",
+     "bot-pr-merge",
+     "semantic-pull-requests",
+     "stalebot",
+     "merge-queue",
+     "stale-branch-bot",
+     "sync-base-branch"
+   ],
+   add_pr_label:"foo",
+   sync_base_branch_on_changed_files_intersect:["^libs\/.*\/src\/","^apps\/.*\/app\/"]
+ }
