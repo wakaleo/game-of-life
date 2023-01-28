@@ -41,6 +41,7 @@
                 <version>2.11</version>
                 <configuration>
                     <skip>true</skip>
+                    <forkMode>once</forkMode>
                 </configuration>
                 <executions>
                     <execution>
