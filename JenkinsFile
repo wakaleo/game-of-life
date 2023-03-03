@@ -1,0 +1,18 @@
+pipeline{
+	agent any
+	stages{
+		stage('git'){
+			steps{
+			git branch: 'dev',
+    			    url: 'https://github.com/dwarasree2222/game-of-life.git'
+			}
+		
+		}
+		stage('shellexecute'){
+		steps{
+		sh 'mvn package'
+		}
+		}
+
+	}
+}
