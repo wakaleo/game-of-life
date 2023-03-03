@@ -1,5 +1,10 @@
 pipeline{
 	agent any
+	tools{
+	jdk 'jdk-8'
+
+	}
+
 	stages{
 		stage('git'){
 			steps{
