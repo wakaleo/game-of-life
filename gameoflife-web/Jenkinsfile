@@ -1,0 +1,24 @@
+pipeline {
+    ajent { none} 
+    stages {
+        stage('vcs') {
+            steps { 
+                git url: 'https://github.com/Giridevops-Git/game-of-life.git',
+                    branch: 'declaretive'
+
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        stage('post biuld actions') {
+            steps {
+                archiveArtifacts artifacts: '**/target/gameoflife.war',
+                                 onlyIfSuccessful: true
+                junit testResults: '**/surefire-reports/TEST-*.xml'                 
+            }
+        }
+    }
+}

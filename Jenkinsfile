@@ -1,9 +1,0 @@
-node{
-    stage('test'){
-    sh 'echo Hello'
-    }
-     stage('learnig'){
-         git url: 'https://github.com/Giridevops-Git/game-of-life.git'
-         branch: 'master'
-       }
-   }   
