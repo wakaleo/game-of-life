@@ -1,24 +1,28 @@
 pipeline {
-    ajent { none} 
+    agent { label 'node-1-jdk8' } 
+    parameters {
+        string(name: 'MAVEN_GOAL', defaultValue: 'package', description: 'Maven Goal')
+    }
     stages {
         stage('vcs') {
-            steps { 
-                git url: 'https://github.com/Giridevops-Git/game-of-life.git',
-                    branch: 'declaretive'
-
-            }
-        }
-        stage('build') {
             steps {
-                sh 'mvn package'
+                git url: 'https://github.com/Giridevops-Git/game-of-life.git',
+                branch: 'declaretive'
+            }
+            
+        }ṭ
+        stage ('build') {
+            steps {
+                sh  'mvn package'
             }
         }
-        stage('post biuld actions') {
+        stage ('post-build') {
             steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war',
                                  onlyIfSuccessful: true
-                junit testResults: '**/surefire-reports/TEST-*.xml'                 
+                junit testResults: '**/surefire-reports/TEST-*.xml'
             }
         }
+        
     }
 }
