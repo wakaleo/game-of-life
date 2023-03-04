@@ -1,0 +1,10 @@
+node('java'){
+
+    stage('version control')
+    {
+       git url:  'https://github.com/Nanditha54/game-of-life.git',
+       branch: 'scripted'
+       poll: false
+    }
+
+}
