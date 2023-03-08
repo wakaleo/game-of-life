@@ -1,5 +1,9 @@
 pipeline {
     agent { label 'NODE1'}
+    tools { 
+        jdk 'JDK_8_MAVEN'
+
+    }
     stages {
         stage ( ' Version Control System'){
             steps {
