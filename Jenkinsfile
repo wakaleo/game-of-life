@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage ( ' Version Control System'){
             steps {
-                echo " Hello World"
+                git url: 'https://github.com/nareshdevops1237/game-of-life.git',
+                    branch: master
             }
         }
     }
