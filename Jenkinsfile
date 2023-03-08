@@ -7,6 +7,12 @@ pipeline {
                     branch: 'master'
             }
         }
+        stage ( ' Build Maven package') {
+            steps {
+                mvn clean package
+                
+            }
+        }
     }
 
 }
