@@ -1,0 +1,29 @@
+pipeline {
+    agent { label 'node-1-jdk8' } 
+    triggers { pollSCM ('* * * * *') }
+    parameters {
+         choice(name: 'MAVEN_GOAL', choices: ['package', 'install', 'clean'], description: 'Maven Goal')
+    }
+    stages {
+        stage('vcs') {
+            steps {
+                git url: 'https://github.com/Giridevops-Git/game-of-life.git',
+                branch: 'declaretive'
+            }
+            
+        }
+        stage ('build') {
+            steps {
+                sh  'mvn package'
+            }
+        }
+        stage ('post-build') {
+            steps {
+                archiveArtifacts artifacts: '**/target/gameoflife.war',
+                                 onlyIfSuccessful: true
+                junit testResults: '**/surefire-reports/TEST-*.xml'
+            }
+        }
+        
+    }g
+}
