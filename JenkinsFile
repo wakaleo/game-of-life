@@ -1,5 +1,5 @@
 pipeline{
-	agent any
+	agent {label 'UBUNTU'}
 	tools{
 	jdk 'jdk-8'
 
