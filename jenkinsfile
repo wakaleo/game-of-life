@@ -1,0 +1,6 @@
+node('MAVEN_JDK8') {
+    stage('version control') {
+        git url: https://github.com/ksp0852/game-of-life1.git ,
+            branch: 'scripted'
+    }
+}
