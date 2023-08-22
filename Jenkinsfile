@@ -9,6 +9,9 @@ pipeline {
                 }
             }
         stage('package')  {
+            tools {
+                jdk 'JDK_8_UBUNTU'
+            }
             steps {
                 sh 'mvn package'
             }
@@ -22,8 +25,3 @@ pipeline {
         }
     }
 }
-            
-
-        
-    
-        
