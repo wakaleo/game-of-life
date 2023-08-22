@@ -19,7 +19,6 @@ pipeline {
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml'
             }
-
         }
     }
 }
