@@ -1,5 +1,6 @@
 pipeline {
     agent {label 'MAVEN_JDK8'}
+    triggers { cron ('H/15 * * * *') }
     stages {
         stage('vcs') {
             steps {
