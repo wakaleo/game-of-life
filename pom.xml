@@ -8,7 +8,7 @@
     <name>gameoflife</name>
     <url>https://github.com/wakaleo/game-of-life</url>
     <properties>
-        <build.number>SNAPSHOT</build.number>
+        <build.number>1.0.0-SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.4</easyb.version>
         <cobertura.version>2.6</cobertura.version>
