@@ -10,5 +10,6 @@
 		<config>src/main/webapp/WEB-INF/gameoflife-servlet.xml</config>
 	</configs>
 	<configSets>
+
 	</configSets>
 </beansProjectDescription>
