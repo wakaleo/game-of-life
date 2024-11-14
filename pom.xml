@@ -75,6 +75,21 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.4.43.v20210629</version>
+            <configuration>
+                <scanIntervalSeconds>10</scanIntervalSeconds>
+                <webApp>
+                    <contextPath>/</contextPath>
+                </webApp>
+            </configuration>
+        </plugin>
+
+        <!-- Other plugins... -->
+    </plugins>
+</build>
             <!-- CODE COVERAGE -->
             <plugin>
                 <groupId>org.jacoco</groupId>
