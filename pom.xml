@@ -19,6 +19,8 @@
         <thucydides.version>1.8.4</thucydides.version>
         <jelastic.context>gameoflife</jelastic.context>
         <jelastic.environment>wakaleo</jelastic.environment>
+        <sonar.organization>gol-fs</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <scm>
