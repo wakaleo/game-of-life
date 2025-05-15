@@ -1,0 +1,19 @@
+---
+pool:
+  vmImage: 'ubuntu-22.04'
+trigger: 
+  - master
+stages:
+  - stage: Build stage
+    jobs:
+      - job: Build
+        steps:
+        - task: 'Maven@3'
+          inputs:
+            goals: 'package'
+            testResultsFiles: '**/surefire-reports/TEST-*.xml'
+            jdkVersionOption: "1.11"
+          displayName: "Building GOL"
+        
+            
+
